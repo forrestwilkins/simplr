@@ -6,10 +6,8 @@
 
 <% if invited? %>
   <div class="surveys_card" align="center">
-    <%= link_to surveys_path do %>
-      <p>
-        See all surveys
-      </p>
-    <% end %>
+    <p>
+      <%= link_to 'See all surveys <i class="fa fa-home"></i>'.html_safe, surveys_path %>
+    </p>
   </div>
 <% end %>
