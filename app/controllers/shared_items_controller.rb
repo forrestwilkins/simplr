@@ -1,0 +1,173 @@
+class SharedItemsController < ApplicationController
+  before_action :invite_only
+  before_action :set_shared_item, only: [:update, :destroy, :show, :edit, :add_photoset, :confirm_return]
+  before_action :set_item_library, only: [:filter_by, :reset_filter, :sort_by]
+  before_action :new_shared_item, only: [:show_form]
+
+  before_action :secure_shared_item, only: [:update, :destroy, :edit]
+
+  def confirm_return
+    holder = @shared_item.current_holder
+    if holder
+      request = @shared_item.request_by(holder)
+      if request.destroy and @shared_item.update holder_id: nil
+        Note.notify :shared_item_returned, @shared_item, holder, current_user
+      end
+    end
+    redirect_to show_shared_item_path(@shared_item.unique_token)
+  end
+
+  def filter_by
+    @_shared_items = @item_library.shared_items
+    @shared_items = []
+    for shared_item in @_shared_items
+      for field in shared_item_fields
+        # if there was any filter input for this field
+        if params[field].present?
+          # if the filter input matches this field
+          if params[field].eql? shared_item.send(field).to_s
+            # append item unless its already been added
+            @shared_items << shared_item unless @shared_items.include? shared_item
+          # remove item if any input doesn't match its answer
+          else
+            @shared_items.delete shared_item if @shared_items.include? shared_item # may be redundant, may remove soon
+            break
+          end
+        end
+      end
+    end
+  end
+
+  def reset_filter
+    @shared_items = @item_library.shared_items
+  end
+
+  def sort_by
+    @shared_items = if params[:order].present?
+      # uses filtered result ids if any
+      shared_items = @item_library.shared_items
+      # sorts by order for question
+      shared_items.sort_by do |shared_item|
+        shared_item.send(params[:field])
+      end
+    else
+      @item_library.shared_items
+    end
+    @shared_items.reverse! if params[:order].present? and params[:order].eql? 'down'
+  end
+
+  def show_form
+    @item_library = ItemLibrary.find_by_id params[:item_library_id]
+    if params[:from_home]
+      @from_home = true
+    end
+  end
+
+  def show
+    @comments = @shared_item.comments
+    @comment = Comment.new
+  end
+
+  def index
+    @item_libraries = SharedItem.all
+  end
+
+  def create
+    @item_library = ItemLibrary.find_by_id params[:item_library_id]
+    @shared_item = @item_library.shared_items.new(shared_item_params)
+    @shared_item.user_id = current_user.id
+    # sets as photoset for validation
+    if params[:pictures]
+      @shared_item.photoset = true
+    end
+    if @shared_item.save
+      if params[:pictures]
+        # builds photoset for shared item
+        params[:pictures][:image].each do |image|
+          @shared_item.pictures.create image: image
+        end
+        # adds order numbers to each picture in photoset if more than 1
+        @shared_item.pictures.first.ensure_order if @shared_item.pictures.present? and @shared_item.pictures.size > 1
+      end
+      if params[:from_home]
+        redirect_to root_url
+      else
+        redirect_to @shared_item.item_library
+      end
+    else
+      redirect_to :back
+    end
+  end
+
+  def update
+    if @shared_item.update(shared_item_params)
+      if params[:pictures]
+        # builds photoset for shared item
+        params[:pictures][:image].each do |image|
+          @shared_item.pictures.create image: image
+        end
+        # adds order numbers to each picture in photoset if more than 1
+        @shared_item.pictures.first.ensure_order if @shared_item.pictures.present? and @shared_item.pictures.size > 1
+      end
+      redirect_to show_shared_item_path(@shared_item.unique_token)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @shared_item.destroy
+    redirect_to root_url
+  end
+
+  def edit
+    @editing = true
+  end
+
+  def hide_arrangement_types_card
+    cookies[:hide_arrangement_types_card] = true
+  end
+
+  private
+
+  def set_item_library
+    @item_library = ItemLibrary.find_by_id params[:id]
+  end
+
+  def secure_shared_item
+    unless current_user and @shared_item.user_id.eql? current_user.id or admin?
+      redirect_to root_url
+    end
+  end
+
+  def new_shared_item
+    @shared_item = SharedItem.new
+  end
+
+  def set_shared_item
+    if params[:unique_token]
+      @shared_item = SharedItem.find_by_unique_token(params[:unique_token])
+      @shared_item ||= SharedItem.find_by_id(params[:unique_token])
+    else
+      @shared_item = SharedItem.find_by_unique_token(params[:id])
+      @shared_item ||= SharedItem.find_by_id(params[:id])
+    end
+    redirect_to '/404' unless @shared_item
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def shared_item_params
+    params.require(:shared_item).permit(:name, :body, :image, :item_type, :domain, :size, :aka, :arrangement,
+      :holder, :originator, :contact, :address, :in_stock, :video, :item_category_id)
+  end
+
+  def shared_item_fields
+    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :originator, :contact, :address, :in_stock]
+  end
+
+  def invite_only
+    unless invited?
+      redirect_to sessions_new_path
+    end
+  end
+end

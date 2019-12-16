@@ -1,0 +1,65 @@
+<div id="shared_items">
+  <table class="survey_results_table">
+    <tr class="sort_results_tr">
+      <% for field in shared_item_fields %>
+        <th>
+          <%= (field.eql?(:item_category_id) ? :category : field).to_s.gsub("_", " ").capitalize %>
+          <%= link_to '<i class="fa fa-caret-up"></i>'.html_safe, sort_shared_items_by_path(id: @item_library.id,
+            field: field, order: 'up'), remote: true, class: "sort_by_link interactive_link" %>
+          <%= link_to '<i class="fa fa-caret-down"></i>'.html_safe, sort_shared_items_by_path(id: @item_library.id,
+            field: field, order: 'down'), remote: true, class: "sort_by_link interactive_link" %>
+        </th>
+      <% end %>
+    </tr>
+  </table>
+
+  <% shared_item_num=0; for shared_item in @shared_items %>
+    <div class="stacked_shared_item">
+
+      <div class="shared_item_card_fields_row" align="left">
+        <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
+          <b>
+            Date
+          </b>
+        </div>
+        <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
+          <%= shared_item.created_at.strftime("%d %b. %Y, %H:%M:%S") %>
+        </div>
+      </div>
+
+      <% for field in shared_item_fields %>
+        <% unless shared_item.send(field).blank? %>
+          <div class="shared_item_card_fields_row" align="left">
+            <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
+              <% if field.eql? :item_category_id %>
+                Category (domain)
+              <% elsif field.eql? :body %>
+                Description
+              <% else %>
+                <%= field.to_s.gsub("_", " ").capitalize %>
+              <% end %>
+            </div>
+            <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
+              <% if field.eql? :item_category_id %>
+                <%= ItemCategory.find(shared_item.send(field)).name %>
+              <% else %>
+                <%= shared_item.send field %>
+              <% end %>
+              <%= image_tag shared_item.pictures.first.image, class: :stacked_shared_item_img if shared_item.pictures.present? and field.eql? :name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+
+      <div class="shared_item_card_fields_row" align="left">
+        <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
+          <%= link_to 'Edit <i class="fa fa-pencil"></i>'.html_safe, edit_shared_item_path(shared_item), class: :stacked_shared_item_edit_link %>
+        </div>
+        <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>"></div>
+      </div>
+    </div>
+  <% shared_item_num += 1; end %>
+
+  <%= render "app/link_sound.js", _class: true, link_id: :interactive_link, sound: :post_interface_sound %>
+</div>

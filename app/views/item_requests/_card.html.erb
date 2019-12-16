@@ -1,0 +1,8 @@
+<div class="card" align="center" id="item_request_card_<%= item_request.id %>">
+  <p>
+    Request by <%= item_request.user.name %>
+  </p>
+  <p>
+    <%= link_to "Accept", item_request_path(item_request), method: :put %>
+  </p>
+</div>

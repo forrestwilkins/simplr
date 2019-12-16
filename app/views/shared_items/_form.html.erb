@@ -1,0 +1,69 @@
+<div class="card" id="shared_item_form_card" align="center">
+  <%= link_to '<i class="fa fa-times"></i>'.html_safe, hide_shared_item_form_card_path,
+    remote: true, class: "interactive_link top_right_link" if @from_home %>
+  <%= form_for(@shared_item) do |f| %>
+    <%= hidden_field_tag :item_library_id, @item_library.id if @item_library %>
+    <%= hidden_field_tag :from_home, true if @from_home %>
+
+    <p>
+      Add a new item
+    </p>
+
+    <% if @editing %>
+      <p>
+        Currently editing <%= link_to @shared_item.name, shared_item_path(@shared_item) %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= f.text_field :name, placeholder: "Name", class: :surveys_text_field %>
+    </p>
+
+    <p>
+      <%= f.text_area :body, placeholder: "Description", class: :surveys_text_area %>
+    </p>
+
+    <% for field in [:item_type, :size, :aka, :originator, :contact, :address] %>
+      <p>
+        <%= f.text_field field, placeholder: field.to_s.gsub("_", " ").capitalize, class: :surveys_text_field %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= f.select :item_category_id, options_for_select(@shared_item.category_options, @shared_item.item_category_id) %>
+    </p>
+
+    <p>
+      <%= f.select :arrangement, options_for_select(ItemLibrary.arrangement_options, @shared_item.arrangement) %>
+    </p>
+
+    <p>
+      <%= f.select :in_stock, options_for_select(ItemLibrary.in_stock_options, @shared_item.in_stock) %>
+    </p>
+
+    <%= link_to add_post_image_path(shared_item: true), remote: true, id: :add_image_icon_link, title: "Attach an image" do %>
+      <i class="fa fa-picture-o fa-2x dark_link"></i>
+    <% end %>
+
+    <%= link_to add_post_video_path(shared_item: true), remote: true, id: :add_video_icon_link, title: "Attach a video" do %>
+      <i class="fa fa-film fa-2x dark_link"></i>
+    <% end %>
+
+    <div id="hidden_shared_item_file_field" hidden>
+      <p>
+        <%= f.file_field :pictures, multiple: true, name: "pictures[image][]" %>
+      </p>
+    </div>
+
+    <div id="hidden_shared_item_video_field" hidden>
+      <p>
+        Video <%= f.file_field :video %>
+      </p>
+    </div>
+
+    <button type="submit" name="commit" class="surveys_form_button">
+      <b><%= @editing ? "Save" : "Create" %> <i class="fa fa-pencil"></i></b>
+    </button>
+  <% end %>
+  <%= render "app/link_sound.js", _class: true, link_id: :interactive_link, sound: :post_interface_sound %>
+</div>

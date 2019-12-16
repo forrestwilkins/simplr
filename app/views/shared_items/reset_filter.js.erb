@@ -1,0 +1,16 @@
+var filter_form = $("#shared_items_filter_form");
+var filter_form_anchor = $("#shared_items_filter_form_anchor");
+
+filter_form_anchor.after("<%=j render 'filter_form' %>");
+filter_form.remove();
+
+// resets results as well
+var results = $("#shared_items");
+
+var anchor = $("#shared_items_anchor");
+
+results.remove();
+
+anchor.before("<%=j render 'stacked' %>");
+
+window.navigator.vibrate(1);

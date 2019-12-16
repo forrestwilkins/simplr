@@ -1,0 +1,143 @@
+<div class="card" id="shared_item_card_<%= shared_item.id %>" align="left">
+  <%= render "users/avatar_card_link", user: shared_item.user %>
+
+  <%= render "app/time_ago", item: shared_item %>
+  <%= link_to "Edit", edit_shared_item_path(shared_item), class: "bottom_right_link" if own_item? shared_item or admin? %>
+
+  <div align="center">
+    <p>
+      <%= link_to shared_item.name, shared_item_path(shared_item) %>
+    </p>
+
+    <% if shared_item.pictures.present? %>
+      <p>
+        <% unless @shared_item_shown %>
+          <%= link_to show_shared_item_path(shared_item.unique_token) do %>
+            <%= image_tag shared_item.pictures.first.image, class: :standard_post_image %>
+          <% end %>
+          <% if shared_item.pictures.present? %>
+            <table id="shared_item_mini_photoset_table_<%= shared_item.id %>">
+              <tr>
+                <% for picture in shared_item.pictures[1..-1] %>
+                  <td>
+                    <%= link_to add_shared_item_photoset_path(shared_item), remote: true, title: "Click here to enlarge.", class: :survey_interactive_link do %>
+                      <%= image_tag picture.image, class: :my_groups_group_icon %>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+            </table>
+          <% end %>
+        <% else %>
+          <% shared_item.pictures.each do |picture| %>
+            <%= image_tag picture.image, class: :standard_post_image %>
+          <% end %>
+        <% end %>
+      </p>
+    <% end %>
+
+    <% if shared_item.video_url %>
+      <%= link_to show_shared_item_path(shared_item.unique_token) do %>
+        <p>
+          <%= video_tag shared_item.video_url.to_s, autoplay: true, loop: true, muted: "muted", class: :standard_post_video, id: "shared_item_video_#{shared_item.id}" %>
+        </p>
+        <script>
+          var video = $('#<%= "shared_item_video_#{shared_item.id}" %>').get(0);
+          if (video.paused) {
+            video.play();
+          }
+        </script>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="shared_item_card_fields_container">
+    <% for field in shared_item_fields %>
+      <% if shared_item.send(field).present? %>
+        <div class="shared_item_card_fields_row" align="left">
+          <div class="shared_item_card_field">
+            <b>
+              <% if field.eql? :item_category_id %>
+                Category (domain)
+              <% elsif field.eql? :body %>
+                Description
+              <% elsif field.eql? :holder_id %>
+                Holder
+              <% else %>
+                <%= field.to_s.gsub("_", " ").capitalize %>
+              <% end %>
+            </b>
+          </div>
+          <div class="shared_item_card_field">
+            <% if field.eql? :item_category_id %>
+              <%= ItemCategory.find(shared_item.send(field)).name %>
+            <% elsif field.eql? :holder_id %>
+              <%= User.find(shared_item.send(field)).name %>
+            <% else %>
+              <%= shared_item.send(field).gsub("_", " ") %>
+            <% end %>
+          </div>
+        </div>
+      <% elsif field.eql? :holder_id %>
+        <div class="shared_item_card_fields_row" align="left">
+          <div class="shared_item_card_field">
+            <b>
+              Holder
+            </b>
+          </div>
+          <div class="shared_item_card_field">
+            <% if shared_item.arrangement.eql? 'borrow' %>
+              Lending Library
+            <% else %>
+              <%= shared_item.user.name.capitalize %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if own_item? shared_item and shared_item.unaccpeted_requests? and not shared_item.current_holder %>
+    <p align="center">
+      <%= link_to "Requests #{shared_item.item_requests.size}", item_requests_path(shared_item_id: shared_item.id) %>
+    </p>
+  <% end %>
+
+  <% if own_item? shared_item and shared_item.current_holder %>
+    <p align="center">
+      <%= link_to "Confirm item has been returned", confirm_item_return_path(shared_item) %>
+    </p>
+  <% end %>
+
+  <div id="shared_item_comments_anchor_<%= shared_item.id %>"></div>
+
+  <% if current_user %> <!-- could re enable anon later -->
+    <table class="bottom_left_link">
+      <tr>
+        <td>
+          <span id="like_shared_item_link_anchor_<%= shared_item.id %>"></span>
+          <%= render "likes/link", item: shared_item %>
+        </td>
+        <td>
+          ·
+        </td>
+        <td>
+          <%= link_to "Comment#{shared_item.comments.size.zero? ? '' : 's'}#{ ' ' + shared_item.comments.size.to_s unless shared_item.comments.size.zero? }",
+            (@shared_item_shown ? show_shared_item_path(shared_item.unique_token) : toggle_comments_path(id: shared_item.id, shared_item: true)),
+            remote: true, class: "shared_item_card_link standard_post_link", id: "show_shared_item_comments_#{shared_item.id}" %>
+        </td>
+        <% unless own_item? shared_item or shared_item.current_holder %>
+          <td>
+            ·
+          </td>
+          <td>
+            <span id="request_item_link_anchor_<%= shared_item.id %>"></span>
+            <%= render "item_requests/link", shared_item: shared_item %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= render "app/link_sound.js", _class: true, link_id: "shared_item_card_link", sound: :post_interface_sound %>
+</div>
