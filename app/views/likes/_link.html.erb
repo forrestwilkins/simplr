@@ -4,10 +4,10 @@
 <% link_class = link_class.to_s << ' dark_link' if item.is_a? Vote and false %>
 
 <% unless already_liked? item %>
-  <%= link_to "Like#{(' ' + item._likes.size.to_s) unless item._likes.size.zero?}", like_path(param_id => item.id),
+  <%= link_to "Like#{(' ' + item.likes.size.to_s) unless item.likes.size.zero?}", like_path(param_id => item.id),
     method: :post, remote: true, class: link_class, id: link_id %>
 <% else %>
-  <%= link_to "Like #{item._likes.size.to_s}", unlike_path(param_id => item.id),
+  <%= link_to "Like #{item.likes.size.to_s}", unlike_path(param_id => item.id),
     method: :delete, remote: true, class: link_class, id: link_id, style: "color:rgb(119,158,203);" %>
 <% end %>
 

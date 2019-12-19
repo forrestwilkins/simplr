@@ -42,17 +42,12 @@ module LikesHelper
   end
 
   def already_liked? item, like_type=nil
-    like_type = if like_type
-      (like_type.to_s + "s").to_sym
-    else
-      :_likes
-    end
     if current_user
-      if item.send(like_type).where(user_id: current_user.id).present?
+      if item.likes.where(user_id: current_user.id).present?
         return true
       end
     else
-      if item.send(like_type).where(anon_token: anon_token).present?
+      if item.likes.where(anon_token: anon_token).present?
         return true
       end
     end

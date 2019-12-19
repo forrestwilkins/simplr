@@ -8,7 +8,7 @@ class LikesController < ApplicationController
 
   def create
     # starts new like type
-    @like = @item.send(get_like_type).new
+    @like = @item.likes.new
     if current_user
       @like.user_id = current_user.id
     end
@@ -24,18 +24,14 @@ class LikesController < ApplicationController
 
   def destroy
     @like = if current_user
-      @item.send(get_like_type).where(user_id: current_user.id).last
+      @item.likes.where(user_id: current_user.id).last
     else
-      @item.send(get_like_type).where(anon_token: anon_token).last
+      @item.likes.where(anon_token: anon_token).last
     end
     @like.destroy
   end
 
   private
-
-  def get_like_type
-    :_likes
-  end
 
   def set_item
     @item = if params[:post_id]
