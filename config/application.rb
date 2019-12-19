@@ -23,15 +23,6 @@ module Simplr
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-
-    # loading UI frameworks
-    #config.assets.precompile += %w( semantic_ui.js )
-
-
-    config.web_console.development_only = false
-
-
-
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
