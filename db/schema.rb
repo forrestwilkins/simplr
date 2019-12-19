@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20191213133637) do
     t.integer  "total_messages_seen"
     t.boolean  "grant_mod_access"
     t.string   "invite_password"
-    t.boolean  "grant_gk_access"
     t.boolean  "portal"
     t.integer  "total_items_seen"
     t.datetime "last_typing_at"

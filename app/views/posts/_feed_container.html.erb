@@ -3,8 +3,10 @@
 <div id="feed_container">
 	<%= render "#{parents}/feed", items: items %>
 
-  <div align="center">
-    <%= render "pages/#{['load_wheel', 'load_bar', 'buffer_wheel'].sample}",
-      items: items, all_items: all_items %>
-  </div>
+  <% if items.present? %>
+    <div align="center">
+      <%= render "pages/#{['load_wheel', 'load_bar', 'buffer_wheel'].sample}",
+        items: items, all_items: all_items %>
+    </div>
+  <% end %>
 </div>
