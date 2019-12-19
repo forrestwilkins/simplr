@@ -79,13 +79,18 @@ class UsersController < ApplicationController
       # records current time for last visit (first visit)
       record_last_visit
 
-      # automatically follows website creator at sign up so feed is full
-      connection = current_user.follow User.first if current_user
-      Note.notify(:user_follow, nil, User.first, current_user) if connection
+      unless current_user.eql? User.first
+        # automatically follows website creator at sign up so feed is full
+        connection = current_user.follow User.first if current_user
+        Note.notify(:user_follow, nil, User.first, current_user) if connection
 
-      # website creator automatically follows new user back
-      connection = User.first.follow current_user if current_user
-      Note.notify(:user_follow, nil, current_user, User.first) if connection
+        # website creator automatically follows new user back
+        connection = User.first.follow current_user if current_user
+        Note.notify(:user_follow, nil, current_user, User.first) if connection
+      end
+
+      # creates first item library if none exist
+      ItemLibrary.create name: "Lending Library", body: "Share items and services" if ItemLibrary.all.empty?
 
       # returns to home page, main feed
       redirect_to root_url
