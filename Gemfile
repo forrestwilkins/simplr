@@ -110,7 +110,7 @@ gem 'sdoc', group: :doc
 
 group :production do
   gem 'unicorn'
-  gem 'pg'
+  gem 'pg', '0.15'
 end
 
 group :development, :test do
