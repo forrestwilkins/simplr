@@ -111,7 +111,7 @@ gem 'sdoc', group: :doc
 group :production do
   gem 'unicorn'
   gem 'pg' # 0.15
-  gem 'zeitwerk', '2.2.2'
+  gem 'zeitwerk', '2.2.0'
 end
 
 group :development, :test do
