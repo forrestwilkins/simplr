@@ -95,7 +95,7 @@ class UsersController < ApplicationController
       # returns to home page, main feed
       redirect_to root_url
     else
-      redirect_to :back
+      redirect_to new_user_path
     end
   end
 
@@ -124,9 +124,9 @@ class UsersController < ApplicationController
     if @user.update(user_params.except(:image))
       @user.pictures.create image: params[:user][:image]
       Tag.extract @user
-      redirect_to :back, notice: "Profile/account updated successfully."
+      redirect_to edit_user_path(@user), notice: "Profile/account updated successfully."
     else
-      redirect_to :back, notice: "Unable to update profile/account... Error."
+      redirect_to edit_user_path(@user), notice: "Unable to update profile/account... Error."
     end
   end
 

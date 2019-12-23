@@ -13,7 +13,7 @@ module UsersHelper
   end
 
   def profile_picture user
-    user.current_profile_picture.image if user.current_profile_picture
+    user.current_profile_picture.image_url if user.current_profile_picture
   end
 
   def following_options
