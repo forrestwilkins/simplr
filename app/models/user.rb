@@ -156,17 +156,12 @@ class User < ActiveRecord::Base
         # else just return newest uploaded profile pic
         return pictures.last
       end
-    # return old img way
-    elsif image_url
-      return self
     end
     nil
   end
 
   def profile_pictures
-    pics = pictures.to_a
-    pics.unshift self if image_url
-    pics
+    pictures
   end
 
   def dup_profile_pic_made?

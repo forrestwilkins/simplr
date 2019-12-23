@@ -13,7 +13,6 @@ module UsersHelper
   end
 
   def profile_picture user
-    profile_pic_init user
     user.current_profile_picture.image if user.current_profile_picture
   end
 
