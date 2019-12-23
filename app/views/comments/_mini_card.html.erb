@@ -5,13 +5,13 @@
     <%= render "app/body", item: comment %>
   </span>
 
-  <% if comment.image.url %>
+  <% if comment.image_url %>
     <% unless @comment_shown %>
       <%= link_to comment do %>
-        <%= image_tag comment.image, class: :mini_comment_image %>
+        <%= image_tag comment.image_url, class: :mini_comment_image %>
       <% end %>
     <% else %>
-      <%= image_tag comment.image, class: :mini_comment_image %>
+      <%= image_tag comment.image_url, class: :mini_comment_image %>
     <% end %>
   <% end %>
 </div>

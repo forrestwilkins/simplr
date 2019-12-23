@@ -19,7 +19,7 @@
 		  <p>Change icon: <%= f.file_field :image %></p>
       <% if @editing and @group.image_url %>
         <div>
-          Current icon: <%= image_tag @group.image, style: "width:5%;" %>
+          Current icon: <%= image_tag @group.image_url, style: "width:5%;" %>
         </div>
       <% end %>
 

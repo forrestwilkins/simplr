@@ -31,10 +31,10 @@ module PostsHelper
     if post.original_id
       original = Post.find_by_id post.original_id
       if original
-        return original.image
+        return original.image_url
       end
     else
-      return post.image
+      return post.image_url
     end
   end
 end

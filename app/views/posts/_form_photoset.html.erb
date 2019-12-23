@@ -1,8 +1,8 @@
 <div class="form_photoset">
   <% for picture in @post.pictures.sort_by { |p| p.order } %>
-    <% if picture.image.url %>
+    <% if picture.image_url %>
       <div id="post_picture_<%= picture.id %>">
-        <%= image_tag picture.image, class: :standard_post_image %>
+        <%= image_tag picture.image_url, class: :standard_post_image %>
 
         <% if picture.ensure_order and not picture.order.zero?  %>
           <%= link_to "Move up", move_post_picture_up_path(picture), method: :put, remote: true,

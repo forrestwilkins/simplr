@@ -1,7 +1,7 @@
 <div class="card" align="center">
   <%= link_to item_category_path(item_category), class: "group_avatar_link item_categorys_image_link" do %>
-    <% if item_category.image and item_category.image.url %>
-      <%= image_tag item_category.image, class: :group_avatar_image %>
+    <% if item_category.image_url %>
+      <%= image_tag item_category.image_url, class: :group_avatar_image %>
     <% else %>
       <%= fa_icon "cubes fa-2x group_placeholder_icon" %>
     <% end %>

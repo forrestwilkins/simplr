@@ -6,13 +6,13 @@
   <% end %>
 <% end %>
 
-<% if proposal.image.url %>
+<% if proposal.image_url %>
   <p>
     <% if @proposal_shown %>
-      <%= image_tag proposal.image, class: :standard_post_image %>
+      <%= image_tag proposal.image_url, class: :standard_post_image %>
     <% else %>
       <%= link_to show_proposal_path(proposal.unique_token) do %>
-        <%= image_tag proposal.image, class: :standard_post_image %>
+        <%= image_tag proposal.image_url, class: :standard_post_image %>
       <% end %>
     <% end %>
   </p>
@@ -20,7 +20,7 @@
   <p>
     <% unless @proposal_shown or proposal.pictures.size < 3 %>
       <%= link_to show_proposal_path(proposal.unique_token) do %>
-        <%= image_tag proposal.pictures.first.image, class: :standard_post_image %>
+        <%= image_tag proposal.pictures.first.image_url, class: :standard_post_image %>
       <% end %>
       <% if proposal.pictures.to_a[1..-1].present? %>
         <table id="mini_photoset_table_<%= proposal.id %>">
@@ -28,7 +28,7 @@
             <% for picture in proposal.pictures.to_a[1..-1] %>
               <td>
                 <%= link_to add_proposal_photoset_path(proposal.unique_token), remote: true, title: "Click here to enlarge." do %>
-                  <%= image_tag picture.image, class: :my_groups_group_icon %>
+                  <%= image_tag picture.image_url, class: :my_groups_group_icon %>
                 <% end %>
               </td>
             <% end %>
@@ -38,7 +38,7 @@
     <% else %>
       <% proposal.pictures.each do |picture| %>
         <%= link_to show_proposal_path(proposal.unique_token) do %>
-          <%= image_tag picture.image, class: :standard_post_image %>
+          <%= image_tag picture.image_url, class: :standard_post_image %>
         <% end %>
       <% end %>
     <% end %>
