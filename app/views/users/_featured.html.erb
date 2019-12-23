@@ -11,7 +11,7 @@
           <% featured_users.each do |user| %>
             <td>
               <%= link_to user do %>
-                <%= image_tag user.image, class: :featured_user_avatar, title: user.name %>
+                <%= image_tag user.image_url, class: :featured_user_avatar, title: user.name %>
                 <div class="featured_user_name"><%= user.name %></div>
               <% end %>
             </td>

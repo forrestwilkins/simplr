@@ -8,7 +8,7 @@
             <div>
               <%= link_to group, class: "group_activity" do %>
                 <% group_name = if group.name.size > 15 then group.name[0..9] + "..." else group.name end %>
-                <%= image_tag group.image, class: :user_avatar_image if group.image.url %>
+                <%= image_tag group.image_url, class: :user_avatar_image if group.image_url %>
                 <%= group_name + " +#{group.total_items_unseen(current_user)}" %>
               <% end %>
             </div>

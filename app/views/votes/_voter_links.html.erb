@@ -17,9 +17,9 @@
     <div class="voter_tokens_container">
       <% for vote in votes.sample 6 %>
         <div class="voter_token_container">
-          <% if vote.anon_token or (vote.user and vote.user.image.url.nil?) %>
+          <% if vote.anon_token or (vote.user and vote.user.image_url.nil?) %>
             <%= render "users/anon_avatar", token: vote.anon_token, user: vote.user %>
-          <% elsif vote.user and vote.user.image %>
+          <% elsif vote.user and vote.user.image_url %>
             <%= link_to user_path(vote.user), title: "#{vote.user.name}" do %>
               <%= image_tag profile_picture(vote.user), class: :user_avatar_image %>
             <% end %>

@@ -3,7 +3,7 @@
     <div class="survey_card_corner_cut_out"></div>
     <%= link_to @survey, class: "group_avatar_link surveys_image_link" do %>
       <% if @survey.image.url %>
-        <%= image_tag @survey.image, class: :group_avatar_image %>
+        <%= image_tag @survey.image_url, class: :group_avatar_image %>
       <% else %>
         <%= fa_icon "users fa-2x group_placeholder_icon" %>
       <% end %>
@@ -22,7 +22,7 @@
 
     <% if @editing and @survey.image_url %>
       <div>
-        Current icon: <%= image_tag @survey.image, style: "width:5%;" %>
+        Current icon: <%= image_tag @survey.image_url, style: "width:5%;" %>
       </div>
     <% end %>
 	  <p>Choose an icon: <%= f.file_field :image %></p>

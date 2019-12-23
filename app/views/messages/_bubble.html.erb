@@ -14,10 +14,10 @@
   <!-- to stop float from cascading to lower elements -->
   <div style="clear:both;"></div>
   
-  <% if message.image.url %>
+  <% if message.image_url %>
     <div align="center">
       <%= link_to message_path(message.id) do %>
-        <%= image_tag message.image, class: :message_image %>
+        <%= image_tag message.image_url, class: :message_image %>
       <% end %>
     </div>
   <% end %>

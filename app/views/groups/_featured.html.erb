@@ -11,7 +11,7 @@
           <% featured_groups.each do |group| %>
             <td>
               <%= link_to group do %>
-                <%= image_tag group.image, class: :featured_user_avatar, title: group.name %>
+                <%= image_tag group.image_url, class: :featured_user_avatar, title: group.name %>
                 <div class="featured_user_name"><%= group.name %></div>
               <% end %>
             </td>

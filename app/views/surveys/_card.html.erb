@@ -1,8 +1,8 @@
 <div class="surveys_card" id="survey_card_<%= survey.id %>" align="center">
   <div class="survey_card_corner_cut_out"></div>
   <%= link_to survey, class: "group_avatar_link surveys_image_link" do %>
-    <% if survey.image.url %>
-      <%= image_tag survey.image, class: :group_avatar_image %>
+    <% if survey.image_url %>
+      <%= image_tag survey.image_url, class: :group_avatar_image %>
     <% else %>
       <%= fa_icon "users fa-2x group_placeholder_icon" %>
     <% end %>
