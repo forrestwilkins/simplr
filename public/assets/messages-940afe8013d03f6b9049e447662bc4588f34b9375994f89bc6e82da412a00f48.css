@@ -1,0 +1,83 @@
+/* line 5, app/assets/stylesheets/messages.scss */
+.inbox_nav_link {
+  position: absolute;
+  right: 75px;
+  top: 14.5px;
+  color: black;
+}
+
+/* line 12, app/assets/stylesheets/messages.scss */
+.message_form_card {
+  height: 125px;
+}
+
+/* line 16, app/assets/stylesheets/messages.scss */
+.message_form_container {
+  width: 100%;
+}
+
+/* line 20, app/assets/stylesheets/messages.scss */
+.message_form_left_sub_container {
+  float: left;
+  width: 85%;
+}
+
+/* line 25, app/assets/stylesheets/messages.scss */
+.message_form_right_sub_container {
+  float: left;
+  width: 15%;
+}
+
+/* line 33, app/assets/stylesheets/messages.scss */
+.message_text_area {
+  width: 100%;
+  height: 100px;
+}
+
+/* line 38, app/assets/stylesheets/messages.scss */
+.message_button_container {
+  padding-bottom: 5px;
+}
+
+/* line 42, app/assets/stylesheets/messages.scss */
+.last_message_views {
+  position: relative;
+  margin: 0 auto;
+  max-width: 550px;
+  padding-bottom: 5px;
+  width: 94.5%;
+  color: #afafaf;
+  font-size: 12px;
+}
+
+/* line 52, app/assets/stylesheets/messages.scss */
+.message_bubble {
+  position: relative;
+  padding: 10px 7.5px;
+  max-width: 550px;
+  margin: 0 auto;
+  width: 94.5%;
+  color: white;
+}
+
+/* line 61, app/assets/stylesheets/messages.scss */
+.message_image {
+  width: 97.5%;
+  padding-top: 12.5px;
+}
+
+/* line 66, app/assets/stylesheets/messages.scss */
+.left_message_body_text {
+  float: left;
+  padding-top: 2.5px;
+  padding-left: 2.5px;
+  width: 82.5%;
+}
+
+/* line 73, app/assets/stylesheets/messages.scss */
+.right_message_body_text {
+  float: right;
+  padding-top: 2.5px;
+  padding-right: 10px;
+  width: 82.5%;
+}

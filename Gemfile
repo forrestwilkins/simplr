@@ -78,13 +78,13 @@ gem 'apipie-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-gem 'sprockets', '3.0'
+gem 'sprockets'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '3.2'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -110,7 +110,7 @@ gem 'sdoc', group: :doc
 
 group :production do
   gem 'unicorn'
-  gem 'pg', '0.15'
+  gem 'pg'
 end
 
 group :development, :test do

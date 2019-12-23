@@ -1,0 +1,107 @@
+/* line 5, app/assets/stylesheets/notes.scss */
+.notes_slide_menu_container {
+  transition: all .4s ease-in-out;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
+/* line 15, app/assets/stylesheets/notes.scss */
+.notes_slide_menu_toggle_link {
+  transition: all .75s ease-out;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding-top: 15px;
+  padding-right: 24.25px;
+  -webkit-tap-highlight-color: transparent;
+  color: black;
+}
+
+/* line 29, app/assets/stylesheets/notes.scss */
+.notes_icon_spins {
+  transform-origin: 0px 20px;
+  transform: rotatey(360deg);
+}
+
+/* line 34, app/assets/stylesheets/notes.scss */
+.notes_side_pane_message {
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+/* line 42, app/assets/stylesheets/notes.scss */
+.notes_dropdown {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 15px;
+  background: #0a0a0a;
+  z-index: 5;
+}
+
+/* line 52, app/assets/stylesheets/notes.scss */
+.notes_dropdown_link {
+  margin-left: 5px;
+}
+
+/* line 56, app/assets/stylesheets/notes.scss */
+.notes_dropdown_message {
+  font-size: 20px;
+}
+
+/* line 60, app/assets/stylesheets/notes.scss */
+.notes_dropdown_title {
+  padding: 5px 5px;
+  padding-top: 12.5px;
+  font-size: 26px;
+}
+
+/* line 66, app/assets/stylesheets/notes.scss */
+.notes_nav_link {
+  position: absolute;
+  right: 45px;
+  top: 14.5px;
+}
+
+/* line 72, app/assets/stylesheets/notes.scss */
+.note_img_preview {
+  display: block;
+  margin-top: 22.5px;
+  width: 25%;
+}
+
+/* line 78, app/assets/stylesheets/notes.scss */
+.note_dialog {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  background: #0a0a0a;
+  color: #afafaf;
+  z-index: 5;
+}
+
+/* line 89, app/assets/stylesheets/notes.scss */
+.note_dialog_text {
+  font-size: 12px;
+}
+
+@keyframes icon_spin {
+  0% {
+    transform: rotatey(0deg);
+  }
+  50% {
+    transform: rotatey(180deg);
+  }
+  100% {
+    transform: rotatey(-360deg);
+  }
+}

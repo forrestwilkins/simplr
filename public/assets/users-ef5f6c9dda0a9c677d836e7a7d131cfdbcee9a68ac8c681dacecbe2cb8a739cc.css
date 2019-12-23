@@ -1,0 +1,204 @@
+/* line 5, app/assets/stylesheets/users.scss */
+.user_edit_form_card {
+  position: relative;
+}
+
+/* line 9, app/assets/stylesheets/users.scss */
+.edit_form_profile_picture {
+  position: relative;
+  top: 0.5px;
+  left: 7.5px;
+  width: 15%;
+}
+
+/* line 16, app/assets/stylesheets/users.scss */
+.scrolling_avatar {
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px 5px;
+  background: black;
+  color: white;
+  font-size: 10px;
+  z-index: 5;
+}
+
+/* line 28, app/assets/stylesheets/users.scss */
+.scrolling_avatar_img {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+}
+
+/* line 35, app/assets/stylesheets/users.scss */
+.scrolling_avatar_name {
+  float: left;
+  background: black;
+  color: white;
+  height: 100%;
+}
+
+/* line 42, app/assets/stylesheets/users.scss */
+.user_card_name_and_bio {
+  width: 85%;
+}
+
+/* line 46, app/assets/stylesheets/users.scss */
+.featured_user_name {
+  text-align: center;
+  font-size: 8.5px;
+  padding: 0px 15px;
+}
+
+/* line 52, app/assets/stylesheets/users.scss */
+.featured_user_avatar {
+  width: 35px;
+  height: 35px;
+  padding: 0px 15px;
+  padding-top: 7.5px;
+}
+
+/* line 59, app/assets/stylesheets/users.scss */
+.tier_container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 12.5px;
+  height: 12.5px;
+  background: black;
+}
+
+/* line 68, app/assets/stylesheets/users.scss */
+.tier_number {
+  padding-top: 1.5px;
+  font-size: 7.5px;
+  color: white;
+}
+
+/* line 74, app/assets/stylesheets/users.scss */
+.progress_bar_progress {
+  background: lime;
+  text-align: center;
+  padding: 10px 0px;
+  color: black;
+}
+
+/* line 81, app/assets/stylesheets/users.scss */
+.progress_bar {
+  background: red;
+  width: 100%;
+}
+
+/* line 86, app/assets/stylesheets/users.scss */
+.progress_bar_label {
+  padding-left: 1.5px;
+  padding-bottom: 5px;
+  color: #afafaf;
+}
+
+/* line 92, app/assets/stylesheets/users.scss */
+.user_name_link {
+  font-size: 16.5px;
+}
+
+/* line 96, app/assets/stylesheets/users.scss */
+.profile_picture {
+  width: 90%;
+  padding: 10px;
+}
+
+/* line 101, app/assets/stylesheets/users.scss */
+.left_mini_avatar {
+  float: left;
+  padding-right: 5px;
+}
+
+/* line 106, app/assets/stylesheets/users.scss */
+.right_mini_avatar {
+  float: right;
+  padding-right: 5px;
+}
+
+/* line 111, app/assets/stylesheets/users.scss */
+.user_avatar_link {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+/* line 117, app/assets/stylesheets/users.scss */
+.user_avatar_image {
+  width: 25.5px;
+  height: 23px;
+}
+
+/* line 122, app/assets/stylesheets/users.scss */
+.current_token_link {
+  position: absolute;
+  right: 11.5px;
+  top: 10px;
+  z-index: 15;
+}
+
+/* line 129, app/assets/stylesheets/users.scss */
+.avatar_container {
+  width: 25px;
+  height: 25px;
+}
+
+/* line 134, app/assets/stylesheets/users.scss */
+.inline_avatar_container {
+  display: inline-block;
+  margin-right: 7.5px;
+  margin-bottom: -5px;
+}
+
+/* line 140, app/assets/stylesheets/users.scss */
+.avatar_spins {
+  animation: avatar_spin 10s infinite alternate;
+}
+
+/* line 144, app/assets/stylesheets/users.scss */
+.avatar_pixel {
+  width: 5.5px;
+  height: 5.5px;
+  float: right;
+}
+
+/* line 150, app/assets/stylesheets/users.scss */
+.token_card_link {
+  position: absolute;
+  left: -3px;
+  top: 0px;
+}
+
+/* line 156, app/assets/stylesheets/users.scss */
+.user_card_links_containor {
+  padding-bottom: 7.5px;
+}
+
+/* line 160, app/assets/stylesheets/users.scss */
+.user_title {
+  font-size: 25px;
+}
+
+@keyframes avatar_spin {
+  0% {
+    transform: rotatey(0deg);
+  }
+  50% {
+    transform: rotatey(180deg);
+  }
+  100% {
+    transform: rotatey(-360deg);
+  }
+}
+
+@media screen and (max-width: 975px) {
+  /* line 178, app/assets/stylesheets/users.scss */
+  .user_title {
+    font-size: 20px;
+  }
+}

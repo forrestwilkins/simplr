@@ -1,0 +1,216 @@
+/* line 24, app/assets/stylesheets/surveys.scss */
+.surveys_page_header {
+  color: black;
+}
+
+/* line 28, app/assets/stylesheets/surveys.scss */
+.survey_card_corner_cut_out {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 55px;
+  width: 55px;
+}
+
+/* line 36, app/assets/stylesheets/surveys.scss */
+.surveys_card {
+  transition: all .4s ease-in-out;
+  position: relative;
+  padding: 15px 32.5px;
+  background: white;
+  max-width: 590px;
+  margin: 0 auto;
+  margin-bottom: 12.5px;
+  width: 94.5%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+/* line 40, app/assets/stylesheets/surveys.scss */
+.surveys_card_links {
+  margin-top: 22.5px;
+}
+
+/* line 44, app/assets/stylesheets/surveys.scss */
+.surveys_link {
+  color: #767676;
+}
+
+/* line 48, app/assets/stylesheets/surveys.scss */
+.surveys_text_field {
+  margin-bottom: 7.5px;
+  padding: 2.5px;
+  display: block;
+  background: white;
+  color: black;
+  border-width: 0.5px;
+  border-color: #737373;
+  width: 97.5%;
+}
+
+/* line 59, app/assets/stylesheets/surveys.scss */
+.surveys_text_area {
+  background: white;
+  color: black;
+  width: 97.5%;
+}
+
+/* line 65, app/assets/stylesheets/surveys.scss */
+.surveys_form_button {
+  width: 55%;
+  max-width: 275px;
+  height: 35px;
+  background: #fafafa;
+  color: #464646;
+  border-color: #cdcdcd;
+  border-radius: 3px;
+}
+
+/* line 74, app/assets/stylesheets/surveys.scss */
+.surveys_image_link {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: #323232;
+}
+
+/* line 81, app/assets/stylesheets/surveys.scss */
+.take_survey_page_header {
+  font-size: 35px;
+  padding: 15px 0;
+}
+
+/* line 86, app/assets/stylesheets/surveys.scss */
+.take_survey_card {
+  padding-top: 25px;
+  overflow: hidden;
+}
+
+/* line 91, app/assets/stylesheets/surveys.scss */
+.take_survey_card_border {
+  border-top: 7.5px solid #ffb5b2;
+}
+
+/* line 95, app/assets/stylesheets/surveys.scss */
+.take_survey_banner {
+  position: relative;
+  background: #ff0a1c;
+  width: 100%;
+  height: 278px;
+  margin-bottom: -92.5px;
+  z-index: -2;
+}
+
+/* line 104, app/assets/stylesheets/surveys.scss */
+.take_survey_banner_img {
+  width: 220px;
+  margin-top: 32.5px;
+  z-index: 0;
+}
+
+/* line 110, app/assets/stylesheets/surveys.scss */
+.take_survey_next_link {
+  display: block;
+  width: 100px;
+  height: 35px;
+  background: #eeeeee;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 7.5px;
+  float: left;
+}
+
+/* line 121, app/assets/stylesheets/surveys.scss */
+.take_survey_submit {
+  background: #0077e4;
+}
+
+/* line 125, app/assets/stylesheets/surveys.scss */
+.take_survey_back_link_txt {
+  margin-top: 8.5px;
+}
+
+/* line 129, app/assets/stylesheets/surveys.scss */
+.take_survey_color_bands {
+  transition: all 1s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  z-index: -1;
+}
+
+/* line 139, app/assets/stylesheets/surveys.scss */
+.surveys_scroll_to_top_link_container {
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+}
+
+/* line 144, app/assets/stylesheets/surveys.scss */
+#surveys_card {
+  animation: surveys_header_card_glow 7.5s infinite alternate;
+}
+
+/* line 148, app/assets/stylesheets/surveys.scss */
+#surveys_header {
+  animation: surveys_header_shadow 7.5s infinite alternate;
+}
+
+@keyframes surveys_header_card_glow {
+  0% {
+    background: red;
+    box-shadow: -5.5px -5.5px 5.5px #a75858;
+  }
+  100% {
+    background: white;
+    box-shadow: 5.5px 5.5px 5.5px red;
+  }
+}
+
+@keyframes surveys_header_shadow {
+  0% {
+    color: white;
+    text-shadow: 2.25px 2.25px 2.25px #a75858;
+  }
+  100% {
+    color: red;
+    text-shadow: 0.1px 0.1px 0.1px white;
+  }
+}
+
+@media screen and (max-width: 975px) {
+  /* line 176, app/assets/stylesheets/surveys.scss */
+  .surveys_page_header {
+    font-size: 20px;
+  }
+  /* line 179, app/assets/stylesheets/surveys.scss */
+  .surveys_card {
+    padding: 15px 7.5px;
+    width: 92.5%;
+  }
+  /* line 183, app/assets/stylesheets/surveys.scss */
+  .dsa_card {
+    padding: 15px 7.5px;
+    width: 92.5%;
+  }
+  /* line 187, app/assets/stylesheets/surveys.scss */
+  .take_survey_page_header {
+    font-size: 25px;
+  }
+  /* line 190, app/assets/stylesheets/surveys.scss */
+  .take_survey_card {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 82.5%;
+  }
+  /* line 195, app/assets/stylesheets/surveys.scss */
+  .take_survey_banner {
+    height: 122.5px;
+    margin-bottom: -55px;
+  }
+  /* line 199, app/assets/stylesheets/surveys.scss */
+  .take_survey_banner_img {
+    width: 65px;
+    margin-top: 22.5px;
+  }
+}

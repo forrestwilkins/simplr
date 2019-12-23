@@ -1,0 +1,38 @@
+/* line 5, app/assets/stylesheets/comments.scss */
+.comment_body {
+  padding: 5px 0px;
+}
+
+/* line 9, app/assets/stylesheets/comments.scss */
+.mini_comment_image {
+  width: 97.5%;
+}
+
+/* line 13, app/assets/stylesheets/comments.scss */
+.mini_comment_card {
+  padding: 5px 0px;
+  overflow: hidden;
+}
+
+/* line 18, app/assets/stylesheets/comments.scss */
+.mini_comment_body {
+  font-size: 13px;
+}
+
+/* line 22, app/assets/stylesheets/comments.scss */
+.mini_comment_avatar {
+  float: left;
+  padding-right: 5px;
+}
+
+/* line 27, app/assets/stylesheets/comments.scss */
+.mini_comment_form {
+  padding-top: 7.5px;
+  padding-bottom: 10px;
+}
+
+/* line 32, app/assets/stylesheets/comments.scss */
+.mini_form_field {
+  margin-left: 2.5px;
+  width: 75%;
+}

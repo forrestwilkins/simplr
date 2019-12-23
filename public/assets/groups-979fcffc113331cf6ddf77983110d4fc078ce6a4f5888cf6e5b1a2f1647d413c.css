@@ -1,0 +1,51 @@
+/* line 5, app/assets/stylesheets/groups.scss */
+.small_group_txt {
+  font-size: 11px;
+  font-weight: bolder;
+}
+
+/* line 10, app/assets/stylesheets/groups.scss */
+.group_activity {
+  text-align: left;
+  padding-left: 10px;
+  margin-top: -7.5px;
+  width: 100%;
+}
+
+/* line 17, app/assets/stylesheets/groups.scss */
+.group_placeholder_icon {
+  padding-top: 12.5px;
+  padding-left: 10px;
+}
+
+/* line 22, app/assets/stylesheets/groups.scss */
+.group_avatar_link {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  color: white;
+}
+
+/* line 29, app/assets/stylesheets/groups.scss */
+.group_avatar_image {
+  width: 50px;
+  height: 50px;
+}
+
+/* line 34, app/assets/stylesheets/groups.scss */
+.group_card_corner_cut_out {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: black;
+  height: 55px;
+  width: 55px;
+}
+
+/* line 43, app/assets/stylesheets/groups.scss */
+.my_groups_group_icon {
+  width: 35px;
+  height: 35px;
+  padding: 0px 7.5px;
+  padding-top: 2.5px;
+}
