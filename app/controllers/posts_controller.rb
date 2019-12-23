@@ -122,9 +122,6 @@ class PostsController < ApplicationController
       @comment = Comment.new
       @comments = @post.comments
       @likes = @post._likes
-      @loves = @post.loves
-      @whoas = @post.whoas
-      @zens = @post.zens
       @shares = if @post.original
         @post.original.shares
       else

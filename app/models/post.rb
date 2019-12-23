@@ -46,7 +46,7 @@ class Post < ActiveRecord::Base
   end
 
   def _likes
-    self.likes.where love: nil, whoa: nil, zen: nil
+    self.likes
   end
 
   def self.preview_feed
