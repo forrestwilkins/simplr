@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
-  before_filter :set_vote, only: [:update, :reverse, :verify, :show]
-  before_filter :set_proposal, only: [:destroy, :new_up_vote, :new_down_vote, :new_abstain,
+  before_action :set_vote, only: [:update, :reverse, :verify, :show]
+  before_action :set_proposal, only: [:destroy, :new_up_vote, :new_down_vote, :new_abstain,
       :cast_up_vote, :cast_down_vote, :cast_abstain, :dropdown]
 
   def update
