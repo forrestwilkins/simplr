@@ -5,6 +5,12 @@
     <%= render 'survey_results/filter_form_button' %>
   </div>
 
+  <div class="survey_results_filter_item">
+    <%= select_tag :shared_item_field, options_for_select(shared_item_filter_options) %>
+    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, add_shared_item_filter_field_path,
+      remote: true, class: "survey_results_filter_item survey_filter_form_link" %>
+  </div>
+
   <div class="results_filter_form_section">
     <% for field in shared_item_fields  %>
       <% unless field.eql? :item_category_id or field.eql? :arrangement or field.eql? :in_stock %>

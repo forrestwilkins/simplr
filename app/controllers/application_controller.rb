@@ -91,21 +91,8 @@ class ApplicationController < ActionController::Base
   def get_site_title
     if social_maya?
       "Social Maya"
-    elsif request.original_url.include? '/store'
-      'Store'
-    elsif request.original_url.include? '/story_bigger_bucks'
-      'Story Bigger Bucks'
     else
-      case request.host
-      when 'forrestwebco.com', 'forrestwilkins.com'
-        'Forrest Web Company'
-      else
-        if @semantic_ui
-          'Thomspon Design & Son'
-        else
-          "Raleigh DSA#{' — Dev' if in_dev?}"
-        end
-      end
+      "Raleigh DSA#{' — Dev' if in_dev?}"
     end
   end
 
