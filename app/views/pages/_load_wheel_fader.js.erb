@@ -36,10 +36,17 @@ function load_wheel_fader<%= "_" + token if defined?(token) and token.present? %
 		  }
 	  }
 	  
-	  outer_pixel.css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
-	  inner_pixels.each(function() {
-	    $(this).css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
-	  });
+		<% if raleigh_dsa? %>
+			outer_pixel.css("background", "rgb(" + rgb[0] + ", " + 0 + ", " + 0 + ")");
+			inner_pixels.each(function() {
+				$(this).css("background", "rgb(" + rgb[0] + ", " + 0 + ", " + 0 + ")");
+			});
+		<% else %>
+			outer_pixel.css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
+			inner_pixels.each(function() {
+				$(this).css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
+			});
+		<% end %>
 	  
 	  // cycles through sections
 	  outer_id += 1;
