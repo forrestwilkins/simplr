@@ -46,7 +46,11 @@ function loading_glimmer() {
 	  }
 	  
 	  pixel.text(bits[b_num].toString());
-	  pixel.css("color", "rgb(" + b + ", " + r + ", " + g + ")");
+		<% if raleigh_dsa? %>
+			pixel.css("color", "rgb(" + b + ", " + 0 + ", " + 0 + ")");
+		<% else %>
+			pixel.css("color", "rgb(" + b + ", " + r + ", " + g + ")");
+		<% end %>
 	  
 	  pixels.each(function() {
 	    //$(this).css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");

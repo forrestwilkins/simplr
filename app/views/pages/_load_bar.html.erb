@@ -1,6 +1,5 @@
-<% if all_items.present? and all_items.size > page_size or @user or @group \
-  or @dev_panel_shown or @invite_only_page or @sandbox %>
-  <div align="center" id="load_bar" <%= (@user or @group) ? "hidden" : nil %>>
+<% if all_items.present? and all_items.size > page_size or @user or @group or @dev_panel_shown %>
+  <div align="center" id="load_bar" <%= (@user or @group and not @you_are_home) ? "hidden" : nil %>>
     <%= link_to non_link do %>
       <div class="load_bar_containor">
         <% 16.times do |num| %>

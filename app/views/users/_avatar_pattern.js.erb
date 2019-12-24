@@ -9,9 +9,17 @@ function avatar_pattern_<%=j unique_name %>() {
 	    var pattern_rgb = pattern[id][1];
 	    var pixel = $("#avatar_pixel_" + pattern_id + "_" + "<%=j token + '_' + unique_name %>");
 	    if (blink_state) {
-	      pixel.css("background", "rgb(" + pattern_rgb[0] + ", " + pattern_rgb[1] + ", " + pattern_rgb[2] + ")");
+			<% if raleigh_dsa? %>
+	      		pixel.css("background", "rgb(" + pattern_rgb[0] + ", " + "0" + ", " + "0" + ")");
+			<% else %>
+	      		pixel.css("background", "rgb(" + pattern_rgb[0] + ", " + pattern_rgb[1] + ", " + pattern_rgb[2] + ")");
+			<% end %>
 	    } else {
-	      pixel.css("background", "rgb(" + pattern_rgb[2] + ", " + pattern_rgb[0] + ", " + pattern_rgb[1] + ")");
+			<% if raleigh_dsa? %>
+	      		pixel.css("background", "rgb(" + pattern_rgb[2] + ", " + "0" + ", " + "0" + ")");
+			<% else %>
+	      		pixel.css("background", "rgb(" + pattern_rgb[2] + ", " + pattern_rgb[0] + ", " + pattern_rgb[1] + ")");
+			<% end %>
 	    }
 	    blink_state = !blink_state;
     }, 100);

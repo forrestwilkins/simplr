@@ -129,7 +129,7 @@ class PortalsController < ApplicationController
       # saves as regular portal, loner portal
       if @portal.save
         if not dev? or params[:from_portal_index]
-          redirect_to :back
+          redirect_to dsa_admin_path(portal_token: @portal.unique_token)
         else
           # goes back to dev page for portal link to be copied
           redirect_to dsa_admin_path(portal_token: @portal.unique_token)

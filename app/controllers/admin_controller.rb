@@ -4,7 +4,7 @@ class AdminController < ApplicationController
 
   def index
     @portals = Portal.all
-    @dsa_members = User.dsa_members
+    @dsa_members = User.all
     if params[:portal_token]
       @portal = Portal.find_by_unique_token params[:portal_token]
       if @portal

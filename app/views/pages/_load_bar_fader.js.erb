@@ -38,7 +38,11 @@ function load_bar_fader() {
 	  }
 	  
 	  section.text(bits[b_num].toString());
-	  section.css("color", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
+	  <% if raleigh_dsa? %>
+	  	section.css("color", "rgb(" + rgb[0] + ", " + 0 + ", " + 0 + ")");
+		<% else %>
+	  	section.css("color", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
+	  <% end %>
 	  
 	  // cycles through bits
 	  b_num += 1;

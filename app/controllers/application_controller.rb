@@ -284,11 +284,12 @@ class ApplicationController < ActionController::Base
   end
 
   def raleigh_dsa?
-    if request.host.eql? "raleighdsa.com" or cookies[:at_raleigh_dsa].present?
-      cookies.permanent[:at_raleigh_dsa] = true
-      return true
-    end
-    nil
+    true
+    # if request.host.eql? "raleighdsa.com" or cookies[:at_raleigh_dsa].present?
+    #   cookies.permanent[:at_raleigh_dsa] = true
+    #   return true
+    # end
+    # nil
   end
 
   def anrcho?
