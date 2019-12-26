@@ -13,6 +13,20 @@ class ItemLibrary < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  def holder_options
+    options = [["Holder", nil]]
+    holders = []
+    for item in shared_items
+      if item.holder
+        holders << item.holder unless holders.include? item.holder
+      end
+    end
+    for holder in holders
+      options << [holder.name, holder.id]
+    end
+    return options
+  end
+
   def category_options
     options = [["Category (domain)", nil]]
     for category in item_categories

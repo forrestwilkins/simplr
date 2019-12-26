@@ -1,0 +1,10 @@
+// renders filter field
+$("#main_filter_form_section").append("<%=j render 'shared_items/filter_field' %>");
+// removes selected filter field from options
+$('.shared_item_field_select option[value="' + "<%= @selected_filter_field.to_s %>" + '"]').toggle();
+// resets select box back to default
+$("#shared_item_field_select").val("");
+// always re disables link after adding field to form
+$("#add_filter_field_link").toggleClass('disabled_link', true);
+
+window.navigator.vibrate(1);

@@ -1,10 +1,15 @@
 class SharedItemsController < ApplicationController
   before_action :invite_only
   before_action :set_shared_item, only: [:update, :destroy, :show, :edit, :add_photoset, :confirm_return]
-  before_action :set_item_library, only: [:filter_by, :reset_filter, :sort_by, :add_filter_field]
+  before_action :set_item_library, only: [:filter_by, :reset_filter, :sort_by, :add_filter_field, :set_filter_field]
   before_action :new_shared_item, only: [:show_form]
 
   before_action :secure_shared_item, only: [:update, :destroy, :edit]
+
+  def add_filter_field
+    @item_library = ItemLibrary.find_by_id params[:item_library_id]
+    @selected_filter_field = params[:selected_filter_field].to_sym
+  end
 
   def confirm_return
     holder = @shared_item.current_holder
