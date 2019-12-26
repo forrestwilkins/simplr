@@ -1,4 +1,12 @@
 module SharedItemsHelper
+  def display_holder shared_item
+    if shared_item.holder.is_a? User
+      shared_item.holder.name.capitalize
+    elsif shared_item.holder.eql? 'lending_library'
+      'Lending Library'
+    end
+  end
+
   def shared_item_filter_options
     options = [["Choose a field to filter by", nil]]
     for field in shared_item_fields

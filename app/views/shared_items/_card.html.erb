@@ -97,13 +97,13 @@
     <% end %>
   </div>
 
-  <% if own_item? shared_item and shared_item.unaccpeted_requests? and not shared_item.current_holder %>
+  <% if own_item? shared_item and shared_item.unaccpeted_requests? and not shared_item.current_borrower %>
     <p align="center">
       <%= link_to "Requests #{shared_item.item_requests.size}", item_requests_path(shared_item_id: shared_item.id) %>
     </p>
   <% end %>
 
-  <% if own_item? shared_item and shared_item.current_holder %>
+  <% if own_item? shared_item and shared_item.current_borrower %>
     <p align="center">
       <%= link_to "Confirm item has been returned", confirm_item_return_path(shared_item) %>
     </p>
@@ -126,7 +126,7 @@
             (@shared_item_shown ? show_shared_item_path(shared_item.unique_token) : toggle_comments_path(id: shared_item.id, shared_item: true)),
             remote: true, class: "shared_item_card_link standard_post_link", id: "show_shared_item_comments_#{shared_item.id}" %>
         </td>
-        <% unless own_item? shared_item or shared_item.current_holder %>
+        <% unless own_item? shared_item or shared_item.current_borrower %>
           <td>
             ·
           </td>

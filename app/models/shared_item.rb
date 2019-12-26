@@ -17,12 +17,25 @@ class SharedItem < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
-  def current_holder
-    holder = User.find_by_id holder_id
-    if holder and request_by(holder).accepted
-      return holder
+  # check to see if anyone has borrowed item and who they are
+  def current_borrower
+    borrower = User.find_by_id holder_id
+    if borrower and request_by(borrower).accepted
+      return borrower
     end
     nil # returns nil otherwise
+  end
+
+  # primarily used for filtering
+  def holder
+    _holder = User.find_by_id holder_id
+    if _holder and request_by(_holder).accepted
+      _holder
+    elsif arrangement.eql? 'borrow'
+      'lending_library'
+    else
+      user
+    end
   end
 
   def unaccpeted_requests?

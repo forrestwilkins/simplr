@@ -12,11 +12,11 @@ class SharedItemsController < ApplicationController
   end
 
   def confirm_return
-    holder = @shared_item.current_holder
-    if holder
-      request = @shared_item.request_by(holder)
+    borrower = @shared_item.current_borrower
+    if borrower
+      request = @shared_item.request_by(borrower)
       if request.destroy and @shared_item.update holder_id: nil
-        Note.notify :shared_item_returned, @shared_item, holder, current_user
+        Note.notify :shared_item_returned, @shared_item, borrower, current_user
       end
     end
     redirect_to show_shared_item_path(@shared_item.unique_token)
@@ -30,7 +30,7 @@ class SharedItemsController < ApplicationController
         # if there was any filter input for this field
         if params[field].present?
           # if the filter input matches this field
-          if params[field].eql? shared_item.send(field).to_s
+          if params[field].eql? shared_item.send(field).to_s or (field.eql? :holder_id and params[field].eql? holder_for_filter(shared_item, params[field]))
             # append item unless its already been added
             @shared_items << shared_item unless @shared_items.include? shared_item
           # remove item if any input doesn't match its answer
@@ -135,6 +135,14 @@ class SharedItemsController < ApplicationController
 
   private
 
+  def holder_for_filter shared_item, params_field
+    if shared_item.holder.is_a? User
+      shared_item.holder.id.to_s
+    else
+      shared_item.holder
+    end
+  end
+
   def set_item_library
     @item_library = ItemLibrary.find_by_id params[:id]
   end
@@ -163,11 +171,11 @@ class SharedItemsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def shared_item_params
     params.require(:shared_item).permit(:name, :body, :image, :item_type, :domain, :size, :aka, :arrangement,
-      :holder, :originator, :contact, :address, :in_stock, :video, :item_category_id)
+      :originator, :contact, :address, :in_stock, :video, :item_category_id, :holder_id)
   end
 
   def shared_item_fields
-    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :originator, :contact, :address, :in_stock]
+    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :originator, :contact, :address, :in_stock, :holder_id]
   end
 
   def invite_only

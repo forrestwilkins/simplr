@@ -14,16 +14,16 @@ class ItemLibrary < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   def holder_options
+    # potential holder of lending_library with borrow arrangement and no current holders
     options = [["Holder", nil]]
     holders = []
-    for item in shared_items
-      if item.holder
-        holders << item.holder unless holders.include? item.holder
-      end
+    for shared_item in shared_items
+      holders << shared_item.holder unless holders.include? shared_item.holder
     end
     for holder in holders
-      options << [holder.name, holder.id]
+      options << [holder.name.capitalize, holder.id] if holder.is_a? User
     end
+    options << ["Lending Library", "lending_library"]
     return options
   end
 
