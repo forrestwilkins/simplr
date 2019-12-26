@@ -18,7 +18,7 @@
 <% else %>
   <div class="survey_results_filter_item filter_item_open_ended">
     <%= text_field_tag @selected_filter_field, nil,
-      placeholder: "Filter for '#{(@selected_filter_field.eql?(:body) ? :description : @selected_filter_field).to_s.gsub("_", " ").capitalize}'...",
+      placeholder: "#{(@selected_filter_field.eql?(:body) ? :description : @selected_filter_field).to_s.gsub("_", " ").capitalize}",
       class: "results_filter_text_area" %>
   </div>
 <% end %>
