@@ -16,9 +16,9 @@
     <%= select_tag :holder_id, options_for_select(@item_library.holder_options) %>
   </div>
 <% else %>
-  <div class="survey_results_filter_item filter_item_open_ended">
+  <div class="survey_results_filter_item shared_item_filter_item_open_ended">
     <%= text_field_tag @selected_filter_field, nil,
       placeholder: "#{(@selected_filter_field.eql?(:body) ? :description : @selected_filter_field).to_s.gsub("_", " ").capitalize}",
-      class: "results_filter_text_area" %>
+      class: "shared_item_filter_text_field" %>
   </div>
 <% end %>

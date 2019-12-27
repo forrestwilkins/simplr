@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin add_filter_field_element {
+  float: left;
+}
+
+.add_filter_field_dropdown {
+  @include add_filter_field_element;
+}
+
+.add_filter_field_button {
+  @include add_filter_field_element;
+  margin: 0px 5px 0px 10px;
+}
+
+.shared_item_filter_text_field {
+  background: rgb(250, 250, 250);
+  color: black;
+  border-color: rgb(240, 240, 240);
+}
+
+.shared_item_filter_item_open_ended {
+  
+}
+
 .shared_item_card_fields_container {
   margin-bottom: 15px;
   margin-left: 2.5%;

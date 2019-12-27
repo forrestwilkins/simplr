@@ -1,14 +1,19 @@
 <%= form_tag filter_shared_items_path(id: @item_library.id), method: :get, remote: true, class: :survey_results_filter_form, id: :shared_items_filter_form do |f| %>
 
+<div class="results_filter_form_section">
   <div class="survey_results_filter_item">
-    <%= select_tag :shared_item_field, options_for_select(shared_item_filter_options), id: :shared_item_field_select, class: :shared_item_field_select %>
-
-    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, add_shared_item_filter_field_path(@item_library.id),
-      remote: true, class: "survey_results_filter_item survey_filter_form_link disabled_link", id: :add_filter_field_link %>
+    <div class="add_filter_field_dropdown">
+      <%= select_tag :shared_item_field, options_for_select(shared_item_filter_options), id: :shared_item_field_select, class: :shared_item_field_select %>
+    </div>
+    <div class="add_filter_field_button">
+      <%= link_to '<i class="fa fa-plus"></i>'.html_safe, add_shared_item_filter_field_path(@item_library.id),
+        remote: true, class: "survey_filter_form_link disabled_link", id: :add_filter_field_link %>
+    </div>
     <script>
       <%= render 'shared_items/set_filter_field.js' %>
     </script>
   </div>
+</div>
 
   <div class="results_filter_form_section" id="open_ended_section"></div>
 
