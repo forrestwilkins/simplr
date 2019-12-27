@@ -44,5 +44,7 @@
   </div>
 <% end %>
 
-<%= audio_tag "effects/magic.wav", id: "zen_sound" %>
-<%= audio_tag "effects/bip.mp3", id: "post_interface_sound" %>
+<% if sound_turned_on? %> <!-- turned off sound for now -->
+  <%= audio_tag "effects/magic.wav", id: "zen_sound" %>
+  <%= audio_tag "effects/bip.mp3", id: "post_interface_sound" %>
+<% end %>

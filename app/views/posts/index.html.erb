@@ -13,6 +13,8 @@
   <%= render "posts/feed_loader" %>
 <% end %>
 
-<%= audio_tag "effects/magic.wav", id: "zen_sound" %>
-<%= audio_tag "effects/bip.mp3", id: "post_interface_sound" %>
-<%= audio_tag "interface/interface_9.mp3", id: "more_content_sound" %>
+<% if sound_turned_on? %>
+  <%= audio_tag "effects/magic.wav", id: "zen_sound" %>
+  <%= audio_tag "effects/bip.mp3", id: "post_interface_sound" %>
+  <%= audio_tag "interface/interface_9.mp3", id: "more_content_sound" %>
+<% end %>
