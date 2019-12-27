@@ -5,10 +5,14 @@
 
     <%= link_to '<i class="fa fa-plus"></i>'.html_safe, add_shared_item_filter_field_path(@item_library.id),
       remote: true, class: "survey_results_filter_item survey_filter_form_link disabled_link", id: :add_filter_field_link %>
-    <%= render 'shared_items/set_filter_field.js' %>
+    <script>
+      <%= render 'shared_items/set_filter_field.js' %>
+    </script>
   </div>
 
-  <div class="results_filter_form_section" id="main_filter_form_section"></div>
+  <div class="results_filter_form_section" id="open_ended_section"></div>
+
+  <div class="results_filter_form_section" id="dropdown_section"></div>
 
   <div class="results_filter_form_section">
     <%= link_to '<i class="fa fa-refresh"></i>'.html_safe, reset_shared_items_filter_path(@item_library.id),
