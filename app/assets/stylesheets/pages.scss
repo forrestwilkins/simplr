@@ -33,7 +33,7 @@
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.35);
+  box-shadow: 0 0 5px black;
 }
 
 .circle_menu_rotate {
@@ -55,25 +55,25 @@
 .circle_menu_section_top_left {
   @include circle_menu_section;
   border-top-left-radius: 100%;
-  background: #efffa7;
+  background: black;
 }
 
 .circle_menu_section_top_right {
   @include circle_menu_section;
   border-top-right-radius: 100%;
-  background: #a7efff;
+  background: rgb(190, 0, 0);
 }
 
 .circle_menu_section_bottom_left {
   @include circle_menu_section;
   border-bottom-left-radius: 100%;
-  background: #a7efff;
+  background: rgb(190, 0, 0);
 }
 
 .circle_menu_section_bottom_right {
   @include circle_menu_section;
   border-bottom-right-radius: 100%;
-  background: #efffa7;
+  background: black;
 }
 
 .circle_top_left_shift {

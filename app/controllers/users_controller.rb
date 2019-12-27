@@ -112,6 +112,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @showing_user_profile = true
     if @user
       show_user_thingy_to_run
     end

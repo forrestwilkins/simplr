@@ -1,4 +1,4 @@
-<div class="card" id="user_profile_card_<%= user.id %>">
+<div class="card take_survey_card_border" id="user_profile_card_<%= user.id %>">
   <%= link_to '<i class="fa fa-archive"></i>'.html_safe, floating_images_path(user.unique_token), class: :bottom_left_link %>
 
   <% if dev? and user.last_active_at.present? %>
