@@ -19,8 +19,8 @@
   bottom: 0px;
   left: 0px;
   padding: 5px 5px;
-  background: black;
-  color: white;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.35);
   font-size: 10px;
   z-index: 5;
 }
@@ -34,8 +34,7 @@
 
 .scrolling_avatar_name {
   float: left;
-  background: black;
-  color: white;
+  background: white;
   height: 100%;
 }
 
