@@ -1,8 +1,9 @@
 class PortalsController < ApplicationController
   before_action :invite_only, except: [:show, :enter, :to_anrcho]
-  before_action :dev_only, only: [:index, :destroy, :destroy_all, :update, :disseminator]
+  before_action :dev_only, only: [:index, :destroy, :update, :disseminator]
   before_action :set_portal, only: [:copy_link, :edit, :show, :update, :destroy]
   before_action :set_portal_securely, only: [:enter, :to_anrcho]
+  before_action :dev_or_admin_only, only: [:destroy_all]
 
   # enables secure transition from maya to anrcho
   def to_anrcho
@@ -146,15 +147,15 @@ class PortalsController < ApplicationController
     if @was_a_cluster
       redirect_to dev_panel_path
     else
-      redirect_to (raleigh_dsa? ? dsa_admin_path : :back)
+      redirect_to dsa_admin_path
     end
   end
 
   def destroy_all
-    Portal.loners.send(raleigh_dsa? ? :to_dsa : :all).each do |portal|
+    Portal.loners.each do |portal|
       portal.destroy
     end
-    redirect_to :back
+    redirect_to dsa_admin_path
   end
 
   private
