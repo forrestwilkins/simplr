@@ -70,8 +70,7 @@ class SharedItem < ApplicationRecord
 
   def gen_unique_token
     begin
-      self.unique_token = $name_generator.next_name[0..5].downcase
-      self.unique_token << "_" + SecureRandom.urlsafe_base64
-    end while Survey.exists? unique_token: self.unique_token
+      self.unique_token = name_generator
+    end while SharedItem.exists? unique_token: self.unique_token
   end
 end

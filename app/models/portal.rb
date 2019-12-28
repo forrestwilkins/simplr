@@ -44,6 +44,12 @@ class Portal < ActiveRecord::Base
 
   private
 
+  def gen_unique_token
+    begin
+      self.unique_token = name_generator
+    end while Portal.exists? unique_token: self.unique_token
+  end
+
   def close_if_used_up
     destroy if remaining_uses.zero?
   end
@@ -60,14 +66,5 @@ class Portal < ActiveRecord::Base
   def initialize_portal
     self.expires_at ||= Portal.expiration_date
     self.remaining_uses ||= DEFAULT_REMAINING_USES
-  end
-
-  def gen_unique_token
-    self.unique_token = $name_generator.next_name[0..5].downcase
-    if self.cluster
-      self.unique_token << "_" + SecureRandom.urlsafe_base64
-    else
-      self.unique_token << "_" + SecureRandom.urlsafe_base64.split('').sample(2).join.downcase.gsub("_", "").gsub("-", "")
-    end
   end
 end

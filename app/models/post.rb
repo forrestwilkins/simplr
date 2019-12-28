@@ -221,8 +221,7 @@ class Post < ActiveRecord::Base
 
   def gen_unique_token
     begin
-      self.unique_token = $name_generator.next_name[0..5].downcase
-      self.unique_token << "_" + SecureRandom.urlsafe_base64.split('').sample(2).join.downcase.gsub("_", "").gsub("-", "")
+      self.unique_token = name_generator
     end while Post.exists? unique_token: self.unique_token
   end
 

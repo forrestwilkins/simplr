@@ -43,7 +43,9 @@ gem 'font-awesome-sass', '~> 4.0'
 #gem 'bootstrap-sass'
 
 # name generation
-gem 'name-generator'
+gem 'random_name_generator' # includes roman and fantasy names
+gem 'bazaar' # uses adjectives and names for landmarks or other items found in nature
+gem 'forgery'
 
 # passphrase generation
 gem 'phonetic_alphabet'
