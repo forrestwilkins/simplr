@@ -1,4 +1,12 @@
 module SurveyQuestionsHelper
+  def survey_question_filter_options
+    options = [['Choose a question to filter by', nil]]
+    for question in @survey.questions
+      options << [snip_survey_txt(question.body.squish), question.id]
+    end
+    options
+  end
+
   def survey_question_read_more_link question, read_more=nil
     link_to "Read more", survey_question_read_more_path(question.id), remote: true, class: "survey_interactive_link" \
       if question.body.to_s.size > 50 and not read_more

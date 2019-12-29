@@ -38,9 +38,9 @@
       </p>
       <%= render "app/link_sound.js", link_id: :add_another_question_link, sound: :post_interface_sound %>
     <% else %>
-      <% i=1; for question in @survey.questions %>
-        <p id="question_<%= question.id %>" align="left">
-          <%= i.to_s + ": #{question.body} · " %>
+      <% for question in @survey.questions %>
+        <p id="question_<%= question.get_num %>" align="left">
+          <%= question.get_num.to_s + ": #{question.body} · " %>
 
           <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_survey_question_path(question) %>
 
@@ -59,7 +59,7 @@
             <%= render "survey_selections/edit_list", question: question, selections: question.columns, label: "C" %>
           <% end %>
         <% end %>
-      <% i+=1; end %>
+      <% end %>
 
       <div id="survey_questions_anchor"></div>
 

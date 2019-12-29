@@ -1,0 +1,17 @@
+// renders filter field
+$(
+  <% case @question.question_type %>
+  <% when nil, 'open_ended', 'open_ended_paragraph' %>
+    "#open_ended_section"
+  <% else %>
+  <% end %>
+
+).append("<%=j render 'shared_items/filter_field' %>");
+// removes selected filter field from options
+$('.survey_question_field_select option[value="' + "<%= @selected_filter_field.to_s %>" + '"]').toggle();
+// resets select box back to default
+$("#survey_question_field_select").val("");
+// always re disables link after adding field to form
+$("#add_filter_field_link").toggleClass('disabled_link', true);
+
+window.navigator.vibrate(1);

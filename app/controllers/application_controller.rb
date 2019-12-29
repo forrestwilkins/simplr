@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
   end
 
   def audio_state
-    :off
+    :off unless in_dev?
   end
 
   def low_energy?

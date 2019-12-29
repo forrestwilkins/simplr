@@ -1,3 +1,5 @@
-$("#question_<%= @question.id %>").remove();
+$("#question_<%= @question.get_num %>").remove();
 
 window.navigator.vibrate(1);
+
+alert(<%= @question.get_num %>);

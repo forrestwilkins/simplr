@@ -5,6 +5,11 @@ class SurveyQuestionsController < ApplicationController
   before_action :set_question_num, only: [:set_type, :remove]
   before_action :set_survey, only: [:next, :back]
 
+  def add_filter_field
+    @survey = Survey.find_by_id params[:survey_id]
+    @question = SurveyQuestion.find_by_id params[:selected_survey_question_id].to_i
+  end
+
   def next
     if cookies["take_survey_page_num"].present?
       cookies[:take_survey_page_num] = cookies[:take_survey_page_num].to_i + 1

@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'survey_question_read_more/:id', to: 'survey_questions#read_more', as: 'survey_question_read_more'
   get 'survey_questions_next/:id', to: 'survey_questions#next', as: 'survey_questions_next'
   get 'survey_questions_back/:id', to: 'survey_questions#back', as: 'survey_questions_back'
+  get 'add_survey_question_filter_field/:survey_id', to: 'survey_questions#add_filter_field', as: 'add_survey_question_filter_field'
 
   #survey selections
   get 'add_survey_question_selection', to: 'survey_selections#add', as: 'add_survey_question_selection'
