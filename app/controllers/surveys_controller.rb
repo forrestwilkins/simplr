@@ -154,7 +154,6 @@ class SurveysController < ApplicationController
         begin
           @row = @question.survey_selections.create body: params["question_#{question_num}_row_#{row_num}"], row: true
           row_num += 1
-          puts "\n\n\nGOT HERE, question_num: #{question_num}, row_num: #{row_num}\n\n\n"
         end while params["question_#{question_num}_row_#{row_num}"].present?
       end
       # adds other option for selections
