@@ -63,6 +63,7 @@ class SurveyQuestionsController < ApplicationController
 
   def destroy
     @question_id = @question.id
+    @question_num = @question.get_num
     @question.destroy if @question
   end
 
