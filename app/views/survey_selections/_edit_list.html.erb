@@ -32,13 +32,25 @@
 <% s_num+=1; end %>
 
 <% if @editing %>
-  <% cookies["question_#{question.get_num}_selection_num"] = selections.size %>
+  <% if question.grid and label.eql? 'R' %>
+    <% cookies["question_#{question.get_num}_row_num"] = selections.size %>
+    <div id="question_<%= question.get_num %>_row_fields_anchor"></div>
+  <% else %>
+    <% cookies["question_#{question.get_num}_selection_num"] = selections.size %>
+    <div id="question_<%= question.get_num %>_<%= question.question_type %>_fields_anchor"></div>
+  <% end %>
 
-  <div id="question_<%= question.get_num %>_<%= question.question_type %>_fields_anchor"></div>
   <div class="add_selection_edit_links" align="left">
-    <%= link_to '<i class="fa fa-plus"></i> Add another selection'.html_safe,
-      add_survey_question_selection_path(question_num: question.get_num, selection_num: selections.size, type: question.question_type, survey_id: @survey.id, editing: true),
-      remote: true, class: "edit_survey_form_link add_selection_edit_link", id: :add_another_question_link %>
+    <% case label %>
+    <% when "R" %>
+      <%= link_to '<i class="fa fa-plus"></i> Add another row'.html_safe,
+        add_survey_question_row_path(question_num: question.get_num, selection_num: selections.size, type: question.question_type, survey_id: @survey.id, editing: true),
+        remote: true, class: "edit_survey_form_link add_selection_edit_link", id: :add_another_question_link %>
+    <% else %>
+      <%= link_to '<i class="fa fa-plus"></i> Add another selection'.html_safe,
+        add_survey_question_selection_path(question_num: question.get_num, selection_num: selections.size, type: question.question_type, survey_id: @survey.id, editing: true),
+        remote: true, class: "edit_survey_form_link add_selection_edit_link", id: :add_another_question_link %>
+    <% end %>
 
     <% unless question.grid or question.has_other? %>
       <%= middle_dot %>

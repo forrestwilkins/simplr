@@ -47,6 +47,7 @@ class SurveySelectionsController < ApplicationController
 
   def add_row
     cookies["question_#{@question_num}_row_num"] = cookies["question_#{@question_num}_row_num"].to_i + 1
+    @editing = params[:editing].present?
   end
 
   private

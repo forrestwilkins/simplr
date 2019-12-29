@@ -1,6 +1,7 @@
 <% row_num = cookies["question_#{@question_num}_row_num"] %>
 
 <div id="question_<%= @question_num %>_row_<%= row_num %>_field">
+  <%= hidden_field_tag "question_#{@question_num}_editing", true if @editing %>
   <div class="selection_row_label">Row <%= row_num %>
     <%= render 'remove_link', row_num: row_num %>
   </div>

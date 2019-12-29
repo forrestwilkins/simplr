@@ -121,6 +121,8 @@ class SurveysController < ApplicationController
     cookies[:question_num] = @survey.questions.size
   end
 
+  private
+
   def build_survey
     # gets first question changed or added
     question_num = get_first_question_num
@@ -148,10 +150,11 @@ class SurveysController < ApplicationController
           selection_num += 1
         end while params["question_#{question_num}_selection_#{selection_num}"].present?
         # saves survey selections (rows)
-        row_num = 1
+        row_num = get_first_row_num question_num
         begin
           @row = @question.survey_selections.create body: params["question_#{question_num}_row_#{row_num}"], row: true
           row_num += 1
+          puts "\n\n\nGOT HERE, question_num: #{question_num}, row_num: #{row_num}\n\n\n"
         end while params["question_#{question_num}_row_#{row_num}"].present?
       end
       # adds other option for selections
@@ -167,13 +170,13 @@ class SurveysController < ApplicationController
     end while params["question_#{question_num}"].present? or params["question_#{question_num}_editing"].present? or skip_to > 0
   end
 
-  def get_first_question_num _question_num=nil
+  def get_first_question_num question_num=nil
     # gets the next question input if any
-    _question_num ||= 1
-    until params["question_#{_question_num}"].present? or params["question_#{_question_num}_editing"].present? or _question_num > 50
-      _question_num += 1
+    question_num ||= 1
+    until params["question_#{question_num}"].present? or params["question_#{question_num}_editing"].present? or question_num > 50
+      question_num += 1
     end
-    return _question_num
+    return question_num
   end
 
   def get_first_selection_num question_num
@@ -184,7 +187,13 @@ class SurveysController < ApplicationController
     return selection_num
   end
 
-  private
+  def get_first_row_num question_num
+    row_num = 1
+    until params["question_#{question_num}_row_#{row_num}"].present? or row_num > 50
+      row_num += 1
+    end
+    return row_num
+  end
 
   def new_survey
     @survey = Survey.new
