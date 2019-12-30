@@ -130,32 +130,32 @@ group :development do
   #gem 'spring-watcher-listen'
 
   # irb alternative
-  gem 'pry'
+  # gem 'pry'
 
   # redis, non relational db
-  gem 'redis'
-  gem 'redis-namespace'
-  gem 'redis-rails'
-  gem 'redis-rack-cache'
+  # gem 'redis'
+  # gem 'redis-namespace'
+  # gem 'redis-rails'
+  # gem 'redis-rack-cache'
 
   # optimizing
-  gem 'ruby-prof'
+  # gem 'ruby-prof'
   #gem 'rack-mini-profiler', require: false
 
   # debugging
-  gem 'byebug'
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem 'rails_best_practices'
-  gem 'annotate'
+  # gem 'byebug'
+  # gem "better_errors"
+  # gem "binding_of_caller"
+  # gem 'rails_best_practices'
+  # gem 'annotate'
   #gem 'rails-erd'
-  gem 'rubycritic'
-  gem 'rubocop'
+  # gem 'rubycritic'
+  # gem 'rubocop'
   # necessary debugging tools
   gem 'rspec'
 
   # seed data, lorim ipsum and star wars options, and a bunch more https://github.com/stympy/faker
-  gem 'faker'
+  # gem 'faker'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
