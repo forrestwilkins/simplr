@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :update_password,
     :destroy, :load_more_items, :toggle_old_profile_pics, :switch_back_to_old_profile_picture]
   before_action :secure_user, only: [:edit, :update, :destroy, :switch_back_to_old_profile_picture]
-  before_action :dev_only, only: [:index]
+  before_action :dev_or_admin_only, only: [:index]
   before_action :invite_only
 
   def switch_back_to_old_profile_picture
@@ -207,6 +207,10 @@ class UsersController < ApplicationController
 
   def dev_only
     redirect_to '/404' unless dev?
+  end
+
+  def dev_or_admin_only
+    redirect_to '/404' unless dev? or admin?
   end
 
   def secure_user
