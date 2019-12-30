@@ -16,7 +16,7 @@
   <% shared_item_num=0; for shared_item in @shared_items %>
     <div class="stacked_shared_item">
 
-      <div class="shared_item_card_fields_row" align="left">
+      <div class="shared_item_card_fields_row shared_item_index_field_row" align="left">
         <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
           <b>
             Date
@@ -29,7 +29,7 @@
 
       <% for field in shared_item_fields %>
         <% if not shared_item.send(field).blank? %>
-          <div class="shared_item_card_fields_row" align="left">
+          <div class="shared_item_card_fields_row shared_item_index_field_row" align="left">
             <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
               <% if field.eql? :item_category_id %>
                 Category (domain)
@@ -51,7 +51,7 @@
             </div>
           </div>
         <% elsif field.eql? :holder_id %>
-          <div class="shared_item_card_fields_row" align="left">
+          <div class="shared_item_card_fields_row shared_item_index_field_row" align="left">
             <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
               Holder
             </div>
@@ -63,7 +63,7 @@
       <% end %>
 
 
-      <div class="shared_item_card_fields_row" align="left">
+      <div class="shared_item_card_fields_row shared_item_index_field_row" align="left">
         <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
           <%= link_to 'Edit <i class="fa fa-pencil"></i>'.html_safe, edit_shared_item_path(shared_item), class: :stacked_shared_item_edit_link %>
         </div>

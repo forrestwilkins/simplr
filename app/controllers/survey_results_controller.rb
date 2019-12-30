@@ -95,10 +95,12 @@ class SurveyResultsController < ApplicationController
       # sorts by order for question
       results.sort_by do |result|
         answer = result.survey_answers.find_by_question_body(params[:question_body])
-        if answer.survey_question.question_type.eql? "checkbox"
+        if answer and answer.survey_question.question_type.eql? "checkbox"
           eval(answer.body).first
-        else
+        elsif answer
           answer.body
+        else
+          '' # sorts by empty string if no answer yet
         end
       end
     else
