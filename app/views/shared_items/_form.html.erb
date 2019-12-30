@@ -61,9 +61,12 @@
       </p>
     </div>
 
-    <button type="submit" name="commit" class="surveys_form_button">
-      <b><%= @editing ? "Save" : "Create" %> <i class="fa fa-pencil"></i></b>
-    </button>
+    <p>
+      <button type="submit" name="commit" class="surveys_form_button">
+        <b><%= @editing ? "Save" : "Create" %> <i class="fa fa-pencil"></i></b>
+      </button>
+    </p>
+    <br/>
   <% end %>
   <%= render "app/link_sound.js", _class: true, link_id: :interactive_link, sound: :post_interface_sound %>
 </div>
