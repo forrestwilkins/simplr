@@ -7,7 +7,9 @@
 <div class="card" align="center">
   <div class="admin_items_list_container">
     <div class="admin_items_list">
-      <p class="admin_items_label">Users</p>
+      <%= link_to users_path do %>
+        <p class="admin_items_label">Users <i class="fa fa-users"></i></p>
+      <% end %>
       <% for user in @dsa_members %>
         <p>
           <%= link_to show_user_path(user.unique_token) do %>
@@ -19,7 +21,9 @@
       <% end %>
     </div>
     <div class="admin_items_list">
-      <p class="admin_items_label">Portals</p>
+      <%= link_to portals_path do %>
+        <p class="admin_items_label">Portals <i class="fa fa-opera"></i></p>
+      <% end %>
       <% for portal in @portals %>
         <p>
           <%= link_to portal.unique_token, show_portal_path(portal.unique_token) %>,
@@ -28,6 +32,7 @@
           <% if portal.dev or portal.admin %>
             grants: <%= 'dev' if portal.dev %> <%= 'admin' if portal.admin %>
           <% end %>
+          <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_portal_path(portal.unique_token) %>
         </p>
       <% end %>
       <% if @portals.empty? %>
@@ -51,15 +56,4 @@
   </div>
 <% end %>
 
-<div class="card" align="center">
-  <%= link_to "Close all", destroy_all_portals_path, method: :delete,
-      data: { confirm: "Are you sure you want to close every single portal?" }, class: :top_right_link %>
-  <p>
-    Create portals to invite new members
-  </p>
-  <p>
-    Defaults to <%= Portal::DEFAULT_REMAINING_USES %> use(s) and expires in
-      <%= time_ago_in_words(Portal.expiration_date) %>
-  </p>
-  <%= render "connections/portal_link_form" %>
-</div>
+<%= render "admin/portals_form" %>

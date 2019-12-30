@@ -197,6 +197,6 @@ class PortalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def portal_params
-    params.require(:portal).permit(:unique_token)
+    params.require(:portal).permit(:unique_token, :admin, :mod, :dev)
   end
 end

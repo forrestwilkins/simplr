@@ -48,3 +48,11 @@
   <%= render "users/edit_password" %>
   <%= render "danger_area" %>
 <% end %>
+
+<% if !this_user_current? @user and admin? %>
+  <div class="card" align="center">
+    <p>
+      <%= link_to 'Back to admin <i class="fa fa-cog"></i>'.html_safe, dsa_admin_path %>
+    </p>
+  </div>
+<% end %>

@@ -13,25 +13,18 @@
   <div align="center">
     <%= link_to show_portal_path(portal.unique_token) do %>
       <p>
-        Portal <%= portal.unique_token %>
+        Portal <%= portal.unique_token %> <i class="fa fa-opera"></i>
       </p>
     <% end %>
 
     <%= render "portals/qr_code", portal: portal %>
 
-    <% if portal._cluster %>
-      <%= link_to show_cluster_path(portal._cluster.unique_token) do %>
-        <p>
-          <b><%= "Belongs to Cluster #{portal._cluster.unique_token}" %></b>
-        </p>
+    <p>
+      <%= portal.remaining_uses %> remaining use(s),
+      expires in <%= time_ago_in_words(portal.expires_at) + (portal.dev or portal.admin ? ',' : '') %>
+      <% if portal.dev or portal.admin %>
+        grants: <%= 'dev' if portal.dev %> <%= 'admin' if portal.admin %>
       <% end %>
-    <% end %>
-
-    <p>
-      <%= portal.remaining_uses %> remaining uses
-    </p>
-    <p>
-      Expires in <%= time_ago_in_words portal.expires_at %>
     </p>
 
     <b id="invite_link_label"><%= link_to "Portal link - Copy and share:",
