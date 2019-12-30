@@ -6,6 +6,10 @@ class SharedItemsController < ApplicationController
 
   before_action :secure_shared_item, only: [:update, :destroy, :edit]
 
+  def remove_filter_field
+    @field = params[:field]
+  end
+
   def add_filter_field
     @item_library = ItemLibrary.find_by_id params[:item_library_id]
     @selected_filter_field = params[:selected_filter_field].to_sym

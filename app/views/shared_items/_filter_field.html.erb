@@ -1,22 +1,32 @@
 <% case @selected_filter_field %>
 <% when :item_category_id %>
-  <div class="survey_results_filter_item">
+  <div class="survey_results_filter_item filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),
+      remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= select_tag :item_category_id, options_for_select(@item_library.category_options) %>
   </div>
 <% when :arrangement %>
-  <div class="survey_results_filter_item">
+  <div class="survey_results_filter_item filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),
+      remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= select_tag :arrangement, options_for_select(ItemLibrary.arrangement_options) %>
   </div>
 <% when :in_stock %>
-  <div class="survey_results_filter_item">
+  <div class="survey_results_filter_item filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),
+      remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= select_tag :in_stock, options_for_select(ItemLibrary.in_stock_options) %>
   </div>
 <% when :holder_id %>
-  <div class="survey_results_filter_item">
+  <div class="survey_results_filter_item filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),
+      remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= select_tag :holder_id, options_for_select(@item_library.holder_options) %>
   </div>
 <% else %>
-  <div class="survey_results_filter_item shared_item_filter_item_open_ended">
+  <div class="survey_results_filter_item shared_item_filter_item_open_ended filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),
+      remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= text_field_tag @selected_filter_field, nil,
       placeholder: "#{(@selected_filter_field.eql?(:body) ? :description : @selected_filter_field).to_s.gsub("_", " ").capitalize}",
       class: "shared_item_filter_text_field" %>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'hide_shared_item_form_card', to: 'shared_items#hide_form_card', as: 'hide_shared_item_form_card'
   get 'confirm_item_return/:id', to: 'shared_items#confirm_return', as: 'confirm_item_return'
   get 'add_shared_item_filter_field/:item_library_id', to: 'shared_items#add_filter_field', as: 'add_shared_item_filter_field'
+  get 'remove_shared_item_filter_field/:field', to: 'shared_items#remove_filter_field', as: 'remove_shared_item_filter_field'
 
   # surveys
   get 'take_survey/:token', to: 'surveys#take', as: 'take_survey'
