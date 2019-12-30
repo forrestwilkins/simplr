@@ -26,7 +26,7 @@
 
   <%= link_to fa_icon("calendar", "Activist Calendar"), non_link, class: :standard_nav_menu_link, id: :power_nav_menu_link %>
 
-  <%= link_to fa_icon("check-square-o", "Surveys"), surveys_path, class: :standard_nav_menu_link, id: :power_nav_menu_link if admin? %>
+  <%= link_to fa_icon("check-square-o", "Surveys"), surveys_path, class: :standard_nav_menu_link, id: :power_nav_menu_link %>
 
   <%= link_to fa_icon("cog", "Settings"), settings_dropdown_path, remote: true,
     id: :settings_nav_link, class: "standard_nav_menu_link settings_nav_link" %>
