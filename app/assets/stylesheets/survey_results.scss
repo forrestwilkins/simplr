@@ -89,6 +89,18 @@
   background: rgb(240, 240, 240);
 }
 
+.filter_item_padding {
+  padding-top: 15px;
+}
+
+.remove_filter_item_link {
+  position: absolute;
+  top: 0px;
+  right: 2px;
+  font-size: 11px;
+  color: rgb(80, 80, 80);
+}
+
 .results_filter_form_section {
   overflow: hidden;
   width: 100%;

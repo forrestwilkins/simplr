@@ -117,11 +117,7 @@ class SurveyResultsController < ApplicationController
     @read_more = true
   end
 
-  def show_grid_filter
-    @question = SurveyQuestion.find_by_id params[:question_id]
-  end
-
-  def remove_grid_filter
+  def remove_filter_field
     @question = SurveyQuestion.find_by_id params[:id]
   end
 

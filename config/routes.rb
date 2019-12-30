@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   get 'filter_survey_results', to: 'survey_results#filter_by', as: 'filter_survey_results'
   get 'reset_results_filter/:id', to: 'survey_results#reset_filter', as: 'reset_results_filter'
   get 'sort_results_by', to: 'survey_results#sort_by', as: 'sort_results_by'
+  get 'remove_results_filter_field/:id', to: 'survey_results#remove_filter_field', as: 'remove_results_filter_field'
 
   # groups
   get 'my_anon_groups', to: 'groups#my_anon_groups', as: 'my_anon_groups'
