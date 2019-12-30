@@ -94,6 +94,6 @@ class SurveyQuestion < ApplicationRecord
   private
 
   def defaults_to_open_ended
-    question_type ||= 'open_ended'
+    self.question_type = 'open_ended' if self.question_type.blank?
   end
 end

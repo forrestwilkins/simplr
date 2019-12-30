@@ -1,0 +1,22 @@
+<% case survey_question_section_type @question %>
+<% when :open_ended %>
+  <div class="survey_results_filter_item filter_item_open_ended">
+    <%= text_field_tag @question.body.squish, nil, placeholder: "Filter for '#{@question.body}'...", class: "results_filter_text_area" %>
+  </div>
+<% when :checkbox %>
+  <div class="survey_results_filter_item filter_item_checkbox">
+    <b><%= snip_survey_txt @question.body %>:</b>
+    <% for selection in @question.survey_selections %>
+      <% if selection.body.present? %>
+        <%= check_box_tag "question_#{@question.id}_#{selection.body}", true %>
+        <%= snip_survey_txt (selection.other ? "Other..." : selection.body) %>
+      <% end %>
+    <% end %>
+  </div>
+<% when :radio_button %>
+  <div class="survey_results_filter_item">
+    <%= select_tag @question.body.squish, options_for_select(@question.radio_button_options) %>
+  </div>
+<% when :grid %>
+  <%= render 'survey_results/grid_question_filter', question: @question %>
+<% end %>

@@ -1,4 +1,17 @@
 module SurveyQuestionsHelper
+  def survey_question_section_type question
+    if question.grid
+      :grid
+    else
+      case question.question_type.to_sym
+      when :open_ended, :open_ended_paragraph
+        :open_ended
+      else
+        question.question_type.to_sym
+      end
+    end
+  end
+
   def survey_question_filter_options
     options = [['Choose a question to filter by', nil]]
     for question in @survey.questions
