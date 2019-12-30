@@ -7,20 +7,19 @@
 <div class="card" align="center">
   <div class="admin_items_list_container">
     <div class="admin_items_list">
-      <p>
-        <b>Users</b>
-      </p>
+      <p class="admin_items_label">Users</p>
       <% for user in @dsa_members %>
         <p>
-          <%= user.name %>
-          <%= user.dev ? " (dev)" : (user.admin ? " (admin)" : '') %>
+          <%= link_to show_user_path(user.unique_token) do %>
+            <%= user.name %>
+            <%= user.dev ? " (dev)" : (user.admin ? " (admin)" : '') %>
+          <% end %>
+          <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_path(user) %>
         </p>
       <% end %>
     </div>
     <div class="admin_items_list">
-      <p>
-        <b>Portals</b>
-      </p>
+      <p class="admin_items_label">Portals</p>
       <% for portal in @portals %>
         <p>
           <%= link_to portal.unique_token, show_portal_path(portal.unique_token) %>,

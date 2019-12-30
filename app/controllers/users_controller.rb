@@ -122,6 +122,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # still need to ensure user has correct permissions in order to update dev, admin, mod
     if @user.update(user_params.except(:image))
       @user.pictures.create image: params[:user][:image]
       Tag.extract @user
@@ -209,7 +210,7 @@ class UsersController < ApplicationController
   end
 
   def secure_user
-    set_user; redirect_to '/404' unless current_user.eql? @user or dev?
+    set_user; redirect_to '/404' unless current_user.eql? @user or dev? or admin?
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -231,6 +232,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :email, :image, :body, :title, :password, :password_confirmation, :featured)
+    params.require(:user).permit(:name, :email, :image, :body, :title, :password, :password_confirmation, :featured, :admin, :mod, :dev)
   end
 end
