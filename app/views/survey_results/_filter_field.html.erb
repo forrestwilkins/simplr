@@ -1,7 +1,7 @@
 <% case survey_question_section_type @question %>
 <% when :open_ended %>
   <div class="survey_results_filter_item filter_item_open_ended">
-    <%= text_field_tag @question.body.squish, nil, placeholder: "Filter for '#{@question.body}'...", class: "results_filter_text_area" %>
+    <%= text_field_tag @question.body.squish, nil, placeholder: @question.body.squish, class: "results_filter_text_area" %>
   </div>
 <% when :checkbox %>
   <div class="survey_results_filter_item filter_item_checkbox">
