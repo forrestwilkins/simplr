@@ -13,7 +13,7 @@
     </tr>
   </table>
 
-  <% result_num=1; for result in @results %>
+  <% result_num=0; for result in @results %>
     <div class="stacked_result" id="stacked_result_<%= result.id %>">
       <div class="stacked_result_questions_container">
         <div class="stacked_result_question <%= 'stacked_result_question_even' if result_num.even? %>">
