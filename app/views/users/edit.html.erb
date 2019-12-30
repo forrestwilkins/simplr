@@ -44,6 +44,7 @@
   <% end %>
 </div>
 
-<%= render "users/edit_password" %>
-
-<%= render "danger_area" %>
+<% if this_user_current? @user or dev? %>
+  <%= render "users/edit_password" %>
+  <%= render "danger_area" %>
+<% end %>
