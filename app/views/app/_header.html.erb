@@ -1,4 +1,4 @@
-<% if @you_are_home or @taking_survey or @showing_user_profile %>
+<% if @you_are_home or @taking_survey or @showing_user_profile or @showing_admin_panel %>
   <div class="take_survey_banner" align="center">
     <%= image_tag "dsa/banner_img.png", class: :take_survey_banner_img %>
     <div class="take_survey_color_bands color_band_blur" id="color_bands">
@@ -11,7 +11,7 @@
 <% end %>
 
 <% unless @arts or @taking_survey %>
-  <% unless @you_are_home or @showing_user_profile %>
+  <% unless @you_are_home or @showing_user_profile or @showing_admin_panel %>
     <div class="vertical_spacer"></div>
   <% end %>
 

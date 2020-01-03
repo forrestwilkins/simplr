@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   before_action :dev_only, only: [:dev_panel]
 
   def index
+    @showing_admin_panel = true
     @portals = Portal.all
     @dsa_members = User.all
     if params[:portal_token]
