@@ -24,9 +24,11 @@
     Total items: <%= item_library.shared_items.size %>
   </p>
 
-  <p>
-    <%= link_to "Total categories: #{item_library.categories.size}", item_categories_path %>
-  </p>
+  <% if in_dev? %>
+    <p>
+      <%= link_to "Total categories: #{item_library.categories.size}", item_categories_path %>
+    </p>
+  <% end %>
 
   <%= link_to item_library_filter_and_sort_index_path do %>
     <p>
