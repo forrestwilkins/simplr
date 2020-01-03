@@ -59,9 +59,6 @@ class SearchController < ApplicationController
             break if match
           end
         end
-        if item.respond_to? :item_category_id
-
-        end
         # a case for keywords used
         case @query
         when "posts", "Posts"
