@@ -12,11 +12,11 @@
   <% end %>
 </div>
 
-<% for item_category in @item_libraries %>
+<% for item_category in @item_categories %>
   <%= render "item_categories/card", item_category: item_category %>
 <% end %>
 
-<% if @item_libraries.empty? %>
+<% if @item_categories.empty? %>
   <div class="card" align="center">
     <p>
       You haven't created any item libraries yet.

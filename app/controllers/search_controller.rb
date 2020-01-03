@@ -59,6 +59,9 @@ class SearchController < ApplicationController
             break if match
           end
         end
+        if item.respond_to? :item_category_id
+
+        end
         # a case for keywords used
         case @query
         when "posts", "Posts"
@@ -102,9 +105,14 @@ class SearchController < ApplicationController
   end
 
   def scan_item_fields item, query, match=false
-    [:body, :name, :anon_token, :unique_token, :action, :item_type, :size, :aka, :contact, :region, :arrangement].each do |sym|
+    [:body, :name, :anon_token, :unique_token, :action, :item_type, :size, :aka, :contact, :region, :arrangement, :item_category_id].each do |sym|
       if item.respond_to? sym and item.send(sym).present?
-        match = true if scan item.send(sym), query
+        if sym.eql? :item_category_id and item.category.present?
+          # accounts for shared items category (domain), finds category and scans its name
+          match = true if sym.eql? :item_category_id and item.category.present? and scan item.category, query
+        else
+          match = true if scan item.send(sym), query
+        end
       end
     end
     return match

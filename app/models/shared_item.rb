@@ -17,6 +17,14 @@ class SharedItem < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
+  def category
+    item_category = ItemCategory.find_by_id item_category_id
+    if item_category
+      return item_category.name
+    end
+    nil
+  end
+
   # check to see if anyone has borrowed item and who they are
   def current_borrower
     borrower = User.find_by_id holder_id

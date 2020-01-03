@@ -13,7 +13,7 @@ class ItemCategoriesController < ApplicationController
   end
 
   def index
-    @item_libraries = ItemCategory.all
+    @item_categories = ItemCategory.all
   end
 
   def create

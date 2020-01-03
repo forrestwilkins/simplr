@@ -13,6 +13,10 @@ class ItemLibrary < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  def categories
+    item_categories
+  end
+
   def holder_options
     # potential holder of lending_library with borrow arrangement and no current holders
     options = [["Holder", nil]]
