@@ -23,7 +23,7 @@
       <%= f.text_area :body, placeholder: "Description", class: :surveys_text_area %>
     </p>
 
-    <% for field in [:item_type, :size, :aka, :originator, :contact, :address] %>
+    <% for field in [:item_type, :size, :aka, :contact, :region] %>
       <p>
         <%= f.text_field field, placeholder: field.to_s.gsub("_", " ").capitalize, class: :surveys_text_field %>
       </p>

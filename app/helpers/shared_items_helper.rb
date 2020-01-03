@@ -26,6 +26,6 @@ module SharedItemsHelper
   end
 
   def shared_item_fields
-    [:name, :body, :item_category_id, :arrangement, :item_type, :size, :aka, :originator, :contact, :address, :in_stock, :holder_id]
+    [:name, :body, :item_category_id, :arrangement, :item_type, :size, :aka, :contact, :region, :in_stock, :holder_id]
   end
 end

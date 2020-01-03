@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_000216) do
+ActiveRecord::Schema.define(version: 2020_01_03_163620) do
 
   create_table "arts", force: :cascade do |t|
     t.integer "user_id"
@@ -282,9 +282,8 @@ ActiveRecord::Schema.define(version: 2019_12_30_000216) do
     t.string "size"
     t.string "aka"
     t.string "arrangement"
-    t.string "originator"
     t.string "contact"
-    t.string "address"
+    t.string "region"
     t.string "in_stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
