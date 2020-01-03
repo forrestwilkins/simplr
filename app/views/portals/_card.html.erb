@@ -27,6 +27,10 @@
       <% end %>
     </p>
 
+    <p>
+      Created by <%= portal.user.name.capitalize %>
+    </p>
+
     <b id="invite_link_label"><%= link_to "Portal link - Copy and share:",
       copy_portal_link_path(portal.unique_token), remote: true, id: :copy_invite_link %></b>
     <div align="center">
