@@ -16,12 +16,6 @@ class User < ActiveRecord::Base
   has_many :portals
   has_many :groups
 
-  # ecommerce associations
-  # has_many :orders
-  # has_many :products, dependent: :destroy
-  # has_one :wish_list, dependent: :destroy
-  # has_one :cart, dependent: :destroy
-
   validates_uniqueness_of :name
   validates_presence_of :name, length: { minimum: 3 }
   validates_presence_of :password, length: { minimum: 4 }

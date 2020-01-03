@@ -52,6 +52,13 @@ class SearchController < ApplicationController
             break if match
           end
         end
+        # scans comments of current item
+        if item.respond_to? :questions
+          item.questions.each do |question|
+            match = true if scan_text question, @query
+            break if match
+          end
+        end
         # a case for keywords used
         case @query
         when "posts", "Posts"
@@ -84,15 +91,20 @@ class SearchController < ApplicationController
 
   # scans specific peices of text for match
   def scan_text item, query, match=false
-    [:body, :name, :anon_token, :unique_token, :action, :item_type, :size, :aka, :contact, :region, :arrangement].each do |sym|
-      if item.respond_to? sym and item.send(sym).present?
-        match = true if scan item.send(sym), query
-      end
-    end
+    match = true if scan_item_fields item, query, match
     # show all content of a group/user when searched by group/user name
     [:user, :group].each do |sym|
       if item.respond_to? sym and item.send(sym)
-        match = true if scan item.send(sym).name, query
+        match = true if scan_item_fields item, query
+      end
+    end
+    return match
+  end
+
+  def scan_item_fields item, query, match=false
+    [:body, :name, :anon_token, :unique_token, :action, :item_type, :size, :aka, :contact, :region, :arrangement].each do |sym|
+      if item.respond_to? sym and item.send(sym).present?
+        match = true if scan item.send(sym), query
       end
     end
     return match
@@ -120,7 +132,7 @@ class SearchController < ApplicationController
   end
 
   def secure_search
-    unless invited? or anrcho?
+    unless invited? or anrcho? or raleigh_dsa?
       redirect_to invite_only_path
     end
   end
