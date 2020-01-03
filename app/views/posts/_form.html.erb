@@ -75,5 +75,5 @@
   <% end %>
 
   <%= link_to 'Share an item <i class="fa fa-book"></i>'.html_safe, show_shared_item_form_path(ItemLibrary.first.id, from_home: true),
-    remote: true, class: "interactive_link bottom_left_link" %>
+    remote: true, class: "interactive_link bottom_left_link", id: :show_shared_item_form_link %>
 </div>

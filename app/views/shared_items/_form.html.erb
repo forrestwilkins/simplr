@@ -1,6 +1,6 @@
 <div class="card" id="shared_item_form_card" align="center">
   <%= link_to '<i class="fa fa-times"></i>'.html_safe, hide_shared_item_form_card_path,
-    remote: true, class: "interactive_link top_right_link" if @from_home %>
+    remote: true, class: "interactive_link top_right_link", id: :hide_shared_item_form_card_link if @from_home %>
   <%= form_for(@shared_item) do |f| %>
     <%= hidden_field_tag :item_library_id, @item_library.id if @item_library %>
     <%= hidden_field_tag :from_home, true if @from_home %>
