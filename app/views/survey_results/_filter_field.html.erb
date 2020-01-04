@@ -7,17 +7,17 @@
   </div>
 
   <script>
-    var input = $("#survey_question_<%= @question.id %>_text_field");
+    var input_<%= @question.id %> = $("#survey_question_<%= @question.id %>_text_field");
 
-    input.focus(function() {
+    input_<%= @question.id %>.focus(function() {
       input.toggleClass('filter_field_focused', true);
     });
 
-    input.blur(function() {
-      input.toggleClass('filter_field_focused', false);
+    input_<%= @question.id %>.blur(function() {
+      input_<%= @question.id %>.toggleClass('filter_field_focused', false);
     });
 
-    input.focus();
+    input_<%= @selected_filter_field %>.focus();
   </script>
 <% when :checkbox %>
   <div class="survey_results_filter_item filter_item_checkbox filter_item_padding" id="survey_question_<%= @question.id %>_filter_field">

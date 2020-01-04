@@ -33,16 +33,16 @@
   </div>
 
   <script>
-    var input = $("#shared_item_filter_text_field_<%= @selected_filter_field %>");
+    var input_<%= @selected_filter_field %> = $("#shared_item_filter_text_field_<%= @selected_filter_field %>");
 
-    input.focus(function() {
-      input.toggleClass('filter_field_focused', true);
+    input_<%= @selected_filter_field %>.focus(function() {
+      input_<%= @selected_filter_field %>.toggleClass('filter_field_focused', true);
     });
 
-    input.blur(function() {
-      input.toggleClass('filter_field_focused', false);
+    input_<%= @selected_filter_field %>.blur(function() {
+      input_<%= @selected_filter_field %>.toggleClass('filter_field_focused', false);
     });
 
-    input.focus();
+    input_<%= @selected_filter_field %>.focus();
   </script>
 <% end %>
