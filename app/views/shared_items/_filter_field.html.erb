@@ -29,6 +29,10 @@
       remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= text_field_tag @selected_filter_field, nil,
       placeholder: "#{(@selected_filter_field.eql?(:body) ? :description : @selected_filter_field).to_s.gsub("_", " ").capitalize}",
-      class: "shared_item_filter_text_field" %>
+      class: "shared_item_filter_text_field", id: "shared_item_filter_text_field_#{@selected_filter_field}" %>
   </div>
+
+  <script>
+    $("#shared_item_filter_text_field_<%= @selected_filter_field %>").focus();
+  </script>
 <% end %>
