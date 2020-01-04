@@ -225,6 +225,10 @@ textarea {
   border-color: rgb(10, 10, 10);
 }
 
+.filter_field_focused {
+  border-color: red;
+}
+
 .discrete_title {
   color: gray;
   font-size: 11px;
