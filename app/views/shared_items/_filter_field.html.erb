@@ -17,6 +17,12 @@
       remote: true, class: "remove_filter_item_link survey_form_link" %>
     <%= select_tag :in_stock, options_for_select(ItemLibrary.in_stock_options) %>
   </div>
+<% when :days_to_borrow %>
+  <div class="survey_results_filter_item filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),
+      remote: true, class: "remove_filter_item_link survey_form_link" %>
+    <%= select_tag :days_to_borrow, options_for_select(days_to_borrow_options :filter_field) %>
+  </div>
 <% when :holder_id %>
   <div class="survey_results_filter_item filter_item_padding" id="filter_field_item_of_<%= @selected_filter_field.to_s %>">
     <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_shared_item_filter_field_path(@selected_filter_field),

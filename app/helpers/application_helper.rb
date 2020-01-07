@@ -73,7 +73,7 @@ module ApplicationHelper
     return token.gsub(/[^0-9a-z]/i, '')
   end
 
-  def time_ago(_time_ago)
+  def time_ago _time_ago
     _time_ago = _time_ago + " ago"
     if _time_ago.include? "about"
     	_time_ago.slice! "about "

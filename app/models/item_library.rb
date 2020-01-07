@@ -50,8 +50,7 @@ class ItemLibrary < ApplicationRecord
   def self.in_stock_options
     options = [["In stock", nil],
       ["Yes", "yes"],
-      ["No", "no"],
-      ["Wish list", "wish_list"]]
+      ["No", "no"]]
     return options
   end
 

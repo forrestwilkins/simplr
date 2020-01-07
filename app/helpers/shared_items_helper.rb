@@ -1,4 +1,23 @@
 module SharedItemsHelper
+  def shared_item_sort_by_field_label field
+    case field
+    when :item_category_id
+      :category
+    when :holder_id
+      :holder
+    when :days_to_borrow
+      :max_duration_of_use
+    else
+      field
+    end
+  end
+
+  def shared_item_max_duration_time shared_item
+    time = time_ago_in_words shared_item.days_to_borrow.days.from_now.to_datetime
+    time.slice! "about "
+    time
+  end
+
   def shared_item_in_stock shared_item
     if shared_item.current_borrower
       if shared_item.current_borrow_expires_at > DateTime.current
@@ -11,8 +30,9 @@ module SharedItemsHelper
     end
   end
 
-  def days_to_borrow_options
-    options = [["Max duration of use (defaults to 1 week)", nil],
+  def days_to_borrow_options filter_field=nil
+    # only shows "defaults to 1 week" outside of filter form
+    options = [["Max duration of use#{' (defaults to 1 week)' unless filter_field}", nil],
       ['1 day', 1],
       ['1 week', 7],
       ['2 weeks', 14],
@@ -37,11 +57,14 @@ module SharedItemsHelper
         'category (domain)'
       when :holder_id
         :holder
+      when :days_to_borrow
+        :max_duration_of_use
       else
         field
       end
       options << [_field.to_s.gsub("_", " ").capitalize, field]
     end
+    options << ['In stock', :in_stock]
     options
   end
 

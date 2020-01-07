@@ -18,6 +18,14 @@ class SharedItem < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
+  def currently_in_stock
+    unless current_borrower
+      'yes'
+    else
+      'no'
+    end
+  end
+
   def current_borrow_expires_at
     if current_borrower
       request = request_by current_borrower

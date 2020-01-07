@@ -74,7 +74,7 @@
             <% if field.eql? :item_category_id %>
               <%= ItemCategory.find(shared_item.send(field)).name %>
             <% elsif field.eql? :days_to_borrow %>
-              <%= time_ago_in_words shared_item.days_to_borrow.days.from_now.to_datetime %>
+              <%= shared_item_max_duration_time shared_item %>
             <% elsif field.eql? :holder_id %>
               <%= User.find(shared_item.send(field)).name %>
             <% else %>

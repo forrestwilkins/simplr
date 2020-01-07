@@ -34,7 +34,9 @@ class SharedItemsController < ApplicationController
         # if there was any filter input for this field
         if params[field].present?
           # if the filter input matches this field
-          if params[field].eql? shared_item.send(field).to_s or (field.eql? :holder_id and params[field].eql? holder_for_filter(shared_item, params[field]))
+          if params[field].eql? shared_item.send(field).to_s \
+            or (field.eql? :holder_id and params[field].eql? holder_for_filter(shared_item, params[field])) \
+            or (field.eql? :in_stock and shared_item.currently_in_stock.eql? params[field]) \
             # append item unless its already been added
             @shared_items << shared_item unless @shared_items.include? shared_item
           # remove item if any input doesn't match its answer
@@ -179,7 +181,7 @@ class SharedItemsController < ApplicationController
   end
 
   def shared_item_fields
-    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :contact, :region, :holder_id]
+    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :contact, :region, :holder_id, :days_to_borrow, :in_stock]
   end
 
   def invite_only
