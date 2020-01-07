@@ -12,17 +12,17 @@ class SharedItem < ApplicationRecord
   accepts_nested_attributes_for :pictures
 
   before_create :gen_unique_token
+  before_create :max_borrow_duration_default
 
   validates_presence_of :name
 
   mount_uploader :video, VideoUploader
 
-  def category
-    item_category = ItemCategory.find_by_id item_category_id
-    if item_category
-      return item_category.name
+  def current_borrow_expires_at
+    if current_borrower
+      request = request_by current_borrower
+      return request.expires_at
     end
-    nil
   end
 
   # check to see if anyone has borrowed item and who they are
@@ -58,6 +58,14 @@ class SharedItem < ApplicationRecord
     item_requests.where(user_id: user.id).present?
   end
 
+  def category
+    item_category = ItemCategory.find_by_id item_category_id
+    if item_category
+      return item_category.name
+    end
+    nil
+  end
+
   def category_options
     options = [["Category (domain)", nil]]
     for category in ItemLibrary.first.item_categories
@@ -75,6 +83,10 @@ class SharedItem < ApplicationRecord
   end
 
   private
+
+  def max_borrow_duration_default
+    self.days_to_borrow = 7 if self.days_to_borrow.blank?
+  end
 
   def gen_unique_token
     begin

@@ -30,15 +30,15 @@
     <% end %>
 
     <p>
+      <%= f.select :days_to_borrow, options_for_select(days_to_borrow_options, @shared_item.days_to_borrow) %>
+    </p>
+
+    <p>
       <%= f.select :item_category_id, options_for_select(@shared_item.category_options, @shared_item.item_category_id) %>
     </p>
 
     <p>
       <%= f.select :arrangement, options_for_select(ItemLibrary.arrangement_options, @shared_item.arrangement) %>
-    </p>
-
-    <p>
-      <%= f.select :in_stock, options_for_select(ItemLibrary.in_stock_options, @shared_item.in_stock) %>
     </p>
 
     <%= link_to add_post_image_path(shared_item: true), remote: true, id: :add_image_icon_link, title: "Attach an image" do %>

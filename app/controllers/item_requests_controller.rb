@@ -15,8 +15,10 @@ class ItemRequestsController < ApplicationController
 
   def update
     @shared_item = @item_request.shared_item
-    if @item_request.update accepted: true
+    # accepts item request and sets expiry for item request or duration of use
+    if @item_request.update accepted: true, expires_at: @shared_item.days_to_borrow.days.from_now.to_datetime
       @shared_item.update holder_id: @item_request.user.id
+      # notifies user that item request was accepted
       Note.notify :shared_item_request_accepted, @shared_item, @item_request.user, current_user
       redirect_to show_shared_item_path @item_request.shared_item.unique_token
     end

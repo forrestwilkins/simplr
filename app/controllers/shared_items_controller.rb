@@ -175,11 +175,11 @@ class SharedItemsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def shared_item_params
     params.require(:shared_item).permit(:name, :body, :image, :item_type, :size, :aka, :arrangement,
-      :contact, :region, :in_stock, :video, :item_category_id, :holder_id)
+      :contact, :region, :video, :item_category_id, :holder_id, :days_to_borrow)
   end
 
   def shared_item_fields
-    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :contact, :region, :in_stock, :holder_id]
+    [:name, :body, :item_type, :item_category_id, :size, :aka, :arrangement, :contact, :region, :holder_id]
   end
 
   def invite_only

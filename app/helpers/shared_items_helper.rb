@@ -1,4 +1,24 @@
 module SharedItemsHelper
+  def shared_item_in_stock shared_item
+    if shared_item.current_borrower
+      if shared_item.current_borrow_expires_at > DateTime.current
+        time_ago_in_words(shared_item.current_borrow_expires_at) + " until available"
+      else
+        "Item not yet returned"
+      end
+    else
+      "Yes"
+    end
+  end
+
+  def days_to_borrow_options
+    options = [["Max duration of use (defaults to 1 week)", nil],
+      ['1 day', 1],
+      ['1 week', 7],
+      ['2 weeks', 14],
+      ['1 month', 30]]
+  end
+
   def display_holder shared_item
     if shared_item.holder.is_a? User
       shared_item.holder.name.capitalize
@@ -22,10 +42,10 @@ module SharedItemsHelper
       end
       options << [_field.to_s.gsub("_", " ").capitalize, field]
     end
-    return options
+    options
   end
 
   def shared_item_fields
-    [:name, :body, :item_category_id, :arrangement, :item_type, :size, :aka, :contact, :region, :in_stock, :holder_id]
+    [:name, :body, :item_category_id, :arrangement, :item_type, :size, :aka, :contact, :region, :holder_id, :days_to_borrow]
   end
 end
