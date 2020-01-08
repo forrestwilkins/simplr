@@ -50,6 +50,14 @@
   margin-bottom: 30px;
 }
 
+.stacked_shared_item:hover {
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.stacked_shared_item:active {
+  border: 1px solid black;
+}
+
 .stacked_shared_item_img {
   width: 15px;
 }
