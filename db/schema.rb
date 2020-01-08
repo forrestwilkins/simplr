@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_153431) do
+ActiveRecord::Schema.define(version: 2020_01_08_144352) do
 
   create_table "arts", force: :cascade do |t|
     t.integer "user_id"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(version: 2020_01_07_153431) do
     t.datetime "updated_at", null: false
     t.boolean "accepted", default: false
     t.datetime "expires_at"
+    t.integer "chosen_days_to_borrow"
+    t.text "body"
   end
 
   create_table "likes", force: :cascade do |t|

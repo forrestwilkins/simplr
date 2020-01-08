@@ -18,6 +18,23 @@ class SharedItem < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
+  # gets options at or less than specified max
+  def days_to_borrow_options
+    options = [["Duration of use (defaults to #{days_to_borrow} day#{days_to_borrow.eql?(1) ? '' : 's'})", days_to_borrow]]
+    durations = [['1 day', 1],
+                ['1 week', 7],
+                ['2 weeks', 14],
+                ['1 month', 30]]
+
+    for duration in durations
+      if duration.last <= days_to_borrow
+        options << duration
+      end
+    end
+
+    return options
+  end
+
   def currently_in_stock
     unless current_borrower
       'yes'

@@ -2,7 +2,7 @@
   <%= link_to "Unrequest", item_request_path(id: shared_item.request_by(current_user), shared_item_id: shared_item.id),
     method: :delete, remote: true, class: "request_item_link standard_post_link", id: "request_item_link_#{shared_item.id}" %>
 <% else %>
-  <%= link_to "Request", item_requests_path(shared_item_id: shared_item.id), method: :post, remote: true, class: "request_item_link standard_post_link",
+  <%= link_to "Request", show_item_request_form_path(shared_item_id: shared_item.id), remote: true, class: "request_item_link standard_post_link",
     id: "request_item_link_#{shared_item.id}" %>
 <% end %>
 

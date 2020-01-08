@@ -1,13 +1,18 @@
 class ItemRequestsController < ApplicationController
   before_action :set_item_request, only: [:update, :destroy]
-  before_action :set_shared_item, only: [:create, :destroy, :index]
+  before_action :set_shared_item, only: [:create, :destroy, :index, :show_form]
+
+  def show_form
+    @item_request = ItemRequest.new
+  end
 
   def index
     @item_requests = @shared_item.item_requests.reverse
   end
 
   def create
-    @item_request = ItemRequest.new user_id: current_user.id, shared_item_id: @shared_item.id
+    @item_request = ItemRequest.new(item_request_params)
+    @item_request.attributes = { user_id: current_user.id, shared_item_id: @shared_item.id }
     if @item_request.save
       Note.notify :shared_item_request, @shared_item, @shared_item.user, current_user unless @shared_item.user.eql? current_user
     end
@@ -30,8 +35,14 @@ class ItemRequestsController < ApplicationController
 
   private
 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_request_params
+    params.require(:item_request).permit(:body, :chosen_days_to_borrow, :shared_item_id)
+  end
+
   def set_shared_item
-    @shared_item = SharedItem.find params[:shared_item_id]
+    @shared_item = SharedItem.find_by_id params[:shared_item_id]
+    @shared_item ||= SharedItem.find_by_id params[:item_request][:shared_item_id]
   end
 
   def set_item_request
