@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'confirm_item_return/:id', to: 'shared_items#confirm_return', as: 'confirm_item_return'
   get 'add_shared_item_filter_field/:item_library_id', to: 'shared_items#add_filter_field', as: 'add_shared_item_filter_field'
   get 'remove_shared_item_filter_field/:field', to: 'shared_items#remove_filter_field', as: 'remove_shared_item_filter_field'
+  get 'show_shared_item_modal/:id', to: 'shared_items#show_modal', as: 'show_shared_item_modal'
 
   # item requests
   get 'show_item_request_form', to: 'item_requests#show_form', as: 'show_item_request_form'

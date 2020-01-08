@@ -1,8 +1,9 @@
 class SharedItemsController < ApplicationController
   before_action :invite_only
-  before_action :set_shared_item, only: [:update, :destroy, :show, :edit, :add_photoset, :confirm_return]
+  before_action :set_shared_item, only: [:update, :destroy, :show, :edit, :add_photoset, :confirm_return, :show_modal]
   before_action :set_item_library, only: [:filter_by, :reset_filter, :sort_by, :add_filter_field, :set_filter_field]
   before_action :new_shared_item, only: [:show_form]
+  before_action :set_comments, only: [:show_modal, :show]
 
   before_action :secure_shared_item, only: [:update, :destroy, :edit]
 
@@ -140,6 +141,11 @@ class SharedItemsController < ApplicationController
   end
 
   private
+
+  def set_comments
+    @comments = @shared_item.comments
+    @comment = Comment.new
+  end
 
   def holder_for_filter shared_item, params_field
     if shared_item.holder.is_a? User

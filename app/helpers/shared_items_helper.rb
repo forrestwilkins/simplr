@@ -71,4 +71,8 @@ module SharedItemsHelper
   def shared_item_fields
     [:name, :body, :item_category_id, :arrangement, :item_type, :size, :aka, :contact, :region, :holder_id, :days_to_borrow]
   end
+
+  def shared_item_fields_summary
+    [:name, :item_category_id, :holder_id, :arrangement]
+  end
 end

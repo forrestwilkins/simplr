@@ -352,6 +352,32 @@ textarea {
   background: white;
 }
 
+.close_modal_link {
+	position: absolute;
+  top: 5px;
+  right: 7.5px;
+  font-size: 20px;
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+//  pointer-events: none;
+  cursor: default;
+}
+
+.post_blurred {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
 // for mobile
 @media screen and (max-width: 975px) {
   .standard_page_header {
