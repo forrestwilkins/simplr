@@ -15,7 +15,7 @@
 
   <% shared_item_num=0; for shared_item in @shared_items %>
     <%= link_to show_shared_item_modal_path(shared_item), remote: true, class: :show_shared_item_modal_link do %>
-      <div class="stacked_shared_item">
+      <div class="stacked_shared_item" id="stacked_shared_item_<%= shared_item.id %>">
         <div class="shared_item_card_fields_row shared_item_index_field_row" align="left">
           <div class="shared_item_card_field <%= 'stacked_result_question_even' if shared_item_num.even? %>">
             <b>
@@ -83,6 +83,9 @@
         </div>
       </div>
     <% end %>
+
+    <%= render "stacked_fade.js", shared_item: shared_item %>
+
   <% shared_item_num += 1; end %>
 
   <%= render "app/link_sound.js", _class: true, link_id: :interactive_link, sound: :post_interface_sound %>
