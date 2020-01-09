@@ -1,6 +1,8 @@
 class SurveyAnswer < ApplicationRecord
   belongs_to :survey_question
 
+  READ_MORE_MIN = 50
+
   def get_body_with_other
     return body if question.grid
     case question.question_type

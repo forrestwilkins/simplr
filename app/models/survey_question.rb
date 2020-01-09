@@ -7,6 +7,9 @@ class SurveyQuestion < ApplicationRecord
 
   before_create :defaults_to_open_ended
 
+  READ_MORE_MIN = 50
+  SUMMARY_MAX = 5
+
   def open_question_type
     case question_type
     when nil, 'open_ended'

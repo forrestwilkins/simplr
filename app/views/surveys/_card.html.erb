@@ -21,7 +21,7 @@
     </p>
   <% end %>
 
-  <% i=1; for question in show_ten_or_all_questions survey %>
+  <% i=1; for question in show_some_or_all_questions survey %>
     <%= render "survey_questions/question_body", survey: survey, question: question %>
 
     <% if @showing %>
@@ -39,10 +39,10 @@
 
   <% i += 1; end %>
 
-  <% if survey.questions.size > 10 and not @showing %>
+  <% if survey.questions.size > SurveyQuestion::SUMMARY_MAX and not @showing %>
     <%= link_to survey do %>
       <p>
-        With <%= survey.questions.size - 10 %> more question(s)
+        With <%= survey.questions.size - SurveyQuestion::SUMMARY_MAX %> more question(s)
       </p>
     <% end %>
   <% end %>

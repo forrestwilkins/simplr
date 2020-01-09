@@ -18,6 +18,8 @@ class Survey < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  READ_MORE_MIN = 50
+
   def score user=nil, get_weights=nil
     1
   end
@@ -78,8 +80,8 @@ class Survey < ApplicationRecord
   end
 
   def self.snip_txt txt, small=nil
-    if txt.present? and txt.size > 50
-      _txt = txt[0..(small ? 25 : 50)]
+    if txt.present? and txt.size > READ_MORE_MIN
+      _txt = txt[0..(small ? 25 : READ_MORE_MIN)]
       _txt[-1] = "" if _txt[-1].eql? " "
       _txt + "..."
     else

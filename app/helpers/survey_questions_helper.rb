@@ -22,12 +22,12 @@ module SurveyQuestionsHelper
 
   def survey_question_read_more_link question, read_more=nil
     link_to "Read more", survey_question_read_more_path(question.id), remote: true, class: "survey_interactive_link" \
-      if question.body.to_s.size > 50 and not read_more
+      if question.body.to_s.size > SurveyQuestion::READ_MORE_MIN and not read_more
   end
 
-  def show_ten_or_all_questions survey
+  def show_some_or_all_questions survey
     unless @showing
-      survey.questions.first 10
+      survey.questions.first SurveyQuestion::SUMMARY_MAX
     else
       survey.questions
     end
