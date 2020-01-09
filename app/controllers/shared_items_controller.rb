@@ -36,7 +36,7 @@ class SharedItemsController < ApplicationController
         if params[field].present?
           # if the filter input matches this field
           if params[field].eql? shared_item.send(field).to_s \
-            or (field.eql? :holder_id and params[field].eql? holder_for_filter(shared_item, params[field])) \
+            or (field.eql? :holder_id and params[field].eql? shared_item_holder(shared_item)) \
             or (field.eql? :in_stock and shared_item.currently_in_stock.eql? params[field]) \
             # append item unless its already been added
             @shared_items << shared_item unless @shared_items.include? shared_item
@@ -67,7 +67,14 @@ class SharedItemsController < ApplicationController
       shared_items = @item_library.shared_items
       # sorts by order for question
       shared_items.sort_by do |shared_item|
-        shared_item.send(params[:field])
+        case params[:field]
+        when 'holder_id'
+          shared_item_holder shared_item
+        when 'in_stock'
+          shared_item.currently_in_stock
+        else
+          shared_item.send params[:field]
+        end
       end
     else
       @item_library.shared_items
@@ -154,7 +161,7 @@ class SharedItemsController < ApplicationController
     @comment = Comment.new
   end
 
-  def holder_for_filter shared_item, params_field
+  def shared_item_holder shared_item
     if shared_item.holder.is_a? User
       shared_item.holder.id.to_s
     else
