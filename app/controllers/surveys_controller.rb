@@ -1,7 +1,8 @@
 class SurveysController < ApplicationController
   before_action :surveys
-  before_action :admin_only, only: [:create, :update, :destroy, :edit]
   before_action :invite_only, except: [:take, :complete, :thank_you]
+  before_action :current_user_only, only: [:create, :update, :destroy, :edit]
+  before_action :secure_survey, only: [:update, :destroy, :edit]
   before_action :new_survey, only: [:index, :new, :show_survey_form]
   before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more, :show_modal]
   before_action :set_question_num, only: [:add_selection, :new_grid, :add_row, :remove_selection_field, :remove_selection_row_field]
@@ -223,6 +224,12 @@ class SurveysController < ApplicationController
     params.require(:survey).permit(:title, :body, :image)
   end
 
+  def secure_survey
+    unless current_user and @survey.user_id.eql? current_user.id or admin?
+      redirect_to root_url
+    end
+  end
+
   def admin_only
     unless admin?
       redirect_to sessions_new_path
@@ -231,6 +238,12 @@ class SurveysController < ApplicationController
 
   def invite_only
     unless invited?
+      redirect_to sessions_new_path
+    end
+  end
+
+  def current_user_only
+    unless current_user
       redirect_to sessions_new_path
     end
   end

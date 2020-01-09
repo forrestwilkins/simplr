@@ -3,32 +3,31 @@
   and not own_item? post) %>
 
   <% unless low_energy? %>
-    <div class="card standard_content_card <%= (post.hidden and (!own_item?(post) or dev?)) ? ' blur' : '' %>"
+    <div class="card standard_content_card <%= show_anon_avatar?(post.user) ? 'card_top_spacer' : '' %> <%= (post.hidden and (!own_item?(post) or dev?)) ? ' blur' : '' %>"
       id="post_card_<%= post.id %>">
 
       <%= render "users/avatar_card_link", user: post.user, token: post.anon_token %>
-      <% if post.original and post.original.user %>
-        <!-- reuses group classes because they fit -->
-        <span class="posted_label">
+
+      <span class="posted_label <%= show_anon_avatar?(post.user) ? '' : 'posted_label_no_profile_pic' %>">
+        <%= link_to post.user.name.capitalize, post.user, class: :posted_link if post.user %>
+        <% if post.original and post.original.user %>
           <% if post.original.user_id.eql? post.user_id %>
             shared a <%= link_to "memory", show_post_path(post.original.unique_token), class: :posted_link %>.
           <% else %>
             shared from <%= link_to post.original.user.name, post.original.user, class: :posted_link,
               title: "Originally posted by #{post.original.user.name}" %>
           <% end %>
-        </span>
-      <% elsif post.original and post.original.anon_token %>
-        <span class="posted_label">
-          shared from <%= link_to "anon", search_path(query: post.original.anon_token), class: :posted_link,
-            title: "Originally posted by #{post.original.anon_token}" %>
-        </span>
-      <% elsif post.group %>
-        <% group_name = if post.group.name.size > 15 then post.group.name[0..9] + "..." else post.group.name end %>
-        <span class="posted_label">
-          posted to <%= link_to group_name, post.group, class: :posted_link,
-            title: "Group (#{post.group.name})" %>
-        </span>
-      <% end %>
+        <% elsif post.original and post.original.anon_token %>
+            shared from <%= link_to "anon", search_path(query: post.original.anon_token), class: :posted_link,
+              title: "Originally posted by #{post.original.anon_token}" %>
+        <% elsif post.group %>
+          <% group_name = if post.group.name.size > 15 then post.group.name[0..9] + "..." else post.group.name end %>
+            posted to <%= link_to group_name, post.group, class: :posted_link,
+              title: "Group (#{post.group.name})" %>
+        <% else %>
+          posted a <%= link_to "status", show_post_path(post.unique_token), class: :posted_link %>
+        <% end %>
+      </span>
 
       <table class="top_right_link">
         <tr>

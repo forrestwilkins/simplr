@@ -55,39 +55,6 @@
   padding-top: 7.5px;
 }
 
-.tier_container {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 12.5px;
-  height: 12.5px;
-  background: black;
-}
-
-.tier_number {
-  padding-top: 1.5px;
-  font-size: 7.5px;
-  color: white;
-}
-
-.progress_bar_progress {
-  background: rgb(0, 255, 0);
-  text-align: center;
-  padding: 10px 0px;
-  color: black;
-}
-
-.progress_bar {
-  background: rgb(255, 0, 0);
-  width: 100%;
-}
-
-.progress_bar_label {
-  padding-left: 1.5px;
-  padding-bottom: 5px;
-  color: rgb(175,175,175);
-}
-
 .user_name_link {
   font-size: 16.5px;
 }
@@ -109,13 +76,14 @@
 
 .user_avatar_link {
 	position: absolute;
-	left: 0px;
-	top: 0px;
+	left: 8.5px;
+	top: 8.5px;
 }
 
 .user_avatar_image {
-  width: 25.5px;
-  height: 23px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .current_token_link {
@@ -128,6 +96,7 @@
 .avatar_container {
 	width: 25px;
 	height: 25px;
+  border-radius: 50%;
 }
 
 .inline_avatar_container {

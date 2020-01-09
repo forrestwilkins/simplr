@@ -1,12 +1,10 @@
-<div class="surveys_card" id="survey_card_<%= survey.id %>" align="center">
-  <div class="survey_card_corner_cut_out"></div>
-  <%= link_to survey, class: "group_avatar_link surveys_image_link" do %>
-    <% if survey.image_url %>
-      <%= image_tag survey.image_url, class: :group_avatar_image %>
-    <% else %>
-      <%= fa_icon "users fa-2x group_placeholder_icon" %>
-    <% end %>
-  <% end %>
+<div class="card <%= show_anon_avatar?(survey.user) ? 'card_top_spacer' : '' %>" id="survey_card_<%= survey.id %>" align="center">
+  <%= render "users/avatar_card_link", user: survey.user %>
+
+  <span class="posted_label <%= show_anon_avatar?(survey.user) ? '' : 'posted_label_no_profile_pic' %>">
+    <%= link_to survey.user.name.capitalize, survey.user, class: :posted_link %>
+    posted a <%= link_to 'survey'.html_safe, survey, class: :posted_link %>
+  </span>
 
   <%= render "app/time_ago", item: survey %>
   <%= link_to "Edit", edit_survey_path(survey), class: "bottom_right_link" if admin? %>

@@ -1,4 +1,8 @@
 module PostsHelper
+  def show_anon_avatar? user
+    profile_picture(user) or user.nil?
+  end
+
   def post_goto_link post, url=nil
     goto_link = (url ? url : root_url).gsub("http", "http#{in_dev? ? '' : 's'}"); goto_link.slice!(-1);
     goto_link << "?goto=post_#{post.id}"

@@ -29,6 +29,8 @@
 $x_right_gap: 5px;
 $x_left_gap: 5px;
 
+$card_top_space: 27.5px;
+
 @mixin card {
   transition: all .4s ease-in-out;
   position: relative;
@@ -104,6 +106,10 @@ textarea {
 .danger_card {
   @include card;
   background: red;
+}
+
+.card_top_spacer {
+  padding-top: $card_top_space;
 }
 
 .top_right_lower_link {
@@ -390,5 +396,8 @@ textarea {
   .card {
     padding: 15px 7.5px;
     width: 92.5%;
+  }
+  .card_top_spacer {
+    padding-top: $card_top_space;
   }
 }

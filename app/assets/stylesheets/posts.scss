@@ -104,9 +104,14 @@
 
 .posted_label {
   position: absolute;
-  top: 5px;
-  left: 40px;
+  top: 16.5px;
+  left: 45px;
   font-size: 11px;
+}
+
+.posted_label_no_profile_pic {
+  top: 5px;
+  left: 29px;
 }
 
 .posted_link {
