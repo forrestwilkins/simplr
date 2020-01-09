@@ -42,7 +42,7 @@
         <% elsif field.eql? :holder_id %>
           <%= display_holder shared_item %>
         <% else %>
-          <%= shared_item.send field %>
+          <%= shared_item.send(field).to_s.gsub("_", " ") %>
         <% end %>
         <%= image_tag shared_item.pictures.first.image, class: :stacked_shared_item_img if shared_item.pictures.present? and field.eql? :name %>
       </div>

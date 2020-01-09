@@ -81,4 +81,8 @@ module SharedItemsHelper
   def shared_item_fields_summary
     [:name, :item_category_id, :holder_id, :arrangement]
   end
+
+  def shared_item_fields_feed_summary
+    [:body, :item_category_id, :arrangement]
+  end
 end

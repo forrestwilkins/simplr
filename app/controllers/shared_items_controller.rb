@@ -159,6 +159,8 @@ class SharedItemsController < ApplicationController
   def set_comments
     @comments = @shared_item.comments
     @comment = Comment.new
+    # this method is only used when showing item on own page or in modal
+    @showing_shared_item = true
   end
 
   def shared_item_holder shared_item

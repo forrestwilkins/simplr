@@ -52,8 +52,8 @@
   </div>
 
   <div class="shared_item_card_fields_container">
-    <% for field in shared_item_fields %>
-      <% if shared_item.send(field).present? %>
+    <% for field in (@showing_shared_item ? shared_item_fields : shared_item_fields_feed_summary) %>
+      <% if !shared_item.send(field).blank? and !field.eql? :name %>
         <div class="shared_item_card_fields_row" align="left">
           <div class="shared_item_card_field">
             <b>
@@ -150,5 +150,21 @@
     </table>
   <% end %>
 
-  <%= render "app/link_sound.js", _class: true, link_id: "shared_item_card_link", sound: :post_interface_sound %>
+  <% unless @showing_shared_item %>
+    <script>
+      function show_shared_item_modal_<%= shared_item.id %>() {
+        var card = $("#shared_item_card_<%= shared_item.id %>");
+
+        card.click(function(e) {
+          if (!$(e.target).closest('a').length) {
+            $.ajax({
+      			  type: "GET",
+      			  url: "/show_shared_item_modal/<%= shared_item.id %>"
+      		  });
+          }
+        });
+      }
+      show_shared_item_modal_<%= shared_item.id %>();
+    </script>
+  <% end %>
 </div>
