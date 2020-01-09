@@ -3,8 +3,12 @@ class SurveysController < ApplicationController
   before_action :admin_only, only: [:create, :update, :destroy, :edit]
   before_action :invite_only, except: [:take, :complete, :thank_you]
   before_action :new_survey, only: [:index, :new, :show_survey_form]
-  before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy]
+  before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more]
   before_action :set_question_num, only: [:add_selection, :new_grid, :add_row, :remove_selection_field, :remove_selection_row_field]
+
+  def read_more
+    @read_more = true
+  end
 
   def complete
     # deletes page number you're at to be ready for next survey

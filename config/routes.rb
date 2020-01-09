@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   post 'complete_survey/:token', to: 'surveys#complete', as: 'complete_survey'
   get 'show_survey_form', to: 'surveys#show_survey_form', as: 'show_survey_form'
   get 'thank_you', to: 'surveys#thank_you', as: 'survey_thank_you'
+  get 'survey_read_more/:id', to: 'surveys#read_more', as: 'survey_read_more'
 
   # survey questions
   get 'set_question_type', to: 'survey_questions#set_type', as: 'set_question_type'

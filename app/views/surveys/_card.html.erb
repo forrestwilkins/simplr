@@ -15,11 +15,7 @@
     <%= link_to survey.title, survey %>
   </p>
 
-  <% if survey.body.present? %>
-    <p class="<%= 'justified_body_text' if survey.body.size > 150 %>">
-      <%= render "app/body", item: survey %>
-    </p>
-  <% end %>
+  <%= render 'surveys/body', survey: survey %>
 
   <% i=1; for question in show_some_or_all_questions survey %>
     <%= render "survey_questions/question_body", survey: survey, question: question %>
