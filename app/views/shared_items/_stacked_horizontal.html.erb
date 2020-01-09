@@ -10,6 +10,8 @@
           <%= ItemCategory.find(shared_item.send(field)).name %>
         <% elsif field.eql? :days_to_borrow %>
           <%= shared_item_max_duration_time shared_item %>
+        <% elsif field.eql? :holder_id %>
+          <%= display_holder shared_item %>
         <% else %>
           <%= shared_item.send field %>
         <% end %>

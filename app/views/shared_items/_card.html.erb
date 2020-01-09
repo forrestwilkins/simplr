@@ -76,7 +76,7 @@
             <% elsif field.eql? :days_to_borrow %>
               <%= shared_item_max_duration_time shared_item %>
             <% elsif field.eql? :holder_id %>
-              <%= User.find(shared_item.send(field)).name %>
+              <%= display_holder shared_item %>
             <% else %>
               <%= shared_item.send(field).to_s.gsub("_", " ") %>
             <% end %>
@@ -90,11 +90,7 @@
             </b>
           </div>
           <div class="shared_item_card_field">
-            <% if shared_item.arrangement.eql? 'borrow' %>
-              Lending Library
-            <% else %>
-              <%= shared_item.user.name.capitalize %>
-            <% end %>
+            <%= display_holder shared_item %>
           </div>
         </div>
       <% end %>
