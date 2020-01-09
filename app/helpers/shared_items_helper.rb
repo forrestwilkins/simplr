@@ -1,6 +1,6 @@
 module SharedItemsHelper
   def shared_item_read_more_link shared_item, field, read_more=nil
-    link_to "Read more", shared_item_read_more_path(shared_item.id, field: field), remote: true \
+    link_to "Read more", shared_item_read_more_path(shared_item.id, field: field), remote: true, class: :stacked_shared_item_edit_link \
       if shared_item.send(field).to_s.size > SharedItem::READ_MORE_MIN and not read_more
   end
 

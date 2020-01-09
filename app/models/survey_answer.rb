@@ -29,6 +29,16 @@ class SurveyAnswer < ApplicationRecord
     survey_question
   end
 
+  def result_txt
+    if survey_question.grid
+      grid_result_txt
+    elsif survey_question.question_type.eql? 'checkbox'
+      eval(body).join(', ')
+    else
+      body
+    end
+  end
+
   def grid_result_txt
     txt = ""
     for row in eval(body)
