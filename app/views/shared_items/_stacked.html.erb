@@ -1,6 +1,6 @@
 <div id="shared_items">
-  <% unless cookies[:stacked_shared_items_set_to_vertical].present? %>
-    <div class="shared_item_card_fields_row">
+  <% unless stacked_vertically? %>
+    <div class="shared_item_card_fields_row shared_item_index_field_row">
       <% for field in [:in_stock, :name, :item_category_id, :holder_id, :arrangement] %>
         <div class="shared_item_card_field shared_item_card_field_horizontal">
           <%= shared_item_sort_by_field_label(field).to_s.gsub("_", " ").capitalize %>
@@ -15,9 +15,9 @@
 
   <% shared_item_num=0; for shared_item in @shared_items %>
     <%= link_to show_shared_item_modal_path(shared_item), remote: true, class: :show_shared_item_modal_link do %>
-      <div class="stacked_shared_item <%= 'stacked_shared_item_horizontal' unless cookies[:stacked_shared_items_set_to_vertical].present? %>"
+      <div class="stacked_shared_item <%= 'stacked_shared_item_horizontal' unless stacked_vertically? %>"
         id="stacked_shared_item_<%= shared_item.id %>">
-        <% if cookies[:stacked_shared_items_layout].eql? "vertical" %>
+        <% if stacked_vertically? %>
           <%= render "shared_items/stacked_vertical", shared_item: shared_item, shared_item_num: shared_item_num %>
         <% else %>
           <%= render "shared_items/stacked_horizontal", shared_item: shared_item, shared_item_num: shared_item_num %>

@@ -46,10 +46,6 @@
   text-align: left;
 }
 
-.shared_item_card_field_horizontal {
-  width: 22.5%;
-}
-
 .stacked_shared_item {
   margin-bottom: 30px;
 }
@@ -90,4 +86,11 @@
   // to stop margins from collapsing
   overflow: auto;
   background: rgb(255,234,234);
+}
+
+.toggle_stacked_shared_items_layout_img {
+  display: block;
+  float: left;
+  width: 15px;
+  margin: 0px 0px 0px 2px; // top, right, bottom, left
 }

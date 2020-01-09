@@ -1,4 +1,8 @@
 module SharedItemsHelper
+  def stacked_vertically?
+    cookies[:stacked_shared_items_set_to_vertical].present?
+  end
+
   def shared_item_sort_by_field_label field
     case field
     when :body

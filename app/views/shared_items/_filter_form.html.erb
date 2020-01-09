@@ -13,6 +13,9 @@
         <%= render 'shared_items/set_filter_field.js' %>
       </script>
     </div>
+
+    <%= link_to "<i class=\"fa fa-#{stacked_vertically? ? 'bars' : 'th-list'}\"></i>".html_safe, reset_shared_items_filter_path(@item_library.id, toggle_stacked: true),
+      remote: true, class: "survey_results_filter_item survey_filter_form_link" %>
   </div>
 
   <div class="results_filter_form_section" id="open_ended_section"></div>

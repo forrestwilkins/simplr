@@ -52,6 +52,13 @@ class SharedItemsController < ApplicationController
 
   def reset_filter
     @shared_items = @item_library.shared_items
+    if params[:toggle_stacked].present?
+      if cookies[:stacked_shared_items_set_to_vertical].present?
+        cookies[:stacked_shared_items_set_to_vertical] = ""
+      else
+        cookies[:stacked_shared_items_set_to_vertical] = true
+      end
+    end
   end
 
   def sort_by
