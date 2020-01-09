@@ -18,6 +18,8 @@ class SharedItem < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
+  READ_MORE_MIN = 50
+
   # gets options at or less than specified max
   def days_to_borrow_options
     options = [["Duration of use (defaults to #{days_to_borrow} day#{days_to_borrow.eql?(1) ? '' : 's'})", days_to_borrow]]

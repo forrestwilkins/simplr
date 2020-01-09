@@ -1,4 +1,9 @@
 module SharedItemsHelper
+  def shared_item_read_more_link shared_item, field, read_more=nil
+    link_to "Read more", shared_item_read_more_path(shared_item.id, field: field), remote: true \
+      if shared_item.send(field).to_s.size > SharedItem::READ_MORE_MIN and not read_more
+  end
+
   def stacked_vertically?
     cookies[:stacked_shared_items_set_to_vertical].present?
   end

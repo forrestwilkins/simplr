@@ -1,4 +1,17 @@
 module ApplicationHelper
+  def snip_txt txt, read_more=nil, small=nil
+    unless read_more
+      if txt.present? and txt.size > SharedItem::READ_MORE_MIN
+        _txt = txt[0..(small ? 25 : SharedItem::READ_MORE_MIN)]
+        _txt[-1] = "" if _txt[-1].eql? " "
+        return _txt + "..."
+      else
+        return txt
+      end
+    end
+    txt
+  end
+
   def get_card_type
     if social_maya?
       'dark_card'
