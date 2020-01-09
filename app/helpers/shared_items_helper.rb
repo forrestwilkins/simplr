@@ -53,8 +53,8 @@ module SharedItemsHelper
     end
   end
 
-  def shared_item_filter_options
-    options = [["Choose a field to filter by", nil]]
+  def shared_item_filter_options sort_by=false
+    options = [["Choose a field to #{sort_by ? 'sort' : 'filter'} by", nil]]
     for field in shared_item_fields
       _field = case field
       when :body

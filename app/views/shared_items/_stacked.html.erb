@@ -3,11 +3,7 @@
     <div class="shared_item_card_fields_row shared_item_index_field_row">
       <% for field in [:in_stock] + shared_item_fields_summary %>
         <div class="shared_item_card_field shared_item_card_field_horizontal">
-          <%= shared_item_sort_by_field_label(field).to_s.gsub("_", " ").capitalize %>
-          <%= link_to '<i class="fa fa-caret-up"></i>'.html_safe, sort_shared_items_by_path(id: @item_library.id,
-            field: field, order: 'up'), remote: true, class: "sort_by_link interactive_link" %>
-          <%= link_to '<i class="fa fa-caret-down"></i>'.html_safe, sort_shared_items_by_path(id: @item_library.id,
-            field: field, order: 'down'), remote: true, class: "sort_by_link interactive_link" %>
+          <b><%= shared_item_sort_by_field_label(field).to_s.gsub("_", " ").capitalize %></b>
         </div>
       <% end %>
     </div>
