@@ -1,6 +1,8 @@
 module SharedItemsHelper
   def shared_item_sort_by_field_label field
     case field
+    when :body
+      :description
     when :item_category_id
       :category
     when :holder_id
