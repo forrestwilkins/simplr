@@ -73,4 +73,22 @@
       </tr>
     </table>
   <% end %>
+
+  <% unless @showing %>
+    <script>
+      function show_survey_modal_<%= survey.id %>() {
+        var card = $("#survey_card_<%= survey.id %>");
+
+        card.click(function(e) {
+          if (!$(e.target).closest('a').length) {
+            $.ajax({
+      			  type: "GET",
+      			  url: "/show_survey_modal/<%= survey.id %>"
+      		  });
+          }
+        });
+      }
+      show_survey_modal_<%= survey.id %>();
+    </script>
+  <% end %>
 </div>

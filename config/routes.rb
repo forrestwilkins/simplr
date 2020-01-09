@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'show_survey_form', to: 'surveys#show_survey_form', as: 'show_survey_form'
   get 'thank_you', to: 'surveys#thank_you', as: 'survey_thank_you'
   get 'survey_read_more/:id', to: 'surveys#read_more', as: 'survey_read_more'
+  get 'show_survey_modal/:id', to: 'surveys#show_modal', as: 'show_survey_modal'
 
   # survey questions
   get 'set_question_type', to: 'survey_questions#set_type', as: 'set_question_type'
