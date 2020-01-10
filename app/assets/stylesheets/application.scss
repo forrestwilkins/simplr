@@ -29,8 +29,6 @@
 $x_right_gap: 5px;
 $x_left_gap: 5px;
 
-$card_top_space: 27.5px;
-
 @mixin card {
   transition: all .4s ease-in-out;
   position: relative;
@@ -106,10 +104,6 @@ textarea {
 .danger_card {
   @include card;
   background: red;
-}
-
-.card_top_spacer {
-  padding-top: $card_top_space;
 }
 
 .top_right_lower_link {
@@ -388,6 +382,18 @@ textarea {
   box-shadow: 2.25px 2.25px 5.25px orange;
 }
 
+$card_top_space: 27.5px;
+
+.card_top_spacer {
+  padding-top: $card_top_space;
+}
+
+$post_card_top_space: 24px;
+
+.post_card_top_spacer {
+  padding-top: $post_card_top_space;
+}
+
 // for mobile
 @media screen and (max-width: 975px) {
   .standard_page_header {
@@ -399,5 +405,8 @@ textarea {
   }
   .card_top_spacer {
     padding-top: $card_top_space;
+  }
+  .post_card_top_spacer {
+    padding-top: $post_card_top_space;
   }
 }
