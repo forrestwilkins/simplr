@@ -2,9 +2,9 @@ class SurveysController < ApplicationController
   before_action :surveys
   before_action :invite_only, except: [:take, :complete, :thank_you]
   before_action :current_user_only, only: [:create, :update, :destroy, :edit]
+  before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more, :show_modal]
   before_action :secure_survey, only: [:update, :destroy, :edit]
   before_action :new_survey, only: [:index, :new, :show_survey_form]
-  before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more, :show_modal]
   before_action :set_question_num, only: [:add_selection, :new_grid, :add_row, :remove_selection_field, :remove_selection_row_field]
   before_action :set_comments, only: [:show_modal, :show]
 
