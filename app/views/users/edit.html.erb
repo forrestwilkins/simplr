@@ -3,10 +3,14 @@
 	  <div align="center">
       <% if this_user_current? @user or dev? %>
         <p>
-          <%= f.text_field :name, placeholder: "Change your name", class: "standard_text_field", id: :user_field_2 %>
+          <%= f.text_field :name, placeholder: "Name", class: "standard_text_field", id: :user_field_2 %>
         </p>
 
   		  <%= f.text_area :body, placeholder: "Describe yourself", class: "standard_text_area", id: :user_field_3 %>
+
+        <p>
+          <%= f.text_field :email, placeholder: "Email", class: "standard_text_field", id: :user_field_2 %>
+        </p>
 
   		  <p>
           <%= render "users/edit_form_profile_pic", user: @user %>

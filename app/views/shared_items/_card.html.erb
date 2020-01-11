@@ -161,7 +161,7 @@
         var card = $("#shared_item_card_<%= shared_item.id %>");
 
         card.click(function(e) {
-          if (!$(e.target).closest('a').length) {
+          if (!($(e.target).closest('a').length || $(e.target).closest('form').length)) {
             $.ajax({
       			  type: "GET",
       			  url: "/show_shared_item_modal/<%= shared_item.id %>"
