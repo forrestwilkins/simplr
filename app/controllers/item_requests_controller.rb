@@ -10,6 +10,7 @@ class ItemRequestsController < ApplicationController
     @item_request = ItemRequest.new(item_request_params)
     @item_request.attributes = { user_id: current_user.id, shared_item_id: @shared_item.id }
     if @item_request.save
+      puts "\n\n\ngmail username: #{ENV['GMAIL_USERNAME']} \n\n\n"
       # send email to owner of item that someone is requesting to borrow/use
       UserMailer.item_request(@item_request).deliver
       Note.notify :shared_item_request, @shared_item, @shared_item.user, current_user unless @shared_item.user.eql? current_user
