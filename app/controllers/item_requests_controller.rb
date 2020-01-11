@@ -2,10 +2,6 @@ class ItemRequestsController < ApplicationController
   before_action :set_item_request, only: [:update, :destroy]
   before_action :set_shared_item, only: [:create, :destroy, :index, :show_form]
 
-  def show_form
-    @item_request = ItemRequest.new
-  end
-
   def index
     @item_requests = @shared_item.item_requests.reverse
   end

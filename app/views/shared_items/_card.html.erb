@@ -125,6 +125,8 @@
     </p>
   <% end %>
 
+  <%= render "item_requests/form", shared_item: shared_item %>
+
   <div id="shared_item_comments_anchor_<%= shared_item.id %>"></div>
 
   <% if current_user %> <!-- could re enable anon later -->
