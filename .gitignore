@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+# Ignore environmental variable yml
+/config/local_env.yml
+
 # Ignore all local image uploads
 /public/uploads/*
 
@@ -27,7 +30,6 @@
 
 # Ignore cache files
 ._*
-
 
 # Ignore hidden files by default
 .*
