@@ -388,12 +388,6 @@ $card_top_space: 27.5px;
   padding-top: $card_top_space;
 }
 
-$post_card_top_space: 24px;
-
-.post_card_top_spacer {
-  padding-top: $post_card_top_space;
-}
-
 // for mobile
 @media screen and (max-width: 975px) {
   .standard_page_header {
@@ -405,8 +399,5 @@ $post_card_top_space: 24px;
   }
   .card_top_spacer {
     padding-top: $card_top_space;
-  }
-  .post_card_top_spacer {
-    padding-top: $post_card_top_space;
   }
 }
