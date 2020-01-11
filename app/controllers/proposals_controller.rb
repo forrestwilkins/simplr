@@ -186,8 +186,6 @@ class ProposalsController < ApplicationController
     action = params[:proposal][:action]
     action = params[:proposal_action] unless action.present?
     case (action.present? ? action : "").to_sym
-    when :meetup
-      @proposal.misc_data = request.remote_ip.to_s
     when :revision
       old_proposal = Proposal.find params[:proposal_id]
       @proposal.action = "revision"

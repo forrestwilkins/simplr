@@ -4,8 +4,7 @@ class ViewsController < ApplicationController
   def create
     if current_user and not in_dev?
       @user = current_user
-      @click = View.new click: true,
-        user_id: @user.id, ip_address: request.remote_ip
+      @click = View.new click: true, user_id: @user.id
       for i in [:x_pos, :y_pos, :screen_width, :screen_height, :avail_screen_width, :avail_screen_height,
         :device_pixel_ratio, :current_url, :controller_name, :action_name]
         @click.write_attribute(i, params[i])
@@ -38,12 +37,7 @@ class ViewsController < ApplicationController
   end
 
   def index
-    @ip = params[:ip]
-    @views = if @ip
-      View.all.by_user.where(ip_address: @ip)
-    else
-      View.all.unique_views
-    end
+    @views = View.all.unique_views
     @views = @views.sort_by { |v| v.created_at }.reverse
   end
 end

@@ -10,9 +10,6 @@
     <% end %>
   </p>
   <p>
-    <%= link_to view.ip_address, views_path(ip: view.ip_address), class: :white_link %>
-  </p>
-  <p>
     <%= view.created_at.strftime("%d %b. %Y, %H:%M:%S") %>
   </p>
   <% if view.click %>

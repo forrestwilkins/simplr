@@ -126,7 +126,7 @@ class ApplicationController < ActionController::Base
         if current_user
           # unless item is the current user or item is not a user at all and belongs to user
           unless current_user.eql? item
-            view = views.new user_id: current_user.id, ip_address: request.remote_ip
+            view = views.new user_id: current_user.id
             if item.respond_to?(:user) and current_user.eql? item.user
               view.non_visible = true
             end
@@ -135,7 +135,7 @@ class ApplicationController < ActionController::Base
         else
           # unless the non-user, non-group item was posted by current anon
           unless !item.is_a? User and !item.is_a? Group and anon_token.eql? item.anon_token
-            views.create anon_token: anon_token, ip_address: request.remote_ip if probably_human or invited?
+            views.create anon_token: anon_token if probably_human or invited?
           end
         end
       # updates score count of view for posts/proposals already seen by current user
