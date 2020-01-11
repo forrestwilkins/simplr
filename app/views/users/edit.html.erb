@@ -12,6 +12,10 @@
           <%= f.text_field :email, placeholder: "Email", class: "standard_text_field", id: :user_field_2 %>
         </p>
 
+        <p>
+          <%= f.text_field :phone_number, placeholder: "Phone number", class: "standard_text_field", id: :user_field_2 %>
+        </p>
+
   		  <p>
           <%= render "users/edit_form_profile_pic", user: @user %>
           Avatar: <%= f.file_field :image, id: :user_field_4 %>

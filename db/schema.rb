@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_142812) do
+ActiveRecord::Schema.define(version: 2020_01_11_202533) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -449,6 +449,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_142812) do
     t.boolean "featured"
     t.boolean "admin"
     t.boolean "dsa_member"
+    t.string "phone_number"
   end
 
   create_table "views", force: :cascade do |t|
