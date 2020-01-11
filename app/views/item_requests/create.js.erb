@@ -6,6 +6,7 @@
   request_item_link.remove();
   request_item_link_anchor.after("<%=j render 'link', shared_item: @shared_item %>");
 
+  request_item_form.after("<%=j render 'form', shared_item: @shared_item %>");
   request_item_form.remove();
 
   window.navigator.vibrate(1);
