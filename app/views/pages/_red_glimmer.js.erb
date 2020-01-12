@@ -4,7 +4,7 @@ $(function() {
   function red_loading_glimmer() {
     var red_min = 0; // when it should go back up
     var red_max = 255; // when color should go back down
-    var change_rate = 0.5; // added/subbed each round
+    var change_rate = 0.75; // added/subbed each round
     var change_speed = 1; // interval speed, higher == slower
 
     var chars = <%=j @char_codes.to_json %>;
