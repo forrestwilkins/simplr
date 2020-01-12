@@ -123,7 +123,7 @@ $darkred: rgb(190, 0, 0);
   width: 100%;
   min-height: 80px;
   margin-bottom: 12.5px;
-  padding-top: 12.5px;
+  padding: 12.5px 5px 0px 5px; // top, right, bottom, left
   background: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.35);
 }
