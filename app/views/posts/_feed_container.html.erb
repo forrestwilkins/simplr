@@ -5,8 +5,7 @@
 
   <% if items.present? %>
     <div align="center">
-      <%= render "pages/#{['load_wheel'].sample}",
-        items: items, all_items: all_items %>
+      <%= render "pages/red_buffer_wheel", items: items, all_items: all_items %>
     </div>
   <% end %>
 </div>

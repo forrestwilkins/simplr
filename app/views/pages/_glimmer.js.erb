@@ -12,7 +12,7 @@ function loading_glimmer() {
   for (var i=0; i < rgb.length; i++) {
 	  rgb[i] = Math.round(Math.random() * 255);
   }
-  
+
   var chars = <%=j @char_codes.to_json %>;
   var bits = <%=j @char_bits.to_json %>;
   // counter for char codes
@@ -25,10 +25,10 @@ function loading_glimmer() {
 	  var r = Math.round(Math.random() * 255 * chars[num]);
 	  var g = Math.round(Math.random() * 255 * chars[num + 1]);
 	  var b = Math.round(Math.random() * 255 * chars[num + 2]);
-	  
+
 	  var pixel = $("#loading_grid_pixel_" + id);
 	  var pixels = $(".buffer_pixel");
-	  
+
 	  // morphs all of rgb back and forth
 	  for (var i=0; i < 3; i++) {
 		  // flips colors direction of change
@@ -44,18 +44,18 @@ function loading_glimmer() {
 			  rgb[i] += change_rate;
 		  }
 	  }
-	  
+
 	  pixel.text(bits[b_num].toString());
 		<% if raleigh_dsa? %>
 			pixel.css("color", "rgb(" + b + ", " + 0 + ", " + 0 + ")");
 		<% else %>
 			pixel.css("color", "rgb(" + b + ", " + r + ", " + g + ")");
 		<% end %>
-	  
+
 	  pixels.each(function() {
 	    //$(this).css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
 	  });
-	  
+
 	  num += 3;
 	  b_num += 1;
 	  if (num >= chars.length) {
