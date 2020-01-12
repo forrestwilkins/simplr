@@ -11,9 +11,9 @@
   <script>
     <%= render "app/fader.js", target: 'social_maya_txt', target_id: '', slow: true %>
   </script>
+
+  <%= render "arts/app" %>
 <% end %>
 
 
 <%= render "sessions/form" if raleigh_dsa? %>
-
-<%= render "arts/app" unless raleigh_dsa? or true %>
