@@ -279,7 +279,7 @@ class ApplicationController < ActionController::Base
   end
 
   def raleigh_dsa?
-    if request.host.eql? "raleighdsa.com" or cookies[:at_raleigh_dsa].present?
+    if request.host.eql? "raleighdsa.com" or cookies[:at_raleigh_dsa].present? or in_dev?
       cookies.permanent[:at_raleigh_dsa] = true
       return true
     end

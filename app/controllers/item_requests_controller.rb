@@ -16,11 +16,12 @@ class ItemRequestsController < ApplicationController
       UserMailer.item_request(@item_request).deliver if @shared_item.user.email.present?
       unless in_dev?
         # sends sms text message to owner of the item
-        if @shared_item.user.phone_number.present?
-          send_twilio_sms @shared_item.user.phone_number,
+        if @item_request.valid_phone_number?
+          send_twilio_sms @item_request.resolve_phone_number,
             "#{@requester.name.capitalize} would like to borrow your #{@shared_item.name}, contact them to coordinate pickup."
         end
       end
+
       # notifies owner of the item through the sites notification system
       Note.notify :shared_item_request, @shared_item, @shared_item.user, current_user unless @shared_item.user.eql? current_user
     end

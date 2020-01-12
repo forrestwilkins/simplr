@@ -42,8 +42,9 @@ gem 'font-awesome-sass', '~> 4.0'
 #gem 'twitter-bootstrap-rails'
 #gem 'bootstrap-sass'
 
-# sending or receiving sms
+# sending or receiving sms, resolving phone numbers
 gem 'twilio-ruby'
+gem 'phone'
 
 # name generation
 gem 'random_name_generator' # includes roman and fantasy names
