@@ -23,7 +23,24 @@
     var nav_links = $("#nav_links");
     // fix for nav_links
     var toggle = false;
+    // toggles if circle_link clicked
     circle_link.click(function() {
+      toggle_circle_menu();
+    });
+    // closes circle_menu if user clicks outside of it
+    $(document).click(function(e) {
+      // if the target of the click isn't the container nor a descendant of the container
+      if (!circle_menu.is(e.target) && circle_menu.has(e.target).length === 0 && toggle) {
+        toggle_circle_menu();
+      }
+    });
+    // closes circle_menu if esc pressed
+    $(document).keydown(function(e) {
+      if (e.key == 'Escape' && toggle) {
+        toggle_circle_menu();
+      }
+    });
+    function toggle_circle_menu() {
       toggle = !toggle;
       circle_menu.toggleClass("circle_menu_open");
       circle_link.toggleClass("circle_menu_rotate");
@@ -37,7 +54,7 @@
       }
       // haptic
       window.navigator.vibrate(1);
-    });
+    }
     function toggle_nav_links() {
       if (toggle) {
         nav_links.fadeIn();
