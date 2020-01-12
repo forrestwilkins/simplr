@@ -15,7 +15,7 @@
     <div class="vertical_spacer"></div>
   <% end %>
 
-  <%= render "arts/circle_menu" %>
+  <%= render "arts/circle_menu" unless social_maya? %>
 
   <% if invited? %>
     <%= render "search/slide_menu" %>

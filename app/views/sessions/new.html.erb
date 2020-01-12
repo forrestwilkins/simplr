@@ -1,3 +1,19 @@
-<%= render "sessions/form" %>
+<% if social_maya? %>
+  <div class="card" align="center">
+    <p id="social_maya_txt">
+      <b>Social Maya is currently in development...</b> <%= image_tag "fire.gif", style: "width:30px;" %>
+    </p>
+    <p>
+
+    </p>
+  </div>
+
+  <script>
+    <%= render "app/fader.js", target: 'social_maya_txt', target_id: '', slow: true %>
+  </script>
+<% end %>
+
+
+<%= render "sessions/form" if raleigh_dsa? %>
 
 <%= render "arts/app" unless raleigh_dsa? or true %>
