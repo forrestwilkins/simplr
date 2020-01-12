@@ -12,9 +12,9 @@ class ItemRequestsController < ApplicationController
     if @item_request.save
       @shared_item = @item_request.shared_item
       @requester = @item_request.user
+      # send email to owner of item that someone is requesting to borrow/use
+      UserMailer.item_request(@item_request).deliver if @shared_item.user.email.present?
       unless in_dev?
-        # send email to owner of item that someone is requesting to borrow/use
-        UserMailer.item_request(@item_request).deliver if @shared_item.user.email.present?
         # sends sms text message to owner of the item
         if @shared_item.user.phone_number.present?
           send_twilio_sms @shared_item.user.phone_number,

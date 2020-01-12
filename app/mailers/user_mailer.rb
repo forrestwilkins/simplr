@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "#{ENV["GMAIL_USERNAME"]}@gmail.com"
+  default from: "#{ENV["EMAIL_USERNAME"]}@gmail.com"
 
   def item_request(request)
     @user = request.shared_item.user

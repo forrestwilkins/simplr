@@ -17,17 +17,17 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # send email configuration
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
     domain: "gmail.com",
     enable_starttls_auto: true,
-    user_name: "#{ENV["GMAIL_USERNAME"]}",
-    password: ENV["GMAIL_PASSWORD"],
+    user_name: ENV["EMAIL_USERNAME"],
+    password: ENV["EMAIL_PASSWORD"],
     authentication: "plain"
   }
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
