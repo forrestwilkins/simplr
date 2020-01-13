@@ -63,7 +63,7 @@
           ·
         </td>
         <td>
-          <%= link_to "Comments#{ ' ' + survey.comments.size.to_s unless survey.comments.size.zero? }",
+          <%= link_to "<i class=\"fa fa-comment-o\"></i> Comments#{ ' ' + survey.comments.size.to_s unless survey.comments.size.zero? }".html_safe,
             (@survey_shown ? @survey : toggle_comments_path(id: survey.id, survey: true)), remote: true,
             class: :standard_post_link, id: "show_survey_comments_#{survey.id}" %>
           <%= render "app/link_sound.js", link_id: "show_survey_comments_#{survey.id}", sound: :post_interface_sound %>

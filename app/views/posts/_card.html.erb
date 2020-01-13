@@ -136,7 +136,7 @@
 
 	  <div id="post_comments_anchor_<%= post.id %>"></div>
 
-    <%= link_to "Comments#{ ' ' + post.comments.size.to_s unless post.comments.size.zero? }",
+    <%= link_to "<i class=\"fa fa-comment-o\"></i> Comments#{ ' ' + post.comments.size.to_s unless post.comments.size.zero? }".html_safe,
       (@post_shown ? @post : toggle_comments_path(post)), remote: true,
       class: :bottom_right_link, id: "show_comments_#{post.id}" %>
     <%= render "app/link_sound.js", link_id: "show_comments_#{post.id}", sound: :post_interface_sound %>

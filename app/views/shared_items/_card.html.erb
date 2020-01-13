@@ -140,7 +140,8 @@
           ·
         </td>
         <td>
-          <%= link_to "Comment#{shared_item.comments.size.zero? ? '' : 's'}#{ ' ' + shared_item.comments.size.to_s unless shared_item.comments.size.zero? }",
+          <%= link_to "<i class=\"fa fa-comment-o\"></i> Comment#{shared_item.comments.size.zero? ? '' : 's'}#{ ' ' \
+            + shared_item.comments.size.to_s unless shared_item.comments.size.zero? }".html_safe,
             (@shared_item_shown ? show_shared_item_path(shared_item.unique_token) : toggle_comments_path(id: shared_item.id, shared_item: true)),
             remote: true, class: "shared_item_card_link standard_post_link", id: "show_shared_item_comments_#{shared_item.id}" %>
         </td>
