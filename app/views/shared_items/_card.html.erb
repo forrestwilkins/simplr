@@ -121,7 +121,7 @@
 
   <% if own_item? shared_item and shared_item.current_borrower %>
     <p align="center">
-      <%= link_to "Confirm item has been returned", confirm_item_return_path(shared_item) %>
+      <%= link_to "<i class=\"fa fa-check-circle-o\"></i> Confirm item has been returned".html_safe, confirm_item_return_path(shared_item) %>
     </p>
   <% end %>
 

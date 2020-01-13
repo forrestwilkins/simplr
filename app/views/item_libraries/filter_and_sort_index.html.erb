@@ -1,12 +1,12 @@
 <div class="card" align="center">
   <h2 class="standard_page_header">
-    Lending Library Index <i class="fa fa-list"></i>
+    <i class="fa fa-list"></i> Lending Library Index
   </h2>
 </div>
 
 <div class="item_library_index_card" align="center">
   <p class="showing_results_label">
-    Showing all items for <%= link_to @item_library.name, show_item_library_path %>
+    Showing all items for <%= link_to "#{@item_library.name} <i class=\"fa fa-book\"></i>".html_safe, show_item_library_path %>
   </p>
 
   <% if @shared_items.present? %>
@@ -27,6 +27,6 @@
 
 <div class="card" align="center">
   <p>
-    <%= link_to 'See Lending Library <i class="fa fa-book"></i>'.html_safe, show_item_library_path %>
+    <%= link_to '<i class="fa fa-book"></i> See Lending Library'.html_safe, show_item_library_path %>
   </p>
 </div>

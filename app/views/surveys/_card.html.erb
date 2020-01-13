@@ -42,11 +42,11 @@
   <% end %>
 
   <p class="surveys_link surveys_card_links">
-    <%= link_to 'Take survey <i class="fa fa-group"></i>'.html_safe, take_survey_path(survey.unique_token) %>
+    <%= link_to '<i class="fa fa-check-square-o"></i> Take survey'.html_safe, take_survey_path(survey.unique_token) %>
 
     <% if survey.survey_results.present? and (own_item?(survey) or admin?) %>
       <%= middle_dot %>
-      <%= link_to 'See results <i class="fa fa-list"></i>'.html_safe, survey_results_path(survey) %>
+      <%= link_to '<i class="fa fa-list"></i> See results'.html_safe, survey_results_path(survey) %>
     <% end %>
   </p>
 
