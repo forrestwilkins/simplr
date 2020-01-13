@@ -2,7 +2,7 @@
   <%= form_for(@item_library) do |f| %>
     <% if @editing %>
       <p>
-        Currently editing <%= link_to @item_library.name, item_library_path(@item_library) %>
+        Currently editing <%= link_to @item_library.name, item_library_path(@item_library) %> <i class="fa fa-book"></i>
       </p>
     <% end %>
 

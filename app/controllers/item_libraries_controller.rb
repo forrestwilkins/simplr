@@ -44,7 +44,7 @@ class ItemLibrariesController < ApplicationController
   private
 
   def secure_item_library
-    unless current_user and @item_library.user_id.eql? current_user.id
+    unless current_user and @item_library.user_id.eql? current_user.id or admin?
       redirect_to sessions_new_path
     end
   end
