@@ -7,7 +7,7 @@
   <%= link_to "<i class=\"fa fa-thumbs-o-up\"></i> Like#{(' ' + item.likes.size.to_s) unless item.likes.size.zero?}".html_safe, like_path(param_id => item.id),
     method: :post, remote: true, class: link_class, id: link_id %>
 <% else %>
-  <%= link_to "Like #{item.likes.size.to_s}", unlike_path(param_id => item.id),
+  <%= link_to "<i class=\"fa fa-thumbs-up\"></i> Like #{item.likes.size.to_s}".html_safe, unlike_path(param_id => item.id),
     method: :delete, remote: true, class: link_class, id: link_id, style: "color:rgb(119,158,203);" %>
 <% end %>
 
