@@ -3,8 +3,11 @@
 <div class="surveys_card" align="center">
   <p>
     <%= link_to '<i class="fa fa-home"></i> See all surveys'.html_safe, surveys_path %>
-    <%= middle_dot %>
-    <%= link_to '<i class="fa fa-list"></i> See results for this survey'.html_safe, survey_results_path(@survey) %>
+
+    <% if @survey.survey_results.present? and (own_item?(@survey) or admin?) %>
+      <%= middle_dot %>
+      <%= link_to '<i class="fa fa-list"></i> See results'.html_safe, survey_results_path(@survey) %>
+    <% end %>
     <%= middle_dot %>
     <%= link_to '<i class="fa fa-group"></i> Take survey'.html_safe, take_survey_path(@survey.unique_token) %>
   </p>
