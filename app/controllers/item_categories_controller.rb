@@ -46,7 +46,7 @@ class ItemCategoriesController < ApplicationController
 
   def secure_item_category
     unless current_user and @item_category.user_id.eql? current_user.id
-      redirect_to sessions_new_path
+      redirect_to lacks_permission_path
     end
   end
 

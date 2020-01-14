@@ -226,13 +226,13 @@ class SurveysController < ApplicationController
 
   def secure_survey
     unless current_user and @survey.user_id.eql? current_user.id or admin?
-      redirect_to root_url
+      redirect_to lacks_permission_path
     end
   end
 
   def admin_only
     unless admin?
-      redirect_to root_url
+      redirect_to lacks_permission_path
     end
   end
 

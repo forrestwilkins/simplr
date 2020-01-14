@@ -95,6 +95,7 @@ class Picture < ActiveRecord::Base
       User.find_by_id user_id
     end
 
+    # ensures user is able to update profile pic after having reverted back to old ones
     if item.is_a? User
       for pic in item.profile_pictures
         pic.update reverted_back_to: false

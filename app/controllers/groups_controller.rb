@@ -128,7 +128,7 @@ class GroupsController < ApplicationController
 
   def anrcho_only
     unless anrcho?
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
   end
 
@@ -145,7 +145,7 @@ class GroupsController < ApplicationController
   end
 
   def dev_only
-    redirect_to '/404' unless dev?
+    redirect_to lacks_permission_path unless dev?
   end
 
   def secure_group
@@ -157,8 +157,8 @@ class GroupsController < ApplicationController
     end
     # checks for model of consensus
     consensus_group = @group.social_structure.eql? 'consensus'
-    # redirect to 404 unless secure
-    redirect_to '/404' if consensus_group or !(secure or dev?)
+    # redirect to lacks_permission unless secure
+    redirect_to lacks_permission_path if consensus_group or !(secure or dev?)
   end
 
   # Use callbacks to share common setup or constraints between actions.

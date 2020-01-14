@@ -201,20 +201,20 @@ class UsersController < ApplicationController
   def invite_only
     token_good = User.find_by_unique_token @user.unique_token if @user
     unless invited?
-      redirect_to invite_only_path unless token_good
+      redirect_to sessions_new_path unless token_good
     end
   end
 
   def dev_only
-    redirect_to '/404' unless dev?
+    redirect_to lacks_permission_path unless dev?
   end
 
   def dev_or_admin_only
-    redirect_to '/404' unless dev? or admin?
+    redirect_to lacks_permission_path unless dev? or admin?
   end
 
   def secure_user
-    set_user; redirect_to '/404' unless current_user.eql? @user or dev? or admin?
+    set_user; redirect_to lacks_permission_path unless current_user.eql? @user or dev? or admin?
   end
 
   # Use callbacks to share common setup or constraints between actions.

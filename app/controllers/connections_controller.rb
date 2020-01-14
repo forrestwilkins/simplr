@@ -203,7 +203,7 @@ class ConnectionsController < ApplicationController
 
   def dev_only
     unless ENV['RAILS_ENV'].eql? 'development'
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
   end
 
@@ -214,7 +214,7 @@ class ConnectionsController < ApplicationController
         redirect_to '/404'
       end
     else
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
   end
 

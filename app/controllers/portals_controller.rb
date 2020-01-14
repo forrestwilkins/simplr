@@ -179,13 +179,13 @@ class PortalsController < ApplicationController
 
   def dev_or_admin_only
     unless dev? or admin?
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
   end
 
   def dev_only
     unless dev?
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
   end
 

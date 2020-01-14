@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # admin
   get 'ctrl_stuff', to: 'admin#index', as: 'dsa_admin'
   get 'dev', to: 'admin#dev_panel', as: 'dev_panel'
+  get 'lacks_permission', to: 'admin#lacks_permission', as: 'lacks_permission'
 
   # item categories
   get 'show_item_category_form', to: 'item_categories#show_form', as: 'show_item_category_form'

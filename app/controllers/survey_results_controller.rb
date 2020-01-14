@@ -150,7 +150,7 @@ class SurveyResultsController < ApplicationController
 
   def admin_only
     unless admin?
-      redirect_to root_url
+      redirect_to lacks_permission_path
     end
   end
 

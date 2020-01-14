@@ -53,7 +53,7 @@ class SessionsController < ApplicationController
 
   def dev_env_only
     unless Rails.env.development?
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
   end
 end

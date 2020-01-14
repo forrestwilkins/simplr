@@ -60,7 +60,7 @@ class ItemRequestsController < ApplicationController
 
   def admin_only
     unless admin?
-      redirect_to sessions_new_path
+      redirect_to lacks_permission_path
     end
   end
 
