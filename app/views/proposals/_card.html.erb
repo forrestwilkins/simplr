@@ -1,11 +1,24 @@
 <% if proposal.group.nil? or group_auth proposal.group or group_member_auth proposal.group or own_item? proposal \
 	or (visible_to_anons? proposal.group and not proposal.group.hidden) %>
-	<div class="card standard_content_card" id="proposal_card_<%= proposal.id %>">
-		<div class="card_corner_cut_out"></div>
+	<div class="card standard_content_card <%= show_anon_avatar?(proposal.user) ? '' : 'card_vertical_spacer' %>" id="proposal_card_<%= proposal.id %>">
+	  <%= render "users/avatar_card_link", token: proposal.anon_token, user: proposal.user %>
+
+		<span class="posted_label <%= show_anon_avatar?(proposal.user) ? 'posted_label_no_profile_pic' : '' %>">
+			<% if proposal.group %>
+				<% group_name = if proposal.group.name.size > 15 then proposal.group.name[0..9] + "..." else proposal.group.name end %>
+					made a motion in <%= link_to group_name, proposal.group, class: :posted_link,
+						title: "Group (#{proposal.group.name})" %>
+			<% else %>
+					made a global <%= link_to "motion", show_proposal_path(proposal.unique_token), class: :posted_link %>.
+			<% end %>
+		</span>
+
+    <%= render "app/time_ago", item: proposal, position: :time_ago_link unless show_anon_avatar? proposal.user %>
+
 		<table class="top_right_link">
 			<tr>
 				<td>
-					<%= render "app/time_ago", item: proposal %>
+					<%= render "app/time_ago", item: proposal if show_anon_avatar? proposal.user %>
 				</td>
 				<% if proposal.able_to_edit? and (own_item? proposal or dev?) %>
 					<td>
@@ -15,21 +28,7 @@
 			</tr>
 		</table>
 
-	  <% if proposal.group %>
-	    <% group_name = if proposal.group.name.size > 15 then proposal.group.name[0..9] + "..." else proposal.group.name end %>
-	    <span class="posted_label">
-	      made a motion in <%= link_to group_name, proposal.group, class: :posted_link,
-	        title: "Group (#{proposal.group.name})" %>
-	    </span>
-		<% elsif not anrcho? %>
-			<span class="posted_label">
-	      made a motion in <%= link_to "Anrcho", to_anrcho_portal_url, class: :posted_link %>
-			</span>
-		<% elsif anrcho? %>
-			<span class="posted_label">
-	      made a global <%= link_to "motion", show_proposal_path(proposal.unique_token), class: :posted_link %>.
-			</span>
-	  <% end %>
+
 
 		<table class="bottom_right_link">
 			<tr>
@@ -54,7 +53,6 @@
 	  <!-- to be triggered when user casts the ending vote -->
 	  <div id="ratification_glimmer_anchor_<%= proposal.id %>"></div>
 	  <%= render "proposals/ratification_glimmer", proposal: proposal if proposal.ratified %>
-	  <%= render "users/avatar_card_link", token: proposal.anon_token, user: proposal.user %>
 
 	  <%= render "proposals/history_icon_link", proposal: proposal %>
 	  <div id="proposal_card_spacer"></div>
