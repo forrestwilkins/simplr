@@ -91,7 +91,16 @@ class Picture < ActiveRecord::Base
       Post.find_by_id post_id
     elsif proposal_id
       Proposal.find_by_id proposal_id
+    elsif user_id
+      User.find_by_id user_id
     end
+
+    if item.is_a? User
+      for pic in item.profile_pictures
+        pic.update reverted_back_to: false
+      end
+    end
+
     self.order = item.pictures.size if item
   end
 end
