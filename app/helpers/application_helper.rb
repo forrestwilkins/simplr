@@ -1,4 +1,16 @@
 module ApplicationHelper
+  def get_time_ago_link_class item, position=nil
+    klass = if item.is_a? Proposal or item.is_a? Post
+      'standard_post_link'
+    else
+      'top_right_link'
+    end
+    if position
+      klass = position.to_s
+    end
+    return klass
+  end
+
   def snip_txt txt, read_more=nil, small=nil
     unless read_more
       if txt.present? and txt.size > SharedItem::READ_MORE_MIN

@@ -2,13 +2,13 @@
   and not post.group.hidden) or own_item? post) and not ((post.hidden or (post.user and post.user.hidden)) \
   and not own_item? post) %>
 
-  <div class="card standard_content_card <%= show_anon_avatar?(post.user) ? 'card_vertical_spacer' : '' %>
+  <div class="card standard_content_card <%= show_anon_avatar?(post.user) ? '' : 'card_vertical_spacer' %>
     <%= (post.hidden and (!own_item?(post) or dev?)) ? ' blur' : '' %>"
     id="post_card_<%= post.id %>">
 
     <%= render "users/avatar_card_link", user: post.user, token: post.anon_token %>
 
-    <span class="posted_label <%= show_anon_avatar?(post.user) ? '' : 'posted_label_no_profile_pic' %>">
+    <span class="posted_label <%= show_anon_avatar?(post.user) ? 'posted_label_no_profile_pic' : '' %>">
       <%= link_to post.user.name.capitalize, post.user, class: :posted_link if post.user %>
       <% if post.original and post.original.user %>
         <% if post.original.user_id.eql? post.user_id %>
@@ -29,10 +29,12 @@
       <% end %>
     </span>
 
+    <%= render "app/time_ago", item: post, position: :time_ago_link unless show_anon_avatar? post.user %>
+
     <table class="top_right_link">
       <tr>
         <td>
-          <%= render "app/time_ago", item: post %>
+          <%= render "app/time_ago", item: post if show_anon_avatar? post.user %>
         </td>
         <% if own_item? post or dev? %>
           <td>

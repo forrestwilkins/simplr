@@ -228,6 +228,14 @@ textarea {
   border-color: red;
 }
 
+.time_ago_link {
+	@include corner_link;
+  top: 24px;
+  left: 45px;
+  color: rgb(125, 125, 125);
+  font-weight: normal;
+}
+
 .discrete_title {
   color: gray;
   font-size: 11px;

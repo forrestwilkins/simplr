@@ -1,6 +1,6 @@
 module PostsHelper
   def show_anon_avatar? user
-    profile_picture(user) or user.nil?
+    profile_picture(user).nil? or user.nil?
   end
 
   def post_goto_link post, url=nil
