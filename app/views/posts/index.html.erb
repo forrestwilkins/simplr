@@ -7,7 +7,7 @@
   <%= render 'users/form' %>
 <% end %>
 
-<% if in_dev? %>
+<% if false %>
   <%= render "posts/main_feed_container", items: @items, all_items: @all_items %>
 <% else %>
   <%= render "posts/feed_loader" %>
