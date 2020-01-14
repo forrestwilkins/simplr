@@ -1,6 +1,6 @@
 module PostsHelper
   def show_anon_avatar? user
-    true
+    true # turned off for now
     #profile_picture(user) or user.nil?
   end
 
