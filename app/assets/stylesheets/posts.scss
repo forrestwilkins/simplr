@@ -4,38 +4,6 @@
 
 // top, right, bottom, left
 
-$x_right_gap: 5px;
-$x_left_gap: 5px;
-
-@mixin corner_link {
-	font-size: 11px;
-	position: absolute;
-}
-
-.top_right_post_link {
-	@include corner_link;
-	right: $x_right_gap;
-	top: 7.5px;
-}
-
-.top_left_post_link {
-	@include corner_link;
-	left: $x_left_gap;
-	top: 5px;
-}
-
-.bottom_right_post_link {
-	@include corner_link;
-	right: $x_right_gap;
-	bottom: 5px;
-}
-
-.bottom_left_post_link {
-	@include corner_link;
-	left: $x_left_gap;
-	bottom: 5px;
-}
-
 .new_post_form_pulse {
   background: rgb(119,158,203);
   box-shadow: -7.5px -7.5px 7.5px rgb(136,227,182);
