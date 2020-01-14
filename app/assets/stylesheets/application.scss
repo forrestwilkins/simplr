@@ -22,7 +22,6 @@
 
  // top, right, bottom, left
 
-
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -382,10 +381,11 @@ textarea {
   box-shadow: 2.25px 2.25px 5.25px orange;
 }
 
-$card_top_space: 27.5px;
+$card_vertical_space: 27.5px;
 
-.card_top_spacer {
-  padding-top: $card_top_space;
+.card_vertical_spacer {
+  padding-top: $card_vertical_space;
+  padding-bottom: $card_vertical_space;
 }
 
 $profile_card_vertical_space: 35px;
@@ -404,8 +404,9 @@ $profile_card_vertical_space: 35px;
     padding: 15px 7.5px;
     width: 92.5%;
   }
-  .card_top_spacer {
-    padding-top: $card_top_space;
+  .card_vertical_spacer {
+    padding-top: $card_vertical_space;
+    padding-bottom: $card_vertical_space;
   }
   .profile_card_vertical_spacer {
     padding-top: $profile_card_vertical_space;

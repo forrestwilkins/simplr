@@ -1,4 +1,4 @@
-<div class="card <%= show_anon_avatar?(shared_item.user) ? 'card_top_spacer' : '' %>" id="shared_item_card_<%= shared_item.id %>" align="left">
+<div class="card <%= show_anon_avatar?(shared_item.user) ? 'card_vertical_spacer' : '' %>" id="shared_item_card_<%= shared_item.id %>" align="left">
   <%= render "users/avatar_card_link", user: shared_item.user %>
 
   <span class="posted_label <%= show_anon_avatar?(shared_item.user) ? '' : 'posted_label_no_profile_pic' %>">
