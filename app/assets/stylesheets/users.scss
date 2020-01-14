@@ -84,6 +84,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  box-shadow: 0 0 2.5px rgba(0,0,0,0.75);
 }
 
 .current_token_link {
@@ -97,6 +98,7 @@
 	width: 25px;
 	height: 25px;
   border-radius: 50%;
+  box-shadow: 0 0 2.5px rgba(0,0,0,0.75);
 }
 
 .inline_avatar_container {
@@ -104,6 +106,41 @@
   margin-right: 7.5px;
   margin-bottom: -5px;
 }
+
+
+
+
+
+
+
+.circles_avatar_container {
+  width: 18px;
+  height: 18px;
+}
+
+.circles_avatar_section {
+	border-radius: 50%;
+  width: 5%;
+  height: 5%;
+  position: absolute;
+}
+
+.inline_circles_avatar_container {
+  display: inline-block;
+  margin-right: 7.5px;
+  margin-bottom: -5px;
+}
+
+.circle_token_card_link {
+	position: absolute;
+	left: 23.5px;
+	top: 23.5px;
+}
+
+
+
+
+
 
 .avatar_spins {
   animation: avatar_spin 10s infinite alternate;
