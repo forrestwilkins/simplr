@@ -4,7 +4,7 @@
   </h2>
 </div>
 
-<% if current_user %>
+<% if admin? %>
   <div class="surveys_card" align="center" id="show_survey_form_link_card">
     <%= link_to show_survey_form_path, remote: true, class: "survey_interactive_link" do %>
       <p>

@@ -44,7 +44,7 @@
   <p class="surveys_link surveys_card_links">
     <%= link_to '<i class="fa fa-check-square-o"></i> Take survey'.html_safe, take_survey_path(survey.unique_token) %>
 
-    <% if survey.survey_results.present? and (own_item?(survey) or admin?) %>
+    <% if survey.survey_results.present? and own_item?(survey) and admin? %>
       <%= middle_dot %>
       <%= link_to '<i class="fa fa-list"></i> See results'.html_safe, survey_results_path(survey) %>
     <% end %>

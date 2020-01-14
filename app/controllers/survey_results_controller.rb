@@ -1,7 +1,7 @@
 class SurveyResultsController < ApplicationController
   before_action :set_survey, only: [:index, :filter_by, :sort_by, :reset_filter, :show_grid_filter, :remove_grid_filter, :destroy]
   before_action :reset_sort_and_filter_options, only: [:index, :reset_filter]
-  before_action :invite_only
+  before_action :admin_only
   before_action :surveys
 
   def destroy
@@ -146,6 +146,12 @@ class SurveyResultsController < ApplicationController
 
   def surveys
     @surveying = true
+  end
+
+  def admin_only
+    unless admin?
+      redirect_to root_url
+    end
   end
 
   def invite_only

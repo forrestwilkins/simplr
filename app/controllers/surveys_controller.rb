@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
   before_action :surveys
   before_action :invite_only, except: [:take, :complete, :thank_you]
-  before_action :current_user_only, only: [:create, :update, :destroy, :edit]
+  before_action :admin_only, only: [:create, :update, :destroy, :edit]
   before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more, :show_modal]
   before_action :secure_survey, only: [:update, :destroy, :edit]
   before_action :new_survey, only: [:index, :new, :show_survey_form]
@@ -232,7 +232,7 @@ class SurveysController < ApplicationController
 
   def admin_only
     unless admin?
-      redirect_to sessions_new_path
+      redirect_to root_url
     end
   end
 
