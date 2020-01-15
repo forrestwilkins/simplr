@@ -94,10 +94,22 @@
 	z-index: 15;
 }
 
-.avatar_container {
+.profile_picture_avatar {
 	width: 25px;
 	height: 25px;
   border-radius: 50%;
+}
+
+.avatar_container {
+	width: 32px;
+	height: 32px;
+  border-radius: 50%;
+}
+
+.avatar_pixel {
+	width: 21.6%;
+	height: 21.6%;
+	float: right;
 }
 
 .inline_avatar_container {
@@ -134,16 +146,10 @@
   animation: avatar_spin 10s infinite alternate;
 }
 
-.avatar_pixel {
-	width: 5.5px;
-	height: 5.5px;
-	float: right;
-}
-
 .token_card_link {
 	position: absolute;
-	left: -3px;
-	top: 0px;
+  left: 5.5px;
+	top: 8.5px;
 }
 
 .user_card_links_containor {
@@ -170,5 +176,8 @@
 @media screen and (max-width: 975px) {
   .user_title {
     font-size: 20px;
+  }
+  .token_card_link {
+  	//left: -5px;
   }
 }

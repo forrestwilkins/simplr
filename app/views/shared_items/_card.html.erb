@@ -1,12 +1,12 @@
-<div class="card <%= add_card_class shared_item %>" id="shared_item_card_<%= shared_item.id %>" align="left">
+<div class="card shared_item_card_vertical_spacer" id="shared_item_card_<%= shared_item.id %>" align="left">
   <%= render "users/avatar_card_link", user: shared_item.user %>
 
-  <span class="posted_label <%= show_anon_avatar?(shared_item.user) ? 'posted_label_no_profile_pic' : '' %>">
+  <span class="posted_label">
     <%= link_to shared_item.user.name.capitalize, shared_item.user, class: :posted_link %>
     shared to the <%= link_to 'Lending Library <i class="fa fa-book"></i>'.html_safe, show_item_library_path, class: :posted_link %>
   </span>
 
-  <%= render "app/time_ago", item: shared_item, position: (show_anon_avatar?(shared_item.user) ? nil : :time_ago_link) %>
+  <%= render "app/time_ago", item: shared_item, position: :time_ago_link %>
   <%= link_to "Edit", edit_shared_item_path(shared_item), class: "bottom_right_link" if own_item? shared_item or admin? %>
 
   <div align="center">
