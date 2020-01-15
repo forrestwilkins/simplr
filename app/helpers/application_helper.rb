@@ -1,6 +1,6 @@
 module ApplicationHelper
   def add_card_class item
-    klass = if item.is_a? SharedItem
+    klass = if item.is_a? SharedItem or item.is_a? Survey
       'shared_item_card_vertical_spacer'
     else
       'card_vertical_spacer'
