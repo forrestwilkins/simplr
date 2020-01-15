@@ -1,6 +1,6 @@
 <% if proposal.group.nil? or group_auth proposal.group or group_member_auth proposal.group or own_item? proposal \
 	or (visible_to_anons? proposal.group and not proposal.group.hidden) %>
-	<div class="card standard_content_card <%= show_anon_avatar?(proposal.user) ? '' : 'card_vertical_spacer' %>" id="proposal_card_<%= proposal.id %>">
+	<div class="card standard_content_card <%= add_card_class proposal %>" id="proposal_card_<%= proposal.id %>">
 	  <%= render "users/avatar_card_link", token: proposal.anon_token, user: proposal.user %>
 
 		<span class="posted_label <%= show_anon_avatar?(proposal.user) ? 'posted_label_no_profile_pic' : '' %>">

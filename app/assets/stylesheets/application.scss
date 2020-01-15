@@ -403,6 +403,13 @@ $profile_card_vertical_space: 35px;
   padding-bottom: $profile_card_vertical_space;
 }
 
+$shared_item_card_vertical_space: 35px;
+
+.shared_item_card_vertical_spacer {
+  padding-top: $shared_item_card_vertical_space;
+  padding-bottom: $card_vertical_space;
+}
+
 // for mobile
 @media screen and (max-width: 975px) {
   .standard_page_header {
@@ -419,5 +426,9 @@ $profile_card_vertical_space: 35px;
   .profile_card_vertical_spacer {
     padding-top: $profile_card_vertical_space;
     padding-bottom: $profile_card_vertical_space;
+  }
+  .shared_item_card_vertical_spacer {
+    padding-top: $shared_item_card_vertical_space;
+    padding-bottom: $card_vertical_space;
   }
 }

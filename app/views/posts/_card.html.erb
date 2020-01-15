@@ -2,7 +2,7 @@
   and not post.group.hidden) or own_item? post) and not ((post.hidden or (post.user and post.user.hidden)) \
   and not own_item? post) %>
 
-  <div class="card standard_content_card <%= show_anon_avatar?(post.user) ? '' : 'card_vertical_spacer' %>
+  <div class="card standard_content_card <%= add_card_class post %>
     <%= (post.hidden and (!own_item?(post) or dev?)) ? ' blur' : '' %>"
     id="post_card_<%= post.id %>">
 

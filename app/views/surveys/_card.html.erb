@@ -1,4 +1,4 @@
-<div class="card <%= show_anon_avatar?(survey.user) ? '' : 'card_vertical_spacer' %>" id="survey_card_<%= survey.id %>" align="center">
+<div class="card <%= add_card_class survey %>" id="survey_card_<%= survey.id %>" align="center">
   <%= render "users/avatar_card_link", user: survey.user %>
 
   <span class="posted_label <%= show_anon_avatar?(survey.user) ? 'posted_label_no_profile_pic' : '' %>">

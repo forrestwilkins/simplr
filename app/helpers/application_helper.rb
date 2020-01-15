@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def add_card_class item
+    klass = if item.is_a? SharedItem
+      'shared_item_card_vertical_spacer'
+    else
+      'card_vertical_spacer'
+    end
+  end
+
   def get_time_ago_link_class item, position=nil
     klass = if item.is_a? Proposal or item.is_a? Post
       'standard_post_link'
