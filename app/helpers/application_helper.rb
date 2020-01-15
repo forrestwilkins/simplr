@@ -5,6 +5,8 @@ module ApplicationHelper
     else
       'card_vertical_spacer'
     end
+    klass = nil if show_anon_avatar? item.user
+    klass
   end
 
   def get_time_ago_link_class item, position=nil
