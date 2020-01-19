@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show]
   before_action :invite_only
 
-  skip_before_filter :verify_authenticity_token, only:  :twilio_reply
+  skip_before_action :verify_authenticity_token, only:  :twilio_reply
 
   def twilio_reply
     message_body = params["Body"]
