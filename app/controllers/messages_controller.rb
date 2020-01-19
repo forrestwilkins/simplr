@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 
   def twilio_reply
     message_body = params["Body"]
-    from_number = params["From"].gsub("+", "") # makes number valid
+    from_number = params["From"].gsub("+1", "") # makes number valid
     send_twilio_sms "Hello there, thanks for texting me. Your number is #{from_number}.", from_number
   end
 
