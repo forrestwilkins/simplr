@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # twilio
+  post 'messages/twilio_reply'
+
   # admin
   get 'ctrl_stuff', to: 'admin#index', as: 'dsa_admin'
   get 'dev', to: 'admin#dev_panel', as: 'dev_panel'

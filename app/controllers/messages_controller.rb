@@ -2,6 +2,14 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show]
   before_action :invite_only
 
+  skip_before_filter :verify_authenticity_token, only:  :twilio_reply
+
+  def twilio_reply
+    message_body = params["Body"]
+    from_number = params["From"]
+    send_twilio_sms "Hello there, thanks for texting me. Your number is #{from_number}.", from_number
+  end
+
   def currently_typing
     @folder = Message.folders.find_by_id params[:folder_id]
     @user = User.find_by_id params[:user_id]

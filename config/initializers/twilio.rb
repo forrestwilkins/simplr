@@ -3,11 +3,11 @@ Twilio.configure do |config|
   config.auth_token = ENV['TWILIO_AUTH_TOKEN']
 end
 
-def send_twilio_sms recipient_phone_number, msg
+def send_twilio_sms to, msg
   client = Twilio::REST::Client.new
    client.messages.create({
      from: ENV['TWILIO_PHONE_NUMBER'],
-     to: recipient_phone_number,
+     to: to,
      body: msg
    })
 end
