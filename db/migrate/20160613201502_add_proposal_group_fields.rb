@@ -1,4 +1,4 @@
-class AddProposalGroupFields < ActiveRecord::Migration
+class AddProposalGroupFields < ActiveRecord::Migration[6.0]
   def change
     add_column :groups, :passphrase, :string
     add_column :groups, :pass_protected, :boolean

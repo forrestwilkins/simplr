@@ -1,4 +1,4 @@
-class AddOpenToGroups < ActiveRecord::Migration
+class AddOpenToGroups < ActiveRecord::Migration[6.0]
   def change
     add_column :groups, :open, :boolean
   end

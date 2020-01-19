@@ -1,4 +1,4 @@
-class AddAnonTokenToPosts < ActiveRecord::Migration
+class AddAnonTokenToPosts < ActiveRecord::Migration[6.0]
   def change
     add_column :posts, :anon_token, :string
     add_column :comments, :anon_token, :string
