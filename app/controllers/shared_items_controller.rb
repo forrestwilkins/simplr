@@ -115,13 +115,11 @@ class SharedItemsController < ApplicationController
         # adds order numbers to each picture in photoset if more than 1
         @shared_item.pictures.first.ensure_order if @shared_item.pictures.present? and @shared_item.pictures.size > 1
       end
-      if params[:from_home]
-        redirect_to root_url
-      else
-        redirect_to @shared_item.item_library
-      end
+    end
+    if params[:from_home]
+      redirect_to root_url
     else
-      redirect_to :back
+      redirect_to @shared_item.item_library
     end
   end
 
