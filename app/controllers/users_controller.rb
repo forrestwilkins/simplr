@@ -95,7 +95,7 @@ class UsersController < ApplicationController
       # returns to home page, main feed
       redirect_to root_url
     else
-      redirect_to new_user_path
+      redirect_to root_url, notice: "Please fill all fields."
     end
   end
 
