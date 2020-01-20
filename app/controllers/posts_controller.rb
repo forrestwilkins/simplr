@@ -108,7 +108,7 @@ class PostsController < ApplicationController
     # @shared_item = @item_library.shared_items.new
     @you_are_home = true
     @down = false # turn on for testing/maintence
-    if session[:loading_loader_seen]
+    if session[:loading_loader_seen] or in_dev?
       # gets everything for main feed
       run_for_main_feed
     end

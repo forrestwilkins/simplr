@@ -8,8 +8,8 @@
 <%= render "users/scrolling_avatar.js" %>
 
 <% unless items.present? %>
-  <div class="card">
-    <p align="center">
+  <div class="card" align="center">
+    <p>
       <% if current_user and (current_user.following.size.zero? or current_user.my_groups.size.zero?) %>
         Your feed is currently empty since you haven't followed anyone or joined any groups yet. Try
         <%= link_to "searching", search_path(query: 'users and groups') %>
