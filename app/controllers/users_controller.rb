@@ -137,13 +137,16 @@ class UsersController < ApplicationController
     if @auth_user or dev?
       @user.password = user_params[:password]
       @user.encrypt_password
-      @notice = if @user.save
-        "Password updated successfully."
-      else
-        "Password update failed... Error."
+      if @user.save
+        @success = true
       end
     end
-    redirect_to :back, notice: @notice
+    @notice = if @success
+      "Password updated successfully."
+    else
+      "Password update failed... Error."
+    end
+    redirect_to edit_user_path(@user), notice: @notice
   end
 
   def destroy

@@ -89,19 +89,11 @@ class ConnectionsController < ApplicationController
     if @invite.save
       if dev?
         redirect_to dev_panel_path(invite_token: @invite.unique_token)
-      # redirects to different page if power unlocked for one-time invite and not yet used
-      elsif current_user.has_power? 'invite_someone', :not_expired
-        # power to invite expires after one-time-use
-        current_user.has_power?('invite_someone').update expired: true
-        redirect_to invite_someone_path(invite_token: @invite.unique_token)
-      # gatekeepers have indefinite access to invite privilge
-      elsif current_user.gatekeeper
-        redirect_to invite_someone_path(invite_token: @invite.unique_token)
       else
         redirect_to root_url
       end
     else
-      redirect_to :back
+      redirect_to dev_panel_path
     end
   end
 
@@ -109,12 +101,13 @@ class ConnectionsController < ApplicationController
     @connection = Connection.new
   end
 
-  # for inviting users to join a group
   def create
+    # for inviting users to join a group
     if @group and @user
       invite = @group.invite_to_join @user
       Note.notify(:group_invite, nil, @user, current_user) if invite
-    elsif @group
+    # requesting to join a group
+    elsif @group and not params[:user_id]
       request = current_user.request_to_join @group
       if request
         # boolean for ajax
@@ -126,12 +119,13 @@ class ConnectionsController < ApplicationController
           Note.notify(:group_request, @group, member.user, current_user)
         end
       end
+    # following another user
     elsif @user
       # follows and sets boolean for ajax script
       connection = current_user.follow @user; @followed = true
       Note.notify(:user_follow, nil, @user, current_user) if connection
     end
-    redirect_to :back unless @followed or @requested
+    redirect_to invite_from_group_path(@group) unless @followed or @requested
   end
 
   # when group invite or request is accepted
@@ -140,13 +134,14 @@ class ConnectionsController < ApplicationController
       request = @connection.request
       @connection.update invite: false, request: false
       if @connection.group
+        @group = @connection.group
         if request
-          Note.notify :group_request_accepted, @connection.group, @connection.user, current_user
+          Note.notify :group_request_accepted, @group, @connection.user, current_user
           @group_request_accepted = true
         end
       end
     end
-    redirect_to :back unless params[:ajax_req].present?
+    redirect_to (@group ? show_group_path(@group.unique_token) : root_url) unless params[:ajax_req].present?
   end
 
   def destroy
@@ -161,7 +156,7 @@ class ConnectionsController < ApplicationController
     elsif @connection
       @connection.destroy
     end
-    redirect_to :back unless @unfollowed or @left_group or params[:ajax_req].present?
+    redirect_to root_url unless @unfollowed or @left_group or params[:ajax_req].present?
   end
 
   def members
@@ -182,21 +177,6 @@ class ConnectionsController < ApplicationController
 
   def followers
     @followers = @user.followers.last(10).reverse
-  end
-
-  def steal_follower
-    @follower = User.find_by_id params[:follower_id]
-    # if both users found and power has not been used yet
-    if @user and @follower and current_user.has_power? 'steal_followers', :not_expired
-      # finds the connection between user being followed and the follower
-      @connection = @follower.connections.find_by_other_user_id @user.id
-      # if connection is found and the follower is not the current_user
-      if @connection and not @follower.eql? current_user
-        @connection.update other_user_id: current_user.id
-        current_user.has_power?('steal_followers').update expired: true
-      end
-    end
-    redirect_to :back
   end
 
   private
