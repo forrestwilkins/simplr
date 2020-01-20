@@ -4,8 +4,8 @@
       <%= image_tag profile_picture(current_user), class: :profile_picture_avatar %>
     <% end %>
   <% elsif current_user %>
-    <%= render "users/anon_avatar", user: current_user, position: :current_token_link %>
+    <%= render "users/anon_avatar", user: current_user, position: :current_token_link, current_avatar: true %>
   <% else %>
-    <%= render "users/anon_avatar", token: anon_token, position: :current_token_link %>
+    <%= render "users/anon_avatar", token: anon_token, position: :current_token_link, current_avatar: true %>
   <% end %>
 </span>
