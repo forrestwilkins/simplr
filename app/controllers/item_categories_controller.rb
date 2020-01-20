@@ -23,7 +23,7 @@ class ItemCategoriesController < ApplicationController
     if @item_category.save
       redirect_to item_categories_path
     else
-      redirect_to show_item_library_path
+      redirect_to item_categories_path
     end
   end
 
