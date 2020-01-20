@@ -120,7 +120,7 @@ class CommentsController < ApplicationController
         prepare_mini_form
       end
     else
-      redirect_to :back
+      redirect_to root_url unless params[:ajax_req]
     end
   end
 
