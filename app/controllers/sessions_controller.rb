@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
 
   def new
+    redirect_to root_url if current_user
   end
 
   def create
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
       # redirects to home with notice
       redirect_to root_url, notice: notice
     else
-      redirect_to :back, notice: "Invalid username, email, or password"
+      redirect_to sessions_new_path, notice: "Invalid username, email, or password"
     end
   end
 
