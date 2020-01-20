@@ -104,11 +104,9 @@ class PortalsController < ApplicationController
     end
     # grants dev access when user signs up from this portal
     @portal.dev = true if params[:grant_dev_access]
-    if raleigh_dsa?
-      @portal.admin = true if params[:grant_admin_access]
-      # sets up as dsa portal if created from raleighdsa.com
-      @portal.to_dsa = true
-    end
+    @portal.admin = true if params[:grant_admin_access]
+    # sets up as dsa portal if created from raleighdsa.com
+    @portal.to_dsa = true
     # creates portal cluster
     if params[:cluster_size] and not params[:cluster_size].to_i.zero? and dev?
       @cluster = Portal.create cluster: true, expires_at: @portal.expires_at
@@ -124,7 +122,7 @@ class PortalsController < ApplicationController
       if @cluster and @cluster.portals.present?
         redirect_to show_cluster_path(@cluster.unique_token)
       else
-        redirect_to :back
+        redirect_to show_portal_path(@portal.unique_token)
       end
     else
       # saves as regular portal, loner portal

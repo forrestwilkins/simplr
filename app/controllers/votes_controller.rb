@@ -116,7 +116,7 @@ class VotesController < ApplicationController
     if simple_captcha_valid?
       cookies.permanent[:simple_captcha_validated] = true
     end
-    redirect_to :back
+    redirect_to root_url
   end
 
   def show

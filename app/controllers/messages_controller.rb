@@ -48,7 +48,7 @@ class MessagesController < ApplicationController
       end
       redirect_to show_message_folder_path @folder
     else
-      redirect_to :back
+      redirect_to inbox_path
     end
   end
 

@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       # destroys all other sessions but this one
       cookies[:auth_token] = current_user.auth_token
     end
-    redirect_to :back
+    redirect_to root_url
   end
 
   private

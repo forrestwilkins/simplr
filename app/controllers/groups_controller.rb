@@ -103,7 +103,7 @@ class GroupsController < ApplicationController
   def update
     if @group.update(group_params)
       Tag.extract @group
-      redirect_to :back, notice: "Group updated successfully..."
+      redirect_to show_group_path(@group.unique_token), notice: "Group updated successfully..."
     else
       render :edit
     end

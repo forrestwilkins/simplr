@@ -7,7 +7,7 @@ class SettingsController < ApplicationController
 
   def update_all_user_settings
     Setting.initialize_all_settings
-    redirect_to :back
+    redirect_to root_url
   end
 
   def index
@@ -34,7 +34,7 @@ class SettingsController < ApplicationController
     if params[:ajax]
       @dropdown = true
     else
-      redirect_to :back, notice: "Settings updated successfully..."
+      redirect_to root_url, notice: "Settings updated successfully..."
     end
   end
 

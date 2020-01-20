@@ -27,7 +27,7 @@ class ItemLibrariesController < ApplicationController
     if @item_library.save
       redirect_to @item_library
     else
-      redirect_to :back
+      redirect_to new_item_library_path
     end
   end
 

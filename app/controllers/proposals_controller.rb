@@ -84,7 +84,7 @@ class ProposalsController < ApplicationController
         redirect_to proposals_path
       end
     else
-      redirect_to :back
+      redirect_to proposals_path
     end
   end
 
@@ -151,7 +151,7 @@ class ProposalsController < ApplicationController
 
   # Sub sections: :votes, :comments
   def switch_sub_section
-    redirect_to :back
+    redirect_to show_proposal_path(@proposal.unique_token)
   end
 
   private

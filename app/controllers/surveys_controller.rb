@@ -94,7 +94,7 @@ class SurveysController < ApplicationController
       build_survey
       redirect_to @survey
     else
-      redirect_to :back
+      redirect_to surveys_path
     end
   end
 
