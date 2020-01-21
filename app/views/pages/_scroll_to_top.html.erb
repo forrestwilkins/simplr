@@ -1,8 +1,6 @@
 <!-- pages -->
 
-<script>
-  <%= render "pages/toggle_scroll_to_top_link.js" %>
-</script>
+<%= render "pages/toggle_scroll_to_top_link.js" %>
 
 <%= link_to scroll_to_top_path, remote: true, id: :scroll_to_top_link, class: "scroll_to_top_link" do %>
   <div id="scroll_to_top_link_container" class="scroll_to_top_link_container">

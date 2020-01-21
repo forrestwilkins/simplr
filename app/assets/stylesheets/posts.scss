@@ -23,6 +23,25 @@
   color: white;
 }
 
+.new_post_button_mobile {
+  position: fixed;
+  bottom: 10px;
+  right: 8px;
+  width: 35px;
+  height: 35px;
+  padding: 10px 5px 0px 5px; // top, right, bottom, left
+  background: rgb(255, 181, 178);
+  box-shadow: 0 0 5px rgba(0,0,0,0.35);
+  border-radius: 50%;
+  visibility: hidden;
+}
+
+.new_post_button_txt_mobile {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
 .new_post_form_pulse {
   background: rgb(119,158,203);
   box-shadow: -7.5px -7.5px 7.5px rgb(136,227,182);
@@ -146,5 +165,8 @@
     max-width: 590px;
     margin: 20px auto;
     width: 94.5%;
+  }
+  .new_post_button_mobile {
+    visibility: visible;
   }
 }
