@@ -4,6 +4,7 @@
 	  <%= render "users/avatar_card_link", token: proposal.anon_token, user: proposal.user %>
 
 		<span class="posted_label">
+      <%= link_to proposal.user.name, proposal.user, class: :posted_link if proposal.user %>
 			<% if proposal.group %>
 				<% group_name = if proposal.group.name.size > 15 then proposal.group.name[0..9] + "..." else proposal.group.name end %>
 					made a motion in <%= link_to group_name, proposal.group, class: :posted_link,

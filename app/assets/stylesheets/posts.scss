@@ -4,6 +4,25 @@
 
 // top, right, bottom, left
 
+.new_post_button {
+  position: relative;
+  width: 100%;
+  margin-bottom: 12.5px;
+  padding: 5px; // top, right, bottom, left
+  background: rgb(255, 181, 178);
+  box-shadow: 0 0 5px rgba(0,0,0,0.35);
+  -moz-border-radius: 5px; //for mozilla support
+  -webkit-border-radius: 5px; //for chrome support
+  border-radius: 5px;
+}
+
+.new_post_button_txt {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+}
+
 .new_post_form_pulse {
   background: rgb(119,158,203);
   box-shadow: -7.5px -7.5px 7.5px rgb(136,227,182);

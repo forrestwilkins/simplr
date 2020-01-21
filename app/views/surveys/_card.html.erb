@@ -2,7 +2,7 @@
   <%= render "users/avatar_card_link", user: survey.user %>
 
   <span class="posted_label">
-    <%= link_to survey.user.name.capitalize, survey.user, class: :posted_link %>
+    <%= link_to survey.user.name, survey.user, class: :posted_link %>
     posted a <%= link_to 'survey'.html_safe, survey, class: :posted_link %>
   </span>
 
