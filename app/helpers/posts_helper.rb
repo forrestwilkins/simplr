@@ -1,4 +1,24 @@
 module PostsHelper
+  def feed_summary
+    summary = ""
+    item_types = { post: 0, proposal: 0, shared_item: 0, survey: 0 }
+    feed = if current_user
+      Post.preview_feed
+    else
+      current_user.feed
+    end
+    for item in feed
+      type = item.model_name.singular_route_key.to_sym
+      item_types[type] += 1
+    end
+    item_types.each do |type, total|
+      unless total.zero?
+        summary << "#{total} #{type.to_s.gsub("_", " ")}#{total.eql?(1) ? '' : 's'}, "
+      end
+    end
+    summary[0..-3]
+  end
+
   def show_anon_avatar? user
     profile_picture(user).nil? or user.nil?
   end
