@@ -7,6 +7,7 @@
       // if at bottom and link not shown, show link and bottom line fader
       if (!link_shown && at_bottom) {
         $("#scroll_to_top_link").fadeIn();
+        // also toggles new_post_form_button for mobile so they don't overlap
         $(".new_post_button_mobile").fadeOut();
         link_shown = true;
         // if at bottom but link already shown
@@ -14,10 +15,9 @@
         // if scrolled back to the top
       } else if (link_shown && $(window).scrollTop() < 10) {
         $("#scroll_to_top_link").fadeOut();
+        // also toggles new_post_form_button for mobile so they don't overlap
         $(".new_post_button_mobile").fadeIn();
         link_shown = false;
-        // haptic feedback for scrolling to top
-        // if scrolled to top with link not shown
       }
     }, 5);
   }

@@ -11,7 +11,7 @@
   <%= link_to fa_icon("user", "Profile"), show_user_path(current_user.unique_token),
     class: :standard_nav_menu_link if current_user %>
 
-<%= link_to fa_icon("cubes", "Groups"), (anrcho? ? my_anon_groups_path : my_groups_path),
+<%= link_to fa_icon("cubes", "Groups"), my_groups_path,
   class: :standard_nav_menu_link, title: "Click to see all of the groups you'#{anrcho? ? 've found' : 're in'}." if current_user or anrcho? %>
 
 <% unless current_user %>

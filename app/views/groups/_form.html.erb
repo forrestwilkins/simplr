@@ -23,10 +23,6 @@
         </div>
       <% end %>
 
-      <p>
-        <%= f.select :social_structure, options_for_select(group_structure_options, @group.social_structure) %>
-      </p>
-
       <% if dev? %>
         <p>
           Posts visible to anons: <%= f.check_box :open, { checked: @group.open } %>

@@ -1,4 +1,8 @@
-<h2 class="standard_page_header">Followers <i class="fa fa-users"></i></h2>
+<div class="card" align="center">
+  <h2 class="standard_page_header">
+    <i class="fa fa-users"></i> Followers
+  </h2>
+</div>
 
 <% for user in @followers %>
   <%= render "users/card", user: user %>
