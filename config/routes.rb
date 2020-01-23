@@ -168,6 +168,7 @@ Rails.application.routes.draw do
   delete 'sessions/destroy_all_other_sessions', as: 'destroy_all_other_sessions'
 
   # posts
+  get 'switch_content_form/:content_type', to: 'posts#switch_form', as: 'switch_content_form'
   get 'show_new_post_form_modal', to: 'posts#show_form_modal', as: 'show_new_post_form_modal'
   get 'posts/add_image', as: 'add_post_image'
   get 'posts/add_video', as: 'add_post_video'

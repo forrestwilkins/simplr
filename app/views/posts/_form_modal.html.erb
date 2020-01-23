@@ -3,9 +3,9 @@
 
   <%= render "app/close_modal_link" %>
 
-  <div class="card" id="post_form_card" align="center">
-    <%= render 'form' %>
-  </div>
+  <%= render "posts/switch_form_buttons" %>
+
+  <%= render 'posts/switch_form', content_type: :post %>
 
   <div id="footer_spacing_container"></div>
 </div>

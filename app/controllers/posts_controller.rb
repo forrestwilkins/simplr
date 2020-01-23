@@ -2,12 +2,26 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :share,
     :hide, :feature, :open_menu, :close_menu, :add_photoset, :classify, :goto]
   before_action :secure_post, only: [:edit, :update, :destroy]
-  before_action :new_post, only: :show_form_modal
+  before_action :new_post, only: [:show_form_modal, :switch_form]
   before_action :reset_page_num, only: [:index, :show]
   before_action :invite_only, except: [:show, :create, :add_image, :add_video]
   before_action :invited_or_token_used, only: [:show]
 
   before_action :dev_only, only: [:classify, :feature]
+
+  def switch_form
+    @content_type = params[:content_type].to_sym
+    case @content_type
+    when :post
+    when :shared_item
+      @shared_item = SharedItem.new
+    when :survey
+      @survey = Survey.new
+      cookies[:question_num] = 1
+    when :proposal
+      @proposal = Proposal.new
+    end
+  end
 
   def add_image
     if params[:shared_item]
