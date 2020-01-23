@@ -67,11 +67,10 @@ $new_post_button_bg_color: #ff6b66; // rgb(255, 181, 178)
 
 .switch_content_form_button {
   float: left;
-  width: 25%;
+  width: calc(25% - 1px);
   height: 100%;
   background: white;
   border-right: 1px solid rgb(240, 240, 240);
-  margin-right: -1px;
 }
 
 .switch_content_form_button_active {
