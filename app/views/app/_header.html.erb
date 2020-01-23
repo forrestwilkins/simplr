@@ -1,12 +1,14 @@
 <% if @you_are_home or @taking_survey or @showing_user_profile or @showing_admin_panel %>
   <div class="take_survey_banner" align="center">
     <%= image_tag "dsa/banner_img.png", class: :take_survey_banner_img %>
-    <div class="take_survey_color_bands color_band_blur" id="color_bands">
-      <% 10.times do |i| %>
-        <div class="color_band" id="color_band_<%= i %>"></div>
-        <%= render "arts/band_fader.js", target: "color_band", target_id: i, bright_reds: true %>
-      <% end %>
-    </div>
+    <% unless user_agent.browser.eql? 'Safari' %>
+      <div class="take_survey_color_bands color_band_blur" id="color_bands">
+        <% 10.times do |i| %>
+          <div class="color_band" id="color_band_<%= i %>"></div>
+          <%= render "arts/band_fader.js", target: "color_band", target_id: i, bright_reds: true %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 

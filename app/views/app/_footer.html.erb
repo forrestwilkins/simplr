@@ -1,6 +1,6 @@
 <%= render "app/goto" %>
 
-<%= render "posts/show_form_modal_button" %>
+<%= render "posts/show_form_modal_button" if invited? or current_user %>
 
 <%= render "pages/scroll_to_top" %>
 

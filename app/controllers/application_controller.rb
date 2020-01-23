@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :anon_token, :current_user, :current_identity, :mobile?, :browser, :page_size, :paginate, :reset_page,
+  helper_method :anon_token, :current_user, :current_identity, :mobile?, :browser, :user_agent, :page_size, :paginate, :reset_page,
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
     :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?,
@@ -321,6 +321,10 @@ class ApplicationController < ActionController::Base
 
   def browser
     Browser.new(:ua => request.env['HTTP_USER_AGENT'].to_s, :accept_language => "en-us")
+  end
+
+  def user_agent
+    UserAgent.parse(request.env["HTTP_USER_AGENT"])
   end
 
   def in_dev?
