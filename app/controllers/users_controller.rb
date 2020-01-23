@@ -55,7 +55,7 @@ class UsersController < ApplicationController
       @preview_items = true
       @user = User.new
       # gets preview items for invitee
-      @all_items = Post.preview_posts
+      @all_items = Post.preview_feed
       # pagination for infinite_scroll
       @items = paginate @all_items
       @char_codes = char_codes @items

@@ -65,7 +65,7 @@ class PagesController < ApplicationController
       end
     elsif params[:preview]
       @preview_shown = true
-      return Post.preview_posts
+      return Post.preview_feed
     elsif params[:group_id]
       @group_shown = true
       return Group.find_by_id(params[:group_id]).posts.reverse

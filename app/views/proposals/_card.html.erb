@@ -26,8 +26,6 @@
 			</tr>
 		</table>
 
-
-
 		<table class="bottom_right_link">
 			<tr>
 				<td>
@@ -64,26 +62,44 @@
 		<div id="proposal_comments_anchor_<%= proposal.id %>"></div>
 
 	  <table class="bottom_left_link">
-	      <tr>
-	        <td>
-	          <span id="vote_dropdown_proposal_link_anchor_<%= proposal.id %>"></span>
-	          <%= render "votes/dropdown_link", item: proposal %>
-	        </td>
-	        <td>
-	          ·
-	        </td>
-	        <td>
-	          <span id="like_proposal_link_anchor_<%= proposal.id %>"></span>
-	          <%= render "likes/link", item: proposal %>
-	        </td>
-	        <td>
-	          ·
-	        </td>
-	        <td>
-	    		  <div id="proposal_comments_link_anchor_<%= proposal.id %>"></div>
-	    		  <%= render "comments/link", proposal: proposal %>
-	        </td>
-	    </table>
+      <tr>
+        <td>
+          <span id="vote_dropdown_proposal_link_anchor_<%= proposal.id %>"></span>
+          <%= render "votes/dropdown_link", item: proposal %>
+        </td>
+        <td>
+          ·
+        </td>
+        <td>
+          <span id="like_proposal_link_anchor_<%= proposal.id %>"></span>
+          <%= render "likes/link", item: proposal %>
+        </td>
+        <td>
+          ·
+        </td>
+        <td>
+    		  <div id="proposal_comments_link_anchor_<%= proposal.id %>"></div>
+    		  <%= render "comments/link", proposal: proposal %>
+        </td>
+			</tr>
+    </table>
+
+    <% unless @showing %>
+      <script>
+        function show_proposal_modal_<%= proposal.id %>() {
+          var card = $("#proposal_card_<%= proposal.id %>");
+          card.click(function(e) {
+            if (!($(e.target).closest('a').length || $(e.target).closest('form').length)) {
+              $.ajax({
+        			  type: "GET",
+        			  url: "/show_motion_modal/<%= proposal.id %>"
+        		  });
+            }
+          });
+        }
+        show_proposal_modal_<%= proposal.id %>();
+      </script>
+    <% end %>
 	</div>
 
 	<script>

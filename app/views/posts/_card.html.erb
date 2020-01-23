@@ -153,6 +153,24 @@
         </td>
       </tr>
     </table>
+
+    <% unless @showing %>
+      <script>
+        function show_post_modal_<%= post.id %>() {
+          var card = $("#post_card_<%= post.id %>");
+
+          card.click(function(e) {
+            if (!($(e.target).closest('a').length || $(e.target).closest('form').length)) {
+              $.ajax({
+        			  type: "GET",
+        			  url: "/show_post_modal/<%= post.id %>"
+        		  });
+            }
+          });
+        }
+        show_post_modal_<%= post.id %>();
+      </script>
+    <% end %>
   </div>
 
   <% if settings(post.user)[:post_bg_fader_on] or @invite_only_page and false %> <!-- turned off temporarily -->

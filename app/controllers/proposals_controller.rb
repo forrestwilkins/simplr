@@ -1,9 +1,13 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: [:old_versions, :show, :edit, :update, :destroy, :open_menu, :close_menu, :add_photoset]
+  before_action :set_proposal, only: [:old_versions, :show, :show_modal, :edit, :update, :destroy, :open_menu, :close_menu, :add_photoset]
   before_action :unable_to_edit, only: [:edit, :update, :destroy]
   before_action :set_at_anrcho
   # turn off invite only for anrcho before_action :invite_only
   before_action :bots_to_404
+
+  def show_modal
+    run_for_show
+  end
 
   def add_form
     @group = Group.find_by_id params[:group_id]
@@ -91,48 +95,7 @@ class ProposalsController < ApplicationController
   def show
     @group = @proposal.group if @proposal
     if @proposal
-      @proposal_shown = true
-      seent @proposal
-
-      # gets all votes for and against
-      @up_votes = @proposal.up_votes
-      @down_votes = @proposal.down_votes
-      @abstains = @proposal.abstains
-      @votes = @proposal.votes
-
-      for vote in @votes
-        seent vote
-      end
-
-      # gets all comments/discussion
-      @comments = @proposal.comments
-      @comment = Comment.new
-
-      # gets any revisions to proposal
-      @revisions = @proposal.proposals
-      @revision = Proposal.new
-
-      # gets views, viewed by users other than current users
-      @views = if current_user
-        @proposal.views.where.not user_id: current_user.id
-      else
-        @proposal.views
-      end
-      # filters any views by the OP, of course they saw, they posted it
-      @views = @views.where.not(user_id: @proposal.user_id) if @proposal.user_id
-      # gets any likes for the motion
-      @likes = @proposal.likes
-
-      @old_versions = @proposal.old_versions
-
-      @show_proposal_sub_type = :votes
-      if params[:revisions] and @proposal.requires_revision
-        @show_proposal_sub_type = :revisions
-      elsif params[:comments] or (@votes.empty? and @comments.present?)
-        @show_proposal_sub_type = :comments
-      end
-
-      @proposal.evaluate
+      run_for_show
     else
       redirect_to '/404'
     end
@@ -156,6 +119,51 @@ class ProposalsController < ApplicationController
 
   private
 
+  def run_for_show
+    @proposal_shown = true
+    seent @proposal
+
+    # gets all votes for and against
+    @up_votes = @proposal.up_votes
+    @down_votes = @proposal.down_votes
+    @abstains = @proposal.abstains
+    @votes = @proposal.votes
+
+    for vote in @votes
+      seent vote
+    end
+
+    # gets all comments/discussion
+    @comments = @proposal.comments
+    @comment = Comment.new
+
+    # gets any revisions to proposal
+    @revisions = @proposal.proposals
+    @revision = Proposal.new
+
+    # gets views, viewed by users other than current users
+    @views = if current_user
+      @proposal.views.where.not user_id: current_user.id
+    else
+      @proposal.views
+    end
+    # filters any views by the OP, of course they saw, they posted it
+    @views = @views.where.not(user_id: @proposal.user_id) if @proposal.user_id
+    # gets any likes for the motion
+    @likes = @proposal.likes
+
+    @old_versions = @proposal.old_versions
+
+    @show_proposal_sub_type = :votes
+    if params[:revisions] and @proposal.requires_revision
+      @show_proposal_sub_type = :revisions
+    elsif params[:comments] or (@votes.empty? and @comments.present?)
+      @show_proposal_sub_type = :comments
+    end
+
+    @proposal.evaluate
+  end
+
   def set_at_anrcho
     @anrcho = true
   end
@@ -175,7 +183,14 @@ class ProposalsController < ApplicationController
   end
 
   def set_proposal
-    @proposal = Proposal.find_by_unique_token(params[:token])
+    if params[:token]
+      @proposal = Proposal.find_by_unique_token(params[:token])
+      @proposal ||= Proposal.find_by_id(params[:token])
+    else
+      @proposal = Proposal.find_by_unique_token(params[:id])
+      @proposal ||= Proposal.find_by_id(params[:id])
+    end
+    redirect_to '/404' unless @proposal
   end
 
   def build_feed section, group=nil

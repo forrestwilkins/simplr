@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :share,
+  before_action :set_post, only: [:show, :show_modal, :edit, :update, :destroy, :share,
     :hide, :feature, :open_menu, :close_menu, :add_photoset, :classify, :goto]
   before_action :secure_post, only: [:edit, :update, :destroy]
   before_action :new_post, only: [:show_form_modal, :switch_form]
@@ -8,6 +8,10 @@ class PostsController < ApplicationController
   before_action :invited_or_token_used, only: [:show]
 
   before_action :dev_only, only: [:classify, :feature]
+
+  def show_modal
+    run_for_show
+  end
 
   def switch_form
     @content_type = params[:content_type].to_sym
@@ -132,25 +136,7 @@ class PostsController < ApplicationController
 
   def show
     if @post and params[:token].to_s.size >= 4
-      @post_shown = true
-      @comment = Comment.new
-      @comments = @post.comments
-      @likes = @post._likes
-      @shares = if @post.original
-        @post.original.shares
-      else
-        @post.shares
-      end
-      # records views
-      seent @post
-      # gets views, viewed by users other than current users
-      @views = if current_user
-        @post.views.to_a - View.where(user_id: current_user.id).to_a
-      else
-        @post.views
-      end
-      # filters any views by the OP, of course they saw, they posted it
-      @views = @views - View.where(user_id: @post.user_id) if @post.user_id
+      run_for_show
     else
       redirect_to '/404'
     end
@@ -248,6 +234,28 @@ class PostsController < ApplicationController
     unless dev?
       redirect_to '/404'
     end
+  end
+
+  def run_for_show
+    @post_shown = true
+    @comment = Comment.new
+    @comments = @post.comments
+    @likes = @post._likes
+    @shares = if @post.original
+      @post.original.shares
+    else
+      @post.shares
+    end
+    # records views
+    seent @post
+    # gets views, viewed by users other than current users
+    @views = if current_user
+      @post.views.to_a - View.where(user_id: current_user.id).to_a
+    else
+      @post.views
+    end
+    # filters any views by the OP, of course they saw, they posted it
+    @views = @views - View.where(user_id: @post.user_id) if @post.user_id
   end
 
   # everything required to render main feed
