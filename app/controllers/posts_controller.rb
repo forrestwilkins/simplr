@@ -149,8 +149,6 @@ class PostsController < ApplicationController
       else
         @post.views
       end
-
-
       # filters any views by the OP, of course they saw, they posted it
       @views = @views - View.where(user_id: @post.user_id) if @post.user_id
     else
@@ -169,7 +167,7 @@ class PostsController < ApplicationController
   def create
     secure = invited? or current_user
     if !secure and not params[:un_invited]
-      redirect_to '/404'
+      redirect_to lacks_permission_path
     end
     @post = Post.new(post_params)
     @group = Group.find_by_id params[:group_id]

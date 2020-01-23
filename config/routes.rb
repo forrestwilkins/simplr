@@ -168,6 +168,7 @@ Rails.application.routes.draw do
   delete 'sessions/destroy_all_other_sessions', as: 'destroy_all_other_sessions'
 
   # posts
+  get 'show_post_modal/:id', to: 'posts#show_modal', as: 'show_post_modal'
   get 'switch_content_form/:content_type', to: 'posts#switch_form', as: 'switch_content_form'
   get 'show_new_post_form_modal', to: 'posts#show_form_modal', as: 'show_new_post_form_modal'
   get 'posts/add_image', as: 'add_post_image'
@@ -226,6 +227,7 @@ Rails.application.routes.draw do
   get 'pages/more'
 
   # proposals
+  get 'show_motion_modal/:id', to: 'proposals#show_modal', as: 'show_proposal_modal'
   get 'contributors', to: 'proposals#contributors', as: 'contributors'
   get 'tutorial', to: 'proposals#tutorial', as: 'tutorial'
   get 'worker_motions', to: 'proposals#index', as: 'proposals'
