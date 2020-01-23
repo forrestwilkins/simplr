@@ -105,9 +105,9 @@ class User < ActiveRecord::Base
     end
     # not including proposals temporarily
     # gets all active or ratified global proposals for feed
-    Proposal.globals.main.each do |proposal|
-      _feed << proposal unless _feed.include? proposal
-    end
+    # Proposal.globals.main.each do |proposal|
+    #   _feed << proposal unless _feed.include? proposal
+    # end
     # gets all surveys created
     Survey.all.each do |survey|
       _feed << survey unless _feed.include? survey
