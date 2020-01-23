@@ -114,6 +114,7 @@ class SurveysController < ApplicationController
 
   def index
     @surveys = Survey.all.reverse
+    @surveys_index = true
   end
 
   def edit

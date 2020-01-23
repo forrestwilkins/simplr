@@ -16,7 +16,7 @@
   <% end %>
 
   <%= render "arts/circle_menu" unless social_maya? %>
-  
+
   <% if invited? %>
     <%= render "search/slide_menu" %>
     <%= link_to '<i class="fa fa-home fa-lg"></i>'.html_safe, root_url,

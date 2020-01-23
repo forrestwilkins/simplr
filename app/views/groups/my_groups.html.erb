@@ -1,6 +1,9 @@
 <% @groups = my_groups.sort_by {|g| (g.posts.present? ? g.posts.last.created_at : g.created_at) }.reverse %>
 
-<%= render "groups/form" %>
+<div class="card take_survey_card_border">
+  <%= render "groups/form" %>
+  <%= render "app/right_pane" %>
+</div>
 
 <% @groups.each do |group| %>
   <%= render "groups/card", group: group %>

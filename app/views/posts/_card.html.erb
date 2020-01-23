@@ -1,5 +1,5 @@
 <% if (post.group.nil? or group_auth post.group or group_member_auth post.group or (visible_to_anons? post.group \
-  and not post.group.hidden) or own_item? post) and not ((post.hidden or (post.user and post.user.hidden)) \
+  and not post.group.hidden) or own_item? post) and not ((post.hidden or post.social_maya_only or (post.user and post.user.hidden)) \
   and not own_item? post) %>
 
   <div class="card standard_content_card card_vertical_spacer <%= (post.hidden and (!own_item?(post) or dev?)) ? ' blur' : '' %>" id="post_card_<%= post.id %>">

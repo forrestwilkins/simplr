@@ -1,4 +1,4 @@
-<%= link_to fa_icon("home", "Home"), (anrcho? ? proposals_path : root_url), class: :standard_nav_menu_link,
+<%= link_to fa_icon("home", "Home"), root_url, class: :standard_nav_menu_link,
   title: "Home consists of posts and groups, in reverse chronological order." if invited? or anrcho? %>
 
 <%= link_to fa_icon("envelope", "Inbox#{': ' + current_user.inbox_unseen.to_s \
@@ -39,8 +39,6 @@
     });
   </script>
 
-  <%= link_to fa_icon("paint-brush", "Arts"), arts_path, class: :standard_nav_menu_link if dev? %>
-
   <%= link_to fa_icon("code", "Dev"), dev_panel_path, class: :standard_nav_menu_link,
     title: "Dpanel (Dev panel) - Click here to manage all major site functions and data." if dev? %>
 
@@ -50,9 +48,3 @@
 	  class: :standard_nav_menu_link, title: "Click here to destroy your cookie.",
 	  data: { confirm: "Are you sure?" } %>
 <% end %>
-
-<%= link_to fa_icon("globe", "Contributors"), contributors_path, class: :standard_nav_menu_link,
-  title: "Click here to see who's contributed to Anrcho." if anrcho? %>
-
-<%= link_to fa_icon("question-circle", "How Anrcho Works"), tutorial_path, class: :standard_nav_menu_link,
-  title: "Click here to see how the site works." if anrcho? %>

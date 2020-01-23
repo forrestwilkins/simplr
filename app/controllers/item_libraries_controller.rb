@@ -11,6 +11,7 @@ class ItemLibrariesController < ApplicationController
   end
 
   def show
+    @showing = true
     unless @item_library
       @item_library = ItemLibrary.first
     end
