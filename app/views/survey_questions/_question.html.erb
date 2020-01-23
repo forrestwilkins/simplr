@@ -23,35 +23,19 @@
     <%= hidden_field_tag "question_#{question_num}_type", 'open_ended_paragraph' %>
   <% end %>
 
-  <table>
-    <tr>
-      <td>
-        <%= link_to "Open ended", set_question_type_path(question_num: question_num, type: :open_ended), remote: true,
-          class: "#{active_question_type_link :open_ended}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_open_ended_link" %>
-      </td>
-      <td class="dark_txt">
-        ·
-      </td>
-      <td>
-        <%= link_to "Paragraph", set_question_type_path(question_num: question_num, type: :open_ended_paragraph), remote: true,
-          class: "#{active_question_type_link :open_ended_paragraph}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_radio_button_link" %>
-      </td>
-      <td class="dark_txt">
-        ·
-      </td>
-      <td>
-        <%= link_to "Multiple choice", set_question_type_path(question_num: question_num, type: :radio_button), remote: true,
-          class: "#{active_question_type_link :radio_button}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_radio_button_link" %>
-      </td>
-      <td class="dark_txt">
-        ·
-      </td>
-      <td>
-        <%= link_to "Checkbox", set_question_type_path(question_num: question_num, type: :checkbox), remote: true,
-          class: "#{active_question_type_link :checkbox}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_checkbox_link" %>
-      </td>
-    </tr>
-  </table>
+  <p>
+    <%= link_to "Open ended", set_question_type_path(question_num: question_num, type: :open_ended), remote: true,
+      class: "#{active_question_type_link :open_ended}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_open_ended_link" %>
+    ·
+    <%= link_to "Paragraph", set_question_type_path(question_num: question_num, type: :open_ended_paragraph), remote: true,
+      class: "#{active_question_type_link :open_ended_paragraph}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_radio_button_link" %>
+    ·
+    <%= link_to "Multiple choice", set_question_type_path(question_num: question_num, type: :radio_button), remote: true,
+      class: "#{active_question_type_link :radio_button}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_radio_button_link" %>
+    ·
+    <%= link_to "Checkbox", set_question_type_path(question_num: question_num, type: :checkbox), remote: true,
+      class: "#{active_question_type_link :checkbox}survey_form_link survey_form_link_mobile", id: "question_#{question_num}_checkbox_link" %>
+  </p>
   <br/>
 </div>
 
