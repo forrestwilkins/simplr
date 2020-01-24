@@ -5,7 +5,11 @@
 </div>
 
 <% elsif invited? %>
-  <%= render 'users/form' %>
+  <% if returning_user? %>
+    <%= render "sessions/form" %>
+  <% else %>
+    <%= render 'users/form' %>
+  <% end %>
 <% end %>
 
 <% if in_dev? %>

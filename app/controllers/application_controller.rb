@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :anon_token, :current_user, :current_identity, :mobile?, :browser, :user_agent, :page_size, :paginate, :reset_page,
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
-    :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?,
+    :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?,
     :featured_content, :raleigh_dsa?
 
   include SimpleCaptcha::ControllerHelpers
@@ -87,6 +87,10 @@ class ApplicationController < ActionController::Base
       end
     end
     featured.sort_by {|i| i.created_at}.reverse
+  end
+
+  def returning_user?
+    cookies[:last_active_at].present?
   end
 
   def record_last_visit

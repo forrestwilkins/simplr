@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
       cookies.delete(:auth_token)
     end
 
-    redirect_to sessions_new_path
+    redirect_to root_url
   end
 
   def destroy_all_other_sessions
