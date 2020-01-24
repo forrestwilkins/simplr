@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  use_doorkeeper
   # twilio
   post 'messages/twilio_reply'
 

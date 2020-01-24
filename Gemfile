@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 #gem 'actionpack-action_caching'
 #gem 'rack-offline'
 
+gem 'doorkeeper'
+
 # time and scheduling
 gem 'simple_calendar'
 gem 'fullcalendar-rails'

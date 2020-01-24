@@ -16,6 +16,16 @@ class User < ActiveRecord::Base
   has_many :portals
   has_many :groups
 
+  has_many :access_grants,
+         class_name: 'Doorkeeper::AccessGrant',
+         foreign_key: :resource_owner_id,
+         dependent: :delete_all # or :destroy if you need callbacks
+
+has_many :access_tokens,
+         class_name: 'Doorkeeper::AccessToken',
+         foreign_key: :resource_owner_id,
+         dependent: :delete_all # or :destroy if you need callbacks
+
   validates_uniqueness_of :name
   validates_presence_of :name, length: { minimum: 3 }
   validates_presence_of :password, length: { minimum: 4 }

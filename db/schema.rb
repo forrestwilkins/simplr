@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_11_202533) do
+ActiveRecord::Schema.define(version: 2020_01_24_144815) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.integer "post_id"
     t.integer "comment_id"
     t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "anon_token"
     t.string "image"
     t.integer "bot_id"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.integer "user_id"
     t.integer "other_user_id"
     t.integer "group_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "invite"
     t.boolean "request"
     t.string "anon_token"
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.text "log", limit: 1073741823
     t.datetime "last_performed_at"
     t.boolean "healthy"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
   end
 
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "anon_token"
     t.string "image"
     t.integer "user_id"
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.integer "post_id"
     t.integer "comment_id"
     t.string "unique_token"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "proposal_id"
     t.integer "vote_id"
     t.integer "like_id"
@@ -196,8 +196,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.integer "group_id"
     t.text "body"
     t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "anon_token"
     t.string "receiver_token"
     t.integer "connection_id"
@@ -212,19 +212,61 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.string "message"
     t.string "action"
     t.boolean "seen"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "anon_token"
     t.string "sender_token"
     t.integer "item_id"
     t.string "item_token"
   end
 
+  create_table "oauth_access_grants", force: :cascade do |t|
+    t.integer "resource_owner_id", null: false
+    t.integer "application_id", null: false
+    t.string "token", null: false
+    t.integer "expires_in", null: false
+    t.text "redirect_uri", null: false
+    t.datetime "created_at", null: false
+    t.datetime "revoked_at"
+    t.string "scopes", default: "", null: false
+    t.index ["application_id"], name: "index_oauth_access_grants_on_application_id"
+    t.index ["resource_owner_id"], name: "index_oauth_access_grants_on_resource_owner_id"
+    t.index ["token"], name: "index_oauth_access_grants_on_token", unique: true
+  end
+
+  create_table "oauth_access_tokens", force: :cascade do |t|
+    t.integer "resource_owner_id"
+    t.integer "application_id", null: false
+    t.string "token", null: false
+    t.string "refresh_token"
+    t.integer "expires_in"
+    t.datetime "revoked_at"
+    t.datetime "created_at", null: false
+    t.string "scopes"
+    t.string "previous_refresh_token", default: "", null: false
+    t.index ["application_id"], name: "index_oauth_access_tokens_on_application_id"
+    t.index ["refresh_token"], name: "index_oauth_access_tokens_on_refresh_token", unique: true
+    t.index ["resource_owner_id"], name: "index_oauth_access_tokens_on_resource_owner_id"
+    t.index ["token"], name: "index_oauth_access_tokens_on_token", unique: true
+  end
+
+  create_table "oauth_applications", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "uid", null: false
+    t.string "secret", null: false
+    t.text "redirect_uri", null: false
+    t.string "scopes", default: "", null: false
+    t.boolean "confidential", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.integer "post_id"
     t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "classifier_name"
     t.integer "order"
     t.integer "proposal_id"
@@ -239,8 +281,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.string "unique_token"
     t.datetime "expires_at"
     t.integer "remaining_uses"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "cluster"
     t.integer "cluster_id"
     t.integer "creator_id"
@@ -257,8 +299,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.integer "user_id"
     t.text "body"
     t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "anon_token"
     t.integer "group_id"
     t.integer "original_id"
@@ -290,8 +332,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.boolean "revised"
     t.integer "version"
     t.integer "ratification_point"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "misc_data"
     t.integer "user_id"
     t.string "voting_type"
@@ -303,8 +345,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.string "name"
     t.boolean "on"
     t.string "state"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shared_items", force: :cascade do |t|
@@ -334,8 +376,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
   create_table "simple_captcha_data", force: :cascade do |t|
     t.string "key", limit: 40
     t.string "value", limit: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["key"], name: "idx_key"
   end
 
@@ -405,8 +447,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.integer "group_id"
     t.integer "comment_id"
     t.string "tag"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "anon_token"
     t.integer "index"
     t.integer "proposal_id"
@@ -426,8 +468,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.string "name"
     t.string "passphrase"
     t.binary "salt"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "auth_token"
     t.string "image"
     t.text "body"
@@ -457,8 +499,8 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.string "anon_token"
     t.integer "group_id"
     t.integer "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "comment_id"
     t.integer "profile_id"
     t.string "ip_address"
@@ -495,11 +537,15 @@ ActiveRecord::Schema.define(version: 2020_01_11_202533) do
     t.boolean "verified"
     t.integer "proposal_version"
     t.boolean "moot"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "bot_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
+  add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
 end
