@@ -4,8 +4,4 @@
 
 <div id="feed_container">
 	<%= render "#{parents}/feed" %>
-	<div align="center">
-	  <%= render "pages/#{['load_wheel', 'load_circle', 'buffer_wheel', 'sparkles'].sample}",
-			items: @items, all_items: @all_items %>
-	</div>
 </div>

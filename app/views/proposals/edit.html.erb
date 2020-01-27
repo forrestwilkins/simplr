@@ -18,6 +18,12 @@
 		<div id="action_fields_anchor"></div>
 		<%= render "proposals/action_fields", f_builder: f %>
 
+		<% if dev? %>
+			<p>
+				Anrcho only: <%= f.check_box :anrcho_only, { checked: @proposal.anrcho_only } %>
+			</p>
+		<% end %>
+
     <button type="submit" name="commit" class="standard_form_button">
       <b>Update motion <i class="fa fa-hand-o-up"></i></b>
     </button>

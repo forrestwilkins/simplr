@@ -109,7 +109,8 @@ class ProposalsController < ApplicationController
   # Proposal sections: :voting, :revision, :ratified
   def switch_section
     @group = Group.find_by_unique_token params[:group_token]
-    build_feed params[:section], @group
+    @section = params[:section]
+    build_feed @section, @group
   end
 
   # Sub sections: :votes, :comments
@@ -222,6 +223,6 @@ class ProposalsController < ApplicationController
   end
 
   def proposal_params
-    params[:proposal].permit(:title, :body, :action, :image, :misc_data, pictures_attributes: [:id, :proposal_id, :image])
+    params[:proposal].permit(:title, :body, :action, :image, :misc_data, :anrcho_only, pictures_attributes: [:id, :proposal_id, :image])
   end
 end

@@ -17,14 +17,14 @@ class User < ActiveRecord::Base
   has_many :groups
 
   has_many :access_grants,
-         class_name: 'Doorkeeper::AccessGrant',
-         foreign_key: :resource_owner_id,
-         dependent: :delete_all # or :destroy if you need callbacks
+    class_name: 'Doorkeeper::AccessGrant',
+    foreign_key: :resource_owner_id,
+    dependent: :delete_all # or :destroy if you need callbacks
 
-has_many :access_tokens,
-         class_name: 'Doorkeeper::AccessToken',
-         foreign_key: :resource_owner_id,
-         dependent: :delete_all # or :destroy if you need callbacks
+  has_many :access_tokens,
+    class_name: 'Doorkeeper::AccessToken',
+    foreign_key: :resource_owner_id,
+    dependent: :delete_all # or :destroy if you need callbacks
 
   validates_uniqueness_of :name
   validates_presence_of :name, length: { minimum: 3 }
@@ -77,7 +77,7 @@ has_many :access_tokens,
       _feed << post unless _feed.include? post
     end
     for proposal in proposals
-      _feed << proposal unless _feed.include? proposal
+      _feed << proposal unless _feed.include? proposal or proposal.anrcho_only
     end
     for shared_item in shared_items
       _feed << shared_item unless _feed.include? shared_item
@@ -113,10 +113,9 @@ has_many :access_tokens,
         _feed << post unless _feed.include? post
       end
     end
-    # not including proposals temporarily
     # gets all active or ratified global proposals for feed
     Proposal.globals.main.each do |proposal|
-      _feed << proposal unless _feed.include? proposal
+      _feed << proposal unless _feed.include? proposal or proposal.anrcho_only
     end
     # gets all surveys created
     Survey.all.each do |survey|

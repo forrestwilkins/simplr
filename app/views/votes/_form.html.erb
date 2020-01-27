@@ -9,7 +9,7 @@
 		<p>Flip state: <%= f.select :flip_state, options_for_select([["Flip state of vote (for or against)", nil],
       ["Support", "up"], ["Block", "down"], ["Abstain", "abstain"]], vote.flip_state), id: :vote_flip_state_select %></p>
 
-    <button type="submit" name="commit" class="dark_form_button">
+    <button type="submit" name="commit" class="standard_form_button">
       <b>Update vote <i class="fa fa-hand-o-up"></i></b>
     </button>
   <% end %>
