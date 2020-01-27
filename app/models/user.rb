@@ -114,7 +114,7 @@ class User < ActiveRecord::Base
       end
     end
     # gets all active or ratified global proposals for feed
-    Proposal.globals.main.each do |proposal|
+    Proposal.globals.each do |proposal|
       _feed << proposal unless _feed.include? proposal or proposal.anrcho_only
     end
     # gets all surveys created
