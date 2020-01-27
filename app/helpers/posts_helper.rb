@@ -3,9 +3,9 @@ module PostsHelper
     summary = ""
     item_types = { post: 0, proposal: 0, shared_item: 0, survey: 0, proposal: 0 }
     feed = if current_user
-      Post.preview_feed
-    else
       current_user.feed
+    else
+      Post.preview_feed
     end
     for item in feed
       type = item.model_name.singular_route_key.to_sym
