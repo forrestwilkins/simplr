@@ -18,7 +18,7 @@
 
 		<table class="top_right_link">
 			<tr>
-				<% if proposal.able_to_edit? and (own_item? proposal or dev?) %>
+				<% if proposal.able_to_edit? or own_item?(proposal) or dev? %>
 					<td>
 						<%= render "proposals/open_menu_link", proposal: proposal %>
 					</td>

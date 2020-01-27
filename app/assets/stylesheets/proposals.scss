@@ -5,7 +5,7 @@
 // top, right, bottom, left
 
 @mixin section {
-	background: black;
+	background: white;
 	text-align: center;
 	float: left;
 	height: 100%;
@@ -89,7 +89,7 @@
   padding-bottom: 5px;
 }
 
-#proposal_sections {
+.proposal_sections {
 	position: relative;
   max-width: 655px;
 	margin: 0 auto;
@@ -97,6 +97,7 @@
 	height: 50px;
 	margin-bottom: 12.5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.35);
+  border-radius: 5px;
 }
 
 .action_type_label {
@@ -110,22 +111,7 @@
 	margin: 17.5px 0px;
 }
 
-#voting_section {
-	@include section;
-	width: 25%;
-}
-
-#revision_section {
-	@include section;
-	width: 25%;
-}
-
-#ratified_section {
-	@include section;
-	width: 25%;
-}
-
-#all_section {
+.voting_section {
 	@include section;
 	width: 25%;
 }
@@ -138,4 +124,9 @@
 .proposal_sub_tri_section {
 	@include section;
 	width: 33.33333%;
+}
+
+.proposal_section_active {
+  background: #ff6b66;
+  color: white;
 }
