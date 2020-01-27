@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
     _feed = []
     # all posts from users followed
     for user in following
-      user.posts.each { |post| _feed << post }
+      user.posts.each { |post| _feed << post unless post.social_maya_only }
     end
     # all posts from my groups
     for group in my_groups
