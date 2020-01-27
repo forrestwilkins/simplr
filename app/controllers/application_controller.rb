@@ -59,8 +59,6 @@ class ApplicationController < ActionController::Base
     reset_page; session[:current_proposal_section] = section.to_s
     proposals = if group
       group.proposals
-    elsif in_dev?
-      Proposal.all
     else
       Proposal.globals
     end

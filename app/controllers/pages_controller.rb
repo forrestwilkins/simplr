@@ -48,7 +48,7 @@ class PagesController < ApplicationController
     if params[:proposals]
       @proposals = true
       # turned off sorting by proposal score for now
-      return (in_dev? ? Proposal.all : Proposal.globals).sort_by { |proposal| proposal.created_at }.reverse
+      return Proposal.globals.sort_by { |proposal| proposal.created_at }.reverse
     # for social_maya
     elsif params[:posts]
       @home_shown = true

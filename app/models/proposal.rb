@@ -278,6 +278,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def is_spam?
+    return false # turned off for now
     for i in [self.title.to_s, self.body.to_s]
       if i.include? "business" or i.include? "capital" or i.include? "fund"
         return true

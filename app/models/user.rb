@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
     end
     # all of users own posts
     self.posts.each do |post|
-      _feed << post unless _feed.include? post
+      _feed << post unless _feed.include? post or post.social_maya_only
     end
     # all anonymous posts if dev or has power
     if dev?
