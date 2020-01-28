@@ -8,6 +8,10 @@ class SurveysController < ApplicationController
   before_action :set_question_num, only: [:add_selection, :new_grid, :add_row, :remove_selection_field, :remove_selection_row_field]
   before_action :set_comments, only: [:show_modal, :show]
 
+  def open_menu
+    @showing = params[:showing]
+  end
+
   def read_more
     @read_more = true
   end
@@ -109,7 +113,7 @@ class SurveysController < ApplicationController
 
   def destroy
     @survey.destroy
-    redirect_to surveys_path
+    redirect_to surveys_path unless params[:ajax_req].eql? 'true'
   end
 
   def index
@@ -120,6 +124,10 @@ class SurveysController < ApplicationController
   def edit
     @editing = true
     cookies[:question_num] = @survey.questions.size
+  end
+
+  def show
+    @showing = true
   end
 
   private

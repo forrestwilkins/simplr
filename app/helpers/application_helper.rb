@@ -42,8 +42,16 @@ module ApplicationHelper
     end
   end
 
+  def str_to_bool string
+    ActiveModel::Type::Boolean.new.cast string
+  end
+
   def non_link
     'javascript:;'
+  end
+
+  def ellipsis_dots
+    '&#9679&#9679&#9679'
   end
 
   def middle_dot
