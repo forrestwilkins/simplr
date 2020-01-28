@@ -5,6 +5,10 @@ class ProposalsController < ApplicationController
   # turn off invite only for anrcho before_action :invite_only
   before_action :bots_to_404
 
+  def open_menu
+    @proposal_shown = params[:showing]
+  end
+
   def show_modal
     run_for_show
   end
@@ -103,7 +107,7 @@ class ProposalsController < ApplicationController
 
   def destroy
     @proposal.destroy
-    redirect_to root_url
+    redirect_to root_url unless params[:ajax_req].eql? 'true'
   end
 
   # Proposal sections: :voting, :revision, :ratified
