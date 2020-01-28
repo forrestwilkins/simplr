@@ -159,6 +159,13 @@ textarea {
   color: red;
 }
 
+.mini_menu_ellipsis {
+	@include corner_link;
+	right: 7.5px;
+	top: 9.5px;
+  font-size: 9px;
+}
+
 .justified_body_text {
   text-align: justify;
 }

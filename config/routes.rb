@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   get 'show_item_request_form', to: 'item_requests#show_form', as: 'show_item_request_form'
 
   # surveys
+  get 'surveys/:id/open_menu', to: 'surveys#open_menu', as: 'open_survey_menu'
+  get 'surveys/:id/close_menu', to: 'surveys#close_menu', as: 'close_survey_menu'
   get 'take_survey/:token', to: 'surveys#take', as: 'take_survey'
   post 'complete_survey/:token', to: 'surveys#complete', as: 'complete_survey'
   get 'show_survey_form', to: 'surveys#show_survey_form', as: 'show_survey_form'
