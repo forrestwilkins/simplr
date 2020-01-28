@@ -7,6 +7,10 @@ class SharedItemsController < ApplicationController
   before_action :set_field, only: [:read_more, :remove_filter_field]
   before_action :secure_shared_item, only: [:update, :destroy, :edit]
 
+  def open_menu
+    @showing = params[:showing]
+  end
+
   def read_more
     @read_more = true
   end
@@ -141,7 +145,7 @@ class SharedItemsController < ApplicationController
 
   def destroy
     @shared_item.destroy
-    redirect_to root_url
+    redirect_to root_url unless str_to_bool params[:ajax_req]
   end
 
   def edit

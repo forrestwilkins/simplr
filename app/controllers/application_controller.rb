@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :anon_token, :current_user, :current_identity, :mobile?, :browser, :user_agent, :page_size, :paginate, :reset_page,
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
-    :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?,
+    :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?, :str_to_bool,
     :featured_content, :raleigh_dsa?
 
   include SimpleCaptcha::ControllerHelpers
@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
 
   # bots go to 404 for all pages
   before_action :bots_to_404, except: [:index]
+
+  def str_to_bool string
+    ActiveModel::Type::Boolean.new.cast string
+  end
 
   def user_mentioned? item
     if item.respond_to? :body and item.body.present?

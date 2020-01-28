@@ -107,7 +107,7 @@ class ProposalsController < ApplicationController
 
   def destroy
     @proposal.destroy
-    redirect_to root_url unless params[:ajax_req].eql? 'true'
+    redirect_to root_url unless str_to_bool params[:ajax_req]
   end
 
   # Proposal sections: :voting, :revision, :ratified

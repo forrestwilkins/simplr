@@ -42,10 +42,6 @@ module ApplicationHelper
     end
   end
 
-  def str_to_bool string
-    ActiveModel::Type::Boolean.new.cast string
-  end
-
   def non_link
     'javascript:;'
   end
