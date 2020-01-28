@@ -1,4 +1,4 @@
 <% link_id = "shared_item_menu_link_#{shared_item.id}" %>
 
-<%= link_to '&#9679&#9679&#9679'.html_safe, open_shared_item_menu_path(shared_item.id),
+<%= link_to ellipsis_dots.html_safe, open_shared_item_menu_path(shared_item.id),
   remote: true, class: :mini_menu_ellipsis, id: link_id %>
