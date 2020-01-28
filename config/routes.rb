@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'lending_library_index', to: 'item_libraries#filter_and_sort_index', as: 'item_library_filter_and_sort_index'
 
   # shared items
+  get 'shared_items/:id/open_menu', to: 'shared_items#open_menu', as: 'open_shared_item_menu'
+  get 'shared_items/:id/close_menu', to: 'shared_items#close_menu', as: 'close_shared_item_menu'
   get 'show_shared_item_form/:item_library_id', to: 'shared_items#show_form', as: 'show_shared_item_form'
   get 'show_shared_item/:unique_token', to: 'shared_items#show', as: 'show_shared_item'
   get 'add_shared_item_photoset/:id', to: 'shared_items#add_photoset', as: 'add_shared_item_photoset'

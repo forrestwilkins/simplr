@@ -28,15 +28,7 @@
 
     <%= render "app/time_ago", item: post, position: :time_ago_link %>
 
-    <table class="top_right_link">
-      <tr>
-        <% if own_item? post or dev? %>
-          <td>
-            <%= render "posts/open_menu_link", post: post %>
-          </td>
-        <% end %>
-      </tr>
-    </table>
+    <%= render "posts/open_menu_link", post: post if own_item? post or dev? %>
 
     <div align="center">
       <% if post.image.url %>
