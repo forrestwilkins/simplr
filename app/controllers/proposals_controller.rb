@@ -32,7 +32,7 @@ class ProposalsController < ApplicationController
   end
 
   def index
-    cookies[:at_anrcho] = cookies[:anrcho] = "true"
+    cookies[:at_anrcho] = cookies[:anrcho] = "true" if anrcho?
     @proposal = Proposal.new
     build_feed :main
   end
@@ -170,7 +170,7 @@ class ProposalsController < ApplicationController
   end
 
   def set_at_anrcho
-    @anrcho = true
+    @anrcho = true if anrcho?
   end
 
   def unable_to_edit
