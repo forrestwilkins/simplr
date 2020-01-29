@@ -5,7 +5,7 @@
     <%= render "proposals/infinite_scroll.js" %>
   </script>
 
-  <% unless cookies[:hide_anrcho_info] %>
+  <% if anrcho? and cookies[:hide_anrcho_info].nil? %>
     <div class="card" id="anrcho_info_card" align="center">
       <p class="justified_body_text">
         Every post on Anrcho is in the form of a motion or proposal. Each motion can be voted for or against. It only takes one vote against a motion to then be verified by a peer and effectively block the motion, moving it to a section for revision until a new version is agreed upon, where it can then return to the voting stage. This process is called model of consensus voting, which ensures that all voices involved in a decision are heard and accounted for to the greatest extent possible.
@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-  <div class="card">
+  <div class="card take_survey_card_border">
     <%= render "proposals/new" %>
     <%= render "app/right_pane" %>
   </div>

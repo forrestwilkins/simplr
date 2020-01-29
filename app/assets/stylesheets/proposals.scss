@@ -113,7 +113,6 @@
 
 .voting_section {
 	@include section;
-	width: 25%;
 }
 
 .proposal_sub_section {
@@ -129,4 +128,12 @@
 .proposal_section_active {
   background: #ff6b66;
   color: white;
+}
+
+// for mobile
+@media screen and (max-width: 975px) {
+	.proposal_sections {
+		max-width: 605px;
+		width: 95.5%;
+	}
 }

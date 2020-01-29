@@ -235,7 +235,7 @@ Rails.application.routes.draw do
   get 'show_motion_modal/:id', to: 'proposals#show_modal', as: 'show_proposal_modal'
   get 'contributors', to: 'proposals#contributors', as: 'contributors'
   get 'tutorial', to: 'proposals#tutorial', as: 'tutorial'
-  get 'worker_motions', to: 'proposals#index', as: 'proposals'
+  get 'motions', to: 'proposals#index', as: 'proposals'
   get 'motions/add_image', to: 'proposals#add_image', as: 'add_proposal_image'
   get 'motions/add_group', to: 'proposals#add_group_id', as: 'add_proposal_group_id'
   get 'motions/:token', to: 'proposals#show', as: 'show_proposal'
