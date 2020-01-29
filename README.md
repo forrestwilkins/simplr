@@ -1,6 +1,6 @@
 ## Simplr
 
-Simplr, a model of consensus voting platform for horizontal, cooperative resource management.
+Simplr, a voting platform for horizontal, cooperative resource management.
 
 ## FOSS
 
