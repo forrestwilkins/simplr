@@ -1,6 +1,6 @@
 ## Simplr
 
-Simplr, a voting platform for horizontal, cooperative resource management.
+Simplr, a voting platform for horizontal resource management.
 
 ## FOSS
 
