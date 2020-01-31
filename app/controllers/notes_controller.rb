@@ -32,6 +32,7 @@ class NotesController < ApplicationController
     build_feed
     @notes = @notes.first(10)
     @char_bits = char_bits @notes.delete_if {|i| i.message.nil?}
+    @showing_notes = true
   end
 
   private

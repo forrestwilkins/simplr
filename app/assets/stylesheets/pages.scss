@@ -4,6 +4,8 @@
 
 // top, right, bottom, left
 
+$main_red: #ff6b66;
+
 $darkred: rgb(190, 0, 0);
 
 .circle_menu_nav_links {
@@ -165,6 +167,10 @@ $darkred: rgb(190, 0, 0);
   padding-left: 10px;
   margin-top: -7.5px;
   width: 100%;
+}
+
+.active_nav_link {
+  color: $main_red;
 }
 
 .buffer_pixel {

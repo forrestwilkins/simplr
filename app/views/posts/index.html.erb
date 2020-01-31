@@ -1,8 +1,7 @@
 <% if current_user %>
 <div class="card take_survey_card_border card_vertical_spacer">
   <%= render "feed_summary" %>
-  <%= render "app/right_pane" %>
-  <%= render "app/left_pane" %>
+  <%= render "app/side_panes" %>
 </div>
 
 <% elsif invited? %>

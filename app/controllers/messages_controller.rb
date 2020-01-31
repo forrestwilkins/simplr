@@ -69,6 +69,7 @@ class MessagesController < ApplicationController
   end
 
   def message_folders
+    @showing_inbox = true
     @folders = current_user.message_folders
     # destroys any empty folders that are older than the specified time
     @folders.each { |folder| folder.destroy if folder.messages.empty? and folder.created_at < 1.hour.ago }

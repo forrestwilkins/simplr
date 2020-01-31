@@ -40,24 +40,5 @@
         <br/>
       </div>
     <% end %>
-
-    <% if ItemLibrary.first.shared_items.present? and false %>
-      <div class="right_pane_sub take_survey_card_border">
-        <div class="side_pane_label right_pane_label">Lending Library - Recently added</div>
-
-        <div class="notes_side_pane_message">
-          <%= link_to "See Libarary", show_item_library_path %>
-        </div>
-        <br/>
-      </div>
-    <% end %>
-
-    <%= link_to show_new_post_form_modal_path, remote: true do %>
-      <div class="new_post_button" align="center">
-        <p class="new_post_button_txt">
-          Post
-        </p>
-      </div>
-    <% end %>
   </div>
 <% end %>
