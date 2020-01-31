@@ -66,6 +66,7 @@ $new_post_button_bg_color: #ff6b66; // rgb(255, 181, 178)
 }
 
 .switch_content_form_button {
+  transition: all .4s ease-in-out;
   float: left;
   width: calc(25% - 1px);
   height: 100%;

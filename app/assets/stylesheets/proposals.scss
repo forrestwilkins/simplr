@@ -5,6 +5,7 @@
 // top, right, bottom, left
 
 @mixin section {
+  transition: all .4s ease-in-out;
 	background: white;
 	text-align: center;
 	float: left;
