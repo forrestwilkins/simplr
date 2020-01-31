@@ -140,11 +140,10 @@ $darkred: rgb(190, 0, 0);
 }
 
 .left_pane {
-  position: fixed;
-  left: 10%;
-  top: 45px;
-  width: 15%;
-  height: 300px;
+  position: absolute;
+  left: -272.5px;
+  top: -7.5px;
+  width: 250px;
 }
 
 .side_pane_label {
@@ -452,6 +451,11 @@ $darkred: rgb(190, 0, 0);
 // for mobile
 @media screen and (max-width: 975px) {
   .right_pane {
+    visibility: hidden;
+    width: 0px;
+    left: 0px;
+  }
+  .left_pane {
     visibility: hidden;
     width: 0px;
     left: 0px;

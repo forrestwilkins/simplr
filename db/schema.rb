@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.integer "post_id"
     t.integer "comment_id"
     t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "anon_token"
     t.string "image"
     t.integer "bot_id"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.integer "user_id"
     t.integer "other_user_id"
     t.integer "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "invite"
     t.boolean "request"
     t.string "anon_token"
@@ -104,8 +104,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.text "log", limit: 1073741823
     t.datetime "last_performed_at"
     t.boolean "healthy"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
   end
 
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "anon_token"
     t.string "image"
     t.integer "user_id"
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.integer "post_id"
     t.integer "comment_id"
     t.string "unique_token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "proposal_id"
     t.integer "vote_id"
     t.integer "like_id"
@@ -196,8 +196,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.integer "group_id"
     t.text "body"
     t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "anon_token"
     t.string "receiver_token"
     t.integer "connection_id"
@@ -212,8 +212,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.string "message"
     t.string "action"
     t.boolean "seen"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "anon_token"
     t.string "sender_token"
     t.integer "item_id"
@@ -265,8 +265,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
   create_table "pictures", force: :cascade do |t|
     t.integer "post_id"
     t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "classifier_name"
     t.integer "order"
     t.integer "proposal_id"
@@ -281,8 +281,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.string "unique_token"
     t.datetime "expires_at"
     t.integer "remaining_uses"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "cluster"
     t.integer "cluster_id"
     t.integer "creator_id"
@@ -299,8 +299,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.integer "user_id"
     t.text "body"
     t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "anon_token"
     t.integer "group_id"
     t.integer "original_id"
@@ -332,8 +332,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.boolean "revised"
     t.integer "version"
     t.integer "ratification_point"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "misc_data"
     t.integer "user_id"
     t.string "voting_type"
@@ -346,8 +346,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.string "name"
     t.boolean "on"
     t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "shared_items", force: :cascade do |t|
@@ -377,8 +377,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
   create_table "simple_captcha_data", force: :cascade do |t|
     t.string "key", limit: 40
     t.string "value", limit: 6
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["key"], name: "idx_key"
   end
 
@@ -448,8 +448,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.integer "group_id"
     t.integer "comment_id"
     t.string "tag"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "anon_token"
     t.integer "index"
     t.integer "proposal_id"
@@ -469,8 +469,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.string "name"
     t.string "passphrase"
     t.binary "salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "auth_token"
     t.string "image"
     t.text "body"
@@ -500,8 +500,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.string "anon_token"
     t.integer "group_id"
     t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "comment_id"
     t.integer "profile_id"
     t.string "ip_address"
@@ -538,8 +538,8 @@ ActiveRecord::Schema.define(version: 2020_01_27_174758) do
     t.boolean "verified"
     t.integer "proposal_version"
     t.boolean "moot"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "bot_id"
   end
