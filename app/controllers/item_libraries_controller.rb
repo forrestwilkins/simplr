@@ -11,7 +11,7 @@ class ItemLibrariesController < ApplicationController
   end
 
   def show
-    @showing_item_library = true
+    @showing_item_library = @show_banner = @no_vertical_spacer = true
     unless @item_library
       @item_library = ItemLibrary.first
     end

@@ -112,7 +112,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @showing_user_profile = true
+    @showing_user_profile = @show_banner = @no_vertical_spacer = true
     if @user
       show_user_thingy_to_run
     end

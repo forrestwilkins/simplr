@@ -87,7 +87,7 @@ class SurveysController < ApplicationController
   def take
     cookies.delete(:take_survey_page_num)
     @questions = @survey.questions
-    @taking_survey = true
+    @taking_survey = @show_banner = true
     @page_size = 5
   end
 
@@ -118,7 +118,7 @@ class SurveysController < ApplicationController
 
   def index
     @surveys = Survey.all.reverse
-    @surveys_index = true
+    @surveys_index = @show_banner = @no_vertical_spacer = true
   end
 
   def edit

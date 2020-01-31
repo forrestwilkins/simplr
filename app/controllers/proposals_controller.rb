@@ -34,7 +34,7 @@ class ProposalsController < ApplicationController
   def index
     cookies[:at_anrcho] = cookies[:anrcho] = "true" if anrcho?
     @proposal = Proposal.new
-    @showing_motions = true
+    @showing_motions = @show_banner = @no_vertical_spacer = true
     build_feed :main
   end
 
