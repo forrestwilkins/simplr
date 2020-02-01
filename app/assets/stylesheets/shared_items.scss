@@ -16,6 +16,28 @@
   margin: 0px 5px 0px 10px;
 }
 
+.shared_item_card_header {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.shared_item_name {
+  font-size: 18px;
+}
+
+.shared_item_feed_img {
+	width: 30px;
+	height: 30px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.standard_shared_item_image {
+  width: 97.5%;
+}
+
 .shared_item_filter_text_field {
   background: rgb(240, 240, 240);
   color: black;

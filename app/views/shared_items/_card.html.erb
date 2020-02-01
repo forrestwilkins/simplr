@@ -11,33 +11,30 @@
   <%= render "shared_items/open_menu_link", shared_item: shared_item if own_item? shared_item or admin? %>
 
   <div align="center">
-    <p>
-      <%= link_to shared_item.name, shared_item_path(shared_item) %>
+    <p class="shared_item_card_header">
+      <%= link_to shared_item.name, shared_item_path(shared_item), class: :shared_item_name %>
+      <% if shared_item.pictures.present? and not @showing %>
+        <%= image_tag shared_item.pictures.first.image_url, class: :shared_item_feed_img %>
+      <% end %>
     </p>
 
-    <% if shared_item.pictures.present? %>
+    <% if shared_item.pictures.present? and @showing %>
       <p>
-        <% unless @shared_item_shown %>
-          <%= link_to show_shared_item_path(shared_item.unique_token) do %>
-            <%= image_tag shared_item.pictures.first.image_url, class: :standard_post_image %>
-          <% end %>
-          <% if shared_item.pictures.present? %>
-            <table id="shared_item_mini_photoset_table_<%= shared_item.id %>">
-              <tr>
-                <% for picture in shared_item.pictures[1..-1] %>
-                  <td>
-                    <%= link_to add_shared_item_photoset_path(shared_item), remote: true, title: "Click here to enlarge.", class: :survey_interactive_link do %>
-                      <%= image_tag picture.image_url, class: :my_groups_group_icon %>
-                    <% end %>
-                  </td>
-                <% end %>
-              </tr>
-            </table>
-          <% end %>
-        <% else %>
-          <% shared_item.pictures.each do |picture| %>
-            <%= image_tag picture.image_url, class: :standard_post_image %>
-          <% end %>
+        <%= link_to show_shared_item_path(shared_item.unique_token) do %>
+          <%= image_tag shared_item.pictures.first.image_url, class: :standard_shared_item_image %>
+        <% end %>
+        <% if shared_item.pictures.present? %>
+          <table id="shared_item_mini_photoset_table_<%= shared_item.id %>">
+            <tr>
+              <% for picture in shared_item.pictures[1..-1] %>
+                <td>
+                  <%= link_to add_shared_item_photoset_path(shared_item), remote: true, title: "Click here to enlarge.", class: :survey_interactive_link do %>
+                    <%= image_tag picture.image_url, class: :my_groups_group_icon %>
+                  <% end %>
+                </td>
+              <% end %>
+            </tr>
+          </table>
         <% end %>
       </p>
     <% end %>
