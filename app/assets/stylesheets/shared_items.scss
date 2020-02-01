@@ -118,3 +118,10 @@
   width: 15px;
   margin: 0px 0px 0px 2px; // top, right, bottom, left
 }
+
+// for mobile
+@media screen and (max-width: 975px) {
+  .shared_item_card_header {
+    margin-left: 12.5px;
+  }
+}
