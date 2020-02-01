@@ -6,7 +6,7 @@
     <%= hidden_field_tag :from_home, true if @from_home %>
 
     <p>
-      Add a new item
+      Add a new item to the <%= link_to 'Lending Library <i class="fa fa-book"></i>'.html_safe, show_item_library_path %>
     </p>
 
     <% if @editing %>
