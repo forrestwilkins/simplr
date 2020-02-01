@@ -13,6 +13,10 @@ class ItemLibrary < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  def self.feed
+    self.first.shared_items.sort_by { |item| item.created_at }.reverse
+  end
+
   def categories
     item_categories
   end

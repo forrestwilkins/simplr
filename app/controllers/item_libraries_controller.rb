@@ -6,7 +6,7 @@ class ItemLibrariesController < ApplicationController
   before_action :secure_item_library, only: [:update, :destroy, :edit]
 
   def load_more
-    @shared_items = paginate ItemLibrary.first.shared_items.reverse
+    @shared_items = paginate ItemLibrary.feed
     page_turning @shared_items
   end
 
@@ -23,8 +23,8 @@ class ItemLibrariesController < ApplicationController
     unless @item_library
       @item_library = ItemLibrary.first
     end
-    @shared_items_size = @item_library.shared_items.size
-    @shared_items = @item_library.shared_items.reverse.first 10
+    @shared_items_size = ItemLibrary.feed.size
+    @shared_items = ItemLibrary.feed.first 10
   end
 
   def index
