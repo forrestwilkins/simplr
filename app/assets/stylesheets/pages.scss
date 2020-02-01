@@ -471,3 +471,13 @@ $darkred: rgb(190, 0, 0);
     height: 100%;
   }
 }
+
+// for desktop
+@media screen and (min-width: 975px) {
+  .hidden_nav_menu_link {
+    visibility: hidden;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+  }
+}

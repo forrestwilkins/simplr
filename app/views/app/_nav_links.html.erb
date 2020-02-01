@@ -1,15 +1,15 @@
-<%= link_to fa_icon("home", "Home"), root_url, class: :standard_nav_menu_link,
+<%= link_to fa_icon("home", "Home"), root_url, class: "standard_nav_menu_link hidden_nav_menu_link",
   title: "Home consists of posts and groups, in reverse chronological order." if invited? or anrcho? %>
 
 <%= link_to fa_icon("envelope", "Inbox#{': ' + current_user.inbox_unseen.to_s \
-  unless current_user.inbox_unseen.zero?}"), inbox_path, class: :standard_nav_menu_link if current_user %>
+  unless current_user.inbox_unseen.zero?}"), inbox_path, class: "standard_nav_menu_link hidden_nav_menu_link" if current_user %>
 
 <%= link_to fa_icon("bell", "Notes#{': ' + currently_unseen_notes.size.to_s \
-  unless currently_unseen_notes.size.zero?}"), notes_path, class: :standard_nav_menu_link,
+  unless currently_unseen_notes.size.zero?}"), notes_path, class: "standard_nav_menu_link hidden_nav_menu_link",
   title: "See what's happening..." if current_user or anrcho? %>
 
   <%= link_to fa_icon("user", "Profile"), show_user_path(current_user.unique_token),
-    class: :standard_nav_menu_link if current_user %>
+    class: "standard_nav_menu_link hidden_nav_menu_link" if current_user %>
 
 <%= link_to fa_icon("cubes", "Groups"), my_groups_path,
   class: :standard_nav_menu_link, title: "Click to see all of the groups you'#{anrcho? ? 've found' : 're in'}." if current_user or anrcho? %>
@@ -19,11 +19,11 @@
 <% else %>
   <%= link_to fa_icon("users", "Following"), following_path(current_user.id), class: :standard_nav_menu_link %>
 
-  <%= link_to fa_icon("book", "Lending Library"), show_item_library_path, class: :standard_nav_menu_link, id: :power_nav_menu_link if invited? %>
+  <%= link_to fa_icon("book", "Lending Library"), show_item_library_path, class: "standard_nav_menu_link hidden_nav_menu_link" if invited? %>
 
-  <%= link_to fa_icon("check-square-o", "Surveys"), surveys_path, class: :standard_nav_menu_link, id: :power_nav_menu_link %>
+  <%= link_to fa_icon("check-square-o", "Surveys"), surveys_path, class: "standard_nav_menu_link hidden_nav_menu_link" %>
 
-  <%= link_to fa_icon("hand-o-up", "Motions"), proposals_path, class: :standard_nav_menu_link, id: :power_nav_menu_link %>
+  <%= link_to fa_icon("hand-o-up", "Motions"), proposals_path, class: "standard_nav_menu_link hidden_nav_menu_link" %>
 
   <%= link_to fa_icon("cog", "Settings"), settings_dropdown_path, remote: true,
     id: :settings_nav_link, class: "standard_nav_menu_link settings_nav_link" %>
@@ -32,8 +32,8 @@
   </div>
 
   <script>
-    $("#settings_nav_link").click(function() {
-      $("#settings_nav_link").toggleClass('plus_fade');
+    $(".settings_nav_link").click(function() {
+      $(".settings_nav_link").toggleClass('plus_fade');
       window.navigator.vibrate(1);
     });
   </script>
