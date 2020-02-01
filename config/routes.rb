@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'show_item_category_form', to: 'item_categories#show_form', as: 'show_item_category_form'
 
   # item libraries
+  get 'load_more_shared_items', to: 'item_libraries#load_more', as: 'load_more_shared_items'
   get 'show_lending_library_form', to: 'item_libraries#show_form', as: 'show_item_library_form'
   get 'lending_library', to: 'item_libraries#show', as: 'show_item_library'
   get 'lending_library_index', to: 'item_libraries#filter_and_sort_index', as: 'item_library_filter_and_sort_index'

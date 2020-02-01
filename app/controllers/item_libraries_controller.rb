@@ -5,17 +5,26 @@ class ItemLibrariesController < ApplicationController
 
   before_action :secure_item_library, only: [:update, :destroy, :edit]
 
+  def load_more
+    @shared_items = paginate ItemLibrary.first.shared_items.reverse
+    page_turning @shared_items
+  end
+
   def filter_and_sort_index
     @item_library = ItemLibrary.first
     @shared_items = @item_library.shared_items
   end
 
   def show
+    # sets up for page turning
+    session[:page] = 1
+    # ensures red banner shows with appropriate spacing
     @showing_item_library = @show_banner = @no_vertical_spacer = true
     unless @item_library
       @item_library = ItemLibrary.first
     end
-    @shared_items = @item_library.shared_items.reverse
+    @shared_items_size = @item_library.shared_items.size
+    @shared_items = @item_library.shared_items.reverse.first 10
   end
 
   def index

@@ -16,6 +16,11 @@
   <%= render "shared_items/card", shared_item: shared_item %>
 <% end %>
 
+
+<%= render "load_more_link", user: @user %>
+
+<%= render "pages/load_bar", items: [], all_items: [] %>
+
 <% if @shared_items.empty? %>
   <div class="card" align="center">
     <p>
@@ -31,5 +36,3 @@
     </p>
   </div>
 <% end %>
-
-<%= render "app/link_sound.js", _class: true, link_id: :survey_interactive_link, sound: :post_interface_sound %>
