@@ -16,4 +16,13 @@
       $(".shared_item_modal").remove();
     }
   });
+  
+  // back button only closes modal instead of going back
+  window.history.pushState(null, "", window.location.href);        
+  window.onpopstate = function() {
+    window.history.pushState(null, "", window.location.href);
+  };
+  window.onpopstate = function() {
+    $(".shared_item_modal").remove();
+  }
 </script>
