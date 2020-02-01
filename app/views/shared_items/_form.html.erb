@@ -2,7 +2,6 @@
   <%= link_to '<i class="fa fa-times"></i>'.html_safe, hide_shared_item_form_card_path,
     remote: true, class: "interactive_link top_right_link", id: :hide_shared_item_form_card_link if @from_home %>
   <%= form_for(@shared_item) do |f| %>
-    <%= hidden_field_tag :item_library_id, @item_library.id if @item_library %>
     <%= hidden_field_tag :from_home, true if @from_home %>
 
     <p>
@@ -63,7 +62,7 @@
 
     <p>
       <button type="submit" name="commit" class="surveys_form_button">
-        <b><%= @editing ? "Save" : "Create" %> <i class="fa fa-pencil"></i></b>
+        <b><%= @editing ? "Save" : "Submit" %> <i class="fa fa-pencil"></i></b>
       </button>
     </p>
     <br/>

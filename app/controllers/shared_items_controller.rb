@@ -103,7 +103,7 @@ class SharedItemsController < ApplicationController
   end
 
   def create
-    @item_library = ItemLibrary.find_by_id params[:item_library_id]
+    @item_library = ItemLibrary.first
     @shared_item = @item_library.shared_items.new(shared_item_params)
     @shared_item.user_id = current_user.id
     # sets as photoset for validation
