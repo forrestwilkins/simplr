@@ -56,8 +56,10 @@
       <p>
         Exit survey <i class="fa fa-home"></i>
         <% if invited? and @survey.results.present? %>
-          <%= middle_dot %>
-          <%= link_to 'See results for this survey <i class="fa fa-list"></i>'.html_safe, survey_results_path(@survey) %>
+          <% if admin? or own_item? @survey %>
+            <%= middle_dot %>
+            <%= link_to 'See results for this survey <i class="fa fa-list"></i>'.html_safe, survey_results_path(@survey) %>
+          <% end %>
         <% end %>
       </p>
     <% end %>
