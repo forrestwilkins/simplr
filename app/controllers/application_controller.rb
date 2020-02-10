@@ -17,6 +17,9 @@ class ApplicationController < ActionController::Base
   # bots go to 404 for all pages
   before_action :bots_to_404, except: [:index]
 
+  # redirects to forrest_web_co
+  before_action :forrest_web_co_to_forrest_web_co, except: [:index]
+
   def str_to_bool string
     ActiveModel::Type::Boolean.new.cast string
   end

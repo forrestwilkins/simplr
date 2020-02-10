@@ -296,6 +296,9 @@ Rails.application.routes.draw do
   get 'clicks', to: 'arts#clicks', as: 'clicks'
   get 'fib', to: 'arts#fib', as: 'chuck_fib'
 
+  # templates
+  get 'co', to: 'templates#index', as: 'forrest_web_co'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
