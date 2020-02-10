@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
     :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?, :str_to_bool,
-    :featured_content, :raleigh_dsa?
+    :featured_content, :raleigh_dsa?, :forrest_web_co?
 
   include SimpleCaptcha::ControllerHelpers
 
@@ -104,6 +104,8 @@ class ApplicationController < ActionController::Base
   def get_site_title
     if social_maya?
       "Social Maya"
+    elsif forrest_web_co?
+      "Forrest Web Company"
     else
       "Raleigh DSA#{' — Dev' if in_dev?}"
     end
@@ -297,6 +299,10 @@ class ApplicationController < ActionController::Base
 
   def social_maya?
     request.host.eql? "socialmaya.com"
+  end
+
+  def forrest_web_co?
+    request.host.eql? "forrestwebco.com"
   end
 
   def invited?

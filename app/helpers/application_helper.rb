@@ -78,12 +78,8 @@ module ApplicationHelper
   end
 
   def get_site_ico
-    if social_maya?
-      if current_user and not Rails.env.development?
-        "bust"
-      else
-        "social_maya"
-      end
+    if social_maya? or forrest_web_co?
+      "cube"
     else
       "dsa"
     end
