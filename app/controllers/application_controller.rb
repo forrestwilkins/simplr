@@ -364,7 +364,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forrest_web_co_to_forrest_web_co
-    if request.host.eql? 'forrestwebco.com' or request.host.eql? 'forrestwilkins.com' or true
+    if request.host.eql? 'forrestwebco.com' or request.host.eql? 'forrestwilkins.com'
       redirect_to forrest_web_co_path
     end
   end
