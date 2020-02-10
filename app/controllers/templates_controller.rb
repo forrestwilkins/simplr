@@ -1,5 +1,5 @@
 class TemplatesController < ApplicationController
-  def index
+  def co
     @forrest_web_co = true
   end
 end

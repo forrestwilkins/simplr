@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   before_action :bots_to_404, except: [:index]
 
   # redirects to forrest_web_co
-  before_action :forrest_web_co_to_forrest_web_co, except: [:index]
+  before_action :forrest_web_co_to_forrest_web_co, except: [:co]
 
   def str_to_bool string
     ActiveModel::Type::Boolean.new.cast string
@@ -364,7 +364,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forrest_web_co_to_forrest_web_co
-    if request.host.eql? 'forrestwebco.com' or request.host.eql? 'forrestwilkins.com'
+    if request.host.eql? 'forrestwebco.com' or request.host.eql? 'forrestwilkins.com' or true
       redirect_to forrest_web_co_path
     end
   end
