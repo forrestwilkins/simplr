@@ -20,15 +20,6 @@
   @include template_card;
 }
 
-@mixin section_part {
-  width: 100%;
-  min-height: 500px;
-  text-align: center;
-  position: relative;
-  overflow: auto;
-}
-
-
 @mixin forrest_web_co_img {
   width: 50%;
   margin-top: 17.5px;
@@ -36,43 +27,8 @@
   margin-bottom: 2.5px;
 }
 
-.section_part {
-  @include section_part;
-}
-
-.fwc_sample_templates_container {
-  margin-left: 2.5%;
-}
-
-.fwc_sample_templates_img_container {
-  position: absolute;
-  top: 37.5px;
-  right: 35px;
-  width: 35%;
-}
-
-.fwc_sample_templates_img {
-  float: left;
-  width: 40%;
-  margin-right: 5px;
-  margin-bottom: 5px;
-}
-
-.fwc_sample_templates_img_cascade {
-  width: 100%;
-}
-
-.fwc_sample_templates_cascade_img {
-  width: 100%;
-}
-
 .web_co_email_link {
   font-size: 14px;
-}
-
-.web_co_bio_card {
-  clear: both;
-  overflow: auto;
 }
 
 .forrest_web_co_img {
