@@ -105,7 +105,7 @@ class ApplicationController < ActionController::Base
     if social_maya?
       "Social Maya"
     elsif forrest_web_co?
-      "Forrest Web Company"
+      "Forrest Web Co."
     else
       "Raleigh DSA#{' — Dev' if in_dev?}"
     end
