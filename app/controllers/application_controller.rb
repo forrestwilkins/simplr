@@ -302,7 +302,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forrest_web_co?
-    request.host.eql? "forrestwebco.com"
+    request.host.eql? "forrestwebco.com" or @forrest_web_co
   end
 
   def invited?
