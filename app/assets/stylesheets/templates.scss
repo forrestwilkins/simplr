@@ -23,8 +23,6 @@
 @mixin section_part {
   width: 100%;
   min-height: 500px;
-  background: rgb(214, 216, 219);
-  color: DarkBlue;
   text-align: center;
   position: relative;
   overflow: auto;
@@ -69,7 +67,7 @@
 }
 
 .web_co_email_link {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .web_co_bio_card {
@@ -82,43 +80,15 @@
   float: left;
 }
 
-.forrest_web_co_img_1 {
-  @include forrest_web_co_img;
-  width: 97.5%;
-  margin-top: 0px;
-}
-
-#forrest_web_co_card {
-  animation: forrest_web_co_header_card_glow 7.5s infinite alternate;
-}
-
-#forrest_web_co_header {
-  animation: forrest_web_co_header_shadow 7.5s infinite alternate;
-}
-
-@keyframes forrest_web_co_header_card_glow {
-  0% {
-    background: black;
-    box-shadow: -7.5px -7.5px 7.5px orange;
-  }
-  100% {
-    background: rgb(70, 173, 212);
-    box-shadow: 7.5px 7.5px 7.5px black;
-  }
-}
-
-@keyframes forrest_web_co_header_shadow {
-  0% {
-    color: white;
-    text-shadow: 2.25px 2.25px 2.25px orange;
-  }
-  100% {
-    color: black;
-    text-shadow: 0.1px 0.1px 0.1px rgb(70, 173, 212);
-  }
-}
-
 // for mobile
+@media screen and (max-width: 975px) {
+  .template_card {
+    @include template_card;
+    width: 90%;
+  }
+}
+
+// for mobile, very small
 @media screen and (max-width: 450px) {
   .fwc_sample_templates_img_container {
     position: absolute;
