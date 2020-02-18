@@ -1,19 +1,30 @@
 <style>
   html {
-    background: lightgreen;
+    background: white;
+    color: rgb(75, 75, 75);
+  }
+
+  a {
+    color: rgb(75, 75, 75);
   }
 </style>
 
-<div class="vertical_spacer"></div>
+<div class="template_vertical_spacer"></div>
 
 <div class="template_card">
-  <h2 class="standard_page_header">
-    Forrest Web Company <i class="fa fa-grav"></i>
+  <h2 class="template_page_header">
+    Hello. My name is Forrest Wilkins. I am a Web Developer from Smithfield, NC.
   </h2>
 </div>
 
 <div class="template_card" align="left">
-  <%= image_tag "html_code.jpg", class: :forrest_web_co_img %>
+  <%= image_tag "html_code.jpg", class: :standard_post_image %>
+</div>
+
+<div class="template_card" align="left">
+  <p class="template_card_label">
+    About:
+  </p>
   <p>
     Need a professional website made with quick turnaround for your business, company, or idea that hasn't launched yet?
   </p>
@@ -22,6 +33,21 @@
   </p>
   <p>
     My specialties include website design, hosting, mobile responsive websites, search engine optimization, and full scale content management systems.
+  </p>
+</div>
+
+<div class="template_card" align="left">
+  <p class="template_card_label">
+    Projects:
+  </p>
+  <p>
+    <%= link_to "Interactive Art Apps made with Processing", "https://play.google.com/store/apps/developer?id=Forrest+Wilkins" %>
+  </p>
+</div>
+
+<div class="template_card" align="left">
+  <p class="template_card_label">
+    Contact:
   </p>
   <p>
     <%= link_to "mailto:forrestwilkinswebcompany@gmail.com", class: :web_co_email_link do %>
@@ -32,14 +58,5 @@
     <b>
       (919) 756-0830
     </b>
-  </p>
-</div>
-
-<div class="template_card" align="left">
-  <p class="template_card_label">
-    Projects:
-  </p>
-  <p>
-    <%= link_to "Interactive Art Apps made with Processing", "https://play.google.com/store/apps/developer?id=Forrest+Wilkins" %>
   </p>
 </div>

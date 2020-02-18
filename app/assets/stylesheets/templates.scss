@@ -8,16 +8,22 @@
   padding: 1.25px 7.5px;
   background: white;
   border: 0px solid white;
-  max-width: 550px;
+  max-width: 650px;
   margin: 0 auto;
-  margin-bottom: 12.5px;
   width: 94.5%;
-  box-shadow: 0 0 5px rgba(0,0,0,0.35);
-  border-radius: 5px;
 }
 
 .template_card {
   @include template_card;
+}
+
+.template_page_header {
+  text-align: center;
+  font-size: 35px;
+}
+
+.template_vertical_spacer {
+  padding-bottom: 30px;
 }
 
 @mixin forrest_web_co_img {
@@ -43,6 +49,9 @@
 
 // for mobile
 @media screen and (max-width: 975px) {
+  .template_page_header {
+    font-size: 30px;
+  }
   .template_card {
     @include template_card;
     width: 90%;
