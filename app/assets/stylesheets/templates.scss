@@ -7,13 +7,20 @@
   position: relative;
   padding: 1.25px 7.5px;
   background: white;
+  color: rgb(75, 75, 75);
   border: 0px solid white;
   max-width: 650px;
   margin: 0 auto;
   width: 94.5%;
+  font-size: 16px;
 }
 
 .template_card {
+  @include template_card;
+  line-height: 175%;
+}
+
+.template_header_card {
   @include template_card;
 }
 
@@ -35,10 +42,6 @@
 
 .template_card_label {
   font-weight: bold;
-  font-size: 14px;
-}
-
-.web_co_email_link {
   font-size: 14px;
 }
 
