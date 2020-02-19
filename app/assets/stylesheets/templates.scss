@@ -6,10 +6,9 @@
   transition: all .4s ease-in-out;
   position: relative;
   padding: 1.25px 7.5px;
-  background: white;
   color: rgb(50, 50, 50);
   border: 0px solid white;
-  max-width: 650px;
+  max-width: 1050px;
   margin: 0 auto;
   width: 94.5%;
   font-size: 16px;
@@ -25,12 +24,11 @@
 }
 
 .template_page_header {
-  text-align: center;
   font-size: 35px;
 }
 
 .template_vertical_spacer {
-  padding-bottom: 100px;
+  padding-bottom: 85px;
 }
 
 .template_avatar_container {
@@ -53,7 +51,7 @@
   left: 62.5px;
   white-space: nowrap;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .template_avatar_name {
@@ -65,17 +63,35 @@
 .template_avatar_title {
   @include template_avatar_item;
   top: 27.5px;
-  color: rgb(150, 150, 150); 
 }
 
 .template_main_img {
   display: block;
   position: relative;
-  padding: 1.25px 7.5px;
   border: 0px solid white;
-  max-width: 850px;
   margin: 0 auto;
-  width: 94.5%;
+  margin-bottom: 17.5px;
+  width: 100%;
+}
+
+.template_nav_bar {
+  position: absolute;
+  top: 50px;
+  right: 85px;
+}
+
+.template_nav_bar_link {
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.template_link_active {
+  color: #00d86c;
+}
+
+.template_link_soft {
+  color: rgb(200, 200, 200);
 }
 
 .template_card_label {
@@ -108,5 +124,8 @@
   .template_avatar_title {
     top: 22.5px;
     left: 52.5px;
+  }
+  .template_nav_bar {
+    visibility: hidden;
   }
 }
