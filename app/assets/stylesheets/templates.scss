@@ -7,7 +7,7 @@
   position: relative;
   padding: 1.25px 7.5px;
   background: white;
-  color: rgb(75, 75, 75);
+  color: rgb(50, 50, 50);
   border: 0px solid white;
   max-width: 650px;
   margin: 0 auto;
@@ -30,24 +30,57 @@
 }
 
 .template_vertical_spacer {
-  padding-bottom: 30px;
+  padding-bottom: 100px;
 }
 
-@mixin forrest_web_co_img {
-  width: 50%;
-  margin-top: 16px;
-  margin-right: 10px;
-  margin-bottom: 1.5px;
+.template_avatar_container {
+  position: absolute;
+  top: 35px;
+  left: 95px;
+}
+
+.template_avatar_img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+@mixin template_avatar_item {
+  position: absolute;
+  left: 62.5px;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.template_avatar_name {
+  @include template_avatar_item;
+  top: 2.5px;
+  font-size: 18px;
+}
+
+.template_avatar_title {
+  @include template_avatar_item;
+  top: 27.5px;
+  color: rgb(150, 150, 150); 
+}
+
+.template_main_img {
+  display: block;
+  position: relative;
+  padding: 1.25px 7.5px;
+  border: 0px solid white;
+  max-width: 850px;
+  margin: 0 auto;
+  width: 94.5%;
 }
 
 .template_card_label {
   font-weight: bold;
   font-size: 14px;
-}
-
-.forrest_web_co_img {
-  @include forrest_web_co_img;
-  float: left;
 }
 
 // for mobile
@@ -59,14 +92,8 @@
     @include template_card;
     width: 90%;
   }
-}
-
-// for mobile, very small
-@media screen and (max-width: 450px) {
-  .fwc_sample_templates_img_container {
-    position: absolute;
-    top: 80px;
-    right: 35px;
-    width: 35%;
+  .template_avatar_container {
+    top: 35px;
+    left: 15px;
   }
 }

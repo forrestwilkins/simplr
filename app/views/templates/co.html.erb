@@ -4,11 +4,19 @@
   }
 
   a {
-    color: rgb(75, 75, 75);
+    color: rgb(50, 50, 50);
   }
 </style>
 
 <div class="template_vertical_spacer"></div>
+
+<div class="template_avatar_container">
+  <%= image_tag "me.jpg", class: :template_avatar_img %>
+  <%= link_to "Forrest Wilkins", root_url, class: :template_avatar_name %>
+  <div class="template_avatar_title">
+    Software Development
+  </div>
+</div>
 
 <div class="template_header_card">
   <h2 class="template_page_header">
@@ -16,9 +24,7 @@
   </h2>
 </div>
 
-<div class="template_card" align="left">
-  <%= image_tag "html_code.jpg", class: :standard_post_image %>
-</div>
+<%= image_tag "html_code.jpg", class: :template_main_img %>
 
 <div class="template_card" align="left">
   <p class="template_card_label">
