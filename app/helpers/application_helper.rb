@@ -78,8 +78,10 @@ module ApplicationHelper
   end
 
   def get_site_ico
-    if social_maya? or forrest_web_co?
+    if social_maya?
       "cube"
+    elsif forrest_web_co?
+      "me"
     else
       "dsa"
     end
