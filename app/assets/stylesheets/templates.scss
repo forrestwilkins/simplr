@@ -93,7 +93,19 @@
     width: 90%;
   }
   .template_avatar_container {
-    top: 35px;
+    top: 25px;
     left: 15px;
+  }
+  .template_avatar_img {
+    width: 40px;
+    height: 40px;
+  }
+  .template_avatar_name {
+    top: 1px;
+    left: 52.5px;
+  }
+  .template_avatar_title {
+    top: 25px;
+    left: 52.5px;
   }
 }
