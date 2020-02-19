@@ -8,7 +8,7 @@
   padding: 1.25px 7.5px;
   color: rgb(50, 50, 50);
   border: 0px solid white;
-  max-width: 1050px;
+  max-width: 750px;
   margin: 0 auto;
   width: 94.5%;
   font-size: 16px;
@@ -21,6 +21,7 @@
 
 .template_header_card {
   @include template_card;
+  padding-bottom: 12.5px;
 }
 
 .template_page_header {
@@ -130,8 +131,14 @@
   }
   .template_header_card {
     width: 92.5%;
+    padding-bottom: 1.5px;
   }
   .template_vertical_spacer {
     padding-bottom: 65px;
   }
+}
+
+// for desktop
+@media screen and (min-width: 975px) {
+  
 }
