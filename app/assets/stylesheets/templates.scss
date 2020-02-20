@@ -72,7 +72,8 @@
   border: 0px solid white;
   margin: 0 auto;
   margin-bottom: 17.5px;
-  width: 100%;
+  max-width: 950px;
+  width: 94.5%;
 }
 
 .template_nav_bar {
@@ -136,9 +137,28 @@
   .template_vertical_spacer {
     padding-bottom: 65px;
   }
+  .template_main_img {
+    width: 100%;
+  }
 }
 
-// for desktop
-@media screen and (min-width: 975px) {
-  
+// for desktop large
+@media screen and (min-width: 1400px) {
+  .template_avatar_container {
+    left: 20%;
+  }
+  .template_nav_bar {
+    right: 20%;
+  }
+  .template_main_img {
+    max-width: 1125px;
+  }
+  .template_header_card {
+    max-width: 1125px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .template_page_header {
+    width: 80%;
+  }
 }

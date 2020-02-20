@@ -1,0 +1,28 @@
+<style>
+  html {
+    background: white;
+  }
+
+  a {
+    color: rgb(50, 50, 50);
+  }
+</style>
+
+<div class="template_vertical_spacer"></div>
+
+<div class="template_nav_bar">
+  <%= link_to "About", forrest_web_co_path, class: "template_nav_bar_link #{@fwc_home ? 'template_link_active' : ''}" %>
+  <%= link_to "Blog", forrest_web_co_path, class: "template_nav_bar_link" %>
+  <%= link_to "forrestwilkinswebcompany@gmail.com",
+    "mailto:forrestwilkinswebcompany@gmail.com", class: "template_nav_bar_link template_link_soft" %>
+</div>
+
+<div class="template_avatar_container">
+  <%= link_to forrest_web_co_path do %>
+    <%= image_tag "me.jpg", class: :template_avatar_img %>
+  <% end %>
+  <%= link_to "Forrest Wilkins", forrest_web_co_path, class: :template_avatar_name %>
+  <div class="template_avatar_title template_link_soft">
+    Software Development
+  </div>
+</div>
