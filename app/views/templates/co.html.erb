@@ -9,45 +9,49 @@
 <%= image_tag "html_code.jpg", class: :template_main_img %>
 
 <div class="template_card" align="left">
-  <p class="template_card_label">
-    About:
-  </p>
-  <p>
-    Need a professional website made with quick turnaround for your business, company, or idea that hasn't launched yet?
-  </p>
-  <p>
-    All of my websites are built from scratch using the web development framework known as Ruby on Rails. So whether it's a simple, static landing page for your art or music, or something more complex (e.g. custom social networks or inventory management systems), you've come to the right place.
-  </p>
-  <p>
-    My specialties include website design, hosting, mobile responsive websites, search engine optimization, and full scale content management systems.
-  </p>
+  <div class="template_card_content">
+    <p class="template_card_label template_link_soft">
+      About
+    </p>
+    <p>
+      Need a professional website made with quick turnaround for your business, company, or idea that hasn't launched yet?
+    </p>
+    <p>
+      All of my websites are built from scratch using the web development framework known as Ruby on Rails. So whether it's a simple, static landing page for your art or music, or something more complex (e.g. custom social networks or inventory management systems), you've come to the right place.
+    </p>
+    <p>
+      My specialties include website design, hosting, mobile responsive websites, search engine optimization, and full scale content management systems.
+    </p>
+  </div>
 </div>
 
 <div class="template_card" align="left">
-  <p class="template_card_label">
-    Projects:
-  </p>
-  <p>
-    <%= link_to "Interactive Art Apps made with Processing", "https://play.google.com/store/apps/developer?id=Forrest+Wilkins" %>
-  </p>
+  <div class="template_card_content">
+    <p class="template_card_label template_link_soft">
+      Projects
+    </p>
+    <p>
+      <%= link_to "Interactive Art Apps made with Processing", "https://play.google.com/store/apps/developer?id=Forrest+Wilkins" %>
+    </p>
+  </div>
 </div>
 
 <div class="template_card" align="left">
-  <p class="template_card_label">
-    Contact:
-  </p>
-  <p>
-    <%= link_to "mailto:forrestwilkinswebcompany@gmail.com" do %>
-     forrestwilkinswebcompany@gmail.com
-    <% end %>
-  </p>
-  <p>
-    <b>
-      (919) 756-0830
-    </b>
-  </p>
+  <div class="template_card_content">
+    <p class="template_card_label template_link_soft">
+      Contact
+    </p>
+    <div>
+      <%= link_to "mailto:forrestwilkinswebcompany@gmail.com" do %>
+       forrestwilkinswebcompany@gmail.com
+      <% end %>
+    </div>
+    <div>
+      <b>
+        (919) 756-0830
+      </b>
+    </div>
+  </div>
 </div>
 
-<div class="template_vertical_spacer"></div>
-
-<%= render "pages/scroll_to_top" %>
+<%= render "co_footer" %>

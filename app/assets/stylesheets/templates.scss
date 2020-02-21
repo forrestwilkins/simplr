@@ -153,6 +153,9 @@
   .template_main_img {
     max-width: 1125px;
   }
+  .template_card {
+    max-width: 1125px;
+  }
   .template_header_card {
     max-width: 1125px;
     padding-top: 50px;
@@ -160,5 +163,8 @@
   }
   .template_page_header {
     width: 80%;
+  }
+  .template_card_content {
+    width: 60%;
   }
 }
