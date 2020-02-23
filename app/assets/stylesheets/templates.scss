@@ -11,7 +11,7 @@
   max-width: 750px;
   margin: 0 auto;
   width: 94.5%;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .template_card {
@@ -76,6 +76,26 @@
   width: 94.5%;
 }
 
+.template_scroll_to_top_link_container {
+  position: fixed;
+  bottom: 27.5px;
+  right: 37.5px;
+  z-index: 5;
+  color: rgb(200, 200, 200);
+}
+
+.template_scroll_to_top_link_icon {
+  font-size: 50px;
+}
+
+
+#scroll_to_top_link_icon {
+  position: absolute;
+  top: -0.5px;
+  left: 11.5px;
+  font-size: 40px;
+}
+
 .template_nav_bar {
   position: absolute;
   top: 50px;
@@ -89,16 +109,15 @@
 }
 
 .template_link_active {
-  color: #00d86c;
+  color: rgb(95, 210, 140);
 }
 
 .template_link_soft {
   color: rgb(200, 200, 200);
 }
 
-.template_card_label {
-  font-weight: bold;
-  font-size: 14px;
+.template_link_underlined {
+  text-decoration: underline;
 }
 
 .template_menu_container {
@@ -144,6 +163,61 @@
 	display: block;
 	padding: 5px 20px;
   background: white;
+}
+
+.template_footer {
+  width: 100%;
+  background: rgb(38, 38, 38);
+  min-height: 668px;
+  overflow: auto;
+  padding-bottom: 10px;
+}
+
+.template_footer_menu {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.template_footer_menu_label {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.template_footer_menu_item {
+  display: block;
+}
+
+$template_footer_card_top_padding: 60px;
+
+.template_footer_card {
+  @include template_card;
+  line-height: 175%;
+  padding-top: $template_footer_card_top_padding;
+}
+
+.template_footer_card_content {
+  margin-bottom: 70px;
+}
+
+.template_footer_card_name {
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 7.5px;
+}
+
+.template_footer_card_email {
+  display: block;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 27.5px;
+}
+
+.template_footer_text {
+  color: rgb(95, 95, 95);
+  font-weight: 300;
+  font-size: 20px;
 }
 
 // for mobile
@@ -192,6 +266,9 @@
     width: 100%;
     height: 100%;
   }
+  .template_footer_card {
+    padding-top: $template_footer_card_top_padding;
+  }
 }
 
 // for desktop large
@@ -215,5 +292,11 @@
   }
   .template_card_content {
     width: 60%;
+  }
+  .template_footer_card_content {
+    width: 45%;
+  }
+  .template_footer_menu {
+    width: 33.333333%;
   }
 }
