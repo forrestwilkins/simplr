@@ -308,7 +308,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forrest_wilkins?
-    request.host.eql? "forrestwilkins.com" or @forrest_web_co
+    request.host.eql? "forrestwilkins.com"
   end
 
   def invited?
