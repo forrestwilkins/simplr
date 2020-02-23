@@ -2,6 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$main_font_size: 20px;
+
+html {
+  font-family: Helvetica;
+}
+
+body {
+  margin: initial;
+}
+
+a {
+	text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  color: rgb(50, 50, 50);
+  font-weight: 400;
+  font-size: $main_font_size;
+}
+
+::selection {
+  color: white;
+  background: rgb(85, 210, 140);
+}
+
 @mixin template_card {
   transition: all .4s ease-in-out;
   position: relative;
@@ -11,7 +37,7 @@
   max-width: 750px;
   margin: 0 auto;
   width: 94.5%;
-  font-size: 20px;
+  font-size: $main_font_size;
 }
 
 .template_card {
@@ -141,7 +167,7 @@
   height: 20px;
   width: 20px;
   visibility: hidden;
-  font-size: 20px;
+  font-size: $main_font_size;
   z-index: 15;
 }
 
@@ -209,16 +235,21 @@ $template_footer_card_top_padding: 60px;
 .template_footer_text {
   color: rgb(95, 95, 95);
   font-weight: 300;
-  font-size: 20px;
+  font-size: $main_font_size;
 }
 
 // for mobile
+$mobile_font_size: 18px;
 @media screen and (max-width: 975px) {
+  a {
+    font-size: $mobile_font_size;
+  }
   .template_page_header {
     font-size: 30px;
   }
   .template_card {
     @include template_card;
+    font-size: $mobile_font_size;
     width: 90%;
   }
   .template_avatar_container {
@@ -260,6 +291,20 @@ $template_footer_card_top_padding: 60px;
   }
   .template_footer_card {
     padding-top: $template_footer_card_top_padding;
+  }
+  .template_footer_text {
+    font-size: $mobile_font_size;
+  }
+  .template_footer_menu_label {
+    font-size: $mobile_font_size;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .template_footer_card_email {
+    margin-bottom: 15px;
+  }
+  .template_footer_card_content {
+    margin-bottom: 50px;
   }
 }
 
