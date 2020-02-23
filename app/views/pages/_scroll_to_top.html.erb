@@ -2,7 +2,7 @@
 
 <%= render "pages/toggle_scroll_to_top_link.js" %>
 
-<%= link_to scroll_to_top_path, remote: true, id: :scroll_to_top_link, class: "scroll_to_top_link" do %>
+<%= link_to non_link, id: :scroll_to_top_link, class: "scroll_to_top_link", onclick: '$(document).scrollTop(0);' do %>
   <div id="scroll_to_top_link_container" class="<%= 'template_' if @forrest_web_co %>scroll_to_top_link_container">
     <span class="<%= 'template_' if @forrest_web_co %>scroll_to_top_link_icon">
       <i class="fa fa-angle-up"></i>
