@@ -104,6 +104,8 @@ class ApplicationController < ActionController::Base
   def get_site_title
     if social_maya?
       "Social Maya"
+    elsif forrest_wilkins?
+      "Forrest Wilkins"
     elsif forrest_web_co?
       "Forrest Web Co."
     else
@@ -305,6 +307,10 @@ class ApplicationController < ActionController::Base
     request.host.eql? "forrestwebco.com" or @forrest_web_co
   end
 
+  def forrest_wilkins?
+    request.host.eql? "forrestwilkins.com" or @forrest_web_co
+  end
+
   def invited?
     (cookies[:invite_token].present? and Connection.find_by_unique_token(cookies[:invite_token])) \
       or current_user or User.all.size.zero? or cookies[:zen].present?
@@ -370,7 +376,7 @@ class ApplicationController < ActionController::Base
   end
 
   def forrest_web_co_to_forrest_web_co
-    if request.host.eql? 'forrestwebco.com' or request.host.eql? 'forrestwilkins.com'
+    if forrest_web_co? or forrest_wilkins?
       redirect_to forrest_web_co_path
     end
   end
