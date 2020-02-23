@@ -1,18 +1,9 @@
 class PagesController < ApplicationController
   before_action :set_human, except: [:go_to]
 
-  def go_to
-  end
-
-  def resume
-  end
-
   def more
     page_turning relevant_items
     build_feed_data
-  end
-
-  def scroll_to_top
   end
 
   def toggle_menu
@@ -30,7 +21,7 @@ class PagesController < ApplicationController
   private
 
   def set_human
-    cookies.permanent[:probably_human] = true unless current_user
+    cookies.permanent[:probably_human] = true unless current_user or forrest_web_co? or forrest_wilkins?
   end
 
   def build_feed_data
