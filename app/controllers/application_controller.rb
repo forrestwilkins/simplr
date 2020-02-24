@@ -102,15 +102,17 @@ class ApplicationController < ActionController::Base
   end
 
   def get_site_title
-    if social_maya?
+    site_title = if social_maya?
       "Social Maya"
     elsif forrest_wilkins?
       "Forrest Wilkins"
     elsif forrest_web_co?
       "Forrest Web Co."
     else
-      "Raleigh DSA#{' — Dev' if in_dev?}"
+      "Raleigh DSA"
     end
+    site_title = site_title + ' — Dev' if in_dev?
+    site_title
   end
 
   def seent item
