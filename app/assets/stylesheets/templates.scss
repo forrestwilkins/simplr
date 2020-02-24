@@ -7,6 +7,8 @@
 
 $main_font_size: 20px;
 
+$active_color: rgb(95, 210, 140);
+
 html {
   font-family: Helvetica;
 }
@@ -23,6 +25,10 @@ a {
   font-size: $main_font_size;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 ::selection {
   color: white;
   background: rgb(85, 210, 140);
@@ -37,6 +43,7 @@ a {
   max-width: 750px;
   margin: 0 auto;
   width: 94.5%;
+  overflow: auto;
   font-size: $main_font_size;
 }
 
@@ -90,6 +97,11 @@ a {
 .template_avatar_title {
   @include template_avatar_item;
   top: 27.5px;
+}
+
+.template_header_link:hover {
+  text-decoration: none;
+  color: $active_color;
 }
 
 .template_main_img {
@@ -221,6 +233,7 @@ $template_footer_card_top_padding: 60px;
 
 .template_footer_card_content {
   margin-bottom: 70px;
+  width: 85%;
 }
 
 .template_footer_card_name {
@@ -240,6 +253,10 @@ $template_footer_card_top_padding: 60px;
   color: rgb(95, 95, 95);
   font-weight: 300;
   font-size: $main_font_size;
+}
+
+.template_footer_dark_link {
+  color: rgb(60, 60, 60);
 }
 
 // for mobile
@@ -309,6 +326,7 @@ $mobile_font_size: 18px;
   }
   .template_footer_card_content {
     margin-bottom: 40px;
+    width: 90%;
   }
 }
 
@@ -335,7 +353,7 @@ $mobile_font_size: 18px;
     width: 60%;
   }
   .template_footer_card_content {
-    width: 45%;
+    width: 50%;
   }
   .template_footer_menu {
     width: 33.333333%;
