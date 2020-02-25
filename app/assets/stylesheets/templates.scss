@@ -52,6 +52,17 @@ a:hover {
   line-height: 175%;
 }
 
+.card_col {
+  float: left;
+  width: 47.5%;
+}
+
+.card_col_spacer {
+  float: left;
+  width: 5%;
+  height: 1px;
+}
+
 .template_header_card {
   @include template_card;
   padding-bottom: 12.5px;
@@ -258,6 +269,7 @@ $template_footer_card_top_padding: 60px;
 .template_footer_dark_link {
   color: rgb(60, 60, 60);
 }
+// end of global css
 
 // for mobile
 $mobile_font_size: 18px;
@@ -272,6 +284,9 @@ $mobile_font_size: 18px;
     @include template_card;
     font-size: $mobile_font_size;
     width: 90%;
+  }
+  .card_col {
+    width: 100%;
   }
   .template_avatar_container {
     top: 25px;
@@ -329,8 +344,10 @@ $mobile_font_size: 18px;
     width: 90%;
   }
 }
+// end mobile
 
 // for desktop large
+$card_max_width: 1125px;
 @media screen and (min-width: 1400px) {
   .template_avatar_container {
     left: 20%;
@@ -339,18 +356,17 @@ $mobile_font_size: 18px;
     right: 20%;
   }
   .template_main_img, .template_card {
-    max-width: 1125px;
+    max-width: $card_max_width;
   }
   .template_header_card {
-    max-width: 1125px;
+    max-width: $card_max_width;
     padding-top: 50px;
     padding-bottom: 50px;
   }
   .template_page_header {
-    width: 80%;
+    width: 65%;
   }
   .template_card_content {
-    width: 60%;
   }
   .template_footer_card_content {
     width: 50%;
