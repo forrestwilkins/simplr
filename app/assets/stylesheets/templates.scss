@@ -37,7 +37,7 @@ a:hover {
   background: rgb(85, 210, 140);
 }
 
-@mixin template_card {
+@mixin card {
   transition: all .4s ease-in-out;
   position: relative;
   padding: 1.25px 7.5px;
@@ -50,8 +50,8 @@ a:hover {
   font-size: $main_font_size;
 }
 
-.template_card {
-  @include template_card;
+.card {
+  @include card;
   line-height: 175%;
 }
 
@@ -66,26 +66,26 @@ a:hover {
   height: 1px;
 }
 
-.template_header_card {
-  @include template_card;
+.header_card {
+  @include card;
   padding-bottom: 12.5px;
 }
 
-.template_page_header {
+.page_header {
   font-size: 35px;
 }
 
-.template_vertical_spacer {
+.vertical_spacer {
   padding-bottom: 85px;
 }
 
-.template_avatar_container {
+.avatar_container {
   position: absolute;
   top: 35px;
   left: 95px;
 }
 
-.template_avatar_img {
+.avatar_img {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -102,23 +102,23 @@ a:hover {
   font-weight: 400;
 }
 
-.template_avatar_name {
+.avatar_name {
   @include template_avatar_item;
   top: 2.5px;
   font-size: 18px;
 }
 
-.template_avatar_title {
+.avatar_title {
   @include template_avatar_item;
   top: 27.5px;
 }
 
-.template_header_link:hover {
+.header_link:hover {
   text-decoration: none;
   color: $active_color;
 }
 
-.template_main_img {
+.main_img {
   display: block;
   position: relative;
   border: 0px solid white;
@@ -128,7 +128,7 @@ a:hover {
   width: 94.5%;
 }
 
-.template_scroll_to_top_link_container {
+.scroll_to_top_link_container {
   position: fixed;
   bottom: 27.5px;
   right: 37.5px;
@@ -136,7 +136,7 @@ a:hover {
   color: rgb(200, 200, 200);
 }
 
-.template_scroll_to_top_link_icon {
+.scroll_to_top_link_icon {
   font-size: 50px;
 }
 
@@ -144,31 +144,31 @@ a:hover {
   display: none;
 }
 
-.template_nav_bar {
+.nav_bar {
   position: absolute;
   top: 50px;
   right: 85px;
 }
 
-.template_nav_bar_link {
+.nav_bar_link {
   padding: 15px;
   font-size: 18px;
   font-weight: 400;
 }
 
-.template_link_active {
+.link_active {
   color: $active_color;
 }
 
-.template_link_soft {
+.link_soft {
   color: rgb(200, 200, 200);
 }
 
-.template_link_underlined {
+.link_underlined {
   text-decoration: underline;
 }
 
-.template_menu_container {
+.menu_container {
   transition: all .4s ease-in-out;
   position: absolute;
   top: 0px;
@@ -178,7 +178,7 @@ a:hover {
   z-index: 10;
 }
 
-.template_menu_open {
+.menu_open {
 	background: white;
   width: auto;
   height: auto;
@@ -189,7 +189,7 @@ a:hover {
   border-bottom-left-radius: 5px;
 }
 
-.template_menu_link {
+.menu_link {
   position: absolute;
   top: 32.5px;
   right: 15px;
@@ -201,19 +201,19 @@ a:hover {
   z-index: 15;
 }
 
-.template_nav_links {
+.nav_links {
   padding-top: 17.5px;
   padding-left: 7.5px;
 }
 
-.template_nav_menu_link {
+.nav_menu_link {
 	font-size: 50px;
 	display: block;
 	padding: 5px 20px;
   background: white;
 }
 
-.template_footer {
+.footer {
   width: 100%;
   background: rgb(38, 38, 38);
   min-height: 668px;
@@ -221,55 +221,55 @@ a:hover {
   padding-bottom: 10px;
 }
 
-.template_footer_menu {
+.footer_menu {
   float: left;
   width: 100%;
   margin-bottom: 30px;
 }
 
-.template_footer_menu_label {
+.footer_menu_label {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 30px;
 }
 
-.template_footer_menu_item {
+.footer_menu_item {
   display: block;
 }
 
 $template_footer_card_top_padding: 60px;
 
-.template_footer_card {
-  @include template_card;
+.footer_card {
+  @include card;
   line-height: 175%;
   padding-top: $template_footer_card_top_padding;
 }
 
-.template_footer_card_content {
+.footer_card_content {
   margin-bottom: 70px;
   width: 85%;
 }
 
-.template_footer_card_name {
+.footer_card_name {
   font-size: 25px;
   font-weight: 300;
   margin-bottom: 7.5px;
 }
 
-.template_footer_card_email {
+.footer_card_email {
   display: block;
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 27.5px;
 }
 
-.template_footer_text {
+.footer_text {
   color: rgb(95, 95, 95);
   font-weight: 300;
   font-size: $main_font_size;
 }
 
-.template_footer_dark_link {
+.footer_dark_link {
   color: rgb(60, 60, 60);
 }
 // end of global css
@@ -280,69 +280,69 @@ $mobile_font_size: 18px;
   a {
     font-size: $mobile_font_size;
   }
-  .template_page_header {
+  .page_header {
     font-size: 30px;
   }
-  .template_card {
-    @include template_card;
+  .card {
+    @include card;
     font-size: $mobile_font_size;
     width: 90%;
   }
   .card_col {
     width: 100%;
   }
-  .template_avatar_container {
+  .avatar_container {
     top: 25px;
     left: 15px;
   }
-  .template_avatar_img {
+  .avatar_img {
     width: 40px;
     height: 40px;
   }
-  .template_avatar_name {
+  .avatar_name {
     top: 1px;
     left: 52.5px;
     font-size: 16px;
   }
-  .template_avatar_title {
+  .avatar_title {
     top: 22.5px;
     left: 52.5px;
   }
-  .template_nav_bar {
+  .nav_bar {
     visibility: hidden;
   }
-  .template_header_card {
+  .header_card {
     width: 92.5%;
     padding-bottom: 1.5px;
   }
-  .template_vertical_spacer {
+  .vertical_spacer {
     padding-bottom: 65px;
   }
-  .template_main_img {
+  .main_img {
     width: 100%;
   }
-  .template_menu_link {
+  .menu_link {
     visibility: visible;
   }
-  .template_menu_open {
+  .menu_open {
     width: 100%;
     height: 100%;
   }
-  .template_footer_card {
+  .footer_card {
     padding-top: $template_footer_card_top_padding;
   }
-  .template_footer_text {
+  .footer_text {
     font-size: $mobile_font_size;
   }
-  .template_footer_menu_label {
+  .footer_menu_label {
     font-size: $mobile_font_size;
     font-weight: 300;
     margin-bottom: 10px;
   }
-  .template_footer_card_email {
+  .footer_card_email {
     margin-bottom: 15px;
   }
-  .template_footer_card_content {
+  .footer_card_content {
     margin-bottom: 40px;
     width: 90%;
   }
@@ -352,29 +352,29 @@ $mobile_font_size: 18px;
 // for desktop large
 $card_max_width: 1125px;
 @media screen and (min-width: 1400px) {
-  .template_avatar_container {
+  .avatar_container {
     left: 20%;
   }
-  .template_nav_bar {
+  .nav_bar {
     right: 20%;
   }
-  .template_main_img, .template_card {
+  .main_img, .card {
     max-width: $card_max_width;
   }
-  .template_header_card {
+  .header_card {
     max-width: $card_max_width;
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  .template_page_header {
+  .page_header {
     width: 65%;
   }
-  .template_card_content {
+  .card_content {
   }
-  .template_footer_card_content {
+  .footer_card_content {
     width: 50%;
   }
-  .template_footer_menu {
+  .footer_menu {
     width: 33.333333%;
   }
 }
