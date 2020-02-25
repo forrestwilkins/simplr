@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   use_doorkeeper
+
+  # templates
+  get 'co', to: 'templates#co', as: 'forrest_web_co'
+  get 'blog', to: 'blog#index', as: 'blog'
+
   # twilio
   post 'messages/twilio_reply'
 
@@ -295,9 +300,6 @@ Rails.application.routes.draw do
   get 'art_sign_up', to: 'arts#sign_up', as: 'art_sign_up'
   get 'clicks', to: 'arts#clicks', as: 'clicks'
   get 'fib', to: 'arts#fib', as: 'chuck_fib'
-
-  # templates
-  get 'co', to: 'templates#co', as: 'forrest_web_co'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

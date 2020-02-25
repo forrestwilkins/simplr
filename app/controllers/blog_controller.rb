@@ -1,9 +1,10 @@
-class TemplatesController < ApplicationController
+class BlogController < ApplicationController
   before_action :set_fwc
   layout 'co'
-  
-  def co
-    @fwc_home = true
+
+  def index
+    @blog = true
+    @post = Post.new
   end
 
   private

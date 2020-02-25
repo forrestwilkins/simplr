@@ -1,0 +1,5 @@
+<% if current_user and current_user.eql? User.first %>
+  <div class="template_card">
+    <%= render "posts/form" %>
+  </div>
+<% end %>
