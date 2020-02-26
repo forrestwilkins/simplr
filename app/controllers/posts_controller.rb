@@ -170,6 +170,9 @@ class PostsController < ApplicationController
     if params[:pictures]
       @post.photoset = true
     end
+    if params[:blog]
+      @post.blog = true
+    end
     # for users not yet invited, from the invite only page
     if params[:un_invited] and not secure
       @post.un_invited = true
@@ -193,9 +196,15 @@ class PostsController < ApplicationController
         #@successfully_created = true
         #@post_just_created = @post
         #@post = Post.new
-        format.html { redirect_to (@post.group.present? ? @post.group : (@from_profile ? @post.user : root_url)) }
+        format.html do
+          if params[:blog]
+            redirect_to blog_path
+          else
+            redirect_to (@post.group.present? ? @post.group : (@from_profile ? @post.user : root_url))
+          end
+        end
       else
-        format.html { redirect_to (@from_profile ? @user : root_url) }
+        format.html { redirect_to (@from_profile ? @user : (params[:blog] ? blog_path : root_url)) }
       end
     end
   end
@@ -319,7 +328,7 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:user_id, :group_id, :body, :video, :image, :audio, :audio_name,
+    params.require(:post).permit(:user_id, :group_id, :body, :video, :image, :audio, :audio_name, :content, :title,
       pictures_attributes: [:id, :post_id, :image])
   end
 end

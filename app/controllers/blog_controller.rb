@@ -5,6 +5,7 @@ class BlogController < ApplicationController
   def index
     @blog = true
     @post = Post.new
+    @posts = Post.blog.reverse
   end
 
   private

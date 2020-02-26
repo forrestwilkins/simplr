@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
     :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?, :str_to_bool,
-    :featured_content, :raleigh_dsa?, :forrest_web_co?, :forrest_wilkins?
+    :featured_content, :raleigh_dsa?, :forrest_web_co?, :forrest_wilkins?, :got_here
 
   include SimpleCaptcha::ControllerHelpers
 
@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
 
   # redirects to forrest_web_co
   before_action :forrest_web_co_to_forrest_web_co, except: [:co]
+
+  def got_here
+    puts "\n\n\nGOT HERE\n\n\n"
+  end
 
   def str_to_bool string
     ActiveModel::Type::Boolean.new.cast string
@@ -251,7 +255,6 @@ class ApplicationController < ActionController::Base
       return anon_token
     end
   end
-
 
   def unique_element_token
     token = if cookies[:element_token].nil?

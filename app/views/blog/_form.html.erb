@@ -1,9 +1,14 @@
-<div class="blog_form_card" align="center">
-  <%= form_for(@post, id: :post_form) do |f| %>
+<div class="vertical_spacer"></div>
+<div class="card blog_form_card">
+  <%= form_for(@post) do |f| %>
+    <%= hidden_field_tag :blog, true %>
+    <p>
+      <%= f.text_field :title, placeholder: "Title", class: :standard_text_field %>
+    </p>
 
-    <%= f.text_field :title, placeholder: "Title" %>
-
-    <%= f.rich_text_area :content, value: (@post.body.present? ? @post.body : ""), placeholder: "Post something awesome...", class: :standard_text_area %>
+    <p>
+      <%= f.rich_text_area :content, value: (@post.body.present? ? @post.body : ""), placeholder: "Post something awesome..." %>
+    </p>
 
     <p>
       <% form_button_id = rand 1000 %>

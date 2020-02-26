@@ -32,8 +32,8 @@ gem 'carrierwave'
 gem 'remotipart'
 
 # action text for rich text
-gem "actiontext", require: "action_text"
-gem "image_processing", "~> 1.2"
+gem "actiontext"
+gem "image_processing"
 gem 'webpacker'
 
 # user agent detection

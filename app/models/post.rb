@@ -24,6 +24,7 @@ class Post < ActiveRecord::Base
   scope :global, -> { where group_id: nil }
   scope :un_invited, -> { where un_invited: true }
   scope :featured, -> { where featured: true }
+  scope :blog, -> { where blog: true }
 
   def self.train
     for post in Post.all
@@ -217,8 +218,9 @@ class Post < ActiveRecord::Base
     end while Post.exists? unique_token: self.unique_token
   end
 
+  # errors if no content at all
   def text_or_image?
-    if (body.nil? or body.empty?) and (image.url.nil? and not photoset)
+    if content.blank? and body.blank? and (image.url.nil? and not photoset)
       unless original_id and (body.present? or (Post.find_by_id(original_id) \
         and (Post.find(original_id).image.present? or Post.find(original_id).photoset)))
         errors.add(:post, "cannot be empty.") unless video_url or audio_url
