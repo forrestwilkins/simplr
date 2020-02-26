@@ -31,6 +31,11 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'remotipart'
 
+# action text for rich text
+gem "actiontext", require: "action_text"
+gem "image_processing", "~> 1.2"
+gem 'webpacker'
+
 # user agent detection
 gem 'useragent'
 gem 'browser'

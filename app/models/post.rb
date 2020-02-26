@@ -15,6 +15,8 @@ class Post < ActiveRecord::Base
   validate :text_or_image?, on: :create
   validate :unique_share?, on: :create
 
+  has_rich_text :content
+
   mount_uploader :image, ImageUploader
   mount_uploader :video, VideoUploader
   mount_uploader :audio, AudioUploader

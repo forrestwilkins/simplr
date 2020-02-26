@@ -1,7 +1,7 @@
 module PostsHelper
   def feed_summary
     summary = ""
-    item_types = { post: 0, proposal: 0, shared_item: 0, survey: 0, proposal: 0 }
+    item_types = { post: 0, proposal: 0, shared_item: 0, survey: 0 }
     feed = if current_user
       current_user.feed
     else
