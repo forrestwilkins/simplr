@@ -371,14 +371,14 @@ $mobile_font_size: 18px;
 }
 // end mobile
 
-// for desktop large
+// for desktop
 $card_max_width: 1125px;
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1300px) {
   .avatar_container {
-    left: 20%;
+    left: 8.5%;
   }
   .nav_bar {
-    right: 20%;
+    right: 8.5%;
   }
   .main_img, .card {
     max-width: $card_max_width;
