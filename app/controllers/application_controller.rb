@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
   # bots go to 404 for all pages
   before_action :bots_to_404, except: [:index]
 
-  # redirects to forrest_web_co
-  before_action :forrest_web_co_to_forrest_web_co, except: [:co]
+  # redirects to posts index
+  before_action :raleigh_dsa_to_home, except: [:index]
 
   def got_here
     puts "\n\n\nGOT HERE\n\n\n"
@@ -380,9 +380,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def forrest_web_co_to_forrest_web_co
-    if forrest_web_co? or forrest_wilkins?
-      redirect_to forrest_web_co_path
+  def raleigh_dsa_to_home
+    if raleigh_dsa?
+      redirect_to home_path
     end
   end
 
