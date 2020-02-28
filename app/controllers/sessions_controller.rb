@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
 
   def new
-    redirect_to root_url if current_user
+    redirect_to home_path if current_user
   end
 
   def create
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       # records current time for last visit
       record_last_visit
       # redirects to home with notice
-      redirect_to root_url, notice: notice
+      redirect_to home_path, notice: notice
     else
       redirect_to sessions_new_path, notice: "Invalid username, email, or password"
     end
@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
       cookies.delete(:auth_token)
     end
 
-    redirect_to root_url
+    redirect_to home_path
   end
 
   def destroy_all_other_sessions
@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       # destroys all other sessions but this one
       cookies[:auth_token] = current_user.auth_token
     end
-    redirect_to root_url
+    redirect_to home_path
   end
 
   private

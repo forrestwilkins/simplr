@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   use_doorkeeper
 
   # templates
-  get 'co', to: 'templates#co', as: 'forrest_web_co'
   get 'blog', to: 'blog#index', as: 'blog'
 
   # twilio
@@ -200,6 +199,7 @@ Rails.application.routes.draw do
   delete 'destroy_post/:token', to: 'posts#destroy', as: 'destroy_post'
   get 'floating_pictures/:token', to: 'posts#floating_images', as: 'floating_images'
   get 'load_index', to: 'posts#load_index', as: 'load_index'
+  get 'home', to: 'posts#index', as: 'home'
 
   # pictures
   delete 'pictures/:picture_id/remove', to: 'posts#remove_picture', as: 'remove_post_picture'
@@ -305,7 +305,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'posts#index'
+  root 'templates#co'
 
   resources :proposals do
     resources :comments

@@ -76,6 +76,8 @@ class SearchController < ApplicationController
         when "lending", "lending library", "shared item", "shared items", "Shared item", "Shared items", "Lending library"
           match = true if _class.eql? SharedItem
         end
+        # cleans out any blog posts from search results
+        match = false if item.is_a? Post and item.blog
         if match
           @results << item
           @result_types[item.model_name.singular_route_key.to_sym] +=1

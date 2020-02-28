@@ -85,6 +85,10 @@ class User < ActiveRecord::Base
     for survey in surveys
       _feed << survey unless _feed.include? survey
     end
+    # removes hidden posts or hidden users posts
+    _feed.delete_if do |item|
+      true if item.is_a? Post and item.blog
+    end
     _feed.sort_by { |item| item.created_at }.reverse
   end
 
@@ -134,6 +138,7 @@ class User < ActiveRecord::Base
           true
         end
       end
+      true if item.is_a? Post and item.blog
     end
     # sorts posts/proposals chronologically or by score weight
     _feed.sort_by! { |item| item.created_at }
