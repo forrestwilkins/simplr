@@ -1,7 +1,7 @@
 class TemplatesController < ApplicationController
   before_action :set_fwc
   layout 'co'
-  
+
   def co
     @fwc_home = true
   end

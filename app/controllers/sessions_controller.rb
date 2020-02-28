@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :dev_env_only, only: [:dev_login]
+  layout :get_layout
 
   def dev_login
     cookies.permanent[:auth_token] = User.first.auth_token
