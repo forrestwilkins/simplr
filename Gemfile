@@ -33,7 +33,7 @@ gem 'remotipart'
 
 # action text for rich text
 gem "actiontext"
-gem "image_processing"
+gem "image_processing", '~> 1.2'
 gem 'webpacker'
 
 # user agent detection
