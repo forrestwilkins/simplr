@@ -38,13 +38,14 @@ a:hover {
   background: rgb(85, 210, 140);
 }
 
+$card_max_midth: 950px;
 @mixin card {
   transition: all .4s ease-in-out;
   position: relative;
   padding: 1.25px 7.5px;
   color: rgb(50, 50, 50);
   border: 0px solid white;
-  max-width: 950px;
+  max-width: $card_max_midth;
   margin: 0 auto;
   width: 94.5%;
   overflow: auto;
@@ -147,7 +148,7 @@ a:hover {
   border: 0px solid white;
   margin: 0 auto;
   margin-bottom: 17.5px;
-  max-width: 950px;
+  max-width: $card_max_midth;
   width: 94.5%;
 }
 
@@ -374,13 +375,13 @@ $mobile_font_size: 18px;
 // end mobile
 
 // for desktop
-$card_max_width: 1125px;
+$desktop_card_max_midth: 1125px;
 @media screen and (min-width: 1300px) {
   .main_img, .card {
-    max-width: $card_max_width;
+    max-width: $desktop_card_max_midth;
   }
   .header_card {
-    max-width: $card_max_width;
+    max-width: $desktop_card_max_midth;
     padding-top: 50px;
     padding-bottom: 50px;
   }
