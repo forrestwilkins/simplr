@@ -36,6 +36,7 @@
 !.gitignore
 !.gitkeep
 
+/storage
 /public/packs
 /public/packs-test
 /node_modules
