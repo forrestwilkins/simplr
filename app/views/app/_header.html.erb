@@ -21,7 +21,7 @@
 
   <% if invited? %>
     <%= render "search/slide_menu" %>
-    <%= link_to '<i class="fa fa-home fa-lg"></i>'.html_safe, root_url,
+    <%= link_to '<i class="fa fa-home fa-lg"></i>'.html_safe, home_path,
       class: :return_home_link, title: "Return home" unless @you_are_home %>
 
     <% if current_user %>

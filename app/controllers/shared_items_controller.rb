@@ -121,7 +121,7 @@ class SharedItemsController < ApplicationController
       end
     end
     if params[:from_home]
-      redirect_to root_url
+      redirect_to home_path
     else
       redirect_to @shared_item.item_library
     end
@@ -145,7 +145,7 @@ class SharedItemsController < ApplicationController
 
   def destroy
     @shared_item.destroy
-    redirect_to root_url unless str_to_bool params[:ajax_req]
+    redirect_to home_path unless str_to_bool params[:ajax_req]
   end
 
   def edit
@@ -183,7 +183,7 @@ class SharedItemsController < ApplicationController
 
   def secure_shared_item
     unless current_user and @shared_item.user_id.eql? current_user.id or admin?
-      redirect_to root_url
+      redirect_to home_path
     end
   end
 

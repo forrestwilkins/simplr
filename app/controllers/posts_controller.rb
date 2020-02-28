@@ -200,11 +200,11 @@ class PostsController < ApplicationController
           if params[:blog]
             redirect_to blog_path
           else
-            redirect_to (@post.group.present? ? @post.group : (@from_profile ? @post.user : root_url))
+            redirect_to (@post.group.present? ? @post.group : (@from_profile ? @post.user : home_path))
           end
         end
       else
-        format.html { redirect_to (@from_profile ? @user : (params[:blog] ? blog_path : root_url)) }
+        format.html { redirect_to (@from_profile ? @user : (params[:blog] ? blog_path : home_path)) }
       end
     end
   end
@@ -232,7 +232,7 @@ class PostsController < ApplicationController
     @post.destroy
     unless params[:ajax_req]
       respond_to do |format|
-        format.html { redirect_to root_url }
+        format.html { redirect_to home_path }
       end
     end
   end

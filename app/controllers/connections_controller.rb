@@ -35,7 +35,7 @@ class ConnectionsController < ApplicationController
       current_user.update_token
     end
     cookies.clear
-    redirect_to root_url
+    redirect_to home_path
   end
 
   def zen
@@ -90,7 +90,7 @@ class ConnectionsController < ApplicationController
       if dev?
         redirect_to dev_panel_path(invite_token: @invite.unique_token)
       else
-        redirect_to root_url
+        redirect_to home_path
       end
     else
       redirect_to dev_panel_path
@@ -141,7 +141,7 @@ class ConnectionsController < ApplicationController
         end
       end
     end
-    redirect_to (@group ? show_group_path(@group.unique_token) : root_url) unless params[:ajax_req].present?
+    redirect_to (@group ? show_group_path(@group.unique_token) : home_path) unless params[:ajax_req].present?
   end
 
   def destroy
@@ -156,7 +156,7 @@ class ConnectionsController < ApplicationController
     elsif @connection
       @connection.destroy
     end
-    redirect_to root_url unless @unfollowed or @left_group or params[:ajax_req].present?
+    redirect_to home_path unless @unfollowed or @left_group or params[:ajax_req].present?
   end
 
   def members

@@ -1,6 +1,6 @@
 <% unless current_user %>
   <div class="card take_survey_card_border" align="center">
-	  <%= link_to "Haven't signed up yet?", root_url, class: "top_right_link" if invited? %>
+	  <%= link_to "Haven't signed up yet?", home_path, class: "top_right_link" if invited? %>
 
 	  <%= form_tag sessions_path do %>
       <p>

@@ -31,7 +31,7 @@
     </div>
     <% if view.current_url.present? %>
       <div>
-        <% shortened_url = view.current_url.gsub(root_url, "") + "..." %>
+        <% shortened_url = view.current_url.gsub(home_path, "") + "..." %>
         Current URL: <%= link_to shortened_url, view.current_url, class: :white_link %>
       </div>
     <% end %>
