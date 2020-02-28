@@ -32,7 +32,6 @@ gem 'carrierwave'
 gem 'remotipart'
 
 # action text for rich text
-gem 'trix'
 gem "actiontext"
 gem "image_processing", '~> 1.2'
 gem 'webpacker'

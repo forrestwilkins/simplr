@@ -320,7 +320,6 @@ Rails.application.routes.draw do
   resources :item_libraries
   resources :shared_items
   resources :connections
-  resources :pictures
   resources :messages
   resources :comments
   resources :settings
