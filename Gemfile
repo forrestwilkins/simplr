@@ -124,6 +124,7 @@ gem 'sdoc', group: :doc
 group :production do
   gem 'unicorn'
   gem 'pg' # 0.15
+  gem 'active_storage-postgresql'
 end
 
 group :development, :test do
