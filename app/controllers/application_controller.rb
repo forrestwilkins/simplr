@@ -381,7 +381,8 @@ class ApplicationController < ActionController::Base
   end
 
   def raleigh_dsa_to_home
-    if raleigh_dsa?
+    if request.host.eql? 'raleighdsa.com' and not cookies[:at_raleigh_dsa].present?
+      cookies.permanent[:at_raleigh_dsa] = true
       redirect_to home_path
     end
   end
