@@ -98,5 +98,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # to get trix working with action text
-  config.active_storage.service = :local_public
+  config.active_storage.service = :local
 end
