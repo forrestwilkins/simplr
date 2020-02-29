@@ -26,7 +26,11 @@ class SessionsController < ApplicationController
       # records current time for last visit
       record_last_visit
       # redirects to home with notice
-      redirect_to home_path, notice: notice
+      if forrest_web_co? or forrest_wilkins?
+        redirect_to root_url
+      else
+        redirect_to home_path, notice: notice
+      end
     else
       redirect_to sessions_new_path, notice: "Invalid username, email, or password"
     end
