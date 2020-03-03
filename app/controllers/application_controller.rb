@@ -21,7 +21,9 @@ class ApplicationController < ActionController::Base
   before_action :raleigh_dsa_to_home, except: [:index]
 
   def get_layout
-    if forrest_web_co? or forrest_wilkins?
+    if @lil_c
+      'clients/lil_c'
+    elsif forrest_web_co? or forrest_wilkins?
       'co'
     else
       'application'

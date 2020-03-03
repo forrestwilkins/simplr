@@ -1,8 +1,11 @@
 class TemplatesController < ApplicationController
   before_action :fw_only
   before_action :set_fwc
+  layout :get_layout
 
-  layout 'co'
+  def lil_c
+    @lil_c = true
+  end
 
   def co
     @fwc_home = true
