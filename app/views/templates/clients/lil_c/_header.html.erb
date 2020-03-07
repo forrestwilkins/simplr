@@ -1,0 +1,30 @@
+<div class="header">
+  <div class="nav_bar">
+    <div class="nav_links_container">
+      <div class="nav_links">
+        <%= link_to "HOME", root_url, class: :nav_link %>
+        <%= link_to "SHOWS", root_url, class: :nav_link %>
+        <%= link_to "ABOUT", root_url, class: :nav_link %>
+      </div>
+    </div>
+    <div class="nav_links_container">
+      <div class="avatar">
+        <div class="nav_link avatar_name">
+          LIL' C.
+        </div>
+        <%= image_tag "clients/lil_c/lil_c.jpg", class: "nav_link avatar_img" %>
+        <div class="nav_link avatar_name avatar_name_right">
+          CORLEONE
+        </div>
+      </div>
+    </div>
+    <div class="nav_links_container">
+      <div class="nav_links">
+        <%= link_to fa_icon("instagram"), root_url, class: :nav_icon_link %>
+        <%= link_to fa_icon("twitter"), root_url, class: :nav_icon_link %>
+        <%= link_to fa_icon("facebook"), root_url, class: :nav_icon_link %>
+        <%= link_to fa_icon("youtube-play"), root_url, class: :nav_icon_link %>
+      </div>
+    </div>
+  </div>
+</div>
