@@ -1,3 +1,32 @@
+<div class="nav_bar">
+  <div class="nav_links_container">
+    <div class="nav_links">
+      <%= link_to "HOME", root_url, class: :nav_link %>
+      <%= link_to "SHOWS", root_url, class: :nav_link %>
+      <%= link_to "ABOUT", root_url, class: :nav_link %>
+    </div>
+  </div>
+  <div class="nav_links_container">
+    <div class="header">
+      <div class="nav_link header_name" align="right">
+        LIL' C.
+      </div>
+      <%= image_tag "clients/lil_c/lil_c.jpg", class: "nav_link header_img" %>
+      <div class="nav_link header_name" align="left">
+        CORLEONE
+      </div>
+    </div>
+  </div>
+  <div class="nav_links_container">
+    <div class="nav_links">
+      <%= link_to fa_icon("instagram"), root_url, class: :nav_icon_link %>
+      <%= link_to fa_icon("twitter"), root_url, class: :nav_icon_link %>
+      <%= link_to fa_icon("facebook"), root_url, class: :nav_icon_link %>
+      <%= link_to fa_icon("youtube-play"), root_url, class: :nav_icon_link %>
+    </div>
+  </div>
+</div>
+
 </br>
 <div class="dark_card" id="lil_c_header_card">
   <h2 class="standard_page_header" id="lil_c_header">Join Lil' C. Corleone's Team For Free Stuff</h2>

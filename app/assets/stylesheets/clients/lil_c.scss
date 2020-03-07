@@ -1,5 +1,10 @@
 // -------------- Lil C --------------
 
+// top, right, bottom, left
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 
 @mixin card {
   position: relative;
@@ -12,16 +17,75 @@
   width: 94.5%;
 }
 
+@font-face {
+  font-family: "Proxima Nova";
+  src: asset-url("fonts/proxima_nova.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
-	font-family: Helvetica;
-	background: black;
+	font-family: "Proxima Nova";
+	background: rgb(220, 220, 220);
+  font-weight: 400;
+}
+
+body {
+  margin: initial;
 }
 
 a {
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 15px;
 	color: black;
+}
+
+.nav_bar {
+  background: rgb(250, 250, 250);
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
+
+.nav_links_container {
+  width: 33.333333%;
+  height: 100%;
+}
+
+.nav_links, .header {
+  margin: 0 auto;
+  width: 40%;
+  display: flex;
+}
+
+.nav_link, .nav_icon_link {
+  display: block;
+  width: 33.333333%;
+  height: 100%;
+  line-height: 200px;
+  color: rgb(100, 100, 100);
+  font-weight: 300;
+}
+
+.nav_icon_link {
+  width: 25%;
+  font-size: 25px;
+}
+
+.header {
+  width: 50%;
+}
+
+.header_name {
+  color: black;
+  font-size: 20px;
+}
+
+.header_img {
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 50px;
 }
 
 .dark_card {
@@ -140,7 +204,6 @@ a {
     text-shadow: 1.25px 1.25px 1.25px purple;
   }
 }
-
 
 // for desktop
 @media screen and (min-width: 650px) {
