@@ -162,6 +162,10 @@ a {
   height: 37.5vw;
 }
 
+.music_section {
+  z-index: 10;
+}
+
 .album_section_bg {
   background-image: image-url("clients/lil_c/album.jpg");
   background-position: center;
@@ -291,7 +295,12 @@ a {
     font-size: 25px;
   }
   .album_section {
-    height: 82.5vw;
+    height: 86vw;
+  }
+  .album_cover {
+    width: 80%;
+    border: solid 7.5px white;
+    margin: 50px 0px;
   }
 }
 // end mobile
@@ -316,7 +325,11 @@ a {
   .double_quote {
     font-size: 16px;
   }
+  .album_section {
+    height: 100vw;
+  }
 }
+// end mobile, small
 
 // for desktop, small
 @media screen and (max-width: 1300px) {
