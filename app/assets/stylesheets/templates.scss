@@ -375,20 +375,18 @@ $mobile_font_size: 18px;
 // end mobile
 
 // for desktop
-$desktop_card_max_midth: 1125px;
+$desktop_card_max_width: 1125px;
 @media screen and (min-width: 1300px) {
   .main_img, .card {
-    max-width: $desktop_card_max_midth;
+    max-width: $desktop_card_max_width;
   }
   .header_card {
-    max-width: $desktop_card_max_midth;
+    max-width: $desktop_card_max_width;
     padding-top: 50px;
     padding-bottom: 50px;
   }
   .page_header {
     width: 65%;
-  }
-  .card_content {
   }
   .footer_card_content {
     width: 50%;

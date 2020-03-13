@@ -5,18 +5,18 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
 $main_font_size: 16px;
+$card_max_midth: 950px;
 
 @mixin card {
+  transition: all .4s ease-in-out;
   position: relative;
-  padding: 15px 7.5px;
-  background: white;
-  border: 0px solid white;
-  max-width: 550px;
+  padding: 0px 7.5px;
+  font-size: $main_font_size;
+  max-width: $card_max_midth;
   margin: 0 auto;
-  margin-bottom: 12.5px;
   width: 94.5%;
+  overflow: auto;
 }
 
 @font-face {
@@ -153,106 +153,57 @@ a {
   background: white;
 }
 
-.image_border_main_container {
-  position: relative;
-  max-width: 565px;
-  margin: 0 auto;
-  margin-bottom: 12.5px;
-  width: 98.65%;
-  background: white;
-}
-
-.image_border_top_container {
-  position: relative;
+.section {
   width: 100%;
-  height: 10%;
-  background: red;
-  float: left;
+  background: black;
+  height: 500px;
 }
 
-.image_border_middle_container {
-  position: relative;
+.section_title {
   width: 100%;
-  height: 80%;
-  float: left;
-  background: white;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  padding-top: 150px;
 }
 
-.image_border_left_container {
-  position: relative;
+.card {
+  @include card;
+}
+
+.card_col {
+  float: left;
+  width: 47.5%;
+}
+
+.card_col_spacer {
+  float: left;
+  width: 5%;
+  height: 5px;
+}
+
+.portrait {
+  width: 90%;
   float: right;
-  width: 10%;
-  height: 100%;
-  background: red;
+  margin-top: 15px;
 }
 
-.lil_c_form {
-  position: relative;
-  width: 80%;
-  min-height: 100%;
-  float: right;
-}
-
-.image_border_right_container {
-  position: relative;
-  float: left;
-  width: 10%;
-  height: 100%;
-  background: red;
-}
-
-.lil_c_border_top_img {
-  position: relative;
-  width: 10%;
+.quote {
+  width: 95%;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 45%;
   float: left;
 }
 
-.lil_c_border_side_img {
-  width: 100%;
-  float: left;
-}
-
-.lil_c_img {
-  position: relative;
-  max-width: 565px;
-  margin: 0 auto;
-  margin-bottom: 12.5px;
-  width: 98.65%;
-}
-
-.lil_c_form_header {
-  font-size: 12px;
+.double_quote {
+  font-size: 25px;
   font-weight: bold;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
-#lil_c_header_card {
-  animation: lil_c_header_card_glow 7.5s infinite alternate;
-}
-
-#lil_c_header {
-  animation: lil_c_header_shadow 7.5s infinite alternate;
-}
-
-@keyframes lil_c_header_card_glow {
-  0% {
-    background: black;
-    box-shadow: -7.5px -7.5px 7.5px purple;
-  }
-  100% {
-    background: purple;
-    box-shadow: 7.5px 7.5px 7.5px black;
-  }
-}
-
-@keyframes lil_c_header_shadow {
-  0% {
-    color: white;
-    text-shadow: 1px 1px 1px purple;
-  }
-  100% {
-    color: black;
-    text-shadow: 1.25px 1.25px 1.25px purple;
-  }
+.quote_giver {
+  color: rgb(150, 150, 150);
 }
 
 // for mobile
@@ -291,7 +242,14 @@ a {
     max-width: 400px;
     margin: 0 auto;
   }
+  .card {
+    width: 90%;
+  }
+  .card_col {
+    // width: 100%;
+  }
 }
+// end mobile
 
 // for mobile, small
 @media screen and (max-width: 500px) {
@@ -307,7 +265,7 @@ a {
   }
 }
 
-// for desktop
+// for desktop, small
 @media screen and (max-width: 1300px) {
   .header_links, .header_links_right {
     margin: initial;
@@ -321,28 +279,10 @@ a {
   }
 }
 
-// for desktop, small
-@media screen and (min-width: 650px) {
-  .lil_c_form_header {
-    font-size: $main_font_size;
-    font-weight: bold;
-    padding: 5px 0px;
-    padding-top: 10px;
-  }
-  .lil_c_border_side_img_mobile {
-    display: none;
-    visibility: hidden;
-  }
-  .lil_c_border_side_img_mobile_sm {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-// applies to all larger than 400px
-@media screen and (min-width: 400px) {
-  .lil_c_border_side_img_mobile_sm {
-    display: none;
-    visibility: hidden;
+// for desktop, large
+$desktop_card_max_width: 1225px;
+@media screen and (min-width: 1300px) {
+  .card {
+    max-width: $desktop_card_max_width;
   }
 }
