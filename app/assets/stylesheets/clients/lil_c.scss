@@ -154,7 +154,32 @@ a {
 }
 
 .section {
+  position: relative;
   width: 100%;
+}
+
+.album_section {
+  height: 37.5vw;
+}
+
+.album_section_bg {
+  background-image: image-url("clients/lil_c/album.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  -webkit-filter: blur(25px);
+  -moz-filter: blur(25px);
+  -o-filter: blur(25px);
+  -ms-filter: blur(25px);
+  filter: blur(25px);
 }
 
 .section_title {
@@ -202,6 +227,13 @@ a {
 
 .quote_giver {
   color: rgb(150, 150, 150);
+}
+
+.album_cover {
+  width: 45%;
+  border: solid 10px white;
+  border-radius: 3px;
+  margin: 100px 0px;
 }
 
 // for mobile
@@ -257,6 +289,9 @@ a {
   }
   .double_quote {
     font-size: 25px;
+  }
+  .album_section {
+    height: 82.5vw;
   }
 }
 // end mobile
