@@ -28,7 +28,7 @@ $card_max_midth: 950px;
 
 html {
 	font-family: "Proxima Nova";
-	background: rgb(220, 220, 220);
+	background: black;
   font-weight: 400;
 }
 
@@ -155,8 +155,6 @@ a {
 
 .section {
   width: 100%;
-  background: black;
-  height: 500px;
 }
 
 .section_title {
@@ -247,6 +245,18 @@ a {
   }
   .card_col {
     // width: 100%;
+  }
+  .portrait {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .quote {
+    width: 85%;
+    font-size: 16px;
+    margin-top: 27.5%;
+  }
+  .double_quote {
+    font-size: 20px;
   }
 }
 // end mobile
