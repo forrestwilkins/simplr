@@ -159,11 +159,11 @@ a {
 }
 
 .album_section {
-  height: 37.5vw;
+  height: 50vw;
 }
 
 .music_section {
-  z-index: 10;
+  
 }
 
 .album_section_bg {
@@ -238,6 +238,34 @@ a {
   border: solid 10px white;
   border-radius: 3px;
   margin: 100px 0px;
+}
+
+// for desktop, large
+$desktop_card_max_width: 1225px;
+@media screen and (min-width: 1300px) {
+  .card {
+    max-width: $desktop_card_max_width;
+  }
+  .album_section {
+    height: 40vw;
+  }
+}
+
+// for desktop, small
+@media screen and (max-width: 1300px) {
+  .header_links, .header_links_right {
+    margin: initial;
+    float: left;
+    width: 200px;
+    margin-left: 10px;
+  }
+  .header_links_right {
+    float: right;
+    margin-right: 10px;
+  }
+  .album_section {
+    height: 60vw;
+  }
 }
 
 // for mobile
@@ -330,25 +358,3 @@ a {
   }
 }
 // end mobile, small
-
-// for desktop, small
-@media screen and (max-width: 1300px) {
-  .header_links, .header_links_right {
-    margin: initial;
-    float: left;
-    width: 200px;
-    margin-left: 10px;
-  }
-  .header_links_right {
-    float: right;
-    margin-right: 10px;
-  }
-}
-
-// for desktop, large
-$desktop_card_max_width: 1225px;
-@media screen and (min-width: 1300px) {
-  .card {
-    max-width: $desktop_card_max_width;
-  }
-}
