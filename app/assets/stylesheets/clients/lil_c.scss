@@ -163,7 +163,6 @@ a {
 }
 
 .music_section {
-  
 }
 
 .album_section_bg {
@@ -210,7 +209,7 @@ a {
 }
 
 .portrait {
-  width: 90%;
+  width: 95%;
   float: right;
   margin-top: 15px;
 }
@@ -240,19 +239,33 @@ a {
   margin: 100px 0px;
 }
 
+// screen widths
+$desktop_very_large: 1700px;
+$desktop_large: 1350px;
+$mobile: 975px;
+$mobile_small: 500px;
+
 // for desktop, large
 $desktop_card_max_width: 1225px;
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: $desktop_large) {
   .card {
     max-width: $desktop_card_max_width;
   }
+  .album_section {
+    height: 50vw;
+  }
+}
+
+// for desktop, very large
+// defined below $desktop_large for precedent
+@media screen and (min-width: $desktop_very_large) {
   .album_section {
     height: 40vw;
   }
 }
 
 // for desktop, small
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: $desktop_large) { // SMALL
   .header_links, .header_links_right {
     margin: initial;
     float: left;
@@ -269,7 +282,7 @@ $desktop_card_max_width: 1225px;
 }
 
 // for mobile
-@media screen and (max-width: 975px) {
+@media screen and (max-width: $mobile) {
   .menu_link {
     visibility: visible;
   }
@@ -334,7 +347,7 @@ $desktop_card_max_width: 1225px;
 // end mobile
 
 // for mobile, small
-@media screen and (max-width: 500px) {
+@media screen and (max-width: $mobile_small) {
   .avatar_name {
     font-size: 12px;
   }
