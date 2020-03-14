@@ -22,12 +22,20 @@
 <div class="section album_section">
   <div class="album_section_bg"></div>
   <div class="card" align="center">
-    <%= image_tag "clients/lil_c/album.jpg", class: :album_cover %>
-  </div>
-</div>
+    <div class="card_col album_section_card_col album_section_card_txt_col">
+      <%= render "templates/clients/lil_c/album_section_txt" %>
+    </div>
 
-<div class="section music_section">
-  <div class="section_title">
-    MUSIC BY LIL C
+    <div class="card_col_spacer"></div>
+
+    <div class="card_col album_section_card_col">
+      <%= link_to "https://hypeddit.com/link/d5bxdp" do %>
+        <%= image_tag "clients/lil_c/album.jpg", class: :album_cover %>
+      <% end %>
+    </div>
+
+    <div class="card_col album_section_card_col hidden">
+      <%= render "templates/clients/lil_c/album_section_txt" %>
+    </div>
   </div>
 </div>

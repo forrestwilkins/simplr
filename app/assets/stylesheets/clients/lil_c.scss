@@ -159,7 +159,7 @@ a {
 }
 
 .album_section {
-  height: 50vw;
+  height: 100vh;
 }
 
 .music_section {
@@ -233,10 +233,39 @@ a {
 }
 
 .album_cover {
-  width: 45%;
-  border: solid 10px white;
-  border-radius: 3px;
-  margin: 100px 0px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+  margin-top: 20vh;
+  float: left;
+}
+
+.album_section_txt {
+  margin-top: 40vh;
+  color: white;
+  font-size: 18px;
+  float: right;
+  text-align: left;
+}
+
+.album_name {
+  font-size: 37.5px;
+  font-weight: 600;
+  transform: scale(1, 0.75);
+}
+
+.album_available {
+  font-weight: 200;
+}
+
+.album_available_button {
+  display: block;
+  background: black;
+  width: 60%;
+  height: 22.5px;
+  padding: 15px 25px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
 }
 
 // screen widths
@@ -252,7 +281,7 @@ $desktop_card_max_width: 1225px;
     max-width: $desktop_card_max_width;
   }
   .album_section {
-    height: 50vw;
+    // height: 50vw;
   }
 }
 
@@ -260,7 +289,7 @@ $desktop_card_max_width: 1225px;
 // defined below $desktop_large for precedent
 @media screen and (min-width: $desktop_very_large) {
   .album_section {
-    height: 40vw;
+    // height: 40vw;
   }
 }
 
@@ -277,7 +306,7 @@ $desktop_card_max_width: 1225px;
     margin-right: 10px;
   }
   .album_section {
-    height: 60vw;
+    // height: 60vw;
   }
 }
 
@@ -336,12 +365,26 @@ $desktop_card_max_width: 1225px;
     font-size: 25px;
   }
   .album_section {
-    height: 86vw;
+    // height: 86vw;
   }
   .album_cover {
-    width: 80%;
-    border: solid 7.5px white;
-    margin: 50px 0px;
+    width: 60%;
+    float: none;
+    margin-top: 12.5vh;
+  }
+  .album_section_txt {
+    margin-top: 15px;
+    float: none;
+    width: 60%;
+  }
+  .album_section_card_col {
+    width: 100%;
+    float: left;
+    visibility: visible;
+  }
+  .album_section_card_txt_col {
+    visibility: hidden;
+    height: 0;
   }
 }
 // end mobile
@@ -367,7 +410,37 @@ $desktop_card_max_width: 1225px;
     font-size: 16px;
   }
   .album_section {
-    height: 100vw;
+    // height: 100vw;
+  }
+  .album_cover {
+    width: 90%;
+    margin-top: 17.5vh;
+  }
+  .album_section_txt {
+    width: 90%;
+  }
+  .album_name {
+    font-size: 30px;
+  }
+  .album_available, .album_available_button {
+    font-size: 14px;
+  }
+  .album_available_button {
+    width: 50%;
+    height: 15px;
+    padding: 15px 25px;
   }
 }
 // end mobile, small
+
+// only applies to non mobile
+@media screen and (min-width: $mobile) {
+  .hidden {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+}
