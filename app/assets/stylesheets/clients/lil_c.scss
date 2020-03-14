@@ -209,7 +209,7 @@ a {
 }
 
 .portrait {
-  width: 95%;
+  width: 100%;
   float: right;
   margin-top: 15px;
 }
@@ -280,17 +280,12 @@ $desktop_card_max_width: 1225px;
   .card {
     max-width: $desktop_card_max_width;
   }
-  .album_section {
-    // height: 50vw;
-  }
 }
 
 // for desktop, very large
 // defined below $desktop_large for precedent
 @media screen and (min-width: $desktop_very_large) {
-  .album_section {
-    // height: 40vw;
-  }
+
 }
 
 // for desktop, small
@@ -304,9 +299,6 @@ $desktop_card_max_width: 1225px;
   .header_links_right {
     float: right;
     margin-right: 10px;
-  }
-  .album_section {
-    // height: 60vw;
   }
 }
 
@@ -364,9 +356,6 @@ $desktop_card_max_width: 1225px;
   .double_quote {
     font-size: 25px;
   }
-  .album_section {
-    // height: 86vw;
-  }
   .album_cover {
     width: 60%;
     float: none;
@@ -408,9 +397,6 @@ $desktop_card_max_width: 1225px;
   }
   .double_quote {
     font-size: 16px;
-  }
-  .album_section {
-    // height: 100vw;
   }
   .album_cover {
     width: 90%;
