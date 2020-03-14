@@ -19,6 +19,15 @@ $card_max_midth: 950px;
   overflow: auto;
 }
 
+@mixin hidden {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
 @font-face {
   font-family: "Proxima Nova";
   src: asset-url("fonts/proxima_nova.otf") format("truetype");
@@ -158,11 +167,16 @@ a {
   width: 100%;
 }
 
-.album_section {
-  height: 100vh;
+.light_section {
+  background:rgb(220, 220, 220);
 }
 
-.music_section {
+.footer_section {
+  height: 40vh;
+}
+
+.album_section {
+  height: 100vh;
 }
 
 .album_section_bg {
@@ -375,6 +389,9 @@ $desktop_card_max_width: 1225px;
     visibility: hidden;
     height: 0;
   }
+  .hidden_for_mobile {
+    @include hidden;
+  }
 }
 // end mobile
 
@@ -421,12 +438,7 @@ $desktop_card_max_width: 1225px;
 
 // only applies to non mobile
 @media screen and (min-width: $mobile) {
-  .hidden {
-    visibility: hidden;
-    height: 0;
-    margin: 0;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+  .hidden_for_desktop {
+    @include hidden;
   }
 }

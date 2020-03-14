@@ -1,6 +1,6 @@
 <%= render "templates/clients/lil_c/header" %>
 
-<div class="section" style="background:rgb(220, 220, 220);">
+<div class="section light_section">
   <div class="card">
     <div class="card_col">
       <%= image_tag "clients/lil_c/2.png", class: :portrait %>
@@ -34,8 +34,10 @@
       <% end %>
     </div>
 
-    <div class="card_col album_section_card_col hidden">
+    <div class="card_col album_section_card_col hidden_for_desktop">
       <%= render "templates/clients/lil_c/album_section_txt" %>
     </div>
   </div>
 </div>
+
+<!-- <div class="section footer_section light_section"></div> -->
