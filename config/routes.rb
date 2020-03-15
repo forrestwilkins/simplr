@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # templates
   get 'blog', to: 'blog#index', as: 'blog'
   get 'lilc', to: 'templates#lil_c', as: 'lil_c'
+  get 'lil_c_sign_up', to: 'templates#lil_c_sign_up', as: 'lil_c_sign_up'
 
   # twilio
   post 'messages/twilio_reply'

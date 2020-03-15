@@ -171,8 +171,8 @@ a {
   background:rgb(220, 220, 220);
 }
 
-.footer_section {
-  height: 40vh;
+.sign_up_section {
+  height: 100vh;
 }
 
 .album_section {
@@ -199,6 +199,20 @@ a {
   filter: blur(25px);
 }
 
+.sign_up_section_bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)), image-url("clients/lil_c/lil_c_bw.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .section_title {
   width: 100%;
   text-align: center;
@@ -209,6 +223,13 @@ a {
 
 .card {
   @include card;
+}
+
+.sign_up_card {
+  @include card;
+  width: 40%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  background: white;
 }
 
 .card_col {
@@ -282,6 +303,27 @@ a {
   font-size: 18px;
 }
 
+.sign_up {
+  color: white;
+  margin-top: 22.5vh;
+  font-size: 55px;
+  font-weight: 600;
+  transform: scale(1, 0.75);
+  width: 90%;
+}
+
+.sign_up_txt {
+  line-height: 150%;
+}
+
+.sign_up_button {
+  border: solid 2.5px white;
+  width: 250px;
+  padding: 25px 0;
+  font-size: 30px;
+  margin-top: 25px;
+}
+
 // screen widths
 $desktop_very_large: 1700px;
 $desktop_large: 1350px;
@@ -293,6 +335,12 @@ $desktop_card_max_width: 1225px;
 @media screen and (min-width: $desktop_large) {
   .card {
     max-width: $desktop_card_max_width;
+  }
+  .sign_up_card {
+    width: 25%;
+  }
+  .sign_up {
+    margin-top: 32.5vh;
   }
 }
 
@@ -392,6 +440,23 @@ $desktop_card_max_width: 1225px;
   .hidden_for_mobile {
     @include hidden;
   }
+  .sign_up_card {
+    width: 50%;
+  }
+  .sign_up {
+    margin-top: 20vh;
+    font-size: 35px;
+    width: 100%;
+  }
+  .sign_up_txt {
+    line-height: 160%;
+  }
+  .sign_up_button {
+    width: 220px;
+    padding: 20px 0;
+    font-size: 25px;
+    margin-top: 15px;
+  }
 }
 // end mobile
 
@@ -432,6 +497,21 @@ $desktop_card_max_width: 1225px;
     width: 50%;
     height: 15px;
     padding: 15px 25px;
+  }
+  .sign_up_card {
+    width: 80%;
+  }
+  .sign_up {
+    font-size: 20px;
+  }
+  .sign_up_txt {
+    line-height: 190%;
+  }
+  .sign_up_button {
+    width: 175px;
+    padding: 15px 0;
+    font-size: 17.5px;
+    margin-top: 15px;
   }
 }
 // end mobile, small

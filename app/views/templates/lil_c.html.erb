@@ -1,5 +1,3 @@
-<%= render "templates/clients/lil_c/header" %>
-
 <div class="section light_section">
   <div class="card">
     <div class="card_col">
@@ -40,4 +38,21 @@
   </div>
 </div>
 
-<!-- <div class="section footer_section light_section"></div> -->
+<div class="section sign_up_section">
+  <div class="sign_up_section_bg"></div>
+  <div class="card" align="center">
+    <%= link_to lil_c_sign_up_path do %>
+      <div class="sign_up">
+        <div class="sign_up_txt">
+          JOIN THE MAILING LIST
+        </div>
+        <div class="sign_up_txt">
+          FOR EXCLUSIVE CONTENT AND UPDATES
+        </div>
+        <div class="sign_up_button">
+          SIGN UP NOW
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
