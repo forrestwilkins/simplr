@@ -3,7 +3,19 @@
     <div class="header_links_container hide_header_links_container">
       <div class="header_links">
         <%= link_to "HOME", root_url, class: :header_link %>
-        <%= link_to "ALBUM", root_url, class: :header_link %>
+        <%= link_to "ALBUM", non_link, class: :header_link, id: :album_link %>
+
+        <script>
+          $(document).ready(function (){
+            $("#album_link").click(function (){
+              $('html, body').animate({
+                scrollTop: $("#album_section").offset().top
+              }, 220);
+            });
+          });
+
+        </script>
+
         <%= link_to "ABOUT", root_url, class: :header_link %>
       </div>
     </div>
