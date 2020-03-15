@@ -2,7 +2,7 @@ class TemplatesController < ApplicationController
   before_action :set_lil_c, only: [:lil_c, :lil_c_sign_up]
   before_action :fw_only
   before_action :set_fwc
-  
+
   layout :get_layout
 
   def co
@@ -21,7 +21,7 @@ class TemplatesController < ApplicationController
 
   def fw_only
     unless forrest_web_co? or forrest_wilkins? or in_dev?
-      redirect_to '/404'
+      redirect_to home_path
     end
   end
 end
