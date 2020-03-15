@@ -1,0 +1,21 @@
+<div class="section footer">
+  <div class="card">
+    <div class="card_col album_section_card_col">
+      <div class="footer_icon_links">
+        <%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, lil_c_path, class: :footer_icon_link %>
+        <%= link_to '<i class="fa fa-instagram" aria-hidden="true"></i>'.html_safe, lil_c_path, class: :footer_icon_link %>
+        <%= link_to '<i class="fa fa-apple" aria-hidden="true"></i>'.html_safe, lil_c_path, class: :footer_icon_link %>
+        <%= link_to '<i class="fa fa-spotify" aria-hidden="true"></i>'.html_safe, lil_c_path, class: :footer_icon_link %>
+        <%= link_to '<i class="fa fa-twitter" aria-hidden="true"></i>'.html_safe, lil_c_path, class: :footer_icon_link %>
+      </div>
+    </div>
+
+    <div class="card_col_spacer"></div>
+
+    <div class="card_col album_section_card_col">
+      <div class="footer_txt">
+        Copyright Lil' C. Corleone 2020 © <%= link_to "More information", lil_c_path, class: "footer_txt footer_link" %> — <%= link_to "Changelog", lil_c_path, class: "footer_txt footer_link" %>
+      </div>
+    </div>
+  </div>
+</div>

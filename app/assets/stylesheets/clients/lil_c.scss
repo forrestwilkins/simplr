@@ -185,6 +185,7 @@ a {
 
 .sign_up_section {
   height: 100vh;
+  border-bottom: solid 0.5px rgb(30, 30, 30);
 }
 
 .album_section {
@@ -320,6 +321,35 @@ a {
   margin-top: 25px;
 }
 
+.sign_up_vertical_spacer {
+  height: 22.5vh;
+}
+
+.footer {
+  color: white;
+}
+
+.footer_txt {
+  color: rgb(125, 125, 125);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.footer_icon_links {
+  float: right;
+}
+
+.footer_link {
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.footer_icon_link {
+  color: rgb(200, 200, 200);
+  font-size: 12px;
+  margin-right: 25px;
+}
+
 // screen widths
 $desktop_very_large: 1700px;
 $desktop_large: 1350px;
@@ -453,6 +483,17 @@ $desktop_card_max_width: 1225px;
     font-size: 25px;
     margin-top: 15px;
   }
+  .footer_txt {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+  }
+  .footer_icon_links {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 // end mobile
 
@@ -508,6 +549,9 @@ $desktop_card_max_width: 1225px;
     padding: 15px 0;
     font-size: 20px;
     margin-top: 15px;
+  }
+  .footer_txt {
+    font-size: 10px;
   }
 }
 // end mobile, small
