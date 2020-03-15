@@ -203,7 +203,9 @@ a {
 
 .sign_up_section_bg {
   @include section_bg;
-  background-image: linear-gradient(rgba(85, 0, 0, 0.9), rgba(85, 0, 0, 0.95)), image-url("clients/lil_c/lil_c_bw.png");
+  background-image: linear-gradient(rgba(85, 0, 0, 0.9),
+                    rgba(85, 0, 0, 0.95)),
+                    image-url("clients/lil_c/lil_c_bw.png");
   background-position: right top;
 }
 
@@ -438,7 +440,7 @@ $desktop_card_max_width: 1225px;
     width: 50%;
   }
   .sign_up {
-    margin-top: 20vh;
+    margin-top: 25vh;
     font-size: 35px;
     width: 100%;
   }
@@ -496,7 +498,7 @@ $desktop_card_max_width: 1225px;
     width: 80%;
   }
   .sign_up {
-    font-size: 20px;
+    font-size: 22.5px;
   }
   .sign_up_txt {
     line-height: 190%;
@@ -504,7 +506,7 @@ $desktop_card_max_width: 1225px;
   .sign_up_button {
     width: 175px;
     padding: 15px 0;
-    font-size: 17.5px;
+    font-size: 20px;
     margin-top: 15px;
   }
 }
