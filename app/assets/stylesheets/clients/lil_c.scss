@@ -28,6 +28,18 @@ $card_max_midth: 950px;
   right: 0;
 }
 
+@mixin section_bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 @font-face {
   font-family: "Proxima Nova";
   src: asset-url("fonts/proxima_nova.otf") format("truetype");
@@ -180,18 +192,8 @@ a {
 }
 
 .album_section_bg {
+  @include section_bg;
   background-image: image-url("clients/lil_c/album.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-
   -webkit-filter: blur(25px);
   -moz-filter: blur(25px);
   -o-filter: blur(25px);
@@ -200,17 +202,9 @@ a {
 }
 
 .sign_up_section_bg {
+  @include section_bg;
   background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)), image-url("clients/lil_c/lil_c_bw.png");
   background-position: right top;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
 }
 
 .section_title {
