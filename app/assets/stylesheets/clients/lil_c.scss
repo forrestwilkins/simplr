@@ -203,7 +203,7 @@ a {
 
 .sign_up_section_bg {
   @include section_bg;
-  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8)), image-url("clients/lil_c/lil_c_bw.png");
+  background-image: linear-gradient(rgba(85, 0, 0, 0.9), rgba(85, 0, 0, 0.95)), image-url("clients/lil_c/lil_c_bw.png");
   background-position: right top;
 }
 
