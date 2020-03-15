@@ -210,6 +210,10 @@ a {
   background-position: right top;
 }
 
+.sign_up_page {
+  height: calc(100vh - 220px);
+}
+
 .section_title {
   width: 100%;
   text-align: center;
@@ -322,7 +326,7 @@ a {
 }
 
 .sign_up_vertical_spacer {
-  height: 22.5vh;
+  height: 12.5vh;
 }
 
 .footer {
@@ -351,7 +355,6 @@ a {
 }
 
 // screen widths
-$desktop_very_large: 1700px;
 $desktop_large: 1350px;
 $mobile: 975px;
 $mobile_small: 500px;
@@ -368,12 +371,6 @@ $desktop_card_max_width: 1225px;
   .sign_up {
     margin-top: 32.5vh;
   }
-}
-
-// for desktop, very large
-// defined below $desktop_large for precedent
-@media screen and (min-width: $desktop_very_large) {
-
 }
 
 // for desktop, small
@@ -493,6 +490,9 @@ $desktop_card_max_width: 1225px;
     text-align: center;
     width: 100%;
     margin-top: 10px;
+  }
+  .sign_up_page {
+    height: calc(100vh - 120.5px);
   }
 }
 // end mobile
