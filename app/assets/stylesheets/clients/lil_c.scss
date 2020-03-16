@@ -47,6 +47,13 @@ $card_max_midth: 950px;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Futura PT";
+  src: asset-url("fonts/futura_pt.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
 	font-family: "Proxima Nova";
 	background: black;
@@ -139,7 +146,7 @@ a {
 }
 
 .menu_open {
-	background: white;
+	background: rgb(250, 250, 250);
   width: auto;
   height: auto;
   padding-left: 20px;
@@ -163,15 +170,21 @@ a {
 }
 
 .nav_links {
-  padding-top: 17.5px;
-  padding-left: 7.5px;
+  padding-top: 30px;
+  padding-left: 15px;
 }
 
 .nav_menu_link {
-	font-size: 50px;
+  font-family: "Futura PT";
+	font-size: 16px;
 	display: block;
-	padding: 5px 20px;
-  background: white;
+	padding: 12.5px 22.5px;
+  letter-spacing: 4px;
+  color: rgb(100, 100, 100);
+}
+
+.nav_icon_links {
+  font-size: 25px;
 }
 
 .section {
@@ -352,6 +365,10 @@ a {
   color: rgb(200, 200, 200);
   font-size: 12px;
   margin-right: 25px;
+}
+
+.spaced {
+  letter-spacing: 1.5px;
 }
 
 // screen widths
