@@ -9,6 +9,10 @@ class TemplatesController < ApplicationController
     @fwc_home = true
   end
 
+  def lil_c
+    @lil_c_home = true
+  end
+
   private
 
   def set_lil_c

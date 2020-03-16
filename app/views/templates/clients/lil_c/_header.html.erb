@@ -1,8 +1,13 @@
 <script>
-  $(document).ready(function (){
-    $(".album_link").click(function (){
+  $(document).ready(function () {
+    $(".album_link").click(function () {
       $('html, body').animate({
-        scrollTop: $("#album_section").offset().top + 1
+        scrollTop: $(".album_section").offset().top + 1
+      }, 220);
+    });
+    $(".sign_up_link").click(function () {
+      $('html, body').animate({
+        scrollTop: $(".sign_up_section").offset().top + 1
       }, 220);
     });
   });
@@ -15,8 +20,8 @@
     <div class="header_links_container hide_header_links_container">
       <div class="header_links">
         <%= link_to "HOME", lil_c_path, class: "header_link spaced" %>
-        <%= link_to "ALBUM", non_link, class: "header_link spaced album_link" %>
-        <%= link_to "ABOUT", non_link, class: "header_link spaced" %>
+        <%= link_to "ALBUM", (@lil_c_home ? non_link : lil_c_path), class: "header_link spaced album_link" %>
+        <%= link_to "SIGN UP", non_link, class: "header_link spaced sign_up_link" %>
       </div>
     </div>
     <div class="header_links_container header_avatar_container">
