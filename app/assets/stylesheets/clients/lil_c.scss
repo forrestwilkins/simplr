@@ -166,11 +166,6 @@ a {
 }
 
 .menu_link_container {
-
-  // A Cubic Bezier curve is defined by four points P0, P1, P2, and P3.
-  // P0 and P3 are the start and the end of the curve
-  // x1,y1,x2,y2 - Required. Numeric values. x1 and x2 must be a number from 0 to 1
-
   transition: all 0.25s ease-in-out;
   position: absolute;
   top: 0px;
