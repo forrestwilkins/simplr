@@ -273,7 +273,7 @@ a {
 }
 
 .sign_up_page {
-  height: calc(100vh - 220px);
+  height: calc(100vh - 258px);
 }
 
 .section_title {
@@ -304,6 +304,10 @@ a {
   float: left;
   width: 5%;
   height: 5px;
+}
+
+.sign_up_section_card_col {
+  width: 100%;
 }
 
 .portrait {
@@ -398,11 +402,12 @@ a {
 .footer_txt {
   color: rgb(125, 125, 125);
   font-size: 11px;
-  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .footer_icon_links {
-  float: right;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .footer_link {
@@ -566,17 +571,6 @@ $desktop_card_max_width: 1225px;
     padding: 20px 0;
     font-size: 25px;
     margin-top: 15px;
-  }
-  .footer_txt {
-    margin-top: 0;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-  }
-  .footer_icon_links {
-    text-align: center;
-    width: 100%;
-    margin-top: 10px;
   }
   .sign_up_page {
     height: calc(100vh - 120.5px);
