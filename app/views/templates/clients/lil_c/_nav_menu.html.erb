@@ -45,8 +45,10 @@
         toggle_menu();
       }
     });
-    $(".album_link").click(function (){
-      toggle_menu();
+    $(".album_link").click(function () {
+      if (toggle) {
+        toggle_menu();
+      }
     });
     function toggle_menu() {
       toggle = !toggle;
