@@ -1,9 +1,11 @@
-<div class="menu_container">
-  <div class="menu_container_bg"></div>
+<div class="menu_link_container">
   <%= link_to non_link, class: "menu_link no_select" do %>
     <i class="fa fa-bars menu_icon" aria-hidden="true"></i>
     <i class="fa fa-times menu_icon menu_link_hidden" aria-hidden="true"></i>
   <% end %>
+</div>
+
+<div class="nav_links_container">
   <div id="nav_links" class="nav_links" hidden>
     <%= render "templates/clients/lil_c/nav_links" %>
   </div>
@@ -11,12 +13,13 @@
 
 <script>
   function template_nav_menu() {
-    var circle_menu = $(".menu_container");
-    var circle_menu_bg = $(".menu_container_bg");
+    var menu_link_container = $(".menu_link_container");
     var circle_link = $(".menu_link");
     var menu_icon = $(".menu_icon");
     // padding for nav_links, positioning
+    var nav_links_container = $(".nav_links_container")
     var nav_links = $("#nav_links");
+    var page_hider = $(".page_hider");
     // fix for nav_links
     var toggle = false;
     // toggles if circle_link clicked
@@ -41,10 +44,11 @@
     });
     function toggle_menu() {
       toggle = !toggle;
-      circle_menu.toggleClass("menu_open");
-      circle_menu_bg.toggleClass('menu_container_bg_open');
+      menu_link_container.toggleClass('menu_link_container_open');
+      nav_links_container.toggleClass('nav_links_container_open');
       circle_link.toggleClass('menu_link_open');
       menu_icon.toggleClass('menu_link_hidden');
+      page_hider.toggleClass('hide_page');
       // nav_links render on delay
       if (nav_links.is(':hidden')) {
         setTimeout(toggle_nav_links, 400);

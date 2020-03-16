@@ -76,6 +76,7 @@ a {
   color: white;
 }
 
+// stops blue selection for tapping of links in mobile
 .no_select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -84,6 +85,20 @@ a {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+.page_hider {
+  transition: all .6s ease-out;
+}
+
+.hide_page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(250, 250, 250);
+  z-index: 10;
 }
 
 .header {
@@ -150,38 +165,18 @@ a {
   margin-right: 12.5px;
 }
 
-.menu_container {
-  transition: all .4s ease-in-out;
+.menu_link_container {
+  transition: all .6s ease-out;
   position: absolute;
   top: 0px;
   right: 0px;
   width: 60px;
   height: 62.5px;
   z-index: 10;
-}
-
-.menu_container_bg {
-  transition: all .6s ease-out;
-  position: absolute;
-  top: 0px;
-  right: 0px;
   background: rgb(250, 250, 250);
-  width: 60px;
-  height: 62.5px;
 }
 
-.menu_open {
-	background: rgb(250, 250, 250);
-  width: auto;
-  height: auto;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  z-index: 15;
-  box-shadow: 0 0 5px rgba(0,0,0,0.35);
-  border-bottom-left-radius: 5px;
-}
-
-.menu_container_bg_open {
+.menu_link_container_open {
   background: black;
 }
 
@@ -205,6 +200,21 @@ a {
 .nav_links {
   padding-top: 30px;
   padding-left: 15px;
+}
+
+.nav_links_container {
+  transition: all .6s ease-out;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: calc(100% - 60px);
+  height: 100%;
+	background: rgb(250, 250, 250);
+  z-index: 15;
+}
+
+.nav_links_container_open {
+  left: 0;
 }
 
 .nav_menu_link {
