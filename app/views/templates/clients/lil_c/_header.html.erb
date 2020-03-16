@@ -1,3 +1,13 @@
+<script>
+  $(document).ready(function (){
+    $(".album_link").click(function (){
+      $('html, body').animate({
+        scrollTop: $("#album_section").offset().top + 1
+      }, 220);
+    });
+  });
+</script>
+
 <div class="page_hider"></div>
 
 <div class="header">
@@ -6,17 +16,6 @@
       <div class="header_links">
         <%= link_to "HOME", lil_c_path, class: "header_link spaced" %>
         <%= link_to "ALBUM", non_link, class: "header_link spaced album_link" %>
-
-        <script>
-          $(document).ready(function (){
-            $(".album_link").click(function (){
-              $('html, body').animate({
-                scrollTop: $("#album_section").offset().top
-              }, 220);
-            });
-          });
-        </script>
-
         <%= link_to "ABOUT", non_link, class: "header_link spaced" %>
       </div>
     </div>
