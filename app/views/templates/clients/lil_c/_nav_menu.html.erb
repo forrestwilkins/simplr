@@ -1,7 +1,8 @@
 <div class="menu_container">
   <div class="menu_container_bg"></div>
   <%= link_to non_link, class: :menu_link do %>
-    <i class="fa fa-bars" aria-hidden="true"></i>
+    <i class="fa fa-bars menu_icon" aria-hidden="true"></i>
+    <i class="fa fa-times menu_icon menu_link_hidden" aria-hidden="true"></i>
   <% end %>
   <div id="nav_links" class="nav_links" hidden>
     <%= render "templates/clients/lil_c/nav_links" %>
@@ -13,6 +14,7 @@
     var circle_menu = $(".menu_container");
     var circle_menu_bg = $(".menu_container_bg");
     var circle_link = $(".menu_link");
+    var menu_icon = $(".menu_icon");
     // padding for nav_links, positioning
     var nav_links = $("#nav_links");
     // fix for nav_links
@@ -41,7 +43,8 @@
       toggle = !toggle;
       circle_menu.toggleClass("menu_open");
       circle_menu_bg.toggleClass('menu_container_bg_open');
-      circle_link.toggleClass('menu_container_bg_open');
+      circle_link.toggleClass('menu_link_open');
+      menu_icon.toggleClass('menu_link_hidden');
       // nav_links render on delay
       if (nav_links.is(':hidden')) {
         setTimeout(toggle_nav_links, 400);
