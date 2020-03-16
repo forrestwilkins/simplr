@@ -1,7 +1,13 @@
 <div class="menu_link_container">
   <%= link_to non_link, class: "menu_link no_select" do %>
-    <i class="fa fa-bars menu_icon" aria-hidden="true"></i>
-    <i class="fa fa-times menu_icon menu_link_hidden" aria-hidden="true"></i>
+    <div class="menu_icon bars_icon">
+      <div class="bars_icon_bar"></div>
+      <div class="bars_icon_bar"></div>
+      <div class="bars_icon_bar"></div>
+    </div>
+    <div class="menu_icon menu_link_hidden">
+      <%= image_tag "x.png", class: :x_icon %>
+    </div>
   <% end %>
 </div>
 
