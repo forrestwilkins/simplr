@@ -12,7 +12,7 @@
 </div>
 
 <div class="nav_links_container">
-  <div id="nav_links" class="nav_links" hidden>
+  <div id="nav_links" class="nav_links">
     <%= render "templates/clients/lil_c/nav_links" %>
   </div>
 </div>
@@ -58,17 +58,6 @@
       circle_link.toggleClass('menu_link_open');
       menu_icon.toggleClass('menu_link_hidden');
       page_hider.toggleClass('hide_page');
-      // nav_links render on delay
-      if (nav_links.is(':hidden')) {
-        setTimeout(toggle_nav_links, 400);
-      } else {
-        nav_links.fadeOut();
-      }
-    }
-    function toggle_nav_links() {
-      if (toggle) {
-        nav_links.fadeIn();
-      }
     }
   } template_nav_menu();
 </script>
