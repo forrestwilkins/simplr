@@ -76,6 +76,14 @@ a {
   color: white;
 }
 
+:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
 // stops blue selection for tapping of links in mobile
 .no_select {
   -webkit-touch-callout: none;
