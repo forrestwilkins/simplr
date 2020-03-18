@@ -1,8 +1,5 @@
-<%= link_to "About", (@fwc_home ? non_link : root_url(scroll_to_about: true)), class: "nav_menu_link #{'link_active' if @fwc_home} no_select about_link" %>
-<%= link_to "Blog", blog_path, class: "nav_menu_link #{'link_active' if @blog} no_select" %>
-
-<br/>
-
-<%= link_to fa_icon("github"), get_fwc_link[:github], target: :_blank, class: "nav_menu_link nav_icon_links no_select" %>
-<%= link_to fa_icon("stack-overflow"), get_fwc_link[:stack_overflow], target: :_blank, class: "nav_menu_link nav_icon_links no_select" %>
-<%= link_to fa_icon("skype"), get_fwc_link[:skype], target: :_blank, class: "nav_menu_link nav_icon_links no_select" %>
+<%= link_to fa_icon('info', "About"), (@fwc_home ? non_link : root_url(scroll_to_about: true)), class: "nav_menu_link #{'link_active' if @fwc_home} no_select about_link" %>
+<%= link_to fa_icon('rss', "Blog"), blog_path, class: "nav_menu_link #{'link_active' if @blog} no_select" %>
+<%= link_to fa_icon("skype", "Skype"), get_fwc_link[:skype], target: :_blank, class: "nav_menu_link no_select" %>
+<%= link_to fa_icon("github", "GitHub"), get_fwc_link[:github], target: :_blank, class: "nav_menu_link no_select" %>
+<%= link_to fa_icon("stack-overflow", "Stack Overflow"), get_fwc_link[:stack_overflow], target: :_blank, class: "nav_menu_link no_select" %>
