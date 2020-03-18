@@ -1,5 +1,22 @@
 <%= render "app/click_anywhere?.js" %>
 
+<script>
+  $(document).ready(function () {
+    $(".about_link").click(function () {
+      $('html, body').animate({
+        scrollTop: $(".about_section").offset().top + 1
+      }, 220);
+    });
+    <% if @fwc_home %>
+      <% if params[:scroll_to_about] %>
+        $('html, body').animate({
+          scrollTop: $(".about_section").offset().top + 1
+        }, 220);
+      <% end %>
+    <% end %>
+  });
+</script>
+
 <div class="page_hider"></div>
 
 <div class="vertical_spacer"></div>
@@ -15,7 +32,7 @@
 </div>
 
 <div class="nav_bar">
-  <%= link_to "About", root_url, class: "nav_bar_link header_link #{@fwc_home ? 'link_active' : ''}" %>
+  <%= link_to "About", non_link, class: "nav_bar_link header_link #{@fwc_home ? 'link_active' : ''} about_link" %>
   <%= link_to "Blog", blog_path, class: "nav_bar_link header_link #{@blog ? 'link_active' : ''}" %>
   <%= link_to "forrestwilkins@protonmail.com", "mailto:forrestwilkins@protonmail.com", class: "nav_bar_link link_soft header_link" %>
 </div>

@@ -45,6 +45,12 @@
         toggle_menu();
       }
     });
+    // closes menu if clicking about_link from menu
+    $(".about_link").click(function () {
+      if (toggle) {
+        toggle_menu();
+      }
+    });
     function toggle_menu() {
       toggle = !toggle;
       menu_link_container.toggleClass('menu_link_container_open');
