@@ -1,2 +1,8 @@
-<%= link_to fa_icon("info-circle", "About"), root_url, class: "nav_menu_link #{'link_active' if @fwc_home}" %>
-<%= link_to fa_icon("rss", "Blog"), blog_path, class: "nav_menu_link #{'link_active' if @blog}" %>
+<%= link_to fa_icon("info-circle", "About"), root_url, class: "nav_menu_link #{'link_active' if @fwc_home} no_select" %>
+<%= link_to fa_icon("rss", "Blog"), blog_path, class: "nav_menu_link #{'link_active' if @blog} no_select" %>
+
+<br/>
+
+<%= link_to fa_icon("github"), get_fwc_link[:github], target: :_blank, class: "nav_menu_link nav_icon_links no_select" %>
+<%= link_to fa_icon("stack-overflow"), get_fwc_link[:stack_overflow], target: :_blank, class: "nav_menu_link nav_icon_links no_select" %>
+<%= link_to fa_icon("skype"), get_fwc_link[:skype], target: :_blank, class: "nav_menu_link nav_icon_links no_select" %>

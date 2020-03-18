@@ -13,6 +13,39 @@ $main_font_size: 20px;
 
 $active_color: rgb(95, 210, 140);
 
+$card_max_midth: 950px;
+@mixin card {
+  transition: all .4s ease-in-out;
+  position: relative;
+  padding: 1.25px 7.5px;
+  color: rgb(50, 50, 50);
+  border: 0px solid white;
+  max-width: $card_max_midth;
+  margin: 0 auto;
+  width: 94.5%;
+  overflow: auto;
+  font-size: $main_font_size;
+}
+
+@mixin standard_form_element {
+  width: 55%;
+  max-width: 275px;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: asset-url("fonts/proxima_nova.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura PT";
+  src: asset-url("fonts/futura_pt.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-family: "Maison Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -38,23 +71,12 @@ a:hover {
   background: rgb(85, 210, 140);
 }
 
-$card_max_midth: 950px;
-@mixin card {
-  transition: all .4s ease-in-out;
-  position: relative;
-  padding: 1.25px 7.5px;
-  color: rgb(50, 50, 50);
-  border: 0px solid white;
-  max-width: $card_max_midth;
-  margin: 0 auto;
-  width: 94.5%;
-  overflow: auto;
-  font-size: $main_font_size;
+:focus {
+  outline: none;
 }
 
-@mixin standard_form_element {
-  width: 55%;
-  max-width: 275px;
+::-moz-focus-inner {
+  border: 0;
 }
 
 .card {
@@ -89,6 +111,31 @@ $card_max_midth: 950px;
 .page_header {
   font-size: 35px;
   width: 80%;
+}
+
+// stops blue selection for tapping of links in mobile
+.no_select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page_hider {
+  transition: all .3s ease-out;
+}
+
+.hide_page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(250, 250, 250);
+  z-index: 10;
 }
 
 .standard_form_button {
@@ -188,6 +235,99 @@ $card_max_midth: 950px;
   font-weight: 400;
 }
 
+.menu_link_container {
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 60px;
+  height: 62.5px;
+  z-index: 10;
+  background: white;
+}
+
+.menu_link_container_open {
+  background: $active_color;
+}
+
+.menu_link_open {
+  color: white;
+}
+
+.menu_link {
+  position: absolute;
+  top: 22.5px;
+  right: 25px;
+  display: block;
+  height: 20px;
+  width: 20px;
+  visibility: hidden;
+  font-size: 25px;
+  transform: scale(1.1, 1);
+  z-index: 15;
+}
+
+.nav_links {
+  transition: all .25s ease-in;
+  padding-top: 30px;
+  padding-left: 15px;
+}
+
+.nav_links_container {
+  transition: all .35s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: calc(100% - 60px);
+  height: 100%;
+	background: rgb(250, 250, 250);
+  z-index: 15;
+}
+
+.nav_links_container_open {
+  left: 0;
+}
+
+.nav_menu_link {
+  font-family: "Futura PT";
+	font-size: 16px;
+	display: block;
+	padding: 12.5px 22.5px;
+  letter-spacing: 4px;
+  color: rgb(100, 100, 100);
+}
+
+.nav_icon_links {
+  font-size: 25px;
+}
+
+.menu_link_hidden {
+  visibility: hidden;
+  display: block;
+  height: 0;
+}
+
+.bars_icon {
+  width: 21.5px;
+}
+
+.bars_icon_bar {
+  width: 100%;
+  height: 2.5px;
+  background: black;
+  margin-bottom: 4.5px;
+}
+
+.x_icon {
+  width: 140%;
+  height: 150%;
+  position: absolute;
+  top: -6.5px;
+  left: 1.5px;
+  color: white;
+  filter: brightness(1.5);
+}
+
 .link_active {
   color: $active_color;
 }
@@ -198,51 +338,6 @@ $card_max_midth: 950px;
 
 .link_underlined {
   text-decoration: underline;
-}
-
-.menu_container {
-  transition: all .4s ease-in-out;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 40px;
-  height: 40px;
-  z-index: 10;
-}
-
-.menu_open {
-	background: white;
-  width: auto;
-  height: auto;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  z-index: 15;
-  box-shadow: 0 0 5px rgba(0,0,0,0.35);
-  border-bottom-left-radius: 5px;
-}
-
-.menu_link {
-  position: absolute;
-  top: 32.5px;
-  right: 15px;
-  display: block;
-  height: 20px;
-  width: 20px;
-  visibility: hidden;
-  font-size: $main_font_size;
-  z-index: 15;
-}
-
-.nav_links {
-  padding-top: 17.5px;
-  padding-left: 7.5px;
-}
-
-.nav_menu_link {
-	font-size: 50px;
-	display: block;
-	padding: 5px 20px;
-  background: white;
 }
 
 .footer {

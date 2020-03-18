@@ -1,4 +1,12 @@
 module TemplatesHelper
+  def get_fwc_link
+      {
+        stack_overflow: "https://github.com/ethanwilkins",
+        github: "https://stackoverflow.com/users/2034099/ethan-wilkins",
+        skype: "skype:live:forrest_wilkins"
+      }
+  end
+
   def get_lil_c_link
     {
       facebook: "https://www.facebook.com/LilCCorleone",
