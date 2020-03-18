@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   # admin
   get 'ctrl_stuff', to: 'admin#index', as: 'dsa_admin'
-  get 'dev', to: 'admin#dev_panel', as: 'dev_panel'
+  get 'dev_panel', to: 'admin#dev_panel', as: 'dev_panel'
+  get 'dev', to: 'admin#co_panel', as: 'co_panel'
   get 'lacks_permission', to: 'admin#lacks_permission', as: 'lacks_permission'
 
   # item categories

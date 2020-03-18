@@ -1,6 +1,12 @@
 class AdminController < ApplicationController
   before_action :admin_only, only: [:index]
-  before_action :dev_only, only: [:dev_panel]
+  before_action :dev_only, only: [:dev_panel, :co_panel]
+
+  layout 'co', only: :co_panel
+
+  def co_panel
+    @views = View.all.reverse
+  end
 
   def index
     @showing_admin_panel = @show_banner = @no_vertical_spacer = true

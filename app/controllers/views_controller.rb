@@ -2,17 +2,13 @@ class ViewsController < ApplicationController
   before_action :dev_or_admin_only, only: [:user_index, :index, :show]
 
   def create
-    if current_user and not in_dev?
-      @user = current_user
-      @click = View.new click: true, user_id: @user.id
-      for i in [:x_pos, :y_pos, :screen_width, :screen_height, :avail_screen_width, :avail_screen_height,
-        :device_pixel_ratio, :current_url, :controller_name, :action_name]
-        @click.write_attribute(i, params[i])
-      end
-      if @click.save
-        true
-      end
+    @user_id = current_user.id if current_user
+    @click = View.new click: true, user_id: @user_id
+    for i in [:x_pos, :y_pos, :screen_width, :screen_height, :avail_screen_width, :avail_screen_height,
+      :device_pixel_ratio, :current_url, :controller_name, :action_name]
+      @click.write_attribute(i, params[i])
     end
+    @click.save
   end
 
   def show
@@ -39,5 +35,11 @@ class ViewsController < ApplicationController
   def index
     @views = View.all.unique_views
     @views = @views.sort_by { |v| v.created_at }.reverse
+  end
+
+  def dev_or_admin_only
+    unless dev? or admin?
+      redirect_to lacks_permission_path
+    end
   end
 end

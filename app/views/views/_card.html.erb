@@ -1,5 +1,5 @@
-<div class="dark_card" align="center">
-  <%= render "app/time_ago", item: view, white_link: true %>
+<div class="card view_card" align="center">
+  <%= render "app/time_ago", item: view %>
   <p>
     <% if view.user and not @user %>
       <%= link_to view.user.name + " (#{view.user.views.size})",
