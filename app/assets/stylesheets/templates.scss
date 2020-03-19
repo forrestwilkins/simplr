@@ -399,6 +399,35 @@ $template_footer_card_top_padding: 60px;
 .footer_dark_link {
   color: rgb(60, 60, 60);
 }
+
+.lil_c_screenshot {
+  width: 100%;
+  margin-bottom: 12.5px;
+}
+
+.lil_c_link:hover {
+  text-decoration: none;
+}
+
+.quote {
+  width: 95%;
+}
+
+.quote:hover {
+  text-decoration: none;
+}
+
+.double_quote {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.quote_giver {
+  color: rgb(150, 150, 150);
+}
+
 // end of global css
 
 // for mobile
