@@ -10,9 +10,9 @@ function load_wheel_fader<%= "_" + token if defined?(token) and token.present? %
   for (var i=0; i < rgb.length; i++) {
 	  rgb[i] = Math.round(Math.random() * 255);
   }
-  
+
   var outer_id = 0;
-  
+
   var outer_circle = [0, 1, 2, 3, 7, 11, 15, 14, 13, 12, 8, 4];
   var inner_circle = [5, 6, 9, 10];
 
@@ -35,8 +35,8 @@ function load_wheel_fader<%= "_" + token if defined?(token) and token.present? %
 			  rgb[i] += change_rate;
 		  }
 	  }
-	  
-		<% if raleigh_dsa? %>
+
+		<% if org? %>
 			outer_pixel.css("background", "rgb(" + rgb[0] + ", " + 0 + ", " + 0 + ")");
 			inner_pixels.each(function() {
 				$(this).css("background", "rgb(" + rgb[0] + ", " + 0 + ", " + 0 + ")");
@@ -47,14 +47,14 @@ function load_wheel_fader<%= "_" + token if defined?(token) and token.present? %
 				$(this).css("background", "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")");
 			});
 		<% end %>
-	  
+
 	  // cycles through sections
 	  outer_id += 1;
-	  
+
 	  if (outer_id >= outer_circle.length) {
 	    outer_id = 0;
 	  }
-    
+
   }, change_speed);
 }
 

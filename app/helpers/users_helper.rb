@@ -95,7 +95,7 @@ module UsersHelper
     after_next = (after_next_code * after_next_per).to_i
 
     # returns the string of rgb values for css
-    if raleigh_dsa?
+    if org?
       return { string: "#{char}, 0, 0", array: [char, 0, 0] }
     else
       return { string: "#{char}, #{next_char}, #{after_next}", array: [char, next_char, after_next] }
