@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
     :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?, :str_to_bool,
-    :featured_content, :raleigh_dsa?, :forrest_web_co?, :forrest_wilkins?, :got_here, :get_layout
+    :featured_content, :org?, :forrest_web_co?, :forrest_wilkins?, :got_here, :get_layout
 
   include SimpleCaptcha::ControllerHelpers
 
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   before_action :bots_to_404, except: [:index]
 
   # redirects to posts index
-  before_action :raleigh_dsa_to_home, except: [:index]
+  before_action :org_to_home, except: [:index]
 
   def get_layout
     if @lil_c
@@ -302,9 +302,9 @@ class ApplicationController < ActionController::Base
     current_user and (ENV['RAILS_ENV'].eql? 'development' or dev?) and current_user.id.eql?(1) and false
   end
 
-  def raleigh_dsa?
-    if request.host.eql? "raleighdsa.com" or cookies[:at_raleigh_dsa].present? or in_dev?
-      cookies.permanent[:at_raleigh_dsa] = true
+  def org?
+    if request.host.eql? "raleighdsa.com" or cookies[:at_org].present? or in_dev?
+      cookies.permanent[:at_org] = true
       return true
     end
     nil
@@ -390,9 +390,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def raleigh_dsa_to_home
-    if request.host.eql? 'raleighdsa.com' and not cookies[:at_raleigh_dsa].present?
-      cookies.permanent[:at_raleigh_dsa] = true
+  def org_to_home
+    if request.host.eql? 'raleighdsa.com' and not cookies[:at_org].present?
+      cookies.permanent[:at_org] = true
       redirect_to home_path
     end
   end

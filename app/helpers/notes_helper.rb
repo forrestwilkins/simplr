@@ -11,7 +11,7 @@ module NotesHelper
   def current_title
     title = ""
     # shows number of notes in parantheses if any unseen notes are present
-    title << "(" + currently_unseen_notes.size.to_s + ") " if currently_unseen_notes.present? and not raleigh_dsa? # turned off for dsa for now
+    title << "(" + currently_unseen_notes.size.to_s + ") " if currently_unseen_notes.present? and not org?
     # always gets the correct title based on the domain name
     title << get_site_title
     # applies kristin if kristins profile

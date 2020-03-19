@@ -14,7 +14,7 @@
       <%= link_to users_path do %>
         <p class="admin_items_label">Users <i class="fa fa-users"></i></p>
       <% end %>
-      <% for user in @dsa_members %>
+      <% for user in @org_members %>
         <p>
           <%= link_to show_user_path(user.unique_token) do %>
             <%= user.name %>

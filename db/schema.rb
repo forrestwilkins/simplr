@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_202435) do
+ActiveRecord::Schema.define(version: 2020_03_19_121610) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -302,7 +302,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_202435) do
     t.boolean "admin"
     t.boolean "expired"
     t.boolean "to_anrcho"
-    t.boolean "to_dsa"
+    t.boolean "to_org"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -503,7 +503,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_202435) do
     t.string "location"
     t.boolean "featured"
     t.boolean "admin"
-    t.boolean "dsa_member"
+    t.boolean "org_member"
     t.string "phone_number"
   end
 

@@ -184,8 +184,8 @@ class UsersController < ApplicationController
 
   def grant_access_rights
     # saves as dsa member if dsa site
-    if raleigh_dsa? and invited?
-      @user.dsa_member = true
+    if org? and invited?
+      @user.org_member = true
     end
     # grants admin privilege sent with invite
     if cookies[:grant_admin_access]

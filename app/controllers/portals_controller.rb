@@ -106,7 +106,7 @@ class PortalsController < ApplicationController
     @portal.dev = true if params[:grant_dev_access]
     @portal.admin = true if params[:grant_admin_access]
     # sets up as dsa portal if created from raleighdsa.com
-    @portal.to_dsa = true
+    @portal.to_org = true
     # creates portal cluster
     if params[:cluster_size] and not params[:cluster_size].to_i.zero? and dev?
       @cluster = Portal.create cluster: true, expires_at: @portal.expires_at
@@ -128,10 +128,10 @@ class PortalsController < ApplicationController
       # saves as regular portal, loner portal
       if @portal.save
         if not dev? or params[:from_portal_index]
-          redirect_to dsa_admin_path(portal_token: @portal.unique_token)
+          redirect_to org_admin_path(portal_token: @portal.unique_token)
         else
           # goes back to dev page for portal link to be copied
-          redirect_to dsa_admin_path(portal_token: @portal.unique_token)
+          redirect_to org_admin_path(portal_token: @portal.unique_token)
         end
       end
     end
@@ -145,7 +145,7 @@ class PortalsController < ApplicationController
     if @was_a_cluster
       redirect_to dev_panel_path
     else
-      redirect_to dsa_admin_path
+      redirect_to org_admin_path
     end
   end
 
@@ -153,7 +153,7 @@ class PortalsController < ApplicationController
     Portal.loners.each do |portal|
       portal.destroy
     end
-    redirect_to dsa_admin_path
+    redirect_to org_admin_path
   end
 
   private

@@ -6,12 +6,12 @@
   <p>
     <%= select_tag :remaining_days, options_for_select(portal_life_durations) %>
   </p>
-  <% if dev? and not raleigh_dsa? %>
+  <% if dev? and not org? %>
     <p>
       <%= select_tag :cluster_size, options_for_select(portal_cluster_size) %>
     </p>
   <% end %>
-  <% if raleigh_dsa? and admin? or dev? %>
+  <% if org? and admin? or dev? %>
     <p>
       <b>Access to be granted:</b>
         <% if admin? or dev? %>
