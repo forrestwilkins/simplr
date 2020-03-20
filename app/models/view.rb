@@ -9,6 +9,8 @@ class View < ActiveRecord::Base
   belongs_to :shared_item
   belongs_to :survey
 
+  before_create :set_locale
+
   validate :unique_to_item?, on: :create
 
   scope :by_user, -> { where.not user_id: nil }
@@ -61,6 +63,12 @@ class View < ActiveRecord::Base
   end
 
   private
+
+  def set_locale
+    self.locale = if self.ip_address
+      View.get_locale(self.ip_address)[:address]
+    end
+  end
 
   def unique_to_item?
     unless self.click
