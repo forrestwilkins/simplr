@@ -15,6 +15,10 @@ class TemplatesController < ApplicationController
 
   private
 
+  def record_visit
+    
+  end
+
   def set_lil_c
     @lil_c = true
   end

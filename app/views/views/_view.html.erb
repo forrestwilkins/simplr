@@ -1,0 +1,44 @@
+<div class="view">
+  <div class="view_label">
+    <%= view.click ? 'Click' : 'Visit' %> data for <%= view.ip_address %>
+  </div>
+
+  <% if view.click %>
+    <% {
+        "X position" => :x_pos,
+        "Y position" => :y_pos,
+      }.each do |key, val| %>
+      <div class="view_row">
+        <div class="view_col">
+          <%= key %>
+        </div>
+        <div class="view_col">
+          <%= view.send val %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% {
+      "Screen width" => :screen_width,
+      "Screen height" => :screen_height,
+      "Device pixel ratio" => :device_pixel_ratio
+    }.each do |key, val| %>
+    <div class="view_row">
+      <div class="view_col">
+        <%= key %>
+      </div>
+      <div class="view_col">
+        <% if val.eql? :device_pixel_ratio %>
+          <%= view.send val %><%= "00%" %>
+        <% else %>
+          <%= view.send val %><%= (val.eql?(:screen_width) or val.eql?(:screen_height)) ? "px" : "" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="view_recorded_at">
+    Recorded at <%= view.created_at.strftime("%d %b. %Y, %H:%M:%S") %>, or <%= time_ago(time_ago_in_words(view.created_at)) %>
+  </div>
+</div>

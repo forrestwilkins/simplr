@@ -1,3 +1,11 @@
-<% for view in @views %>
-  <%= render "views/card", view: view %>
-<% end %>
+<div class="header_card">
+  <h2 class="page_header">
+    Welcome, Admin Forrest
+  </h2>
+</div>
+
+<div class="card view_card">
+  <% for view in @views %>
+    <%= render "views/view", view: view %>
+  <% end %>
+</div>

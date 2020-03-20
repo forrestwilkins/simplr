@@ -42,6 +42,14 @@ gem 'browser'
 gem 'voight_kampff'
 gem "simple_captcha2"
 
+# for location data
+gem 'geocoder'
+gem 'geo_units'
+gem 'geo-distance'
+gem 'geoip'
+gem 'area'
+gem 'geokit'
+
 # fonts and glyphs
 gem 'font-awesome-sass', '~> 4.0'
 

@@ -34,10 +34,30 @@ class View < ActiveRecord::Base
 
   def self.unique_views
     _unique_views = []
-    for view in self.by_user.reverse
-      _unique_views << view
+    for view in self.by_user.with_locale.reverse
+      _unique_views << view unless _unique_views.any? { |v| v.locale.eql? view.locale }
     end
     return _unique_views
+  end
+
+  def self.get_locale ip=nil
+    ip = if ip then ip else self.ip_address end
+    address = nil; locale = nil
+    geoip = GeoIP.new('GeoLiteCity.dat').city(ip)
+    if defined? geoip and geoip
+      if geoip.latitude and geoip.longitude
+        geocoder = Geocoder.search("#{geoip.latitude}, #{geoip.longitude}").first
+        if geocoder and geocoder.formatted_address
+          address = geocoder.formatted_address
+        end
+      end
+    end
+    locale = if address.present?
+      { address: address, lat: geoip.latitude, lon: geoip.longitude }
+    else
+      {}
+    end
+    locale
   end
 
   private

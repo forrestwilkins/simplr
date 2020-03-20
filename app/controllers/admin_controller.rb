@@ -5,8 +5,14 @@ class AdminController < ApplicationController
   layout 'co', only: :co_panel
 
   def co_panel
-    @views = View.all.reverse
     @co_panel = true
+    @views = View.all.reverse
+
+    @device_sizes = {}
+
+    for view in @views
+      
+    end
   end
 
   def index

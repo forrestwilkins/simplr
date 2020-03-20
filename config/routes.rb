@@ -233,6 +233,7 @@ Rails.application.routes.draw do
   get 'anon_views_index/:token', to: 'views#anon_index', as: 'anon_views_index'
   get 'user_click_index/:token', to: 'views#click_index', as: 'user_click_index'
   post 'currently_clicking', to: 'views#create'
+  post 'record_visit', to: 'views#record_visit'
 
   # pages
   get 'resume', to: 'pages#resume', as: 'resume'

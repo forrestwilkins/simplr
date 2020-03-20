@@ -84,14 +84,6 @@ a:hover {
   line-height: 175%;
 }
 
-.view_card {
-  box-shadow: 0 0 5px rgba(0,0,0,0.35);
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .card_col {
   float: left;
   width: 47.5%;
@@ -430,6 +422,25 @@ $template_footer_card_top_padding: 60px;
   color: rgb(150, 150, 150);
 }
 
+.view {
+  margin-bottom: 12.5px;
+  padding-bottom: 12.5px;
+  width: 90%;
+  border-bottom: solid 1px $active_color;
+}
+
+.view_row {
+  display: flex;
+}
+
+.view_col {
+  width: 50%;
+}
+
+.view_recorded_at {
+  margin-top: 12.5px;
+}
+
 // end of global css
 
 // for mobile
@@ -504,10 +515,6 @@ $mobile_font_size: 18px;
   .footer_card_content {
     margin-bottom: 40px;
     width: 90%;
-  }
-  .view_card {
-    margin-top: 12.5px;
-    margin-bottom: 12.5px;
   }
   .quote {
     font-size: 22.5px;
