@@ -48,7 +48,7 @@ class SessionsController < ApplicationController
       cookies.delete(:auth_token)
     end
 
-    redirect_to (forrest_web_co? or forrest_wilkins? ? root_url : home_path)
+    redirect_to ((forrest_web_co? or forrest_wilkins?) ? root_url : home_path)
   end
 
   def destroy_all_other_sessions
