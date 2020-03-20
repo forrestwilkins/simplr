@@ -6,6 +6,7 @@ class AdminController < ApplicationController
 
   def co_panel
     @views = View.all.reverse
+    @co_panel = true
   end
 
   def index
