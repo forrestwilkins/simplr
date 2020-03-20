@@ -3,3 +3,11 @@
 <%= link_to fa_icon("skype", "Skype"), get_fwc_link[:skype], target: :_blank, class: "nav_menu_link no_select" %>
 <%= link_to fa_icon("github", "GitHub"), get_fwc_link[:github], target: :_blank, class: "nav_menu_link no_select" %>
 <%= link_to fa_icon("stack-overflow", "Stack Overflow"), get_fwc_link[:stack_overflow], target: :_blank, class: "nav_menu_link no_select" %>
+
+<br/>
+
+<% if cookies[:logged_in_before] or in_dev? and not current_user %>
+  <%= link_to fa_icon("sign-in", "Log in"), sessions_new_path, class: "nav_menu_link no_select" %>
+<% else %>
+  <%= link_to fa_icon("sign-out", "Log out"), sessions_destroy_path, method: :delete, class: "nav_menu_link no_select", data: { confirm: "Are you sure?" } %>
+<% end %>

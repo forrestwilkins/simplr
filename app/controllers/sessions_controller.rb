@@ -27,9 +27,14 @@ class SessionsController < ApplicationController
       record_last_visit
       # redirects to home with notice
       if forrest_web_co? or forrest_wilkins?
-        redirect_to root_url
+        if current_user.eql? User.first
+          redirect_to co_panel_path
+        else
+          # deletes session if not me logging in
+          redirect_to peace_path
+        end
       else
-        redirect_to home_path, notice: notice
+        redirect_to home_path
       end
     else
       redirect_to sessions_new_path, notice: "Invalid username, email, or password"
@@ -43,7 +48,7 @@ class SessionsController < ApplicationController
       cookies.delete(:auth_token)
     end
 
-    redirect_to home_path
+    redirect_to (forrest_web_co? or forrest_wilkins? ? root_url: home_path)
   end
 
   def destroy_all_other_sessions
