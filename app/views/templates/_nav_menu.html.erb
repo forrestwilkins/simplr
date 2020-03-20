@@ -1,5 +1,5 @@
-<div class="menu_link_container">
-  <%= link_to non_link, class: "menu_link no_select" do %>
+<%= link_to non_link, class: "menu_link_container" do %>
+  <div class="menu_link no_select">
     <div class="menu_icon bars_icon">
       <div class="bars_icon_bar"></div>
       <div class="bars_icon_bar"></div>
@@ -8,8 +8,8 @@
     <div class="menu_icon menu_link_hidden">
       <%= image_tag "x.png", class: :x_icon %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <div class="nav_links_container">
   <div id="nav_links" class="nav_links">
@@ -29,7 +29,7 @@
     // fix for nav_links
     var toggle = false;
     // toggles if circle_link clicked
-    circle_link.click(function() {
+    menu_link_container.click(function() {
       toggle_menu();
     });
     // closes circle_menu if user clicks outside of it
