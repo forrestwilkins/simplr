@@ -6,13 +6,7 @@ class AdminController < ApplicationController
 
   def co_panel
     @co_panel = true
-    @views = View.all.reverse
-
-    @device_sizes = {}
-
-    for view in @views
-      
-    end
+    @views = View.last(50).reverse
   end
 
   def index
