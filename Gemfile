@@ -45,7 +45,6 @@ gem "simple_captcha2"
 # for location data
 gem 'geocoder'
 gem 'geo_units'
-gem 'geo-distance'
 gem 'geoip'
 gem 'area'
 gem 'geokit'
