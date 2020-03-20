@@ -543,7 +543,7 @@ $mobile_font_size: 18px;
 // for desktop
 $desktop_card_max_width: 1125px;
 @media screen and (min-width: 1300px) {
-  .main_img, .card {
+  .main_img, .card, .view_card {
     max-width: $desktop_card_max_width;
   }
   .header_card {
@@ -559,6 +559,9 @@ $desktop_card_max_width: 1125px;
   }
   .footer_menu {
     width: 33.333333%;
+  }
+  .view_card {
+    font-size: $main_font_size;
   }
 }
 

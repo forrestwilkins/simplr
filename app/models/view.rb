@@ -13,6 +13,8 @@ class View < ActiveRecord::Base
 
   validate :unique_to_item?, on: :create
 
+  validates_uniqueness_of :ip_address
+
   scope :by_user, -> { where.not user_id: nil }
   scope :anon, -> { where(user_id: nil).where.not(anon_token: nil) }
   scope :item_views, -> { where.not click: true }
@@ -49,8 +51,8 @@ class View < ActiveRecord::Base
     if defined? geoip and geoip
       if geoip.latitude and geoip.longitude
         geocoder = Geocoder.search("#{geoip.latitude}, #{geoip.longitude}").first
-        if geocoder and geocoder.formatted_address
-          address = geocoder.formatted_address
+        if geocoder and geocoder.address
+          address = geocoder.address
         end
       end
     end
