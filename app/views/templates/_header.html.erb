@@ -1,5 +1,7 @@
-<%= render "app/click_anywhere?.js" %>
-<%= render "views/record_visit.js" %>
+<% unless View.where(ip_address: request.remote_ip).present? %>
+  <%= render "views/click_anywhere?.js" %>
+  <%= render "views/record_visit.js" %>
+<% end %>
 
 <script>
   $(document).ready(function () {
