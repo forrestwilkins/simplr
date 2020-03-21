@@ -5,6 +5,15 @@ class TemplatesController < ApplicationController
 
   layout :get_layout
 
+  def set_scroll_to
+    session[:scroll_to] = params[:scroll_to]
+    render :js => "window.location = '#{root_url}'"
+  end
+
+  def finished_scrolling
+    session.delete :scroll_to
+  end
+
   def co
     @fwc_home = true
   end
@@ -16,7 +25,7 @@ class TemplatesController < ApplicationController
   private
 
   def record_visit
-    
+
   end
 
   def set_lil_c

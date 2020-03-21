@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'blog', to: 'blog#index', as: 'blog'
   get 'lilc', to: 'templates#lil_c', as: 'lil_c'
   get 'lil_c_sign_up', to: 'templates#lil_c_sign_up', as: 'lil_c_sign_up'
+  get 'set_scroll_to', to: 'templates#set_scroll_to'
+  get 'finished_scrolling', to: 'templates#finished_scrolling'
 
   # twilio
   post 'messages/twilio_reply'

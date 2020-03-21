@@ -4,18 +4,36 @@
 <% end %>
 
 <script>
+  var scroll_speed = 220;
   $(document).ready(function () {
-    $(".about_link").click(function () {
-      $('html, body').animate({
-        scrollTop: $(".about_section").offset().top + 1
-      }, 220);
-    });
     <% if @fwc_home %>
-      <% if params[:scroll_to_about] %>
+      $(".about_link").click(function () {
         $('html, body').animate({
           scrollTop: $(".about_section").offset().top + 1
-        }, 220);
+        }, scroll_speed);
+      });
+      // only scrolls if session variable is present (2)
+      <% if session[:scroll_to].eql? "about" %>
+        $('html, body').animate({
+          scrollTop: $(".about_section").offset().top + 1
+        }, scroll_speed);
+        // removes session variable (3, happens last)
+        $.ajax({
+          type: "GET",
+          url: "/finished_scrolling"
+        });
       <% end %>
+    <% else %>
+      // sets scroll_to session variable (1, happens first)
+      $(".about_link").click(function () {
+        $.ajax({
+          type: "GET",
+          url: "/set_scroll_to",
+          data: $.param({
+            scroll_to: "about"
+          })
+        });
+      });
     <% end %>
   });
 </script>
