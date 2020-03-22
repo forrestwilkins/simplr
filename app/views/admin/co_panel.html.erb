@@ -9,9 +9,14 @@
     Screen Resolution Stats
   </div>
   <% View.screen_sizes.each do |key, val| %>
-    <p>
-      <%= "#{key}: <b>#{val}</b> (#{percent_of_views_this_size val}%)".html_safe %>
-    </p>
+    <div class="view_row">
+      <div class="view_col">
+        <%= key %>
+      </div>
+      <div class="view_col">
+        <%= "<b>#{val}</b> (#{percent_of_views_this_size val}%)".html_safe %>
+      </div>
+    </div>
   <% end %>
 </div>
 
