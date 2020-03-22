@@ -1,0 +1,10 @@
+<div class="blog">
+  <div class="blog_side_pane">
+
+  </div>
+  <div class="blog_feed">
+    <% (-1..-1).each do |blog_post_num| %>
+      <%= render "blog/posts/#{blog_post_num.abs}" %>
+    <% end %>
+  </div>
+</div>

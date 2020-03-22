@@ -2,6 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.blog_form_card {
-  margin-top: 75px;
+$main_font_size: 20px;
+$card_max_midth: 950px;
+
+.blog {
+  transition: all .4s ease-in-out;
+  position: relative;
+  padding: 1.25px 7.5px;
+  color: rgb(50, 50, 50);
+  border: 0px solid white;
+  max-width: $card_max_midth;
+  margin: 0 auto;
+  width: 94.5%;
+  overflow: auto;
+  font-size: $main_font_size;
+  margin-top: 50px;
+}
+
+.blog_side_pane {
+  background: red;
+  float: left;
+  width: 25%;
+  height: 5px;
+}
+
+.blog_feed {
+  background: blue;
+  float: left;
+  width: 75%;
+  padding-bottom: 5px;
+}
+
+.blog_post_card {
+  background: green;
+}
+
+.blog_post_img {
+  width: 100%;
+}
+
+// for mobile
+@media screen and (max-width: 975px) {
+  .blog {
+    width: 90%;
+  }
+}
+
+// for desktop
+$desktop_card_max_width: 1125px;
+@media screen and (min-width: 1300px) {
+  .blog {
+    max-width: $desktop_card_max_width;
+  }
 }
