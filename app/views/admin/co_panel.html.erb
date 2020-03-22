@@ -10,7 +10,7 @@
   </div>
   <% View.screen_sizes.each do |key, val| %>
     <p>
-      <%= "#{key}: #{val} (#{percent_of_views_this_size val}%)" %>
+      <%= "#{key}: <b>#{val}</b> (#{percent_of_views_this_size val}%)".html_safe %>
     </p>
   <% end %>
 </div>
