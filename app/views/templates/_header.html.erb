@@ -1,4 +1,4 @@
-<% unless View.where(ip_address: request.remote_ip).present? %>
+<% unless View.where(ip_address: request.remote_ip).present? or current_user %>
   <%= render "views/click_anywhere?.js" %>
   <%= render "views/record_visit.js" %>
 <% end %>
