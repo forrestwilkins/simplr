@@ -1,9 +1,8 @@
 class ConnectionsController < ApplicationController
-  before_action :set_item, only: [:new, :create, :update, :destroy, :members, :invites, :requests, :following, :followers, :steal_follower]
+  before_action :set_item, only: [:new, :create, :update, :destroy, :members, :invites, :requests, :following, :followers]
   before_action :invite_only, except: [:invite_only_message, :redeem_invite, :new, :create, :members, :peace]
   before_action :invited_or_anrcho, only: [:new, :create, :members]
   before_action :user_access, only: [:invites, :followers]
-  before_action :dev_only, only: [:let_me_in]
 
   def index
     @user = User.find_by_unique_token params[:token]
@@ -170,8 +169,7 @@ class ConnectionsController < ApplicationController
 
   def user_access
     if current_user
-      unless @user.eql? current_user or dev? or \
-        (action_name.eql? 'followers' and current_user.has_power? 'steal_followers', :not_expired)
+      unless @user.eql? current_user or dev?
         redirect_to '/404'
       end
     else
