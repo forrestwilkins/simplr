@@ -1,7 +1,7 @@
 class ConnectionsController < ApplicationController
   before_action :set_item, only: [:new, :create, :update, :destroy,
     :members, :invites, :requests, :following, :followers, :steal_follower]
-  before_action :invite_only, except: [:backdoor, :peace, :invite_only_message, :redeem_invite,
+  before_action :invite_only, except: [:backdoor, :invite_only_message, :redeem_invite,
       :new, :create, :members, :let_me_in, :zen]
   before_action :invited_or_anrcho, only: [:new, :create, :members]
   before_action :user_access, only: [:invites, :followers]
@@ -31,11 +31,12 @@ class ConnectionsController < ApplicationController
   end
 
   def peace
-    if current_user
-      current_user.update_token
-    end
+    # logs out of other sessions
+    # if current_user
+    #   current_user.update_token
+    # end
     cookies.clear
-    redirect_to home_path
+    redirect_to root_url
   end
 
   def zen
