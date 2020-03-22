@@ -31,18 +31,8 @@ class ConnectionsController < ApplicationController
   end
 
   def peace
-    # logs out of other sessions
-    # if current_user
-    #   current_user.update_token
-    # end
     cookies.clear
     redirect_to root_url
-  end
-
-  def zen
-    cookies.clear
-    cookies[:zen] = true
-    redirect_to new_user_path
   end
 
   def copy_invite_link
