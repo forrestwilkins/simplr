@@ -426,7 +426,6 @@ $template_footer_card_top_padding: 60px;
 .view_card {
   @include card;
   border: solid 1px rgb(245, 245, 245);
-  border-top: solid 1px $active_color;
   border-radius: 5px;
   margin-bottom: 12.5px;
   padding: 7.5px;
@@ -450,6 +449,15 @@ $template_footer_card_top_padding: 60px;
 }
 
 .view_recorded_at {
+  margin-top: 12.5px;
+}
+
+.admin_header_card {
+  border-top: solid 2.5px $active_color;
+}
+
+.screen_res_stats_label {
+  font-size: 30px;
   margin-top: 12.5px;
 }
 
@@ -536,6 +544,9 @@ $mobile_font_size: 18px;
   }
   .double_quote {
     font-size: 30px;
+  }
+  .screen_res_stats_label {
+    font-size: 25px;
   }
 }
 // end mobile

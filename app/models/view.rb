@@ -21,24 +21,23 @@ class View < ActiveRecord::Base
   scope :clicks, -> { where click: true }
   scope :with_size, -> { where.not screen_height: nil }
 
-  def self.screen_size_proportions
-    widths = screen_sizes.map { |s| s[0] }
-    heights = screen_sizes.map { |s| s[1] }
-  end
-
   # get different screen_sizes used by users
   def self.screen_sizes
-    sizes = []
-    clicks.with_size.each do |c|
-      sizes << [c.screen_width, c.screen_height]
+    sizes = {}
+    self.all.each do |view|
+      key = "#{view.screen_width}x#{view.screen_height}"
+      if sizes[key]
+        sizes[key] += 1
+      else
+        sizes[key] = 1
+      end
     end
-    # removes duplicates and sorts by width
-    sizes.uniq.sort_by { |s| s[0] }
+    sizes
   end
 
   def self.unique_views
     _unique_views = []
-    for view in self.by_user.with_locale.reverse
+    for view in self.with_locale.reverse
       _unique_views << view unless _unique_views.any? { |v| v.locale.eql? view.locale }
     end
     return _unique_views

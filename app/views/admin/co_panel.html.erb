@@ -4,6 +4,17 @@
   </h2>
 </div>
 
-  <% for view in @views %>
-    <%= render "views/card", view: view %>
+<div class="view_card admin_header_card">
+  <div class="screen_res_stats_label">
+    Screen Resolution Stats
+  </div>
+  <% View.screen_sizes.each do |key, val| %>
+    <p>
+      <%= "#{key}: #{val} (#{percent_of_views_this_size val}%)" %>
+    </p>
   <% end %>
+</div>
+
+<% for view in @views %>
+  <%= render "views/card", view: view %>
+<% end %>

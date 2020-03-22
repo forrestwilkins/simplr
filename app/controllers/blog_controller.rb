@@ -5,8 +5,6 @@ class BlogController < ApplicationController
 
   def index
     @blog = true
-    @post = Post.new
-    @posts = Post.blog.reverse
   end
 
   private
@@ -14,7 +12,7 @@ class BlogController < ApplicationController
   def set_fwc
     @forrest_web_co = true
   end
-  
+
   def fw_only
     unless (current_user and current_user.eql? User.first) or in_dev?
       redirect_to root_url
