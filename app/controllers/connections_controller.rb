@@ -1,11 +1,9 @@
 class ConnectionsController < ApplicationController
-  before_action :set_item, only: [:new, :create, :update, :destroy,
-    :members, :invites, :requests, :following, :followers, :steal_follower]
-  before_action :invite_only, except: [:backdoor, :invite_only_message, :redeem_invite,
-      :new, :create, :members, :let_me_in, :zen]
+  before_action :set_item, only: [:new, :create, :update, :destroy, :members, :invites, :requests, :following, :followers, :steal_follower]
+  before_action :invite_only, except: [:invite_only_message, :redeem_invite, :new, :create, :members, :peace]
   before_action :invited_or_anrcho, only: [:new, :create, :members]
   before_action :user_access, only: [:invites, :followers]
-  before_action :dev_only, only: [:let_me_in] # zenful only for devs in production now
+  before_action :dev_only, only: [:let_me_in]
 
   def index
     @user = User.find_by_unique_token params[:token]
@@ -13,14 +11,6 @@ class ConnectionsController < ApplicationController
     @followers = @user.followers
     @groups = @user.my_groups
     @views = @user.profile_views
-  end
-
-  def let_me_in
-    @connection = Connection.new invite: true
-    if @connection.save
-      cookies[:invite_token] = @connection.unique_token
-    end
-    redirect_to new_user_path
   end
 
   def hide_stop_invited_music
