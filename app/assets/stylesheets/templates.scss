@@ -184,19 +184,18 @@ a:hover {
   position: absolute;
   left: 62.5px;
   white-space: nowrap;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 18px;
 }
 
 .avatar_name {
   @include avatar_item;
   top: 2.5px;
-  font-size: 18px;
 }
 
 .avatar_title {
   @include avatar_item;
   top: 27.5px;
+  font-family: "Maison Neue Thin";
 }
 
 .header_link:hover {
@@ -243,7 +242,7 @@ a:hover {
 }
 
 .email_nav_bar_link {
-  font-family: "Maison Neue Thin"
+  font-family: "Maison Neue Thin";
 }
 
 $menu_link_container_size: 80px;
@@ -512,6 +511,7 @@ $mobile_font_size: 18px;
   .avatar_title {
     top: 22.5px;
     left: 52.5px;
+    font-size: 16px;
   }
   .nav_bar {
     visibility: hidden;
