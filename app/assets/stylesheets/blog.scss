@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-$main_font_size: 20px;
+$main_font_size: 19px;
 $card_max_midth: 950px;
 
 .blog {
@@ -19,11 +19,9 @@ $card_max_midth: 950px;
   margin-top: 75px;
 }
 
-.blog_side_pane {
-  background: rgb(240, 240, 240);
+.blog_left_pane {
   float: left;
   width: 25%;
-  height: 2.5px;
 }
 
 .blog_feed {
@@ -36,6 +34,25 @@ $card_max_midth: 950px;
 
 .blog_post_img {
   width: 100%;
+}
+
+.blog_post_img_container {
+  height: 400px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.blog_post_date {
+  margin-bottom: 25px;
+}
+
+.blog_post_title {
+  font-size: 32.5px;
+  margin-bottom: 25px;
+}
+
+.blog_post_body {
+  margin-bottom: 25px;
 }
 
 // for mobile

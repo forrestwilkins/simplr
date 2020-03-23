@@ -53,6 +53,13 @@ $card_max_midth: 950px;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Maison Neue Thin";
+  src: asset-url("fonts/maison_neue_thin.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-family: "Maison Neue Light";
 }
@@ -173,7 +180,7 @@ a:hover {
   border-radius: 50%;
 }
 
-@mixin template_avatar_item {
+@mixin avatar_item {
   position: absolute;
   left: 62.5px;
   white-space: nowrap;
@@ -182,13 +189,13 @@ a:hover {
 }
 
 .avatar_name {
-  @include template_avatar_item;
+  @include avatar_item;
   top: 2.5px;
   font-size: 18px;
 }
 
 .avatar_title {
-  @include template_avatar_item;
+  @include avatar_item;
   top: 27.5px;
 }
 
@@ -233,6 +240,10 @@ a:hover {
   padding: 15px;
   font-size: 18px;
   font-weight: 400;
+}
+
+.email_nav_bar_link {
+  font-family: "Maison Neue Thin"
 }
 
 $menu_link_container_size: 80px;
@@ -379,21 +390,17 @@ $template_footer_card_top_padding: 60px;
 
 .footer_card_name {
   font-size: 25px;
-  font-weight: 300;
   margin-bottom: 7.5px;
 }
 
 .footer_card_email {
   display: block;
   font-size: 18px;
-  font-weight: 300;
   margin-bottom: 27.5px;
 }
 
 .footer_text {
   color: rgb(95, 95, 95);
-  font-weight: 300;
-  font-size: $main_font_size;
 }
 
 .footer_dark_link {
