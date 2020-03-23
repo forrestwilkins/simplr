@@ -46,8 +46,15 @@ $card_max_midth: 950px;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Maison Neue Light";
+  src: asset-url("fonts/maison_neue_light.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
-  font-family: "Maison Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Maison Neue Light";
 }
 
 body {

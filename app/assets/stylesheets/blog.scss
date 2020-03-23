@@ -16,25 +16,22 @@ $card_max_midth: 950px;
   width: 94.5%;
   overflow: auto;
   font-size: $main_font_size;
-  margin-top: 50px;
+  margin-top: 75px;
 }
 
 .blog_side_pane {
-  background: red;
+  background: rgb(240, 240, 240);
   float: left;
   width: 25%;
-  height: 5px;
+  height: 2.5px;
 }
 
 .blog_feed {
-  background: blue;
   float: left;
   width: 75%;
-  padding-bottom: 5px;
 }
 
 .blog_post_card {
-  background: green;
 }
 
 .blog_post_img {
