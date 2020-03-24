@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require_self
+//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -21,16 +23,7 @@
 //= require processing.min.js
 //= require parallax.min.js
 //= require jquery.paroller.min.js
-//= require_tree .
 // Loads all Semantic javascripts
-//= require semantic-ui
-//= require uikit
 //= require moment
 //= require fullcalendar
 //= require jquery.lazyload
-
-alert("got here");
-
-$("img").lazyload();
-
-alert("got here too");

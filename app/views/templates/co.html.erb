@@ -1,10 +1,14 @@
+<script>
+  $("img").lazyload();
+</script>
+
 <div class="header_card">
   <h2 class="page_header">
     Freelance Web Designer & Developer from Smithfield, NC.
   </h2>
 </div>
 
-<%= image_tag "html_code.jpg", lazy: true, class: "main_img" %>
+<%= image_tag "html_code.jpg", class: "main_img" %>
 
 <div class="section about_section">
   <div class="card" align="left">
@@ -52,7 +56,7 @@
     </p>
     <%= link_to "https://lilccorleone.com", target: :_blank, class: :lil_c_link do %>
       <div class="card_col">
-        <%= image_tag "clients/lil_c/screen_1.png", class: :lil_c_screenshot %>
+        <%= image_tag "clients/lil_c/screen_1.png", lazy: true, class: :lil_c_screenshot %>
       </div>
 
       <div class="card_col_spacer"></div>
