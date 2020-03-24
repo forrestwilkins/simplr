@@ -33,6 +33,7 @@ gem 'remotipart'
 
 # lazy load images (asynchronously)
 gem "lazyload-rails"
+#gem 'lazyload-image-rails'
 
 # action text for rich text
 gem "actiontext"
