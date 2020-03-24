@@ -1,10 +1,20 @@
 <script>
   $(function() {
-    $("img").lazyload({
+    $("img.lazy").lazyload({
       threshold : 1000,
       effect : "fadeIn"
     });
   });
+
+  $(window).bindWithDelay("scroll", function() {
+    var isIn = isInViewport($(".lil_c_screenshot"));
+    if (isIn) {
+      $(".lil_c_screenshot").lazyload({
+        threshold : 1000,
+        effect : "fadeIn"
+      });
+    }
+  }, 5);
 </script>
 
 <div class="header_card">
@@ -13,7 +23,7 @@
   </h2>
 </div>
 
-<%= image_tag "html_code.jpg", lazy: true, class: "main_img" %>
+<%= image_tag "html_code.jpg", lazy: true, class: "main_img lazy" %>
 
 <div class="section about_section">
   <div class="card" align="left">
