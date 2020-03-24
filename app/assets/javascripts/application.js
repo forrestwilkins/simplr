@@ -29,4 +29,8 @@
 //= require fullcalendar
 //= require jquery.lazyload
 
+alert("got here");
+
 $("img").lazyload();
+
+alert("got here too");
