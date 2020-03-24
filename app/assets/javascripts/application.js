@@ -25,5 +25,8 @@
 // Loads all Semantic javascripts
 //= require semantic-ui
 //= require uikit
-//= require moment 
+//= require moment
 //= require fullcalendar
+//= require jquery.lazyload
+
+$("img").lazyload();

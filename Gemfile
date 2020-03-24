@@ -31,6 +31,9 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'remotipart'
 
+# lazy load images (asynchronously)
+gem "lazyload-rails"
+
 # action text for rich text
 gem "actiontext"
 gem "image_processing", '~> 1.2'
