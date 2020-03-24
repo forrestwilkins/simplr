@@ -213,6 +213,14 @@ a:hover {
   width: 94.5%;
 }
 
+.main_img_not_loaded_yet {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .scroll_to_top_link_container {
   position: fixed;
   bottom: 27.5px;
@@ -473,6 +481,10 @@ $template_footer_card_top_padding: 60px;
 .screen_res_stats_label {
   font-size: 30px;
   margin: 12.5px 0;
+}
+
+.section_label {
+
 }
 
 // end of global css
