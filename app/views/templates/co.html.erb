@@ -1,21 +1,4 @@
-<script>
-  $(function() {
-    $("img.lazy").lazyload({
-      threshold : 1000,
-      effect : "fadeIn"
-    });
-  });
-
-  $(window).bindWithDelay("scroll", function() {
-    var isIn = isInViewport($(".lil_c_screenshot"));
-    if (isIn) {
-      $(".lil_c_screenshot").lazyload({
-        threshold : 1000,
-        effect : "fadeIn"
-      });
-    }
-  }, 5);
-</script>
+<%= render "lazyload.js" %>
 
 <div class="header_card">
   <h2 class="page_header">

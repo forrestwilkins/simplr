@@ -1,0 +1,23 @@
+<script>
+  // specify images to fade in with scroll, by class selector
+  <% klasses = ["lil_c_screenshot"] %>
+
+  $(function() {
+    $("img.lazy").lazyload({
+      threshold : 1000,
+      effect : "fadeIn"
+    });
+  });
+
+  $(window).bindWithDelay("scroll", function() {
+    <% for klass in klasses %>
+      var isIn = isInViewport($(".<%= klass %>"));
+      if (isIn) {
+        $(".<%= klass %>").lazyload({
+          threshold : 1000,
+          effect : "fadeIn"
+        });
+      }
+    <% end %>
+  }, 5);
+</script>
