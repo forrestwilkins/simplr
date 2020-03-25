@@ -119,6 +119,11 @@ a:hover {
   width: 80%;
 }
 
+.header_container {
+  height: 50px;
+  margin-top: -45px;
+}
+
 // stops blue selection for tapping of links in mobile
 .no_select {
   -webkit-touch-callout: none;
@@ -166,9 +171,7 @@ a:hover {
 }
 
 .avatar_container {
-  position: absolute;
-  top: 35px;
-  left: 8.5%;
+  float: left;
 }
 
 .avatar_img {
@@ -189,12 +192,12 @@ a:hover {
 
 .avatar_name {
   @include avatar_item;
-  top: 2.5px;
+  top: -2.5px;
 }
 
 .avatar_title {
   @include avatar_item;
-  top: 27.5px;
+  top: 22.5px;
   font-family: "Maison Neue Thin";
 }
 
@@ -230,9 +233,8 @@ a:hover {
 }
 
 .nav_bar {
-  position: absolute;
-  top: 50px;
-  right: 8.5%;
+  float: right;
+  margin-top: 7.5px;
 }
 
 .nav_bar_link {
@@ -243,6 +245,7 @@ a:hover {
 
 .email_nav_bar_link {
   font-family: "Maison Neue Thin";
+  padding-right: 0px;
 }
 
 $menu_link_container_size: 80px;
@@ -500,26 +503,29 @@ $mobile_font_size: 18px;
     width: 100%;
   }
   .avatar_container {
-    top: 25px;
-    left: 15px;
+
   }
   .avatar_img {
     width: 40px;
     height: 40px;
   }
   .avatar_name {
-    top: 1px;
+    top: -3px;
     left: 52.5px;
     font-size: 16px;
   }
   .avatar_title {
-    top: 22.5px;
+    top: 17px;
     left: 52.5px;
     font-size: 16px;
     font-family: "Maison Neue Light";
   }
   .nav_bar {
     visibility: hidden;
+  }
+  .header_container {
+    margin-top: -37.5px;
+    margin-left: 15px;
   }
   .header_card {
     padding-bottom: 1.5px;
@@ -599,9 +605,9 @@ $desktop_card_max_width: 1125px;
 // for large desktop
 @media screen and (min-width: 1400px) {
   .avatar_container {
-    left: 20.5%;
+
   }
   .nav_bar {
-    right: 20%;
+
   }
 }
