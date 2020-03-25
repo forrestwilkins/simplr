@@ -216,6 +216,11 @@ a:hover {
   width: 94.5%;
 }
 
+.main_img_container {
+  height: 550px;
+  overflow: hidden;
+}
+
 .scroll_to_top_link_container {
   position: fixed;
   bottom: 27.5px;
@@ -502,9 +507,6 @@ $mobile_font_size: 18px;
   .card_col {
     width: 100%;
   }
-  .avatar_container {
-
-  }
   .avatar_img {
     width: 40px;
     height: 40px;
@@ -538,6 +540,9 @@ $mobile_font_size: 18px;
   }
   .main_img {
     width: 100%;
+  }
+  .main_img_container {
+    height: auto;
   }
   .menu_link {
     visibility: visible;
@@ -599,15 +604,5 @@ $desktop_card_max_width: 1125px;
   }
   .view_card {
     font-size: $main_font_size;
-  }
-}
-
-// for large desktop
-@media screen and (min-width: 1400px) {
-  .avatar_container {
-
-  }
-  .nav_bar {
-
   }
 }
