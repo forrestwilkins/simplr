@@ -211,7 +211,6 @@ a:hover {
   position: relative;
   border: 0px solid white;
   margin: 0 auto;
-  margin-bottom: 17.5px;
   max-width: $card_max_midth;
   width: 94.5%;
 }
@@ -219,6 +218,7 @@ a:hover {
 .main_img_container {
   height: 550px;
   overflow: hidden;
+  margin-bottom: 25px;
 }
 
 .scroll_to_top_link_container {

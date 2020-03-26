@@ -1,6 +1,6 @@
 # Simplr
 
-Simplr, a templating framework and voting platform for horizontal resource management.
+Simplr, a templating platform for building custom web apps.
 
 # FOSS
 
