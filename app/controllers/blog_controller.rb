@@ -1,5 +1,4 @@
 class BlogController < ApplicationController
-  before_action :fw_only, only: :index
   before_action :set_fwc
   layout 'co'
 
@@ -11,11 +10,5 @@ class BlogController < ApplicationController
 
   def set_fwc
     @forrest_web_co = true
-  end
-
-  def fw_only
-    unless (current_user and current_user.eql? User.first) or in_dev?
-      redirect_to root_url
-    end
   end
 end

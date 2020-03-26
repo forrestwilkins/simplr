@@ -42,23 +42,34 @@ $card_max_midth: 950px;
   margin-bottom: 50px;
 }
 
-.blog_post_date {
+.blog_post_item {
   margin-bottom: 25px;
 }
 
 .blog_post_title {
   font-size: 32.5px;
-  margin-bottom: 25px;
 }
 
-.blog_post_body {
-  margin-bottom: 25px;
-}
 
 // for mobile
 @media screen and (max-width: 975px) {
   .blog {
-    width: 90%;
+    width: 95%;
+  }
+  .blog_feed {
+    width: 100%;
+  }
+  .blog_left_pane {
+    width: 0%;
+    height: 0;
+    visibility: hidden;
+  }
+  .blog_post_img_container {
+    height: auto;
+    margin-bottom: 40px;
+  }
+  .blog_post_item {
+    margin-bottom: 20px;
   }
 }
 

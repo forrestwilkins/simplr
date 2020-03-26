@@ -37,7 +37,7 @@ class TemplatesController < ApplicationController
   end
 
   def fw_only
-    unless forrest_web_co? or forrest_wilkins? or in_dev?
+    unless forrest_web_co? or forrest_wilkins?
       redirect_to home_path
     end
   end
