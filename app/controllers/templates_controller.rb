@@ -5,6 +5,10 @@ class TemplatesController < ApplicationController
 
   layout :get_layout
 
+  def hello_react
+    render json: User.first
+  end
+
   def set_scroll_to
     session[:scroll_to] = params[:scroll_to]
     render :js => "window.location = '#{root_url}'"
@@ -37,7 +41,7 @@ class TemplatesController < ApplicationController
   end
 
   def fw_only
-    unless forrest_web_co? or forrest_wilkins?
+    unless forrest_web_co? or forrest_wilkins? or in_dev?
       redirect_to home_path
     end
   end

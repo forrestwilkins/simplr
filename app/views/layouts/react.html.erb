@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= current_title %></title>
+
+    <style>
+      .bg_primary-color {
+        background-color: #FFFFFF;
+      }
+      .primary-color {
+        background-color: #FFFFFF;
+      }
+      .bg_secondary-color {
+        background-color: #293241;
+      }
+      .secondary-color {
+        color: #293241;
+      }
+      .custom-button.btn {
+        background-color: #293241;
+        color: #FFF;
+        border: none;
+      }
+      .custom-button.btn:hover {
+        color: #FFF !important;
+        border: none;
+      }
+      .hero {
+        width: 100vw;
+        height: 50vh;
+      }
+      .hero img {
+        object-fit: cover;
+        object-position: top;
+        height: 100%;
+        width: 100%;
+      }
+      .overlay {
+        height: 100%;
+        width: 100%;
+        opacity: 0.4;
+      }
+    </style>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_pack_tag 'application' %>
+
+    <%= csrf_meta_tags %>
+
+    <%= favicon_link_tag "favicons/#{get_site_ico}.ico" %>
+
+    <%= render "app/meta_tags" %>
+
+	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
