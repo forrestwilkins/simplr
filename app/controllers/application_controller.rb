@@ -122,6 +122,8 @@ class ApplicationController < ActionController::Base
       "Forrest Wilkins"
     elsif forrest_web_co?
       "Forrest Web Co."
+    elsif anrcho?
+      "New Motion"
     else
       "Raleigh DSA"
     end
