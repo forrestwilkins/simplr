@@ -311,7 +311,7 @@ class ApplicationController < ActionController::Base
   end
 
   def anrcho?
-    request.host.eql? "anrcho.com" or cookies[:at_anrcho].present? or @anrcho
+    request.host.eql? "anrcho.com" or request.host.eql? "newmotion.cc" or cookies[:at_anrcho].present? or @anrcho
   end
 
   def social_maya?
@@ -384,7 +384,7 @@ class ApplicationController < ActionController::Base
   end
 
   def anrcho_to_proposals
-    if request.host.eql? 'anrcho.com' and not cookies[:at_anrcho].present?
+    if request.host.eql? 'anrcho.com' or request.host.eql? 'newmotion.cc' and not cookies[:at_anrcho].present?
       cookies.permanent[:at_anrcho] = true
       redirect_to proposals_path
     end
