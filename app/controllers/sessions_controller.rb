@@ -33,6 +33,8 @@ class SessionsController < ApplicationController
           # deletes session if not me logging in
           redirect_to peace_path
         end
+      elsif anrcho?
+        redirect_to proposals_path
       else
         redirect_to home_path
       end
