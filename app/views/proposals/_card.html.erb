@@ -16,7 +16,7 @@
 
     <%= render "app/time_ago", item: proposal, position: :time_ago_link %>
 
-		<%= render "proposals/open_menu_link", proposal: proposal if proposal.able_to_edit? or own_item?(proposal) or dev? %>
+		<%= render "proposals/open_menu_link", proposal: proposal if (proposal.able_to_edit? and own_item?(proposal)) or dev? %>
 
 		<table class="bottom_right_link">
 			<tr>
