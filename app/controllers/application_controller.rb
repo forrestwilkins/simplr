@@ -12,13 +12,13 @@ class ApplicationController < ActionController::Base
   include SimpleCaptcha::ControllerHelpers
 
   # redirects to proposals index for anrcho.com
-  before_action :anrcho_to_proposals, except: [:index]
+  #before_action :anrcho_to_proposals, except: [:index]
 
   # bots go to 404 for all pages
   before_action :bots_to_404, except: [:index]
 
   # redirects to posts index
-  before_action :org_to_home, except: [:index]
+  #before_action :org_to_home, except: [:index]
 
   def get_layout
     if @lil_c
