@@ -123,7 +123,7 @@ class ApplicationController < ActionController::Base
     elsif forrest_web_co?
       "Forrest Web Co."
     elsif anrcho?
-      "New Motion"
+      "Motions"
     else
       "Raleigh DSA"
     end
