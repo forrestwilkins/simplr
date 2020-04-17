@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_121610) do
+ActiveRecord::Schema.define(version: 2020_04_17_165722) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -350,6 +350,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_121610) do
     t.integer "user_id"
     t.string "voting_type"
     t.boolean "anrcho_only"
+    t.boolean "hidden"
   end
 
   create_table "settings", force: :cascade do |t|

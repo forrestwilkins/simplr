@@ -263,6 +263,7 @@ Rails.application.routes.draw do
   get 'motions/:token/edit', to: 'proposals#edit', as: 'edit_proposal'
   get 'motions/:token/open_menu', to: 'proposals#open_menu', as: 'open_proposal_menu'
   get 'motions/:token/close_menu', to: 'proposals#close_menu', as: 'close_proposal_menu'
+  put 'motions/:token/hide', to: 'proposals#hide', as: 'hide_proposal'
 
   # anrcho
   get 'hide_anrcho_info', to: 'proposals#hide_anrcho_info', as: 'hide_anrcho_info'

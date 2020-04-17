@@ -1,9 +1,9 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: [:old_versions, :show, :show_modal, :edit, :update, :destroy, :open_menu, :close_menu, :add_photoset]
+  before_action :set_proposal, only: [:old_versions, :show, :show_modal, :edit, :update, :destroy, :open_menu, :close_menu, :add_photoset, :hide]
   before_action :unable_to_edit, only: [:edit, :update, :destroy]
   before_action :set_at_anrcho
-  # turn off invite only for anrcho before_action :invite_only
-  before_action :bots_to_404
+
+  before_action :dev_only, only: [:hide]
 
   def open_menu
     @proposal_shown = params[:showing]
@@ -17,6 +17,10 @@ class ProposalsController < ApplicationController
     @group = Group.find_by_id params[:group_id]
     @proposal = if @group then @group.proposals.new else Proposal.new end
     @post = if @group then @group.posts.new else Post.new end
+  end
+
+  def hide
+    @proposal.update hidden: true
   end
 
   def hide_anrcho_info
@@ -180,6 +184,12 @@ class ProposalsController < ApplicationController
 
   def bots_to_404
     redirect_to '/404' if request.bot?
+  end
+
+  def dev_only
+    unless dev?
+      redirect_to '/404'
+    end
   end
 
   def invite_only

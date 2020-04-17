@@ -1,0 +1,6 @@
+var proposal_card = $("#proposal_card_<%= @proposal.id %>");
+
+proposal_card.toggleClass("blur");
+proposal_card.toggleClass("post_blurred");
+
+$("#proposal_mini_menu_<%= @proposal.id %>").remove();

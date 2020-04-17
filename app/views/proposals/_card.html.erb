@@ -1,5 +1,5 @@
 <% if proposal.group.nil? or group_auth proposal.group or group_member_auth proposal.group or own_item? proposal \
-	or (visible_to_anons? proposal.group and not proposal.group.hidden) and !(proposal.anrcho_only and !anrcho?) %>
+	or (visible_to_anons? proposal.group and not proposal.group.hidden) and !(proposal.anrcho_only and !anrcho?) and !(proposal.hidden and !dev?) %>
 	<div class="card standard_content_card card_vertical_spacer" id="proposal_card_<%= proposal.id %>">
 	  <%= render "users/avatar_card_link", token: proposal.anon_token, user: proposal.user %>
 
