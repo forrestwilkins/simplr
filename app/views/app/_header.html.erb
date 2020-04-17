@@ -19,13 +19,16 @@
 
   <%= render "arts/circle_menu" unless social_maya? %>
 
+  <%= link_to '<i class="fa fa-home fa-lg"></i>'.html_safe, (anrcho? ? proposals_path : home_path),
+    class: :return_home_link, title: "Return home" unless @you_are_home %>
+
+  <%= render "search/slide_menu" %>
+
+  <%= render "notes/slide_menu" if current_user or anrcho? %>
+
   <% if invited? %>
-    <%= render "search/slide_menu" %>
-    <%= link_to '<i class="fa fa-home fa-lg"></i>'.html_safe, home_path,
-      class: :return_home_link, title: "Return home" unless @you_are_home %>
 
     <% if current_user %>
-      <%= render "notes/slide_menu" %>
       <%= render "messages/nav_link" %>
     <% end %>
     <%= render "users/current_avatar" %>
