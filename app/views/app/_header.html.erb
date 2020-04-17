@@ -26,12 +26,13 @@
 
   <%= render "notes/slide_menu" if current_user or anrcho? %>
 
+  <%= render "users/current_avatar" %>
+
   <% if invited? %>
 
     <% if current_user %>
       <%= render "messages/nav_link" %>
     <% end %>
-    <%= render "users/current_avatar" %>
   <% end %>
 <% end %>
 
