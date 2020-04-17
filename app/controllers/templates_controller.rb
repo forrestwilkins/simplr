@@ -37,10 +37,10 @@ class TemplatesController < ApplicationController
   end
 
   def fw_only
-    unless forrest_web_co? or forrest_wilkins?
-      redirect_to home_path
-    elsif anrcho?
+    if anrcho?
       redirect_to proposals_path
+    elsif !(forrest_web_co? or forrest_wilkins?)
+      redirect_to home_path
     end
   end
 end
