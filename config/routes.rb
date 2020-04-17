@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   use_doorkeeper
 
+  get 'hello_react', to: 'templates#hello_react'
+
   # templates
   get 'blog', to: 'blog#index', as: 'blog'
   get 'lilc', to: 'templates#lil_c', as: 'lil_c'
