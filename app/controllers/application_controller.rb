@@ -305,7 +305,7 @@ class ApplicationController < ActionController::Base
   end
 
   def org?
-    if request.host.eql? "raleighdsa.com" or cookies[:at_org].present? or in_dev?
+    if request.host.eql? "raleighdsa.com" or cookies[:at_org].present?
       cookies.permanent[:at_org] = true
       return true
     end
@@ -313,7 +313,11 @@ class ApplicationController < ActionController::Base
   end
 
   def anrcho?
-    request.host.eql? "anrcho.com" or request.host.eql? "newmotion.cc" or cookies[:at_anrcho].present? or @anrcho
+    request.host.eql? "anrcho.com" \
+    or request.host.eql? "newmotion.cc" \
+    or request.host.eql? "motions.red" \
+    or request.host.eql? "concept.motions.red" \
+    or cookies[:at_anrcho].present? or @anrcho or in_dev?
   end
 
   def social_maya?
