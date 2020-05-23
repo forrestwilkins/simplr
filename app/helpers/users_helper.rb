@@ -95,7 +95,7 @@ module UsersHelper
     after_next = (after_next_code * after_next_per).to_i
 
     # returns the string of rgb values for css
-    if org? or anrcho? or lending_library?
+    if org? or anrcho? or lending_library? or survey_maker?
       return { string: "#{char}, 0, 0", array: [char, 0, 0] }
     else
       return { string: "#{char}, #{next_char}, #{after_next}", array: [char, next_char, after_next] }

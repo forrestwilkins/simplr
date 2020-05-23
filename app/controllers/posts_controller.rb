@@ -275,7 +275,7 @@ class PostsController < ApplicationController
       current_user.feed
     else
       @preview_items = true
-      Post.preview_feed
+      Post.preview_feed survey_maker?
     end
     @items = paginate @all_items
     # accessible for other controllers

@@ -44,15 +44,18 @@ class Post < ActiveRecord::Base
     self.likes
   end
 
-  def self.preview_feed
+  def self.preview_feed survey_maker=false
     _feed = []
-    # gets all surveys created
-    Survey.all.each do |survey|
-      _feed << survey unless _feed.include? survey
-    end
-    # gets all shared items from all item_libraries
-    SharedItem.all.each do |shared_item|
-      _feed << shared_item unless _feed.include? shared_item
+    if survey_maker
+      # gets all surveys created
+      Survey.all.each do |survey|
+        _feed << survey unless _feed.include? survey
+      end
+    else
+      # gets all shared items from all item_libraries
+      SharedItem.all.each do |shared_item|
+        _feed << shared_item unless _feed.include? shared_item
+      end
     end
     # removes duplicates
     _feed.uniq!
