@@ -312,8 +312,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'posts#index'
-  # alias for root path
-  get 'home', to: 'posts#index', as: 'home'
 
   resources :proposals do
     resources :comments
