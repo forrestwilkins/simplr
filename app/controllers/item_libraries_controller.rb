@@ -1,5 +1,5 @@
 class ItemLibrariesController < ApplicationController
-  before_action :invite_only
+  before_action :invite_only, except: [:show, :filter_and_sort_index]
   before_action :set_item_library, only: [:update, :destroy, :show, :edit]
   before_action :new_item_library, only: [:show_form]
 
@@ -19,7 +19,7 @@ class ItemLibrariesController < ApplicationController
     # sets up for page turning
     session[:page] = 1
     # ensures red banner shows with appropriate spacing
-    @showing_item_library = @show_banner = @no_vertical_spacer = true
+    @showing_item_library = true
     unless @item_library
       @item_library = ItemLibrary.first
     end
