@@ -122,6 +122,8 @@ class ApplicationController < ActionController::Base
       "Forrest Wilkins"
     elsif forrest_web_co?
       "Forrest Web Co."
+    elsif lending_library?
+      "Lending Library"
     elsif anrcho?
       "Motions"
     else

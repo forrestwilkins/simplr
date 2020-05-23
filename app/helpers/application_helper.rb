@@ -78,7 +78,7 @@ module ApplicationHelper
   end
 
   def get_site_ico
-    if social_maya?
+    if social_maya? or lending_library?
       "cube"
     elsif forrest_web_co? or forrest_wilkins?
       "me"
