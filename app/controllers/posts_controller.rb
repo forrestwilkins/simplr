@@ -124,7 +124,7 @@ class PostsController < ApplicationController
     @user = User.new
     # @item_library = ItemLibrary.last
     # @shared_item = @item_library.shared_items.new
-    @you_are_home = @show_banner = @no_vertical_spacer = true
+    @you_are_home = true
     @down = false # turn on for testing/maintence
     if session[:loading_loader_seen] or in_dev?
       # gets everything for main feed

@@ -1,6 +1,6 @@
 <div align="center">
     <p>
-      Welcome, <%= current_user.name.capitalize %>
+      Welcome, <%= current_user ? current_user.name.capitalize : anon_token %>
     </p>
     <p>
       <b>Feed summary</b>: <%= feed_summary %>
