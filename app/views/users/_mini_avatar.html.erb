@@ -6,6 +6,6 @@
     <% end %>
   </div>
 <% else %>
-  <%= render "users/anon_avatar", token: item.user.unique_token,
+  <%= render "users/anon_avatar", token: (item.user ? item.user.unique_token : item.anon_token),
     position: (defined?(position) ? position.to_s : 'left_mini_avatar') %>
 <% end %>

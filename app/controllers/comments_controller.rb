@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :invite_only, except: [:new, :show, :create, :add_image]
+  before_action :invite_only, except: [:new, :show, :create, :add_image, :toggle_mini_index]
   before_action :invite_only_or_anrcho, only: [:new, :show, :create, :add_image]
   before_action :dev_only, only: [:index]
   before_action :secure_comment, only: [:edit, :update, :destroy]
@@ -168,7 +168,7 @@ class CommentsController < ApplicationController
   end
 
   def invite_only_or_anrcho
-    unless invited? or anrcho?
+    unless invited? or anrcho? or lending_library?
       redirect_to '/404'
     end
   end

@@ -127,34 +127,32 @@
 
   <div id="shared_item_comments_anchor_<%= shared_item.id %>"></div>
 
-  <% if current_user %> <!-- could re enable anon later -->
-    <table class="bottom_left_link">
-      <tr>
-        <td>
-          <span id="like_shared_item_link_anchor_<%= shared_item.id %>"></span>
-          <%= render "likes/link", item: shared_item %>
-        </td>
+  <table class="bottom_left_link">
+    <tr>
+      <td>
+        <span id="like_shared_item_link_anchor_<%= shared_item.id %>"></span>
+        <%= render "likes/link", item: shared_item %>
+      </td>
+      <td>
+        ·
+      </td>
+      <td>
+        <%= link_to "<i class=\"fa fa-comment-o\"></i> Comment#{shared_item.comments.size.zero? ? '' : 's'}#{ ' ' \
+          + shared_item.comments.size.to_s unless shared_item.comments.size.zero? }".html_safe,
+          (@shared_item_shown ? show_shared_item_path(shared_item.unique_token) : toggle_comments_path(id: shared_item.id, shared_item: true)),
+          remote: true, class: "shared_item_card_link standard_post_link", id: "show_shared_item_comments_#{shared_item.id}" %>
+      </td>
+      <% unless own_item? shared_item or shared_item.current_borrower %>
         <td>
           ·
         </td>
         <td>
-          <%= link_to "<i class=\"fa fa-comment-o\"></i> Comment#{shared_item.comments.size.zero? ? '' : 's'}#{ ' ' \
-            + shared_item.comments.size.to_s unless shared_item.comments.size.zero? }".html_safe,
-            (@shared_item_shown ? show_shared_item_path(shared_item.unique_token) : toggle_comments_path(id: shared_item.id, shared_item: true)),
-            remote: true, class: "shared_item_card_link standard_post_link", id: "show_shared_item_comments_#{shared_item.id}" %>
+          <span id="request_item_link_anchor_<%= shared_item.id %>"></span>
+          <%= render "item_requests/link", shared_item: shared_item %>
         </td>
-        <% unless own_item? shared_item or shared_item.current_borrower %>
-          <td>
-            ·
-          </td>
-          <td>
-            <span id="request_item_link_anchor_<%= shared_item.id %>"></span>
-            <%= render "item_requests/link", shared_item: shared_item %>
-          </td>
-        <% end %>
-      </tr>
-    </table>
-  <% end %>
+      <% end %>
+    </tr>
+  </table>
 
   <% unless @showing %>
     <script>

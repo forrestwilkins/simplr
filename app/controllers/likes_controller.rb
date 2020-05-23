@@ -11,6 +11,8 @@ class LikesController < ApplicationController
     @like = @item.likes.new
     if current_user
       @like.user_id = current_user.id
+    else
+      @like.anon_token = anon_token
     end
     if @like.save
       if current_user and not @item.user.eql? current_user
