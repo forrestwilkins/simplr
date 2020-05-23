@@ -12,7 +12,7 @@
   <% end %>
 <% end %>
 
-<% if in_dev? %>
+<% if in_dev? and false %>
   <%= render "posts/main_feed_container", items: @items, all_items: @all_items %>
 <% else %>
   <%= render "posts/feed_loader" %>

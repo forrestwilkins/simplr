@@ -305,7 +305,7 @@ class ApplicationController < ActionController::Base
   end
 
   def lending_library?
-    request.host.eql? "lendinglibrary.xyz"
+    request.host.eql? "lendinglibrary.xyz" or in_dev?
   end
 
   def org?
@@ -321,7 +321,7 @@ class ApplicationController < ActionController::Base
     or request.host.eql? "newmotion.cc" \
     or request.host.eql? "motions.red" \
     or request.host.eql? "concept.motions.red" \
-    or cookies[:at_anrcho].present? or @anrcho or in_dev?
+    or cookies[:at_anrcho].present? or @anrcho
   end
 
   def social_maya?
