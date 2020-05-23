@@ -36,14 +36,3 @@
 
   <%= render "app/side_panes" %>
 </div>
-
-<!-- color settings turned off temporarily -->
-<% if settings(user)[:profile_card_bg_fader_on] and false %>
-  <script>
-    <%= render "app/fader.js", target: "user_profile_card", target_id: user.id.to_s, background: true, slow: true %>
-  </script>
-<% elsif settings(user)[:profile_card_bg_color] and false %>
-  <script>
-    <%= render "users/profile_card_bg_color.js", user: user %>
-  </script>
-<% end %>
