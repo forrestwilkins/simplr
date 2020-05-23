@@ -24,7 +24,7 @@ module PostsHelper
   end
 
   def post_goto_link post, url=nil
-    goto_link = (url ? url : home_path).gsub("http", "http#{in_dev? ? '' : 's'}"); goto_link.slice!(-1);
+    goto_link = (url ? url : root_url).gsub("http", "http#{in_dev? ? '' : 's'}"); goto_link.slice!(-1);
     goto_link << "?goto=post_#{post.id}"
     goto_link
   end

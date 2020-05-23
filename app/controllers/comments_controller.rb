@@ -120,7 +120,7 @@ class CommentsController < ApplicationController
         prepare_mini_form
       end
     else
-      redirect_to home_path unless params[:ajax_req]
+      redirect_to root_url unless params[:ajax_req]
     end
   end
 
@@ -142,14 +142,14 @@ class CommentsController < ApplicationController
   def destroy
     @post = @comment.post
     @comment.destroy
-    redirect_to home_path
+    redirect_to root_url
   end
 
   private
 
   def secure_comment
     unless admin? or (current_user and comment.user and comment.user.eq? current_user)
-      redirect_to home_path
+      redirect_to root_url
     end
   end
 

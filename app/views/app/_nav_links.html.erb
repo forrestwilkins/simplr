@@ -1,4 +1,4 @@
-<%= link_to fa_icon("home", "Home"), home_path, class: "standard_nav_menu_link hidden_nav_menu_link",
+<%= link_to fa_icon("home", "Home"), root_url, class: "standard_nav_menu_link hidden_nav_menu_link",
   title: "Home consists of posts and groups, in reverse chronological order." if invited? or anrcho? %>
 
 <%= link_to fa_icon("envelope", "Inbox#{': ' + current_user.inbox_unseen.to_s \

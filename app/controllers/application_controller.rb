@@ -416,7 +416,7 @@ class ApplicationController < ActionController::Base
   def org_to_home
     if request.host.eql? 'raleighdsa.com' and not cookies[:at_org].present?
       cookies.permanent[:at_org] = true
-      redirect_to home_path
+      redirect_to root_url
     end
   end
 

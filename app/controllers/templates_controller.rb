@@ -40,7 +40,7 @@ class TemplatesController < ApplicationController
     if anrcho?
       redirect_to proposals_path
     elsif !(forrest_web_co? or forrest_wilkins?)
-      redirect_to home_path
+      redirect_to root_url
     end
   end
 end
