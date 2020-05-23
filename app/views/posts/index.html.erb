@@ -1,10 +1,10 @@
-<% if current_user or lending_library? %>
+<% if current_user %>
 <div class="card take_survey_card_border card_vertical_spacer">
   <%= render "feed_summary" %>
   <%= render "app/side_panes" %>
 </div>
 
-<% elsif invited? %>
+<% elsif invited? or lending_library? %>
   <% if returning_user? %>
     <%= render "sessions/form" %>
   <% else %>
