@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
     :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?, :str_to_bool,
-    :featured_content, :org?, :forrest_web_co?, :forrest_wilkins?, :got_here, :get_layout
+    :featured_content, :org?, :forrest_web_co?, :forrest_wilkins?, :got_here, :get_layout, :lending_library?
 
   include SimpleCaptcha::ControllerHelpers
 
@@ -302,6 +302,10 @@ class ApplicationController < ActionController::Base
 
   def testing_score?
     current_user and (ENV['RAILS_ENV'].eql? 'development' or dev?) and current_user.id.eql?(1) and false
+  end
+
+  def lending_library?
+    request.host.eql? "lendinglibrary.xyz"
   end
 
   def org?

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :secure_post, only: [:edit, :update, :destroy]
   before_action :new_post, only: [:show_form_modal, :switch_form]
   before_action :reset_page_num, only: [:index, :show]
-  before_action :invite_only, except: [:show, :create, :add_image, :add_video]
+  before_action :invite_only, except: [:index, :show, :create, :add_image, :add_video]
   before_action :invited_or_token_used, only: [:show]
 
   before_action :dev_only, only: [:classify, :feature]
