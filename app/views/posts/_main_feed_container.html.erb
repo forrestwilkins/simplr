@@ -1,5 +1,5 @@
 <script>
-  <%= render "posts/infinite_scroll.js", param: "posts" %>
+  <%= render "posts/infinite_scroll.js", param: (current_user ? "posts" : "preview") %>
 </script>
 
 <div id="feed_container_anchor"></div>
