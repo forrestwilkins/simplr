@@ -73,7 +73,7 @@ class PortalsController < ApplicationController
   def enter # enables users to enter site without invite
     # goes back home if users already invited, saving portal space
     if invited?
-      redirect_to home_path
+      redirect_to root_url
     elsif @portal
       if @portal.remaining_uses > 0 and DateTime.current < @portal.expires_at
         invite = Connection.new invite: true, redeemed: true
@@ -83,11 +83,11 @@ class PortalsController < ApplicationController
           # sets cookie for admin access if portal was set for admin
           cookies.permanent[:grant_admin_access] = true if @portal.admin
           cookies.permanent[:human] = true
-          redirect_to home_path
+          redirect_to root_url
         end
       else
         @portal.destroy
-        redirect_to home_path
+        redirect_to root_url
       end
     else
       redirect_to '/404'

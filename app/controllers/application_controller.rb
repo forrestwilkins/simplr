@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     :char_codes, :char_bits, :settings, :dev?, :admin?, :anrcho?, :social_maya?, :invited?, :seen?, :seent, :get_site_title,
     :record_last_visit, :probably_human, :in_dev?, :page_turning, :testing_score?, :audio_state, :sound_turned_on?,
     :unique_element_token, :stale_content?, :user_mentioned?, :low_energy?, :returning_user?, :str_to_bool,
-    :featured_content, :org?, :forrest_web_co?, :forrest_wilkins?, :got_here,
+    :featured_content, :org?, :forrest_web_co?, :forrest_wilkins?, :got_here, :demo?,
     :get_layout, :lending_library?, :survey_maker?
 
   include SimpleCaptcha::ControllerHelpers
@@ -315,6 +315,10 @@ class ApplicationController < ActionController::Base
 
   def survey_maker?
     request.host.eql? "s.urveys.xyz" or in_dev?
+  end
+
+  def demo?
+    lending_library? or survey_maker?
   end
 
   def org?

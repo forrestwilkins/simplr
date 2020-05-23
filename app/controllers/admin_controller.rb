@@ -16,7 +16,7 @@ class AdminController < ApplicationController
     if params[:portal_token]
       @portal = Portal.find_by_unique_token params[:portal_token]
       if @portal
-        @portal_link = home_path.gsub('http', "http#{in_dev? ? '' : 's'}"); @portal_link.slice!(-1)
+        @portal_link = root_url.gsub('http', "http#{in_dev? ? '' : 's'}"); @portal_link.slice!(-1)
         @portal_link +=inter_portal_path(@portal.unique_token)
       end
     end
@@ -30,14 +30,14 @@ class AdminController < ApplicationController
     if params[:invite_token]
       @invite = Connection.find_by_unique_token params[:invite_token]
       if @invite
-        @invite_link = home_path; @invite_link.slice!(-1)
+        @invite_link = root_url; @invite_link.slice!(-1)
         @invite_link +=redeem_invite_path(@invite.unique_token)
       end
     # creates the portal link to be copied and shared
     elsif params[:portal_token]
       @portal = Portal.find_by_unique_token params[:portal_token]
       if @portal
-        @portal_link = home_path.gsub('http', "http#{in_dev? ? '' : 's'}"); @portal_link.slice!(-1)
+        @portal_link = root_url.gsub('http', "http#{in_dev? ? '' : 's'}"); @portal_link.slice!(-1)
         @portal_link +=inter_portal_path(@portal.unique_token)
       end
     end

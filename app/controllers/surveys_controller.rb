@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   before_action :surveys
-  before_action :invite_only, except: [:take, :complete, :thank_you, :create, :update, :destroy, :edit, :show, :show_modal, :open_menu]
+  before_action :invite_only, except: [:take, :complete, :thank_you, :create, :update, :destroy, :edit, :show, :show_modal, :open_menu, :index]
   before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more, :show_modal, :open_menu, :close_menu]
   before_action :secure_survey, only: [:update, :destroy, :edit]
   before_action :new_survey, only: [:index, :new, :show_survey_form]
@@ -216,8 +216,8 @@ class SurveysController < ApplicationController
   def set_survey
     if params[:token]
       @survey = Survey.find_by_unique_token(params[:token])
-      @survey ||= Survey.find_by_id(params[:token]) if invited? or lending_library? # only allow by id if invited
-    elsif invited? or lending_library? # for safety
+      @survey ||= Survey.find_by_id(params[:token]) if invited? or demo? # only allow by id if invited
+    elsif invited? or demo? # for safety
       @survey = Survey.find_by_unique_token(params[:id])
       @survey ||= Survey.find_by_id(params[:id])
     end

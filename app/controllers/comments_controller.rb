@@ -168,7 +168,7 @@ class CommentsController < ApplicationController
   end
 
   def invite_only_or_anrcho
-    unless invited? or anrcho? or lending_library?
+    unless invited? or anrcho? or demo?
       redirect_to '/404'
     end
   end

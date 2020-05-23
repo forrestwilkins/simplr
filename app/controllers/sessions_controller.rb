@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
 
   def new
-    redirect_to home_path if current_user
+    redirect_to root_url if current_user
   end
 
   def create
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
       elsif anrcho?
         redirect_to proposals_path
       else
-        redirect_to home_path
+        redirect_to root_url
       end
     else
       redirect_to sessions_new_path, notice: "Invalid username, email, or password"
@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
       cookies.delete(:auth_token)
     end
 
-    redirect_to ((forrest_web_co? or forrest_wilkins?) ? root_url : home_path)
+    redirect_to ((forrest_web_co? or forrest_wilkins?) ? root_url : root_url)
   end
 
   def destroy_all_other_sessions
@@ -59,7 +59,7 @@ class SessionsController < ApplicationController
       # destroys all other sessions but this one
       cookies[:auth_token] = current_user.auth_token
     end
-    redirect_to home_path
+    redirect_to root_url
   end
 
   private
