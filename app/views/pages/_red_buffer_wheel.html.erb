@@ -1,5 +1,5 @@
 <!-- condition set as string to always return as true, temporary -->
-<% if "all_items.present? and all_items.size > page_size" %>
+<% if all_items.present? and all_items.size > page_size %>
   <div align="center" id="buffer_wheel">
 	  <script>
 		  <%= render "pages/red_glimmer.js" %>
