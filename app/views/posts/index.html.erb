@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user or lending_library? %>
 <div class="card take_survey_card_border card_vertical_spacer">
   <%= render "feed_summary" %>
   <%= render "app/side_panes" %>
