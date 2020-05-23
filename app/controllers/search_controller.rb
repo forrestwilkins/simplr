@@ -139,7 +139,7 @@ class SearchController < ApplicationController
   end
 
   def secure_search
-    unless invited? or anrcho? or org? or lending_library?
+    unless invited? or anrcho? or org? or lending_library? or survey_maker?
       redirect_to invite_only_path
     end
   end
