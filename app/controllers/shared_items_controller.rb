@@ -1,5 +1,5 @@
 class SharedItemsController < ApplicationController
-  before_action :invite_only
+  before_action :invite_only, except: [:open_menu, :read_more, :show_modal, :show]
   before_action :set_shared_item, only: [:update, :destroy, :show, :edit, :add_photoset, :confirm_return, :show_modal, :read_more, :open_menu, :close_menu]
   before_action :set_item_library, only: [:filter_by, :reset_filter, :sort_by, :add_filter_field, :set_filter_field]
   before_action :new_shared_item, only: [:show_form]

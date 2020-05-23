@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   before_action :surveys
-  before_action :invite_only, except: [:take, :complete, :thank_you, :create, :update, :destroy, :edit]
+  before_action :invite_only, except: [:take, :complete, :thank_you, :create, :update, :destroy, :edit, :show_modal, :open_menu]
   before_action :set_survey, only: [:results, :complete, :take, :edit, :show, :update, :destroy, :read_more, :show_modal, :open_menu, :close_menu]
   before_action :secure_survey, only: [:update, :destroy, :edit]
   before_action :new_survey, only: [:index, :new, :show_survey_form]
